@@ -1,0 +1,9 @@
+Class name: trackingSystem
+Parent calss: None
+
+Responsibilities:
+* Show all the items you bought in the system
+* Can see all the order number of each item
+
+Collaborators:
+* File

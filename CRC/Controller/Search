@@ -1,0 +1,14 @@
+Class name: Search
+
+Responsibilities:
+Search acts like a search bar in most service apps
+Allows user to search items that are available for purchase, search items in their carts, or search their
+past transactions and order numbers.
+-searchItem
+-searchOrder
+-searchCart
+-search
+
+Collaborators
+-ItemFinder
+-TrackingSystem

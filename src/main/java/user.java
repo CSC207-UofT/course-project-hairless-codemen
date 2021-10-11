@@ -7,11 +7,11 @@ public class user {
     private String id;
     private String password;
 
-    public user(String name, double wallet, String id){
+    public user(String name, String id, String password){
         this.name = name;
         this.wallet = 0.0;
         this.id = id;
-        this.password = "";
+        this.password = password;
     }
     /**
      * change the user name by using changeName
@@ -49,4 +49,6 @@ public class user {
     public String getId(){
         return this.id;
     }
+
+
 }

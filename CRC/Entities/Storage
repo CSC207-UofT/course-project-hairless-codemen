@@ -1,7 +1,7 @@
 Class name
 
 Responsibilities:
-Storage is used to store all the items which the sellers post into our service app.
+Storage is used to store all the items which the sellers post into our service platform.
 When we call the method in the storage we can get the total number of the items, we can
 -getItems (list all the item the buyer pushed)
 -addItem (add item into storage)

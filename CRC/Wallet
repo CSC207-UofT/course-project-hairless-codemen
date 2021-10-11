@@ -1,1 +1,8 @@
 Class name
+
+Responsibilities:
+We will provide our own wallet inside in our program. We can use money
+in the wallet to pay for the order. We can add money into the wallet.
+
+Collaborators
+-user

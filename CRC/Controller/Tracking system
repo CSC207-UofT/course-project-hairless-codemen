@@ -1,9 +1,11 @@
 Class name: TrackingSystem
-Parent calss: None
+Parent class: None
 
 Responsibilities:
 * Show all the items you bought in the system
-* Can see all the order number of each item
+* Can see all the order numbers of each item
+* Estimated delivery time
+*
 
 Collaborators:
-* File
+*

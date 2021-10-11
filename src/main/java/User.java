@@ -1,14 +1,13 @@
 package src.main.java;
 
-public class user {
+public class User {
 
     private String name;
     private double wallet;
     private final String id;
     private String password;
-    private String whosyourdaddy;
 
-    public user(String name, String id, String password){
+    public User(String name, String id, String password){
         this.name = name;
         this.wallet = 0.0;
         this.id = id;
@@ -17,7 +16,7 @@ public class user {
     /**
      * create another constructor for invited customers, they have some money after they create account.
      */
-    public user(String name, String id, String password, double daddymoney){
+    public User(String name, String id, String password, double daddymoney){
         this.name = name;
         this.wallet = daddymoney;
         this.id = id;
@@ -76,3 +75,4 @@ public class user {
         this.wallet = this.wallet - new_money;
     }
 }
+

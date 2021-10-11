@@ -7,7 +7,6 @@ past transactions and order numbers.
 -searchItem
 -searchOrder
 -searchCart
--search
 
 Collaborators
 -ItemFinder

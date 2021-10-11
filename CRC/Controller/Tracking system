@@ -3,7 +3,13 @@ Parent calss: None
 
 Responsibilities:
 * Show all the items you bought in the system
-* Can see all the order number of each item
+* Can see all the order number of every item you bought
+- toString: show all the orders the user have(print )
+- getOrdernum: get Order number of an item(call Order)
+- getEstimatedTime: get the estimated time for delivery
 
 Collaborators:
-* File
+* User
+* Order
+* Item
+* Transaction

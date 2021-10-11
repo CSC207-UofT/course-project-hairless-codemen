@@ -2,8 +2,8 @@ Class name: Transaction
 Parent class: None
 
 Responsibilities:
-* List an item onto storage
-* Unlist an item from storage
+* List an item onto storage for sell
+* Unlist an item from storage after bought
 * Complete the buying process by spending money from wallet and delete items from cart
 * Generate orders with corresponding order numbers after user placed them
 

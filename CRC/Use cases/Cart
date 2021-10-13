@@ -1,0 +1,18 @@
+Class name: Cart
+Parent class: None
+
+Responsibilities:
+* Store items that an user wants to purchase
+* Remove item(s) from the cart
+* Check out by calling a method in Transaction
+- getTotalMoney
+- getTotalQuantity
+- getAllItems
+- removeItem
+- addItemQuantity
+- checkOut (calling from Transaction)
+
+
+Collaborators:
+* Item
+* Transaction

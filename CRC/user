@@ -1,12 +1,12 @@
-Class name: user
-Parent class:
+Class name: User
+Parent class: None
 
 Responsibilities:
-* it's a class for user to log into the app.
+* It's a class for user to log into the app.
 * The class can changeName (user can chose their owen name), and setPassword for the user
-(user can set up their password)
+    (user can set up their password)
 * To check my name by getName(call the name), getMoney(check the money in the wallet), and getId (a unique id for user).
 * To increase/subtract money in the wallet.
 
 Collaborators:
-* EVERYONE NEED ME
+- EVERYONE NEED ME

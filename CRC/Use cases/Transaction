@@ -8,7 +8,7 @@ Responsibilities:
 * Generate orders with corresponding order numbers after user placed them
 
 Collaborators:
-* Storage
-* Cart
-* Wallet
-* Order
+- Storage
+- Cart
+- Wallet
+- Order

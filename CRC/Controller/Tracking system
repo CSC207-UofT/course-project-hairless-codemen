@@ -1,5 +1,5 @@
 Class name: TrackingSystem
-Parent calss: None
+Parent class: None
 
 Responsibilities:
 * Show all the items you bought in the system
@@ -9,7 +9,7 @@ Responsibilities:
 - getEstimatedTime: get the estimated time for delivery
 
 Collaborators:
-* User
-* Order
-* Item
-* Transaction
+- User
+- Order
+- Item
+- Transaction

@@ -1,15 +1,15 @@
-Class name: item
-Parent class:
+Class name: Item
+Parent class: None
 
 Responsibilities:
-* it's the class for user to manipulate the item (they can buy or sell item).
+* It's the class for user to manipulate the item (they can buy or sell item).
 * For buyer, We can get the name of the item by getItemName, and for seller to change the name of the item by
 changeItemName.
-* for the buyer to get the selling price by using getprice, and for the sellers they can change their selling item price
+* For the buyer to get the selling price by using getprice, and for the sellers they can change their selling item price
 changePrice
 * To check how many stocks are left by getQuantity, for the seller to add/subtract item by using addQuantity/
 subtractQuantity.
 
 
 Collaborators:
-* user
+- User

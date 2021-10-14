@@ -2,7 +2,7 @@ Class name: LoginC
 Parent class: None
 
 Responsibilities:
-*Login to the platform by User account
+*Login to the platform
 
 Collaborators:
 None

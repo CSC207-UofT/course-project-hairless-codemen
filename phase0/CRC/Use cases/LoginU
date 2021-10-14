@@ -1,0 +1,7 @@
+Class name: LoginU
+
+Responsibilities:
+*Login to the platform by created account
+
+Collaborators:
+* UserStorage

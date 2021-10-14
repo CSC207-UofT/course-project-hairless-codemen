@@ -1,0 +1,11 @@
+Class name: God
+Parent class: None
+
+Responsibilities:
+* Create user with given username and password
+* Add the newly created user to UserStorage
+
+
+Collaborators:
+- User
+- UserStorage

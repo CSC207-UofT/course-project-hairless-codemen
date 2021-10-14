@@ -1,0 +1,14 @@
+Class name: UserManager
+Parent class: None
+
+Responsibilities:
+* Manage users stored in UserStorage, and also change the amount of money a user has on the platform.
+* When we call methods in UserStorage, we can do the following:
+    - findUser (find a specific user given a username)
+    - subtractMoney (subtract certain amount of money from a user's account given a username)
+    - removeUser (remove a user from our platform once the user deactivates the account)
+
+Collaborators:
+- UserStorage
+- User
+- Wallet

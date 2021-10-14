@@ -1,0 +1,12 @@
+Class name: Seller
+Parent class: None
+
+Responsibilities:
+* Create the item user wants to list and add item to itemStorage.
+* Unlist an item user listed before from itemStorage.
+
+
+Collaborators:
+- itemStorage
+- Item
+

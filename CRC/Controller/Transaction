@@ -1,0 +1,11 @@
+Class name: Transaction
+Parent class: None
+
+Responsibilities:
+* Based on user's input, add items to cart, buy or sell items.
+* Return whether the transaction succeeded or failed.
+
+Collaborators:
+- Cart
+- Buyer
+- Seller

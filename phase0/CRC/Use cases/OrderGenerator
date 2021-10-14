@@ -7,10 +7,10 @@ Responsibilities:
 * Generate order ids and create an order for each group
 * Add generated orders to orderStorage
 
-
 Collaborators:
 - Order
 - Item
 - orderStorage
 - Buyer
+
 

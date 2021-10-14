@@ -59,4 +59,12 @@ public class Item {
    public void subtractQuantity(int new_quantity){
         this.quantity = this.quantity - new_quantity;
    }
+
+   public static double getTotal(Item[] items){
+       double total = 0;
+       for (Item i : items){
+           total += i.getItemPrice();
+       }
+       return total;
+   }
 }

@@ -21,4 +21,20 @@ We are designing a buying and selling program where each user can search for ite
 
 *5. Parts that work well with our design:*
 
-*6. Team member's individual work: *
+*6. Team member's individual work:*
+
+Qingyi Liu:
+
+Eva Xu:
+
+Feihao Qu:
+
+Hongda Zhu:
+
+Howard Xiao:
+
+Xiao Qin:
+
+Xinyu Zhang:
+
+Zhen Sun:

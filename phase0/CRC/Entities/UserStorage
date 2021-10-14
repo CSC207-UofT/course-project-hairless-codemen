@@ -1,0 +1,12 @@
+Class name: UserStorage
+Parent class: Storage
+
+Responsibilities:
+* Store all users created on the service platform.
+* When we call the method in UserStorage, we can:
+  - getUser (return the user stored on the platform with give username)
+  - add (add user into user storage)
+  - subtract (after deleting an account, delete the corresponding user from the user storage)
+
+Collaborators:
+- User

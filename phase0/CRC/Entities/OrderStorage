@@ -1,0 +1,11 @@
+Class name: OrderStorage
+Parent class: Storage
+
+Responsibilities:
+* Store all orders made on the service platform.
+* When we call the method in OrderStorage, we can:
+  - getOrders (list all orders a user made)
+  - add (add order onto OrderStorage)
+
+Collaborators:
+- Order

@@ -2,9 +2,10 @@ Class name: Wallet
 Parent class: None
 
 Responsibilities:
-* We will provide our own wallet inside in our program
-* We can use money in the wallet to pay for the order
-* We can add money into the wallet
+* Wallet belongs to its owner and stores the amount of money its owner has in the account.
+* When we call a method in class Wallet, we can:
+    - loadMoney (add money to wallet)
+    - subtractMoney (subtract money from wallet)
 
 Collaborators:
 - User

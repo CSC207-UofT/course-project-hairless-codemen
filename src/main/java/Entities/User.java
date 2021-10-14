@@ -3,24 +3,27 @@ package src.main.java.Entities;
 public class User {
 
     private String name;
-    private double wallet;
     private final String id;
     private String password;
+    private final Wallet wallet;
+    private final Cart cart;
 
     public User(String name, String id, String password){
         this.name = name;
-        this.wallet = 0.0;
+        this.wallet = new Wallet();
         this.id = id;
         this.password = password;
+        this.cart = new Cart();
     }
     /**
      * create another constructor for invited customers, they have some money after they create account.
      */
     public User(String name, String id, String password, double daddymoney){
         this.name = name;
-        this.wallet = daddymoney;
+        this.wallet = new Wallet(daddymoney);
         this.id = id;
         this.password = password;
+        this.cart = new Cart();
     }
     /**
      * change the User name by using changeName
@@ -47,32 +50,12 @@ public class User {
      * Check out the amount of the money in the wallet.
      * return a type double representing the money.
      */
-    public double getMoney(){
+    public Wallet getWallet(){
         return this.wallet;
     }
 
-    /**
-     * return the id of the User
-     */
-
-    public String getId(){
-        return this.id;
-    }
-
-    /**
-     * increase the money inside the wallet
-     */
-
-    public void increase_money(double new_money){
-        this.wallet = this.wallet + new_money;
-
-    }
-
-    /**
-     * subtract the money inside the wallet
-     */
-    public void subtract_money(double new_money){
-        this.wallet = this.wallet - new_money;
+    public Cart getCart(){
+        return this.cart;
     }
 }
 

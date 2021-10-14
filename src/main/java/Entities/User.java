@@ -1,4 +1,4 @@
-package src.main.java;
+package src.main.java.Entities;
 
 public class User {
 

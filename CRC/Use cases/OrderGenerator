@@ -1,13 +1,15 @@
-Class name: CommandReader
+Class name: OrderGenerator
 Parent class: None
 
 Responsibilities:
-* Give user a list of commands that they can enter into the program.
-* Prompt user to create an account, login, search for items, add items to cart, buy or sell items.
-* Take inputs from user and do operations that are asked for. For invalid inputs by user, ask input again.
-* Based on users' inputs, generate specific appropriate prompts for user to give more information.
+* Receive the successful buying order information from Buyer
+* Separate items that belong to each owner into different groups
+* Generate order ids and create an order for each group
+* Add generated orders to orderStorage
+
 
 Collaborators:
-- Transaction
-- Search
+- Order
+- orderStorage
+- Buyer
 

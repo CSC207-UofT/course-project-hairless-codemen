@@ -7,8 +7,7 @@ Responsibilities:
 changeItemName.
 * For the buyer to get the selling price by using getprice, and for the sellers they can change their selling item price
 changePrice
-* To check how many stocks are left by getQuantity, for the seller to add/subtract item by using addQuantity/
-subtractQuantity.
+* By default, this item for sale is an unique item
 
 
 Collaborators:

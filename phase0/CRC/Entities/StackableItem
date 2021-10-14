@@ -1,0 +1,14 @@
+Class Name: StackableItem
+Parent Class: Item
+
+Responsibilities:
+* A subclass of item that can be put on sale with multiple quantities
+* Such items can be drinks or light bulbs
+* These items can be purchased one by one or at least not purchased all at once
+- restockItems (seller can add more of these individuals of the item)
+- subtractItems (when some of these items are sold, the stock decreases)
+- getQuantity (check how many are still in stock)
+
+Collaborators:
+- Item
+- User

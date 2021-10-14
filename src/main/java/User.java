@@ -23,7 +23,7 @@ public class User {
         this.password = password;
     }
     /**
-     * change the user name by using changeName
+     * change the User name by using changeName
      * return nothing
      */
     public void changeName(String new_name){
@@ -37,8 +37,8 @@ public class User {
         this.password = new_password;
     }
     /**
-     * Check out my user's current user name
-     * return a string representing the name of the user.
+     * Check out my User's current User name
+     * return a string representing the name of the User.
      */
     public String getName(){
         return this.name;
@@ -52,7 +52,7 @@ public class User {
     }
 
     /**
-     * return the id of the user
+     * return the id of the User
      */
 
     public String getId(){

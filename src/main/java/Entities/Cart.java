@@ -1,6 +1,7 @@
 package src.main.java.Entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Cart {
     private final ArrayList<Item> items;
@@ -13,10 +14,19 @@ public class Cart {
         this.items = new ArrayList<Item>();
     }
 
-    public void add_item(Item item){
-        items.add(item);}
+    public ArrayList<Item> getItems(){
+        return this.items;
+    }
 
-    public void remove_item(Item[] item){
+    public void addItem(Item[] item) {
+        items.addAll(Arrays.asList(item));
+    }
+
+    public void addItem(Item item){
+        items.add(item);
+    }
+
+    public void removeItem(Item[] item){
         for (Item i : item){
             items.remove(i);
         }

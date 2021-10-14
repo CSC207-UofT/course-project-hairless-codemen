@@ -10,6 +10,7 @@ Responsibilities:
 
 Collaborators:
 - Order
+- Item
 - orderStorage
 - Buyer
 

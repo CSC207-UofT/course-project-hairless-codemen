@@ -1,7 +1,7 @@
 Class name: Finder
 
 Responsibilities:
-*Find items by name or category
+*Find items or orders
 
 Collaborators:
 * Search

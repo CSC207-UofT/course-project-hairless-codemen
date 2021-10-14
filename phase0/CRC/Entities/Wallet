@@ -4,6 +4,7 @@ Parent class: None
 Responsibilities:
 * Wallet belongs to its owner and stores the amount of money its owner has in the account.
 * When we call a method in class Wallet, we can:
+    - getMoney (get how much money is stored in wallet)
     - loadMoney (add money to wallet)
     - subtractMoney (subtract money from wallet)
 

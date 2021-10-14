@@ -1,0 +1,12 @@
+Class name: Cart
+Parent class: None
+
+Responsibilities:
+* Store items that an user wants to purchase
+* When we call a method in Cart, we can do the following:
+ - getItems (get all items stored in cart)
+ - removeItem (Remove item(s) from the cart)
+ - addItem (Add item(s) to the cart)
+
+Collaborators:
+- Item

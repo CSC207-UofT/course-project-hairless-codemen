@@ -1,0 +1,8 @@
+Class name: ItemFinder
+Parent class: None
+
+Responsibilities:
+*Find items by name or category
+
+Collaborators:
+* Search

@@ -1,0 +1,8 @@
+Class name: OrderFinder
+Parent class: None
+
+Responsibilities:
+*Find orders by order number
+
+Collaborators:
+* Search

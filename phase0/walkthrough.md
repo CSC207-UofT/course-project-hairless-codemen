@@ -2,11 +2,11 @@
 
 
 Once starting the program, we can create a **User**, then login to the platform with your newly created account by 
-using the **"LoginC"** classes in controller layout. The information of user would storage in 
+using the **"Login"** classes in controller layout. The information of user would storage in 
 **UserStorage**  
 
 The user can act as a buyer and purchases **Item** which is posted by other users from the existing **"ItemStorage"**.
-The user can search items’ names by using the **"Search"** classes. The **ItemManager** would 
+The user can search items’ names by using the **"Finder"** classes. The **ItemManager** would 
 return a list of matched items. If there is no relevant item, the screen would show "0 items for 
 'what the user types in'". After that, the user can also put their desired items in the **"Cart"**.
 

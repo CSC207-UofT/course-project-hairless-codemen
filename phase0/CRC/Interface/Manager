@@ -3,6 +3,7 @@ Parent class: None
 
 Responsibilities:
 * Have three abstract methods for classes needed.
+An interface is called by ItemManager, UserManager, OrderManager
 - addElement(add the object in the manager)
 - removeElement(remove the object in the manager)
 - search(search the object in the manager)

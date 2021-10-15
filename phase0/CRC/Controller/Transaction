@@ -2,9 +2,13 @@ Class name: Transaction
 Parent class: None
 
 Responsibilities:
-* Based on user's input, add items to cart, buy or sell items and subtract the .
+* Perform a transaction (buy or sell)
 * Generate successful order, subtract correct amount of money from buyer's account and return them to user
 * Return whether the transaction succeeded or failed.
+- buy (complete the buying process)
+- sell (complete the selling process)
+- loadItems(the system provides some initial items for user to buy)
+- getItems(return all items store in the system)
 
 Collaborators:
 - CartManager

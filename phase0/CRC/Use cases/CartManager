@@ -5,6 +5,7 @@ Interface: Manager
 Responsibilities:
 * Manages items stored in cart and perform operations on them
 * When we call a method in CartManager, we can do the following:
+    - getPrice(get the price of the item)
     - getTotalMoney(get the total money for all items stored in cart)
     - getTotalQuantity (get the total quantity for all items stored in cart)
     - addItemQuantity (add quantity for an item in cart)

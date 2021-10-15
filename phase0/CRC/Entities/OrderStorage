@@ -5,7 +5,10 @@ Responsibilities:
 * Store all orders made on the service platform.
 * When we call the method in OrderStorage, we can:
   - getOrders (list all orders a user made)
-  - add (add an order onto OrderStorage)
+  - addElement (add an order onto OrderStorage)
+  - deleteElement(when user wants to delete the order information, we can offer this option
+                  and delete the order form the OrderStorage)
+  - getTotalNumber (get the total number of the orders in the OrderStorage)
 
 Collaborators:
 - Order

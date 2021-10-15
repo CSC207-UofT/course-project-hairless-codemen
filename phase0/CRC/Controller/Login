@@ -1,0 +1,10 @@
+Class name: Login
+Parent class: None
+
+Responsibilities:
+*Login to the platform
+- login (login an existing user to the system)
+- signUp (Create a user and Add the User information to the UserStorage)
+
+Collaborators:
+- UserManager

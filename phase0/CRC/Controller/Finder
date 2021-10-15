@@ -1,4 +1,4 @@
-Class name: Search
+Class name: Finder
 
 Responsibilities:
 * Search acts like a search bar in most service apps
@@ -14,3 +14,4 @@ Collaborators
 - ItemManager
 - OrderManager
 - CartManager
+- UserManager

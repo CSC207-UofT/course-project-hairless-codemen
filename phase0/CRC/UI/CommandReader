@@ -6,6 +6,7 @@ Responsibilities:
 * Prompt user to create an account, login, search for items, add items to cart, buy or sell items.
 * Take inputs from user and do operations that are asked for. For invalid inputs by user, ask input again.
 * Based on users' inputs, generate specific appropriate prompts for user to give more information.
+- signUp()
 
 Collaborators:
 - Transaction

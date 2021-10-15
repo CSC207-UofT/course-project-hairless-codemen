@@ -41,6 +41,7 @@ Note: There are some overlapping since multiple group members worked on the same
 
 - **Eva Xu:** 
   - CRC Cards(Entities): Order, Storage, ItemStorage, OrderStorage, UserStorage
+  - Walkthrough
 
 
 - **Feihao Qu:** 

@@ -5,11 +5,16 @@ Interface: Manager
 Responsibilities:
 * Manage users stored in UserStorage, and also change the amount of money a user has on the platform.
 * When we call methods in UserStorage, we can do the following:
-    - findUser (return a specific user given a username)
-    - subtractMoney (subtract certain amount of money from a user's account given a username)
-    - removeUser (remove a user from our platform once the user deactivates the account)
+    - search(return a specific user given a username or a user id)
+    - getMoney(return the amount of money in user's wallet)
+    - subtractMoney (subtract certain amount of money from a user's wallet given a user)
+    - addElement (add a user to user storage which is a helper function of createUser)
+    - removeElement (remove a user from our platform once the user deactivates the account)
+    - createUser(by given user name and password to create a new user and add to UserStorage)
+
 
 Collaborators:
 - UserStorage
 - User
 - Wallet
+- Manager(interface)

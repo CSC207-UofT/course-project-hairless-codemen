@@ -20,7 +20,8 @@ public class Transaction {
         double price = CartManager.getPrice(item);
         if (price < money) {
             UserManager.subtractMoney(u, price);
-            ItemManager.removeElement(item);
+            ItemManager im = new ItemManager();
+            im.removeElement(item);
             return true;
         }
         else return false;

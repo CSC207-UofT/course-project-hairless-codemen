@@ -16,28 +16,28 @@ public class ItemManager implements Manager{
     @Override
     public void addElement(Object[] newItems) {
         for (Object item : newItems){
-            ItemStorage.addElement((Item) item);
+            ItemStorage is = new ItemStorage();
+            is.addElement(item);
         }
     }
 
     public void addElement(Object item){
-        ItemStorage.addElement((Item) item);
+        ItemStorage is = new ItemStorage();
+        is.addElement(item);
     }
 
     @Override
     public void removeElement(Object[] Items) {
         for (Object item : Items){
-            ItemStorage.removeElement((Item) item);
+            ItemStorage is = new ItemStorage();
+            is.deleteElement(item);
         }
     }
 
     @Override
     public void removeElement(Object element){
-        ItemStorage.removeElement((Item) element);
-    }
-
-    public static void removeElement(Item item){
-        ItemStorage.removeElement(item);
+        ItemStorage is = new ItemStorage();
+        is.deleteElement(element);
     }
 
     public static Item[] loadItems(User u){

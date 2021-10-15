@@ -3,6 +3,7 @@ Parent class: None
 
 Responsibilities:
 * It's a class that stores information about a user.
+* When we call the string of the user , it would return the user name.
 * When we call methods in this class, we can:
     - changeName (user can chose their own name)
     - setPassword (user can set a new password)

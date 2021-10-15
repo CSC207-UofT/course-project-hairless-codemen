@@ -3,12 +3,14 @@ Class name: Search
 Responsibilities:
 * Search acts like a search bar in most service apps
 * Allows user to search items that are available for purchase, search items in their carts, or search their
-    past transactions and order numbers.
-- searchItem
-- searchOrder
-- searchCart
+past orders using order numbers.
+* When we call methods in class Search, we can do the following:
+- searchItemName (search for items using a name of the item)
+- searchItemCategory (search for items using the category of the item)
+- searchOrder (search for orders using order number)
+- searchCart (search for items in cart)
 
 Collaborators
-- ItemFinder
-- TrackingSystem
-- Cart
+- ItemManager
+- OrderManager
+- CartManager

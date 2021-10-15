@@ -36,7 +36,7 @@ Note: There are some overlapping since multiple group members worked on the same
 - **Qingyi Liu:** 
   - Specification writing 
   - CRC Cards(Entities): Cart, Item, User
-  - Java Coding: User
+  - Java Coding: User, Item
 
 
 - **Eva Xu:** 

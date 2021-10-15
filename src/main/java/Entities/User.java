@@ -30,6 +30,7 @@ public class User {
      * Return nothing
      */
     public void changeName(String new_name){
+
         this.name = new_name;
     }
     /**
@@ -37,6 +38,7 @@ public class User {
      * Return nothing
      */
     public void setPassword(String new_password){
+
         this.password = new_password;
     }
     /**
@@ -44,6 +46,7 @@ public class User {
      * Return a string representing the name of the User
      */
     public String getName(){
+
         return this.name;
     }
     /**
@@ -51,22 +54,28 @@ public class User {
      * Return a type double representing the money
      */
     public Wallet getWallet(){
+
         return this.wallet;
     }
 
     @Override
     public String toString() {
+
         return getName();
     }
 
     public Cart getCart(){
+
         return this.cart;
     }
 
     public int getId(){
+
         return this.id;
     }
 
-    public String getPassword(){return this.password;}
+    public String getPassword(){
+        return this.password;
+    }
 }
 

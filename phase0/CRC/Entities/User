@@ -11,6 +11,7 @@ Responsibilities:
     - getWallet(return the user's wallet)
     - getCart (return the user's cart)
     - getId (return the user's unique id)
+    - getPassword(return the user's password)
 
 Collaborators:
 -Wallet

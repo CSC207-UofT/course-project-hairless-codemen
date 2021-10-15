@@ -6,8 +6,8 @@ Responsibilities:
 * When we call the method in this class, we can:
 - getTotal (get the total number of the items on our platform)
 - getItems (list all the item a seller listed)
-- add (add item onto Itemstorage)
-- subtract (after buying, the item will subtract from the storage)
+- addElement (add item onto Itemstorage)
+- removeElement (after buying, the item will subtract from the storage)
 
 Collaborators:
 - Item

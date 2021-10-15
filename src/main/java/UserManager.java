@@ -7,11 +7,13 @@ import src.main.java.Entities.Wallet;
 import java.util.ArrayList;
 
 public class UserManager implements Manager {
+
     public static Object[] createUser(String username, String password){
         UserStorage st = new UserStorage();
         int userid = st.getTotalNumber();
         User u = new User(username, userid, password, 100);
-        st.addElement(u);
+        UserManager um = new UserManager();
+        um.addElement(u);
         return new Object[]{u, u.getName(), u.getId()};
     }
 
@@ -38,12 +40,12 @@ public class UserManager implements Manager {
 
     @Override
     public void addElement(Object user) {
-
+        UserStorage st = new UserStorage();
+        st.addElement(user);
     }
 
     @Override
     public void removeElement(Object[] elements) {
-
     }
 
     @Override

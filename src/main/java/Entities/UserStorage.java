@@ -22,5 +22,4 @@ public class UserStorage extends Storage {
         userList.remove((User) object);
     }
 
-
 }

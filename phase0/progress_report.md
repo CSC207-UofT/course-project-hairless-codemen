@@ -45,28 +45,28 @@ Note: There are some overlapping since multiple group members worked on the same
 
 - **Feihao Qu:** 
   - CRC Cards(Controller): LoginC
-  - CRC Cards(Use cases): LoginU
 
 
 - **Hongda Zhu:** 
   - CRC Cards(Entities): Item, User
+  - Java Coding: Item, User
 
 
 - **Howard Xiao:** 
-  - CRC Cards(Use cases): Buyer, Seller, UserManager, CartManager, Finder, God, ItemFinder, OrderFinder, OrderGenerator, OrderManager
-  - CRC Cards(Controller): Controller
-  - CRC Cards(Interface): CommandReader
-  - Java Coding: Storage, Cart, Order, Wallet
+  - CRC Cards(Use cases): UserManager, CartManager, ItemManager OrderManager
+  - CRC Cards(Controller): Transaction, Search
+  - CRC Cards(UI): CommandReader
+  - Java Coding: Storage, Cart, Order, Wallet, CommandReader, Transaction
 
 
 - **Xiao Qin:** 
-  - CRC Cards(Controller): TrackingSystem
+  - CRC Cards(Use cases): Part of OrderManager
   - Unittest: UserTest
   - README writing
 
 
 - **Xinyu Zhang:** 
-  - CRC Cards(Controller): TrackingSystem
+  - CRC Cards(Use cases): Part of OrderManager
   - CRC Cards(Interfaces): Manager
   - Unittest: ItemTest
 

@@ -25,8 +25,8 @@ public class Item {
         this.category = category;
     }
     /**
-     * get the selling Item's name
-     * return type string
+     * Get the selling Item's name
+     * Return type string
      */
     public String getItemName(){
         return this.name;
@@ -35,8 +35,8 @@ public class Item {
     public User getOwner(){ return this.owner;}
 
     /**
-     * get the price for the selling Item
-     * return a double type representing the price
+     * Get the price for the selling Item
+     * Return a double type representing the price
      */
     public double getItemPrice(){
         return this.price;
@@ -47,22 +47,22 @@ public class Item {
     }
 
     /**
-     * get how many stocks are left for the selling Item
-     * return an int type
+     * Get how many stocks are left for the selling Item
+     * Return an int type
      */
     public int getQuantity(){
         return this.quantity;
     }
     /**
-     * change the Item's name
-     * this should return nothing
+     * Change the Item's name
+     * Return nothing
      */
     public void changeItemName(String new_name){
         this.name = new_name;
     }
     /**
-     * change the price of the Item
-     * return nothing
+     * Change the price of the Item
+     * Return nothing
      */
     public void changeItemPrice(double new_price){
         this.price = new_price;
@@ -70,18 +70,18 @@ public class Item {
 
     /**
      * To increase/subtract the quantity of the Item
-     * return nothing
+     * Return nothing
      */
-   public void addQuantity(int new_quantity){
+    public void addQuantity(int new_quantity){
         this.quantity = this.quantity + new_quantity;
-   }
+    }
 
-   public void subtractQuantity(int new_quantity){
+    public void subtractQuantity(int new_quantity){
         this.quantity = this.quantity - new_quantity;
-   }
+    }
 
-   @Override
-   public String toString(){
-       return name + ": " + "Category " + category + ", quantity " + quantity + ", with price $" + price;
-   }
+    @Override
+    public String toString(){
+        return name + ": " + "Category " + category + ", quantity " + quantity + ", with price $" + price;
+    }
 }

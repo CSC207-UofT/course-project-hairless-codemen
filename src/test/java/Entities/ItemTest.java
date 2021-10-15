@@ -31,10 +31,13 @@ public class ItemTest {
     @Test
     public void TestQuantity(){assertEquals(1, a.getQuantity());}
 
-    @Test
-    public void TestChangeItemName(){
+
+   @Test
+   public void TestChangeItemName(){
         a.changeItemName("apple");
-        assertEquals("apple", a.getItemName());}
+        assertEquals("apple", a.getItemName());
+    }
+
 
     @Test
     public void TestChangeItemPrice(){

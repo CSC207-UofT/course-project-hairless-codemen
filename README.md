@@ -1,11 +1,12 @@
 ## README.
-##Instructions of using this program
+
+## Instructions of using this program.
 
 This is phase 0 of the CSC207 project by team Hairless Codemen.
 We created a second-hand market program that elt users can buy and sell items in the market.
 The skeleton program completes a simple buy and registration progress and this README would state how to use the program.
 
-##1 How to use the program
+## 1 How to use the program
 The CommandReader class is the UI of this skeleton program. So run the CommandReader class first.
 If the line "Welcome to our buying and selling program! " shows up, then the program had set up successfully.
 
@@ -17,7 +18,7 @@ Go through the items we have in the market and decide if you want to buy anythin
 
 For those of you who chose yes and have a target want to buy.
 Follow the instructions and while you inputting the serial number, 
-type the serial number of that item without the symbol ".".
+type the serial number of that item **without the symbol "."**.
 If you have enough money in your wallet for purchasing, your purchase would be successful and vice versa.
 If you bought an item successfully, line "Success!" would exist. Congratulations so far!
 You successfully bought an item from our program!
@@ -25,18 +26,18 @@ You successfully bought an item from our program!
 Repeat the steps above until there's nothing left you to want to or can buy.
 Enter "no" to leave the program.
 
-##2 Future improvement
+## 2 Future improvement
 This is just the skeleton program of our project and the following are what we planned to enhance in the future.
 
-1, Search class is not completed yet.
+- Search class is not completed yet.
 Further, we would create a search controller that items can be searched by their name and category.
 This controller also allows users to search their orders by order numbers.
 
-2, Wallet top-up will be completed in the next phase which allowed users to add money into their wallet.
+- Wallet top-up will be completed in the next phase which allowed users to add money into their wallet.
 
-3, A order number would be stored in each order as proof of purchase.
+- A order number would be stored in each order as proof of purchase.
 
-4, Cart function will be created so users can add target items into their cart and purchase them together.
+- Cart function will be created so users can add target items into their cart and purchase them together.
 
-5, The final project might be presented in the form of software or web page so
+- The final project might be presented in the form of software or web page so
 the setup of the web/software interface would be considered in the next phase. 

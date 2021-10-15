@@ -56,6 +56,7 @@ public class Item {
     /**
      * Change the Item's name
      * Return nothing
+     */
     public void changeItemName(String new_name){
         this.name = new_name;
     }

@@ -6,11 +6,11 @@ We are designing a buying and selling program where each user can search for ite
 
 *2. Summary of CRC model:*
 
-**Entities**: User, Item, Order, Storage, ItemStorage, OrderStorage, UserStorage.
+**src.test.java.Entities**: User, Item, Order, Storage, ItemStorage, OrderStorage, UserStorage.
 
 **Use Cases**: Buyer, Cart, Finder, God, ItemFinder, LoginU, OrderFinder, OrderGenerator, Seller
 
-**Controller**: LoginC, Search, Tracking System, Transaction
+**src.test.java.Controller**: LoginC, Search, Tracking System, Transaction
 
 **Interface**: CommandReader
 

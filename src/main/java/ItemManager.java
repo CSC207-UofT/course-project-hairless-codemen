@@ -7,7 +7,6 @@ import src.main.java.Entities.User;
 import java.util.ArrayList;
 
 public class ItemManager implements Manager{
-    private final ArrayList<Item> items = new ArrayList<>();
 
     @Override
     public Item search(String name) {
@@ -17,23 +16,28 @@ public class ItemManager implements Manager{
     @Override
     public void addElement(Object[] newItems) {
         for (Object item : newItems){
-            items.add((Item) item);
+            ItemStorage.addElement((Item) item);
         }
     }
 
     public void addElement(Object item){
-        items.add((Item) item);
+        ItemStorage.addElement((Item) item);
     }
 
     @Override
     public void removeElement(Object[] Items) {
         for (Object item : Items){
-            items.remove((Item) item);
+            ItemStorage.removeElement((Item) item);
         }
     }
 
-    public void removeElement(Object item){
-        items.remove((Item) item);
+    @Override
+    public void removeElement(Object element){
+        ItemStorage.removeElement((Item) element);
+    }
+
+    public static void removeElement(Item item){
+        ItemStorage.removeElement(item);
     }
 
     public static Item[] loadItems(User u){
@@ -45,5 +49,9 @@ public class ItemManager implements Manager{
         Item[] itemList = new Item[]{item1, item2, item3, item4, item5};
         ItemStorage.addElement(itemList);
         return itemList;
+    }
+
+    public static ArrayList<Item> getItems(){
+        return ItemStorage.getItems();
     }
 }

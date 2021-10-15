@@ -2,11 +2,12 @@ Class name: ItemStorage
 Parent class: Storage
 
 Responsibilities:
-* Store all the items which the sellers post onto our service platform.
-* When we call the method in the storage we can get the total number of the items, we can:
-- getItems (list all the item the buyer pushed)
-- add (add item into storage)
-- subtract (after buying the item will subtract form the storage)
+* Store all the items that are not bought on our service platform.
+* When we call the method in this class, we can:
+- getTotal (get the total number of the items on our platform)
+- getItems (list all the item a seller listed)
+- add (add item onto Itemstorage)
+- subtract (after buying, the item will subtract from the storage)
 
 Collaborators:
 - Item

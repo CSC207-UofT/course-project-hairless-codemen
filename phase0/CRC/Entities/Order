@@ -2,7 +2,8 @@ Class name: Order
 Parent class: None
 
 Responsibilities:
-* Store the order number, ordered items, price total, buyer, and seller for each successful order
+* Store the order number, ordered items, price total, buyer, and the lister of items in the order for each successful
+order. Each order can only contain items from the same lister.
 * Sort a list of orders by number of ordered items, total or order number.
 
 Collaborators:

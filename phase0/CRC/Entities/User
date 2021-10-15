@@ -2,11 +2,15 @@ Class name: User
 Parent class: None
 
 Responsibilities:
-* It's a class for user to log into the app.
-* The class can changeName (user can chose their own name), and setPassword for the user
-    (user can set up their password)
-* To check my name by getName(call the name), getMoney(check the money in the wallet), and getId (a unique id for user).
-* To increase/subtract money in the wallet.
+* It's a class that stores information about a user.
+* When we call methods in this class, we can:
+    - changeName (user can chose their own name)
+    - setPassword (user can set a new password)
+    - getName(return the user's name)
+    - getWallet(return the user's wallet)
+    - getCart (return the user's cart)
+    - getId (return the user's unique id)
 
 Collaborators:
-None
+Wallet
+Cart

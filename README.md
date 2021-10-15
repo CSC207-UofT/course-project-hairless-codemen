@@ -26,7 +26,7 @@ You successfully bought an item from our program!
 Repeat the steps above until there's nothing left you to want to or can buy.
 Enter "no" to leave the program.
 
-## 2 Future improvement
+## 2 Future improvements
 This is just the skeleton program of our project and the following are what we planned to enhance in the future.
 
 - Search class is not completed yet.

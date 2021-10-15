@@ -2,12 +2,9 @@ Class Name: Storage
 Parent Class: None
 
 Responsibilities:
-* Acts the database of our program, most entities of our program is stored here
+* Acts as the database of our program, most entities of our program is stored here
 * An abstract class that has child classes for each kind of entity we need to store
 - addElement
 - deleteElement (methods to add or delete elements from the storage)
 
-Collaborators:
-- Item
-- User
-- Order
+Collaborators: None

@@ -1,5 +1,6 @@
 Class name: CartManager
 Parent class: None
+Interface: Manager
 
 Responsibilities:
 * Manages items stored in cart and perform operations on them
@@ -9,5 +10,5 @@ Responsibilities:
     - addItemQuantity (add quantity for an item in cart)
 
 Collaborators:
-- Item
 - Cart
+- Item

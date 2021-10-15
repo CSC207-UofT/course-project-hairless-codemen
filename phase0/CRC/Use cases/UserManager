@@ -1,5 +1,6 @@
 Class name: UserManager
 Parent class: None
+Interface: Manager
 
 Responsibilities:
 * Manage users stored in UserStorage, and also change the amount of money a user has on the platform.

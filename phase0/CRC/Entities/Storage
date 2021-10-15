@@ -1,5 +1,6 @@
 Class Name: Storage
 Parent Class: None
+Subclasses: OrderStorage, UserStorage, ItemStorage
 
 Responsibilities:
 * Acts as the database of our program, most entities of our program is stored here

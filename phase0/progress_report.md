@@ -61,10 +61,14 @@ Note: There are some overlapping since multiple group members worked on the same
 
 - **Xiao Qin:** 
   - CRC Cards(Controller): TrackingSystem
+  - Unittest: UserTest
+  - README writing
 
 
 - **Xinyu Zhang:** 
   - CRC Cards(Controller): TrackingSystem
+  - CRC Cards(Interfaces): Manager
+  - Unittest: ItemTest
 
 
 - **Zhen Sun:** 

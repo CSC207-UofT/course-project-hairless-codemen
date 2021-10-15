@@ -12,5 +12,5 @@ Responsibilities:
     - getId (return the user's unique id)
 
 Collaborators:
-Wallet
-Cart
+-Wallet
+-Cart

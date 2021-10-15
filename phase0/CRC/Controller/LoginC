@@ -3,6 +3,7 @@ Parent class: None
 
 Responsibilities:
 *Login to the platform
+*Create a user and Add the User information to the UserStorage
 
 Collaborators:
-- LoginU
+- UserManager

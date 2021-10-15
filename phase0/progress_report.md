@@ -2,17 +2,19 @@
 
 *1. Summary of Specification:*
 
-We are designing a buying and selling program where each user can search for items, add them to cart, and buy items with money. Each user can also list their own items for sale on the platform.
+We are designing a buying and selling platform where each user can search for items, add them to cart, and buy items with money. Each user can also list their own items for sale on the platform.
 
 *2. Summary of CRC model:*
 
-**src.test.java.Entities**: User, Item, Order, Storage, ItemStorage, OrderStorage, UserStorage.
+**Entities**: User, Item, Order, Cart, Wallet, StackableItem, Storage, ItemStorage, OrderStorage, UserStorage.
 
-**Use Cases**: Buyer, Cart, Finder, God, ItemFinder, LoginU, OrderFinder, OrderGenerator, Seller
+**Use Cases**: CartManager, ItemManager, OrderManager, UserManager
 
-**src.test.java.Controller**: LoginC, Search, Tracking System, Transaction
+**Controller**: Login, Finder, Transaction
 
-**Interface**: CommandReader
+**Interface**: Manager
+
+**UI**: CommandReader
 
 *3. Scenario Walk-through and Skeleton Program:*
 

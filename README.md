@@ -2,7 +2,7 @@
 
 ## Instructions of using this program.
 
-This is phase 0 of the CSC207 project by team Hairless Codemen.
+This is **phase 0** of the CSC207 project by team Hairless Codemen.
 We created a second-hand market program that elt users can buy and sell items in the market.
 The skeleton program completes a simple buy and registration progress and this README would state how to use the program.
 

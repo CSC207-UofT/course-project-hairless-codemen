@@ -1,5 +1,6 @@
 Class name: ItemManager
 Parent class: None
+Interface: Manager
 
 Responsibilities:
 * Manage items stored in ItemStorage.
@@ -9,6 +10,7 @@ Responsibilities:
     - findOwner (find all items belong to a certain owner)
     - addItem (add item(s) to item storage)
     - removeItem (remove item(s) from item storage)
+    - loadItems (Provide a list of items into storage.)
 
 Collaborators:
 - ItemStorage

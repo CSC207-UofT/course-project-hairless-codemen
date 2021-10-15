@@ -1,8 +1,0 @@
-Class name: ItemFinder
-Parent class: Finder
-
-Responsibilities:
-*Find items by name or category
-
-Collaborators:
-* ItemStorage

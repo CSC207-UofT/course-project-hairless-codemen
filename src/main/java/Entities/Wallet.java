@@ -15,11 +15,11 @@ public class Wallet {
         return this.money;
     }
 
-    public void loadMoney(int money){
+    public void loadMoney(double money){
         this.money += money;
     }
 
-    public void subtractMoney(int money){
+    public void subtractMoney(double money){
         this.money -= money;
     }
 }

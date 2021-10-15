@@ -6,8 +6,14 @@ Responsibilities:
 * Prompt user to create an account, login, search for items, add items to cart, buy or sell items.
 * Take inputs from user and do operations that are asked for. For invalid inputs by user, ask input again.
 * Based on users' inputs, generate specific appropriate prompts for user to give more information.
-- signUp()
+- signUp(prompt the user to enter user name and password then create the user in the system)
+- buy(prompt the user to choose an item to buy then buy it)
+- itemInfo (a helper function for main to print out item information)
+- main (the code would present the user interface with some instructions about how to use our platform.
+        also allow user to sell the items or buy items on our platform)
+
 
 Collaborators:
 - Transaction
-- Search
+- Finder
+- Login

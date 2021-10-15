@@ -1,0 +1,14 @@
+Class name: ItemManager
+Parent class: None
+
+Responsibilities:
+* Manage items stored in ItemStorage.
+* When we call methods in ItemManager, we can do the following:
+    - findName (find all items containing certain name)
+    - findCategory (find all items in a specific category)
+    - findOwner (find all items belong to a certain owner)
+    - addItem (add item(s) to item storage)
+    - removeItem (remove item(s) from item storage)
+
+Collaborators:
+- ItemStorage

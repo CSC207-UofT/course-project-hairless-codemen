@@ -1,0 +1,12 @@
+Class name: UserManager
+Parent class: None
+
+Responsibilities:
+* Manage orders stored in OrderStorage.
+* When we call methods in OrderManager, we can do the following:
+    - findId (find the order with specific id)
+    - findBuyer (find all orders made from a certain buyer)
+    - addOrder (add order(s) to order storage)
+
+Collaborators:
+- OrderStorage

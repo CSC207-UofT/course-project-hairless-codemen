@@ -5,9 +5,9 @@ Interface: Manager
 Responsibilities:
 * Manage orders stored in OrderStorage.
 * When we call methods in OrderManager, we can do the following:
-    - findId (find the order with specific id)
-    - findBuyer (find all orders made from a certain buyer)
-    - addOrder (add order(s) to order storage)
+    - findId (return the order with specific id)
+    - findBuyer (return all orders made from a certain buyer)
+    - addOrder (add order(s) to OrderStorage)
 
 Collaborators:
 - OrderStorage

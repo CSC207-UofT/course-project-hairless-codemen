@@ -5,12 +5,12 @@ Interface: Manager
 Responsibilities:
 * Manage items stored in ItemStorage.
 * When we call methods in ItemManager, we can do the following:
-    - findName (find all items containing certain name)
-    - findCategory (find all items in a specific category)
-    - findOwner (find all items belong to a certain owner)
+    - findName (return all items containing or relating to certain name)
+    - findCategory (return all items in a specific category)
+    - findOwner (return all items belong to a certain owner)
     - addItem (add item(s) to item storage)
     - removeItem (remove item(s) from item storage)
-    - loadItems (Provide a list of items into storage.)
+    - loadItems (     add items into storage.)
 
 Collaborators:
 - ItemStorage

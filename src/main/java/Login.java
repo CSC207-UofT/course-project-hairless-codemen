@@ -1,6 +1,6 @@
 package src.main.java;
 
-public class LoginC {
+public class Login {
 
     public static Object[] signup(String username, String password){
         return new Object[]{UserManager.createUser(username, password)[1],

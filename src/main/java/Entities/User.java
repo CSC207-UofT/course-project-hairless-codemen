@@ -54,6 +54,11 @@ public class User {
         return this.wallet;
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
+
     public Cart getCart(){
         return this.cart;
     }

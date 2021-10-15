@@ -4,13 +4,25 @@ package src.main.java.Entities;
 public class Item {
 
     private String name;
+    private final User owner;
     private double price;
     private int quantity;
+    private final String category;
 
-    public Item(String name, double price, int quantity){
+    public Item(String name, User owner, double price, int quantity, String category){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.owner = owner;
+        this.category = category;
+    }
+
+    public Item(String name, User owner, double price, String category){
+        this.name = name;
+        this.price = price;
+        this.owner = owner;
+        this.quantity = 1;
+        this.category = category;
     }
     /**
      * get the selling Item's name
@@ -19,6 +31,9 @@ public class Item {
     public String getItemName(){
         return this.name;
     }
+
+    public User getOwner(){ return this.owner;}
+
     /**
      * get the price for the selling Item
      * return a double type representing the price
@@ -26,6 +41,11 @@ public class Item {
     public double getItemPrice(){
         return this.price;
     }
+
+    public String getCategory(){
+        return this.category;
+    }
+
     /**
      * get how many stocks are left for the selling Item
      * return an int type
@@ -60,11 +80,8 @@ public class Item {
         this.quantity = this.quantity - new_quantity;
    }
 
-   public static double getTotal(Item[] items){
-       double total = 0;
-       for (Item i : items){
-           total += i.getItemPrice();
-       }
-       return total;
+   @Override
+   public String toString(){
+       return name + ": " + "Category " + category + ", quantity " + quantity + ", with price $" + price;
    }
 }

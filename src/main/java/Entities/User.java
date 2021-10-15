@@ -3,12 +3,12 @@ package src.main.java.Entities;
 public class User {
 
     private String name;
-    private final String id;
+    private final int id;
     private String password;
     private final Wallet wallet;
     private final Cart cart;
 
-    public User(String name, String id, String password){
+    public User(String name, int id, String password){
         this.name = name;
         this.wallet = new Wallet();
         this.id = id;
@@ -18,7 +18,7 @@ public class User {
     /**
      * create another constructor for invited customers, they have some money after they create account.
      */
-    public User(String name, String id, String password, double daddymoney){
+    public User(String name, int id, String password, double daddymoney){
         this.name = name;
         this.wallet = new Wallet(daddymoney);
         this.id = id;
@@ -56,6 +56,10 @@ public class User {
 
     public Cart getCart(){
         return this.cart;
+    }
+
+    public int getId(){
+        return this.id;
     }
 }
 

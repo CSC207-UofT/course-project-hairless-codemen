@@ -1,8 +1,0 @@
-Class name: OrderFinder
-Parent class: Finder
-
-Responsibilities:
-*Find orders by order number
-
-Collaborators:
-* OrderStorage

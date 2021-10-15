@@ -1,0 +1,11 @@
+Class name: Manager
+Parent class: None
+
+Responsibilities:
+* Have three abstract methods for classes needed.
+- addElement(add the object in the manager)
+- removeElement(remove the object in the manager)
+- search(search the object in the manager)
+
+Collaborators:
+None

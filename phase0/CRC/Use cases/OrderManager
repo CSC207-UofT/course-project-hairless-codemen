@@ -1,5 +1,6 @@
 Class name: OrderManager
 Parent class: None
+Interface: Manager
 
 Responsibilities:
 * Manage orders stored in OrderStorage.

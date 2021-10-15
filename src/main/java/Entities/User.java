@@ -16,7 +16,7 @@ public class User {
         this.cart = new Cart();
     }
     /**
-     * create another constructor for invited customers, they have some money after they create account.
+     * Create another constructor for invited customers, they have some money after they create account.
      */
     public User(String name, int id, String password, double daddymoney){
         this.name = name;
@@ -26,29 +26,29 @@ public class User {
         this.cart = new Cart();
     }
     /**
-     * change the User name by using changeName
-     * return nothing
+     * Change the User's name by using changeName
+     * Return nothing
      */
     public void changeName(String new_name){
         this.name = new_name;
     }
     /**
-     * change the current password by using setPassword
-     * return nothing
+     * Change the current password by using setPassword
+     * Return nothing
      */
     public void setPassword(String new_password){
         this.password = new_password;
     }
     /**
-     * Check out my User's current User name
-     * return a string representing the name of the User.
+     * Check the User's current name
+     * Return a string representing the name of the User
      */
     public String getName(){
         return this.name;
     }
     /**
-     * Check out the amount of the money in the wallet.
-     * return a type double representing the money.
+     * Check the amount of the money in the wallet
+     * Return a type double representing the money
      */
     public Wallet getWallet(){
         return this.wallet;

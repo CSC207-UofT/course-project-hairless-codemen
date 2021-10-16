@@ -14,7 +14,7 @@ public class CartTest {
     Cart c;
     Item item1;
     User u;
-    ArrayList<Item> lst;
+    ArrayList<Item> lst = new ArrayList<>();
     @BeforeEach
     void setup() {
         c = new Cart(lst);

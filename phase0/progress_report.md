@@ -16,10 +16,13 @@ We are designing a buying and selling platform where each user can search for it
 
 **UI**: CommandReader
 
-*3. Scenario Walk-through and Skeleton Program:*
+* 3. Scenario Walk-through: * 
 
 We imagined a scenario where an individual wants to purchase an item. After this person creates a new user, 
 he/she can select any listed in-stock item and then check out.
+
+* 4. Skeleton Program: *
+
 
 *4. Questions we are struggling with:*
 
@@ -43,11 +46,11 @@ Note: There are some overlapping since multiple group members worked on the same
 
 - **Eva Xu:** 
   - CRC Cards(Entities): Order, Storage, ItemStorage, OrderStorage, UserStorage
-  - Walkthrough
+  - Wrote Walkthrough
 
 
 - **Feihao Qu:** 
-  - CRC Cards(Controller): LoginC
+  - CRC Cards(Controller): Login
 
 
 - **Hongda Zhu:** 
@@ -57,7 +60,7 @@ Note: There are some overlapping since multiple group members worked on the same
 
 - **Howard Xiao:** 
   - CRC Cards(Use cases): UserManager, CartManager, ItemManager OrderManager
-  - CRC Cards(Controller): Transaction, Search
+  - CRC Cards(Controller): Transaction, Finder
   - CRC Cards(UI): CommandReader
   - Java Coding: Storage, Cart, Order, Wallet, CommandReader, Transaction
 

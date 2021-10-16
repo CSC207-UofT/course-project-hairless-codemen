@@ -1,10 +1,7 @@
-package src.main.java;
+package src.main.java.Use_cases;
 
 import src.main.java.Entities.User;
 import src.main.java.Entities.UserStorage;
-import src.main.java.Entities.Wallet;
-
-import java.util.ArrayList;
 
 public class UserManager implements Manager {
 

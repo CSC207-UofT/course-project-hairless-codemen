@@ -1,12 +1,13 @@
-package src.main.java;
+package src.main.java.Use_cases;
 
 import src.main.java.Entities.Item;
 import src.main.java.Entities.ItemStorage;
 import src.main.java.Entities.User;
+import src.main.java.Use_cases.Manager;
 
 import java.util.ArrayList;
 
-public class ItemManager implements Manager{
+public class ItemManager implements Manager {
 
     @Override
     public Item search(String name) {

@@ -1,4 +1,4 @@
-package src.main.java;
+package src.main.java.Use_cases;
 
 interface Manager {
     Object search(String name);

@@ -27,12 +27,13 @@ he/she can select any listed in-stock item and then check out.
 *4. Questions we are struggling with:*
 
 - How to decrease dependency between same level classes?
-- 
+- What format should our final project be? (like a software or website)Do we need to set-up the interface?
 
 *5. Parts that work well with our design:*
 
 - We have an organized structure by ensuring that cross-level referencing. 
-- 
+- Made a mindmap to help see the relationship between all the classes. 
+- Draw a picture to show what the final project looks like. 
 
 *6. Team member's individual work:*   
 

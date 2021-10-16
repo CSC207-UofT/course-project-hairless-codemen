@@ -46,12 +46,13 @@ Note: There are some overlapping since multiple group members worked on the same
   - Specification writing 
   - CRC Cards(Entities): Cart, Item, User
   - Java Coding: User, Item
+  - Unittest: CartTest
 
 
 - **Eva Xu:** 
   - CRC Cards(Entities): Order, Storage, ItemStorage, OrderStorage, UserStorage
   - CRC Cards(UI): CommandReader
-  - Wrote Walkthrough
+  - Wrote Walk through
   - Checking Java code
 
 
@@ -98,7 +99,7 @@ This is just the skeleton program of our project and the following are what we p
 
 - Wallet top-up will be completed in the next phase which allowed users to add money into their wallet.
 
-- A order number would be stored in each order as proof of purchase.
+- An order number would be stored in each order as proof of purchase.
 
 - Cart function will be created so users can add target items into their cart and purchase them together.
 

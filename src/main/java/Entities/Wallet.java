@@ -4,10 +4,12 @@ public class Wallet {
     private double money;
 
     public Wallet(double money){
+
         this.money = money;
     }
 
     public Wallet(){
+
         this.money = 0.0;
     }
 
@@ -16,10 +18,12 @@ public class Wallet {
     }
 
     public void loadMoney(double money){
+
         this.money += money;
     }
 
     public void subtractMoney(double money){
+
         this.money -= money;
     }
 }

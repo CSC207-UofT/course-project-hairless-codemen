@@ -21,8 +21,11 @@ We are designing a buying and selling platform where each user can search for it
 We imagined a scenario where an individual wants to purchase an item. After this person creates a new user, 
 he/she can select any listed in-stock item and then check out.
 
-* 4. Skeleton Program: *
 
+* 4. Skeleton Program: *
+For the phase 0, we allow user to create a new account with the new user's name, and the password.
+The system would provide some items for the user to buy. When you run the program, the item in the system
+will be printed out and user can choose the item they want to buy. Every user have initial $100, for purchasing.
 
 *4. Questions we are struggling with:*
 
@@ -47,7 +50,9 @@ Note: There are some overlapping since multiple group members worked on the same
 
 - **Eva Xu:** 
   - CRC Cards(Entities): Order, Storage, ItemStorage, OrderStorage, UserStorage
+  - CRC Cards(UI): CommandReader
   - Wrote Walkthrough
+  - checking Java code
 
 
 - **Feihao Qu:** 
@@ -70,6 +75,7 @@ Note: There are some overlapping since multiple group members worked on the same
   - CRC Cards(Use cases): Part of OrderManager
   - Unittest: UserTest
   - README writing
+  - Wrote specification and progress report
 
 
 - **Xinyu Zhang:** 

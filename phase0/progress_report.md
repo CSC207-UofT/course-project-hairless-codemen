@@ -16,13 +16,16 @@ We are designing a buying and selling platform where each user can search for it
 
 **UI**: CommandReader
 
-* 3. Scenario Walk-through: * 
+*3. Scenario Walk-through:* 
 
 We imagined a scenario where an individual wants to purchase an item. After this person creates a new user, 
 he/she can select any listed in-stock item and then check out.
 
-* 4. Skeleton Program: *
 
+*4. Skeleton Program:*
+For the phase 0, we allow user to create a new account with the new user's name, and the password.
+The system would provide some items for the user to buy. When you run the program, the item in the system
+will be printed out and user can choose the item they want to buy. Every user have initial $100, for purchasing.
 
 *4. Questions we are struggling with:*
 
@@ -47,7 +50,9 @@ Note: There are some overlapping since multiple group members worked on the same
 
 - **Eva Xu:** 
   - CRC Cards(Entities): Order, Storage, ItemStorage, OrderStorage, UserStorage
+  - CRC Cards(UI): CommandReader
   - Wrote Walkthrough
+  - Checking Java code
 
 
 - **Feihao Qu:** 
@@ -70,6 +75,7 @@ Note: There are some overlapping since multiple group members worked on the same
   - CRC Cards(Use cases): Part of OrderManager
   - Unittest: UserTest
   - README writing
+  - Wrote specification and progress report
 
 
 - **Xinyu Zhang:** 
@@ -81,4 +87,20 @@ Note: There are some overlapping since multiple group members worked on the same
 - **Zhen Sun:** 
   - Scenario walk through writing 
   - CRC Cards(Entities): StackableItem, Wallet, Item, User
-  - CRC Cards(Controller): Search
+  - CRC Cards(Controller): Finder
+
+*2 Future improvements:*
+This is just the skeleton program of our project and the following are what we planned to enhance in the future.
+
+- Search class is not completed yet.
+  Further, we would create a search controller that items can be searched by their name and category.
+  This controller also allows users to search their orders by order numbers.
+
+- Wallet top-up will be completed in the next phase which allowed users to add money into their wallet.
+
+- A order number would be stored in each order as proof of purchase.
+
+- Cart function will be created so users can add target items into their cart and purchase them together.
+
+- The final project might be presented in the form of software or web page so
+  the setup of the web/software interface would be considered in the next phase. 

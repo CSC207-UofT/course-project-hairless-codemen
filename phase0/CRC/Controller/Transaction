@@ -9,6 +9,7 @@ Responsibilities:
 - sell (complete the selling process)
 - loadItems(the system provides some initial items for user to buy)
 - getItems(return all items store in the system)
+- getMoney(return the amount of money in user's wallet)
 
 Collaborators:
 - CartManager

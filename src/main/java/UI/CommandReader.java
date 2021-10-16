@@ -53,9 +53,10 @@ public class CommandReader {
         while (!answer.equals("no")){
             boolean status = buy(items, id);
             if (status){
-                System.out.println("Success!");}
+                System.out.println("Thank you for shopping with us! You have $" + Transaction.getMoney(id) + " left.");}
             else {
-                System.out.println("Fail, insufficient balance!");
+                System.out.println("Sorry, you do not have enough money. You have $" + Transaction.getMoney(id)
+                        + " left.");
             }
             items = Transaction.getItems();
             itemInfo(items);

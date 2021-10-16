@@ -87,4 +87,4 @@ Note: There are some overlapping since multiple group members worked on the same
 - **Zhen Sun:** 
   - Scenario walk through writing 
   - CRC Cards(Entities): StackableItem, Wallet, Item, User
-  - CRC Cards(Controller): Search
+  - CRC Cards(Controller): Finder

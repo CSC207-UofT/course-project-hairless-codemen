@@ -55,7 +55,7 @@ public class CommandReader {
             if (status){
                 System.out.println("Success!");}
             else {
-                System.out.println("Fail!");
+                System.out.println("Fail, insufficient balance!");
             }
             items = Transaction.getItems();
             itemInfo(items);

@@ -52,7 +52,7 @@ Note: There are some overlapping since multiple group members worked on the same
   - CRC Cards(Entities): Order, Storage, ItemStorage, OrderStorage, UserStorage
   - CRC Cards(UI): CommandReader
   - Wrote Walkthrough
-  - checking Java code
+  - Checking Java code
 
 
 - **Feihao Qu:** 

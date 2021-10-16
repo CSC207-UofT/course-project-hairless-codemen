@@ -28,7 +28,7 @@ public class CommandReader {
     public static void itemInfo(ArrayList<Item> items){
         System.out.println("We have the following items:");
         for (int i = 0; i < items.size(); i++){
-            System.out.println( (i + 1) + ". " + items.get(i));
+            System.out.println((i + 1) + ". " + items.get(i));
         }
     }
 
@@ -38,7 +38,7 @@ public class CommandReader {
         Object[] lst = signUp();
         String name = (String) lst[0];
         int id = (int) lst[1];
-        System.out.println("Welcome, " + name + "! Your user id on our platform is #" + id);
+        System.out.println("Welcome, " + name + "! Your user id on our platform is #" + id + ".");
         System.out.println("Since you are a new user, you have $100 on your account to begin with!");
         ArrayList<Item> items = Transaction.loadItems();
         itemInfo(items);
@@ -51,16 +51,17 @@ public class CommandReader {
         while (!answer.equals("no")){
             boolean status = buy(items, id);
             if (status){
-                System.out.println("Success!");}
+                System.out.println("Thank you for buying the items! You have $" + Transaction.getMoney(id) + " left.");}
             else {
-                System.out.println("Fail!");
+                System.out.println("Sorry, you do not have enough money to purchase this item. You have " +
+                        "$" + Transaction.getMoney(id) + " left.");
             }
             items = Transaction.getItems();
             itemInfo(items);
             System.out.println(name + ", would you like to buy items from us today? Please enter 'yes' or 'no':");
             answer = input.nextLine();
         }
-        System.out.println("Sorry about not having what you want, " + name + ". Have a nice day! " +
+        System.out.println("Thank you for shopping with us, " + name + ". Have a nice day! " +
                 "We welcome you to come back again soon!");
     }
 }

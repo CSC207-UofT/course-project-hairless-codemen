@@ -27,6 +27,10 @@ public class Transaction {
         else return false;
     }
 
+    public static double getMoney(int userId){
+        return UserManager.getMoney(UserManager.search(userId));
+    }
+
     public static ArrayList<Item> getItems(){
         return ItemManager.getItems();
     }

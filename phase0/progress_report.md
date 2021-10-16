@@ -88,3 +88,19 @@ Note: There are some overlapping since multiple group members worked on the same
   - Scenario walk through writing 
   - CRC Cards(Entities): StackableItem, Wallet, Item, User
   - CRC Cards(Controller): Finder
+
+*2 Future improvements:*
+This is just the skeleton program of our project and the following are what we planned to enhance in the future.
+
+- Search class is not completed yet.
+  Further, we would create a search controller that items can be searched by their name and category.
+  This controller also allows users to search their orders by order numbers.
+
+- Wallet top-up will be completed in the next phase which allowed users to add money into their wallet.
+
+- A order number would be stored in each order as proof of purchase.
+
+- Cart function will be created so users can add target items into their cart and purchase them together.
+
+- The final project might be presented in the form of software or web page so
+  the setup of the web/software interface would be considered in the next phase. 

@@ -1,6 +1,8 @@
-package src.main.java;
+package src.main.java.UI;
 
 import src.main.java.Entities.Item;
+import src.main.java.Controller.Login;
+import src.main.java.Controller.Transaction;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -53,7 +55,7 @@ public class CommandReader {
             if (status){
                 System.out.println("Success!");}
             else {
-                System.out.println("Fail!");
+                System.out.println("Fail, insufficient balance!");
             }
             items = Transaction.getItems();
             itemInfo(items);

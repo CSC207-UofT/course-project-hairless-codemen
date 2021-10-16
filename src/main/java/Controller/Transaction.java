@@ -1,8 +1,10 @@
-package src.main.java;
+package src.main.java.Controller;
 
 import src.main.java.Entities.Item;
 import src.main.java.Entities.User;
-import src.main.java.Entities.UserStorage;
+import src.main.java.Use_cases.ItemManager;
+import src.main.java.Use_cases.CartManager;
+import src.main.java.Use_cases.UserManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;

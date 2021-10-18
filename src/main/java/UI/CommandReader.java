@@ -63,7 +63,7 @@ public class CommandReader {
             System.out.println(name + ", would you like to buy items from us today? Please enter 'yes' or 'no':");
             answer = input.nextLine();
         }
-        System.out.println("Sorry about not having what you want, " + name + ". Have a nice day! " +
+        System.out.println("Thank you for shopping with us, " + name + ". Have a nice day! " +
                 "We welcome you to come back again soon!");
     }
 }

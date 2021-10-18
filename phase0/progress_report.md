@@ -49,7 +49,7 @@ Note: There are some overlapping since multiple group members worked on the same
   - Unittest: CartTest, WalletTest, OrderTest
 
 
-- **Eva Xu:** 
+- **Zichun Xu:** 
   - CRC Cards(Entities): Order, Storage, ItemStorage, OrderStorage, UserStorage
   - CRC Cards(UI): CommandReader
   - Wrote Walk through

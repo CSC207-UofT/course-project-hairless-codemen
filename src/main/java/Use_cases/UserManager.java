@@ -37,8 +37,7 @@ public class UserManager implements Manager {
 
     @Override
     public void addElement(Object user) {
-        UserStorage st = new UserStorage();
-        st.addElement(user);
+        UserStorage.addElement(user);
     }
 
     @Override

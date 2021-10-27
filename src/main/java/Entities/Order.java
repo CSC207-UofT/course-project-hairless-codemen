@@ -18,6 +18,10 @@ public class Order {
         this.total = total;
     }
 
+    public int getOrder_id() {
+        return order_id;
+    }
+
     @Override
     public String toString() {
         StringBuilder items = new StringBuilder();

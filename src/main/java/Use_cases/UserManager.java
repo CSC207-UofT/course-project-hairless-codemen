@@ -14,7 +14,6 @@ public class UserManager implements Manager {
         return new Object[]{u, u.getName(), u.getId()};
     }
 
-    @Override
     public Object search(String username) {
         return null;
     }
@@ -31,21 +30,16 @@ public class UserManager implements Manager {
         u.getWallet().subtractMoney(money);
     }
 
-    @Override
     public void addElement(Object[] users) {
     }
 
-    @Override
     public void addElement(Object user) {
-        UserStorage st = new UserStorage();
-        st.addElement(user);
+        UserStorage.addElement(user);
     }
 
-    @Override
     public void removeElement(Object[] elements) {
     }
 
-    @Override
     public void removeElement(Object element) {
 
     }

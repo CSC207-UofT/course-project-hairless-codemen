@@ -1,13 +1,13 @@
 package src.main.java.Use_cases;
 
 interface Manager {
-    Object search(String name);
+    static Object search(String name){return null;}
 
-    void addElement(Object[] elements);
+    static void addElement(Object[] elements){};
 
-    void addElement(Object element);
+    static void addElement(Object element){};
 
-    void removeElement(Object[] elements);
+    static void removeElement(Object[] elements){};
 
-    void removeElement(Object element);
+    static void removeElement(Object element){};
 }

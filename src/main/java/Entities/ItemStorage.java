@@ -1,29 +1,48 @@
 package src.main.java.Entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ItemStorage extends Storage{
-    private static final ArrayList<Item> userList = new ArrayList<Item>();
+public class ItemStorage implements Storable, Serializable {
+    private static final Map<String, ArrayList<Item>> userList = new HashMap<>();
 
     public static void addElement(Item[] items){
-        userList.addAll(Arrays.asList(items));
+        for (Item item : items){
+            addItem(item);
+        }
     }
 
-    public static ArrayList<Item> getItems() {return ItemStorage.userList;}
+    public static Map<String, ArrayList<Item>> getItems() {return ItemStorage.userList;}
 
-    @Override
     int getTotalNumber() {
         return 0;
     }
 
-    @Override
-    public void addElement(Object object) {
-        userList.add((Item) object);
+    public static void addElement(Object object) {
+        Item item = (Item) object;
+        addItem(item);
     }
 
-    @Override
-    public void deleteElement(Object object) {
-        userList.remove((Item) object);
+    private static void addItem(Item item) {
+        if (userList.get(item.getItemName()) != null){
+            userList.get(item.getItemName()).add(item);
+        }
+        else{
+            ArrayList<Item> itemList = new ArrayList<>();
+            itemList.add(item);
+            userList.put(item.getItemName(), itemList);
+        }
+    }
+
+    public static void deleteElement(Object object) {
+        ArrayList<Item> itemList = userList.get(((Item) object).getItemName());
+        if (itemList.size() == 1){
+            userList.remove(((Item) object).getItemName());
+        }
+        else{
+            itemList.remove((Item) object);
+        }
     }
 }

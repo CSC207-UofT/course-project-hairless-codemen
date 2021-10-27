@@ -6,39 +6,32 @@ import src.main.java.Entities.User;
 import src.main.java.Use_cases.Manager;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ItemManager implements Manager {
 
-    @Override
     public Item search(String name) {
         return null;
     }
 
-    @Override
     public void addElement(Object[] newItems) {
         for (Object item : newItems){
-            ItemStorage is = new ItemStorage();
-            is.addElement(item);
+            ItemStorage.addElement(item);
         }
     }
 
-    public void addElement(Object item){
-        ItemStorage is = new ItemStorage();
-        is.addElement(item);
+    public static void addElement(Object item){
+        ItemStorage.addElement(item);
     }
 
-    @Override
-    public void removeElement(Object[] Items) {
+    public static void removeElement(Object[] Items) {
         for (Object item : Items){
-            ItemStorage is = new ItemStorage();
-            is.deleteElement(item);
+            ItemStorage.deleteElement(item);
         }
     }
 
-    @Override
-    public void removeElement(Object element){
-        ItemStorage is = new ItemStorage();
-        is.deleteElement(element);
+    public static void removeElement(Object element){
+        ItemStorage.deleteElement(element);
     }
 
     public static Item[] loadItems(User u){
@@ -52,7 +45,7 @@ public class ItemManager implements Manager {
         return itemList;
     }
 
-    public static ArrayList<Item> getItems(){
+    public static Map<String, ArrayList<Item>> getItems(){
         return ItemStorage.getItems();
     }
 }

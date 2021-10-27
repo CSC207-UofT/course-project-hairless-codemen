@@ -1,25 +1,30 @@
 package src.main.java.Entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-public class OrderStorage implements Storable{
-    private static final ArrayList<Order> orderList = new ArrayList<Order>();
+public class OrderStorage implements Storable, Serializable {
+    private static final Map<Integer, Order> orderList = new HashMap<>();
 
     public static void addElement(Order[] orders){
-        orderList.addAll(Arrays.asList(orders));
+        for (Order order : orders){
+            orderList.put(order.getOrder_id(), order);
+        }
     }
 
-    public static ArrayList<Order> getItems() {return OrderStorage.orderList;}
+    public static Map<Integer, Order> getItems() {return OrderStorage.orderList;}
 
     int getTotalNumber() {
         return 0;
     }
 
     public static void addElement(Object object) {
-        orderList.add((Order) object);
+        orderList.put(((Order) object).getOrder_id(), (Order) object);
     }
 
-    public static void deleteElement(Object object) {orderList.remove((Order) object);
+    public static void deleteElement(Object object) {orderList.remove(((Order) object).getOrder_id());
     }
 }

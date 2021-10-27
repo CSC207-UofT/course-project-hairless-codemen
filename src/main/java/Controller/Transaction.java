@@ -8,6 +8,7 @@ import src.main.java.Use_cases.UserManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 public class Transaction {
     public static ArrayList<Item> loadItems() {
@@ -22,8 +23,7 @@ public class Transaction {
         double price = CartManager.getPrice(item);
         if (price < money) {
             UserManager.subtractMoney(u, price);
-            ItemManager im = new ItemManager();
-            im.removeElement(item);
+            ItemManager.removeElement(item);
             return true;
         }
         else return false;
@@ -33,7 +33,7 @@ public class Transaction {
         return UserManager.getMoney(UserManager.search(userId));
     }
 
-    public static ArrayList<Item> getItems(){
+    public static Map<String, ArrayList<Item>> getItems(){
         return ItemManager.getItems();
     }
 }

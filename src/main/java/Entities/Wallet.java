@@ -20,6 +20,6 @@ public class Wallet {
     }
 
     public void subtractMoney(double money){
-        this.money -= money;
+        this.money = Math.round((this.money - money) * 100.0)/100.0;
     }
 }

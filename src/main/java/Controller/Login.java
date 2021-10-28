@@ -9,5 +9,7 @@ public class Login {
                 UserManager.createUser(username, password)[2]};
     }
 
-    public static void login(String username, String password){}
+    public static boolean login(String username, String password){
+        return UserManager.login(username, password);
+    }
 }

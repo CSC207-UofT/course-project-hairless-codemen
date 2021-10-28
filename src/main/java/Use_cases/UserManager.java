@@ -9,17 +9,25 @@ public class UserManager implements Manager {
         UserStorage st = new UserStorage();
         int userid = st.getTotalNumber();
         User u = new User(username, userid, password, 100);
-        UserManager um = new UserManager();
-        um.addElement(u);
+        UserManager.addElement(u);
         return new Object[]{u, u.getName(), u.getId()};
     }
 
+    public static boolean login(String username, String password){
+       return UserStorage.getUserList().get(username).getPassword().equals(password);
+    }
+
     public Object search(String username) {
-        return null;
+        return UserStorage.getUserList().get(username);
     }
 
     public static User search(int userId){
-        return UserStorage.getUserList().get(userId);
+        for (String username: UserStorage.getUserList().keySet()){
+            if (UserStorage.getUserList().get(username).getId() == userId){
+                return UserStorage.getUserList().get(username);
+            }
+        }
+        return null;
     }
 
     public static double getMoney(User u){
@@ -33,7 +41,7 @@ public class UserManager implements Manager {
     public void addElement(Object[] users) {
     }
 
-    public void addElement(Object user) {
+    public static void addElement(Object user) {
         UserStorage.addElement(user);
     }
 

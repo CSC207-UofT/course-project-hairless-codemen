@@ -8,7 +8,7 @@ import java.util.Map;
 public class ItemStorage implements Storable, Serializable {
     private static final Map<String, ArrayList<Item>> userList = new HashMap<>();
 
-    public static void addElement(Item[] items){
+    public static void addElement(ArrayList<Item> items){
         for (Item item : items){
             addItem(item);
         }
@@ -41,8 +41,7 @@ public class ItemStorage implements Storable, Serializable {
         if (itemList.size() == 1){
             userList.remove(((Item) object).getItemName());
         }
-        else{
+        else
             itemList.remove((Item) object);
         }
-    }
 }

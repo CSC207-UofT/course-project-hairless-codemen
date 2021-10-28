@@ -5,6 +5,7 @@ import src.main.java.Controller.Login;
 import src.main.java.Controller.Transaction;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CommandReader {
@@ -27,10 +28,12 @@ public class CommandReader {
         return Transaction.buy(items.get(number - 1), userId);
     }
 
-    public static void itemInfo(ArrayList<Item> items){
+    public static void itemInfo(Map<String, ArrayList<Item>> items){
         System.out.println("We have the following items:");
-        for (int i = 0; i < items.size(); i++){
-            System.out.println( (i + 1) + ". " + items.get(i));
+        int i = 0;
+        for (String itemName : items.keySet()){
+            System.out.println( (i + 1) + ". " + itemName);
+            i++;
         }
     }
 
@@ -43,7 +46,7 @@ public class CommandReader {
         System.out.println("Welcome, " + name + "! Your user id on our platform is #" + id);
         System.out.println("Since you are a new user, you have $100 on your account to begin with!");
         ArrayList<Item> items = Transaction.loadItems();
-        itemInfo(items);
+        // itemInfo(items);
         System.out.println(name + ", would you like to buy items from us today? Please enter 'yes' or 'no':");
         String answer = input.nextLine();
 
@@ -58,8 +61,8 @@ public class CommandReader {
                 System.out.println("Sorry, you do not have enough money. You have $" + Transaction.getMoney(id)
                         + " left.");
             }
-            items = Transaction.getItems();
-            itemInfo(items);
+            // items = Transaction.getItems();
+            // itemInfo(items);
             System.out.println(name + ", would you like to buy items from us today? Please enter 'yes' or 'no':");
             answer = input.nextLine();
         }

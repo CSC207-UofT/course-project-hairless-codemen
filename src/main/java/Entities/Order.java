@@ -1,8 +1,9 @@
 package src.main.java.Entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Order {
+public class Order implements Serializable {
     private final int order_id;
     private final ArrayList<Item> items_list;
     private final User buyer;

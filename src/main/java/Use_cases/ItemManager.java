@@ -5,23 +5,53 @@ import src.main.java.Entities.ItemStorage;
 import src.main.java.Entities.User;
 import src.main.java.Use_cases.Manager;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class ItemManager implements Manager {
 
-    public Item search(String name) {
-        return null;
+    public ArrayList<Item> search(String name) {
+        return getItems().get(name);
     }
 
-    public void addElement(Object[] newItems) {
+    public void addElement(Object[] newItems) throws IOException {
         for (Object item : newItems){
-            ItemStorage.addElement(item);
+            addElement(item);
         }
     }
 
-    public static void addElement(Object item){
+    public static void addElement(Object item) throws IOException {
         ItemStorage.addElement(item);
+        addItem((Item) item);
+    }
+
+    public static void addItem(Item i) throws IOException {
+        //  Add a user to User.txt file.
+        File f = new File("src/main/java/Files/Items.txt");
+        FileOutputStream fos = new FileOutputStream(f);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(i);
+    }
+
+    public static void addItems(ArrayList<Item> items) throws IOException {
+        for (Item item : items){
+            addItem(item);
+        }
+    }
+
+    public static void rewrite(Map<String, ArrayList<Item>> items) throws IOException {
+        boolean deleted = new File("src/main/java/Files/Items.txt").delete();
+        if (deleted){
+            File f = new File("src/main/java/Files/Items.txt");
+            for (String itemName: items.keySet()){
+                addItems(items.get(itemName));
+            }
+        }
     }
 
     public static void removeElement(Object[] Items) {
@@ -32,6 +62,8 @@ public class ItemManager implements Manager {
 
     public static void removeElement(Object element){
         ItemStorage.deleteElement(element);
+        Map<String, ArrayList<Item>> m = ItemStorage.getItems();
+
     }
 
     public static Item[] loadItems(User u){

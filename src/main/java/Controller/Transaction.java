@@ -6,12 +6,14 @@ import src.main.java.Use_cases.ItemManager;
 import src.main.java.Use_cases.CartManager;
 import src.main.java.Use_cases.UserManager;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 
 public class Transaction {
-    public static ArrayList<Item> loadItems() {
+    public static ArrayList<Item> loadItems() throws IOException {
         User u = (User) UserManager.createUser("User1", "1234")[0];
         Item[] itemLst = ItemManager.loadItems(u);
         return new ArrayList<>(Arrays.asList(itemLst));
@@ -30,7 +32,7 @@ public class Transaction {
     }
 
     public static double getMoney(int userId){
-        return UserManager.getMoney(UserManager.search(userId));
+        return UserManager.getMoney(Objects.requireNonNull(UserManager.search(userId)));
     }
 
     public static Map<String, ArrayList<Item>> getItems(){

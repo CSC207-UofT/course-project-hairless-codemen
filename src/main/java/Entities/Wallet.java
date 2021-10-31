@@ -1,6 +1,8 @@
 package src.main.java.Entities;
 
-public class Wallet {
+import java.io.Serializable;
+
+public class Wallet implements Serializable {
     private double money;
 
     public Wallet(double money){

@@ -27,4 +27,8 @@ public class OrderStorage implements Storable, Serializable {
 
     public static void deleteElement(Object object) {orderList.remove(((Order) object).getOrder_id());
     }
+
+    public static int get_size(){
+        return orderList.size();
+    }
 }

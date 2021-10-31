@@ -3,11 +3,13 @@ package src.main.java.Use_cases;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.Order;
 import src.main.java.Entities.OrderStorage;
+import src.main.java.Entities.User;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class OrderManager implements Manager{
     public static Object search(int order_id){return OrderStorage.getItems().get(order_id);}
@@ -29,6 +31,19 @@ public class OrderManager implements Manager{
     public static void addElement(Object element) throws IOException {
         OrderStorage.addElement(element);
         addOrder((Order) element);
+    }
+
+    public static int total_number_order(){
+        return OrderStorage.get_size();
+    }
+
+
+    public static Order create_order(ArrayList<Item> items_list, User buyer, User seller){
+        int total_price = 0;
+        for (Item items: items_list){
+            total_price += items.getItemPrice();
+        }
+        return new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
     }
 
     public static void removeElement(Object[] elements){}

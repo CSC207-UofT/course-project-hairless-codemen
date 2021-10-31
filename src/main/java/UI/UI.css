@@ -2,8 +2,8 @@ body{
     text-align: center;
     font-size: 15px;
     font-family: Didot, serif;
-
-    background-color: cornflowerblue;
+    background-image: url("background pic.jpg");
+    background-size: cover;
 }
 h1{
     font-size: 3rem;

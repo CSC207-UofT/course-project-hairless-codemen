@@ -49,6 +49,7 @@ class TransactionTest {
         buyman.getCart().addItem(item2);
         assertTrue(Transaction.buy_item(lst, buyman, sellman));
         assertEquals(buyman.getWallet().getMoney(), 9899.99);
+        assertEquals(sellman.getWallet().getMoney(), 100);
     }
 
 }

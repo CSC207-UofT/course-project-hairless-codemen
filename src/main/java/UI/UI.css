@@ -4,7 +4,9 @@ body{
     font-family: Didot, serif;
     background-image: url("background pic.jpg");
     background-size: cover;
-    background-position: center center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 h1{
     font-size: 3rem;

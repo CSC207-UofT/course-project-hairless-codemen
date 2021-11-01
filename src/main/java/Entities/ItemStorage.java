@@ -16,6 +16,15 @@ public class ItemStorage implements Storable, Serializable {
     public static Map<String, ArrayList<Item>> getItemsList() { return ItemStorage.userList;}
 
     /**
+     * Get the current size of item storage.
+     *
+     * @return how many item(s) in the storage.
+     */
+    int getTotalNumber() {
+        return userList.size();
+    }
+
+    /**
      * Add an item to the item storage. If the item's name already exist in the hashmap, we can simply add the item;
      * If not, we create a new array list that contains the Item and add to hashmap with name of the Item as the key.
      *
@@ -90,10 +99,4 @@ public class ItemStorage implements Storable, Serializable {
             deleteItem(item);
         }
     }
-
-
-    int getTotalNumber() {
-        return 0;
-    }
-
 }

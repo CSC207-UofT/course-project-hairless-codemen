@@ -21,7 +21,7 @@ public class Cart {
         return this.items;
     }
 
-    public void addItems(Item[] item) {
+    public void addItem(Item[] item) {
 
         items.addAll(Arrays.asList(item));
     }

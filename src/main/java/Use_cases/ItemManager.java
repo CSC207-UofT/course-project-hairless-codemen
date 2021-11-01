@@ -20,7 +20,7 @@ public class ItemManager implements Manager {
         return null;
     }
 
-    public void addElements(Object[] newItems) {
+    public void addElement(Object[] newItems) {
         for (Object item : newItems){
             ItemStorage.addElement(item);
         }
@@ -37,6 +37,7 @@ public class ItemManager implements Manager {
     }
 
     public static void removeElement(Object element){
+
         ItemStorage.deleteElement(element);
     }
 

@@ -26,58 +26,71 @@ public class Item implements Serializable {
         this.quantity = 1;
         this.category = category;
     }
-    /**
-     * Get the selling Item's name
-     * Return type string
-     */
-    public String getItemName(){
-        return this.name;
-    }
 
+    /**
+     * Get the selling Item's name.
+     * @return item's name.
+     */
+    public String getItemName(){ return this.name;}
+
+    /**
+     * Get the selling Item owner's name.
+     * @return owner's name.
+     */
     public User getOwner(){ return this.owner;}
 
     /**
-     * Get the price for the selling Item
-     * Return a double type representing the price
+     * Get the price for the selling Item.
+     * @return the item's selling price.
      */
     public double getItemPrice(){
         return this.price;
     }
 
+    /**
+     * Get the category for the selling Item.
+     * @return the category type for the selling Item.
+     */
     public String getCategory(){
         return this.category;
     }
 
     /**
-     * Get how many stocks are left for the selling Item
-     * Return an int type
+     * Get how many item(s) left in stock for the selling Item.
+     * @return the quantity left.
      */
     public int getQuantity(){
         return this.quantity;
     }
+
     /**
-     * Change the Item's name
-     * Return nothing
+     * Change the Item's name.
+     * @param new_name The new name we want to use.
      */
     public void changeItemName(String new_name){
         this.name = new_name;
     }
+
     /**
-     * Change the price of the Item
-     * Return nothing
+     * Change the price of the Item.
+     * @param new_price The new price we want to set.
      */
     public void changeItemPrice(double new_price){
         this.price = new_price;
     }
 
     /**
-     * To increase/subtract the quantity of the Item
-     * Return nothing
+     * Increase the quantity of the Item's stock.
+     * @param new_quantity The quantity we want to increase by.
      */
     public void addQuantity(int new_quantity){
         this.quantity = this.quantity + new_quantity;
     }
 
+    /**
+     * Subtract the quantity of the Item's stock.
+     * @param new_quantity The quantity we want to decrease by.
+     */
     public void subtractQuantity(int new_quantity){
         this.quantity = this.quantity - new_quantity;
     }

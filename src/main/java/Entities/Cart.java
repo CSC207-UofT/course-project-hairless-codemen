@@ -1,10 +1,9 @@
 package src.main.java.Entities;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Cart implements Serializable {
+public class Cart {
     private final ArrayList<Item> items;
 
     public Cart(ArrayList<Item> items){

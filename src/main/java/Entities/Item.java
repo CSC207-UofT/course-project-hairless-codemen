@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 public class Item implements Serializable {
 
+
     private String name;
     private final User owner;
     private double price;

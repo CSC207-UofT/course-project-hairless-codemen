@@ -3,6 +3,7 @@ package src.main.java.Entities;
 
 public class Item {
 
+
     private String name;
     private final User owner;
     private double price;

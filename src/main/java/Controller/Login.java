@@ -14,4 +14,6 @@ public class Login {
     public static boolean login(String username, String password){
         return UserManager.login(username, password);
     }
+
+    public static void logout(){};
 }

@@ -26,6 +26,7 @@ public class Item implements Serializable {
         this.quantity = 1;
         this.category = category;
     }
+
     /**
      * Get the selling Item's name.
      * @return the Item's name.
@@ -65,27 +66,31 @@ public class Item implements Serializable {
 
     /**
      * Change the Item's name.
+     * @param new_name The new name we want to use.
      */
     public void changeItemName(String new_name){
         this.name = new_name;
     }
 
     /**
-     * Change the Item's price.
+     * Change the price of the Item.
+     * @param new_price The new price we want to set.
      */
     public void changeItemPrice(double new_price){
         this.price = new_price;
     }
 
     /**
-     * Increase the quantity of the Item in stock.
+     * Increase the quantity of the Item's stock.
+     * @param new_quantity The quantity we want to increase by.
      */
     public void addQuantity(int new_quantity){
         this.quantity = this.quantity + new_quantity;
     }
 
     /**
-     * Decrease the quantity of the Item in stock.
+     * Subtract the quantity of the Item's stock.
+     * @param new_quantity The quantity we want to decrease by.
      */
     public void subtractQuantity(int new_quantity){
         this.quantity = this.quantity - new_quantity;

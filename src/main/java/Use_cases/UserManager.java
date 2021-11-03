@@ -28,9 +28,7 @@ public class UserManager implements Manager {
        return UserStorage.getUserList().get(username).getPassword().equals(password);
     }
 
-    public Object search(String username) {
-        return UserStorage.getUserList().get(username);
-    }
+    public Object search(String username) {return UserStorage.getUserList().get(username);}
 
     public static User search(int userId){
         for (String username: UserStorage.getUserList().keySet()){

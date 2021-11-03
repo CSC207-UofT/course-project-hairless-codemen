@@ -10,22 +10,19 @@ public class Item implements Serializable {
     private double price;
     private int quantity;
     private final String category;
-    private final double id;
 
-    public Item(String name, User owner, double price, int quantity, String category, double id){
+    public Item(String name, User owner, double price, int quantity, String category){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.owner = owner;
         this.category = category;
-        this.id = id;
     }
 
-    public Item(String name, User owner, double price, String category, double id){
+    public Item(String name, User owner, double price, String category){
         this.name = name;
         this.price = price;
         this.owner = owner;
-        this.id = id;
         this.quantity = 1;
         this.category = category;
     }
@@ -41,11 +38,6 @@ public class Item implements Serializable {
      */
     public User getOwner(){return this.owner;}
 
-    /**
-     * Get the selling Item's ID.
-     * @return the Item ID.
-     */
-    public double getId() {return this.id;}
 
     /**
      * Get the price for the selling Item.
@@ -101,6 +93,6 @@ public class Item implements Serializable {
 
     @Override
     public String toString(){
-        return name + ": " + id + ": " + "Category " + category + ", quantity " + quantity + ", with price $" + price;
+        return name + ": "  + "Category " + category + ", quantity " + quantity + ", with price $" + price;
     }
 }

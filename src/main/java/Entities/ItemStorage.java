@@ -13,7 +13,9 @@ public class ItemStorage implements Storable, Serializable {
      *
      * @return The hashmap of item storage.
      */
-    public static Map<String, ArrayList<Item>> getItems() { return ItemStorage.userList;}
+    public static Map<String, ArrayList<Item>> getItems() {
+        return ItemStorage.userList;
+    }
 
     /**
      * Get the current size of item storage.

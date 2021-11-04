@@ -1,0 +1,38 @@
+body{
+    text-align: center;
+    font-size: 15px;
+    font-family: Didot, serif;
+    background-image: url("background pic.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+h1{
+    font-size: 3rem;
+    color: black;
+}
+
+i{
+    font-family: "Times New Roman", Serif, serif;
+    font-size: xxx-large;
+    color: black;
+}
+form{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: x-large;
+}
+
+form input{
+    border-radius: 20px;
+    text-align: center;
+}
+button{
+    font-size: x-large;
+    padding: 10px;
+    border: 0.3rem solid black;
+    font-weight: bold;
+}
+button:active{
+    background-color: aliceblue;
+}

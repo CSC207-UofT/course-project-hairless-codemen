@@ -1,11 +1,21 @@
 package src.main.java.Use_cases;
 
+import com.sun.corba.se.impl.presentation.rmi.DynamicMethodMarshallerImpl;
 import src.main.java.Entities.User;
 import src.main.java.Entities.UserStorage;
-
 import java.io.*;
+import src.main.java.Use_cases.UserReadWriter;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Map;
 
-public class UserManager implements Manager {
+public class UserManager implements Manager, Serializable {
+    public static Map<String,User> userlist;
+
+    public UserManager(Map<String,User> userList){
+        userlist = userList;
+    }
+
 
     public static Object[] createUser(String username, String password) throws IOException {
         int userid = UserStorage.getTotalNumber();
@@ -16,13 +26,22 @@ public class UserManager implements Manager {
         return new Object[]{u, u.getName(), u.getId()};
     }
 
-    public static void addUser(User u) throws IOException {
+
+
+    /*public static void addUser(User u) throws IOException {
         //  Add a user to User.txt file.
         File f = new File("src/main/java/Files/Users.txt");
         FileOutputStream fos = new FileOutputStream(f);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(u);
+        output.writeObject(users);
+        output.close();
+        oos.close();
+        fos.close();
     }
+    /*
+     */
+
+
 
     public static boolean login(String username, String password){
        return UserStorage.getUserList().get(username).getPassword().equals(password);
@@ -64,7 +83,6 @@ public class UserManager implements Manager {
 
     public static void addElement(Object user) throws IOException {
         UserStorage.addElement(user);
-        addUser((User) user);
     }
 
     public void removeElement(Object[] elements) {

@@ -43,6 +43,7 @@ public class Cart implements Serializable {
         items.addAll(Arrays.asList(item));
     }
 
+
     /**
      * add single item to the cart
      * @param item single item will be added into cart
@@ -52,11 +53,7 @@ public class Cart implements Serializable {
         items.add(item);
     }
 
-    /**
-     * remove items from the cart
-     * @param item list of items will be removed from the cart one by one
-     */
-    public void removeItem(Item[] item){
+    public void removeItem(ArrayList<Item> item){
         for (Item i : item){
             items.remove(i);
         }

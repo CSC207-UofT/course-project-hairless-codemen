@@ -3,16 +3,18 @@ package src.main.java.Use_cases;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.Order;
 import src.main.java.Entities.OrderStorage;
+import src.main.java.Entities.User;
 
-import java.io.*;
-import java.lang.reflect.Array;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class OrderManager implements Manager{
     public static Object search(int order_id){return OrderStorage.getItems().get(order_id);}
 
-    public static void addElement(ArrayList<Object> elements) throws IOException {
+    public static void addElement(Object[] elements) throws IOException {
         for (Object element: elements){
             addElement(element);
         }
@@ -31,41 +33,20 @@ public class OrderManager implements Manager{
         addOrder((Order) element);
     }
 
+    public static int total_number_order(){
+        return OrderStorage.get_size();
+    }
 
-    public static void rewrite(Map<Integer, Order> orders) throws IOException {
-        boolean deleted = new File("src/main/java/Files/Orders.txt").delete();
-        if (deleted){
-            for (Integer order_id: orders.keySet()){
-                addOrder(orders.get(order_id));
-            }
+
+    public static Order create_order(ArrayList<Item> items_list, User buyer, User seller){
+        int total_price = 0;
+        for (Item items: items_list){
+            total_price += items.getItemPrice();
         }
+        return new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
     }
 
-    public static void removeElement(Object[] elements) throws IOException {
-        for (Object element : elements){
-            removeElement(element);
-        }
-    }
+    public static void removeElement(Object[] elements){}
 
-    public static void removeElement(Object element) throws IOException {
-        OrderStorage.deleteElement(element);
-        Map<Integer, Order> orders = OrderStorage.getItems();
-        rewrite(orders);
-    }
-
-    public static ArrayList<Order> loadOrders(File f) throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        ArrayList<Order> orders = new ArrayList<>();
-
-        try {
-            for (;;) {
-                orders.add((Order) ois.readObject());
-            }
-        } catch (EOFException e) {
-            // End of stream
-        }
-
-        return orders;
-    }
+    public static void removeElement(Object element){}
 }

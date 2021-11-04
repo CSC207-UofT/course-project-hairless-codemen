@@ -19,7 +19,16 @@ public class ItemManager implements Manager {
         return getItems().get(name);
     }
 
-    public static void addElement(ArrayList<Object> newItems) throws IOException {
+    public static double get_all_price(ArrayList<Item> items){
+        double i = 0;
+        for (Item item: items){
+            i += item.getItemPrice();
+        }
+        return i;
+    }
+
+
+    public void addElement(Object[] newItems) throws IOException {
         for (Object item : newItems){
             addElement(item);
         }
@@ -47,22 +56,23 @@ public class ItemManager implements Manager {
     public static void rewrite(Map<String, ArrayList<Item>> items) throws IOException {
         boolean deleted = new File("src/main/java/Files/Items.txt").delete();
         if (deleted){
+            File f = new File("src/main/java/Files/Items.txt");
             for (String itemName: items.keySet()){
                 addItems(items.get(itemName));
             }
         }
     }
 
-    public static void removeElement(Object[] Items) throws IOException {
+    public static void removeElement(Object[] Items) {
         for (Object item : Items){
-            removeElement(item);
+            ItemStorage.deleteElement(item);
         }
     }
 
-    public static void removeElement(Object element) throws IOException {
+    public static void removeElement(Object element){
         ItemStorage.deleteElement(element);
         Map<String, ArrayList<Item>> m = ItemStorage.getItems();
-        rewrite(m);
+
     }
 
     public static Item[] loadItems(User u){
@@ -80,3 +90,4 @@ public class ItemManager implements Manager {
         return ItemStorage.getItems();
     }
 }
+

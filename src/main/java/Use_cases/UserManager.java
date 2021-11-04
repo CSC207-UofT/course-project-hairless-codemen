@@ -60,6 +60,10 @@ public class UserManager implements Manager, Serializable {
         return null;
     }
 
+    public static int get_UserId(User u){
+        return u.getId();
+    }
+
     public static double getMoney(User u){
         return u.getWallet().getMoney();
     }
@@ -67,6 +71,9 @@ public class UserManager implements Manager, Serializable {
     public static void subtractMoney(User u, double money){
         u.getWallet().subtractMoney(money);
     }
+
+    public static void loadmoney(User u, double money){u.getWallet().loadMoney(money);}
+
 
     public void addElement(Object[] users) throws IOException {
         for (Object user: users){

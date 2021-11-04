@@ -20,9 +20,9 @@ public class OrderTest {
 
     @BeforeEach
     void setup() {
-        buyer = new User("Ricardo", 7777, "4396yyds", 999999);
-        seller = new User("April", 671, "1234569", 0);
-        item1 = new Item("STA257 Help", seller, 999999, "Study", id);
+        buyer = new User("Ricardo", "4396yyds", 999999);
+        seller = new User("April", "1234569", 0);
+        item1 = new Item("STA257 Help", seller, 999999, "Study");
         lst = new ArrayList<>();
         lst.add(item1);
         BigOrder = new Order(666, lst, buyer, seller, 999999);

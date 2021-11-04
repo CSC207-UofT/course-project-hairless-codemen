@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     private String name;
-    private final int id;
     private String password;
     private final Wallet wallet;
     private final Cart cart;
@@ -13,13 +12,11 @@ public class User implements Serializable {
     /**
      * First constructor for User class
      * @param name name of the User account
-     * @param id id of the User account
      * @param password password of the User account
      */
-    public User(String name, int id, String password){
+    public User(String name, String password){
         this.name = name;
         this.wallet = new Wallet();
-        this.id = id;
         this.password = password;
         this.cart = new Cart();
     }
@@ -27,14 +24,12 @@ public class User implements Serializable {
     /**
      * Create another constructor for invited customers, they have some money after they create account.
      * @param name name of the User account
-     * @param id id of the User account
      * @param password password of the User account
      * @param daddymoney The reward money be added to invited customers' account
      */
-    public User(String name, int id, String password, double daddymoney){
+    public User(String name, String password, double daddymoney){
         this.name = name;
         this.wallet = new Wallet(daddymoney);
-        this.id = id;
         this.password = password;
         this.cart = new Cart();
     }
@@ -78,10 +73,6 @@ public class User implements Serializable {
 
     public Cart getCart(){
         return this.cart;
-    }
-
-    public int getId(){
-        return this.id;
     }
 
     public String getPassword(){

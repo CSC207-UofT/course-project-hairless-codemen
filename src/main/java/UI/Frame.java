@@ -46,11 +46,16 @@ public class Frame extends JFrame{
                 String id = userid.getText();
                 String password = passwordInput.getText();
                 try {
-                    Login.signup(id, password);
+                    if (Login.signup(id, password)){
+                        JOptionPane.showMessageDialog(null, "success!!");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Username has been used, pls change " +
+                                "another username.");
+                    }
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-                JOptionPane.showMessageDialog(null, "success!!");
 
 
             }

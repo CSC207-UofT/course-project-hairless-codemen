@@ -9,14 +9,11 @@ public class UserTest {
 
     @BeforeEach
     void setup(){
-        a=new User("Crystal", -1, "Qx951225");
+        a=new User("Crystal", "Qx951225");
     }
 
     @Test
     public void TestUsername(){assertEquals("Crystal",a.getName());}
-
-    @Test
-    public void TestUserId(){assertEquals(-1, a.getId());}
 
     @Test
     public void TestUserPassword(){assertEquals("Qx951225", a.getPassword());}

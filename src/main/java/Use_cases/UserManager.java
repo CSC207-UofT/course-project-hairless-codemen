@@ -1,6 +1,5 @@
 package src.main.java.Use_cases;
 
-import com.sun.corba.se.impl.presentation.rmi.DynamicMethodMarshallerImpl;
 import src.main.java.Entities.User;
 import src.main.java.Entities.UserStorage;
 import java.io.*;
@@ -17,13 +16,15 @@ public class UserManager implements Manager, Serializable {
     }
 
 
-    public static Object[] createUser(String username, String password) throws IOException {
-        int userid = UserStorage.getTotalNumber();
+    public static boolean createUser(String username, String password) throws IOException {
 //        User now has 100$ to begin with. Needs to be changed.
-        User u = new User(username, userid, password, 100);
+        if (UserStorage.getUserList().containsKey(username)){
+            return false;
+        }
+        User u = new User(username, password, 100);
         addElement(u);
 //        Return the information of this user, this user's username, and this user's id.
-        return new Object[]{u, u.getName(), u.getId()};
+        return true;
     }
 
 
@@ -47,22 +48,10 @@ public class UserManager implements Manager, Serializable {
        return UserStorage.getUserList().get(username).getPassword().equals(password);
     }
 
-    public Object search(String username) {
+    public static User search(String username) {
         return UserStorage.getUserList().get(username);
     }
 
-    public static User search(int userId){
-        for (String username: UserStorage.getUserList().keySet()){
-            if (UserStorage.getUserList().get(username).getId() == userId){
-                return UserStorage.getUserList().get(username);
-            }
-        }
-        return null;
-    }
-
-    public static int get_UserId(User u){
-        return u.getId();
-    }
 
     public static double getMoney(User u){
         return u.getWallet().getMoney();

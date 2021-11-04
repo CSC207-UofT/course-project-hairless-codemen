@@ -18,7 +18,7 @@ public class CartTest {
     @BeforeEach
     void setup() {
         c = new Cart(lst);
-        u = new User("JoJo", 3333, "1234", 9999.99);
+        u = new User("JoJo", "1234", 9999.99);
         item1 = new Item("Hina", u, 999999.99, "Pets");
     }
 

@@ -29,7 +29,9 @@ public class Home extends JFrame{
 
     public Home(String username, Login system){
         this.username = username;
-        this.userid =
+        /*this.userid =
+
+         */
 
 
     }

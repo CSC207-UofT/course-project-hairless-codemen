@@ -19,6 +19,15 @@ public class ItemManager implements Manager {
         return getItems().get(name);
     }
 
+    public static double get_all_price(ArrayList<Item> items){
+        double i = 0;
+        for (Item item: items){
+            i += item.getItemPrice();
+        }
+        return i;
+    }
+
+
     public void addElement(Object[] newItems) throws IOException {
         for (Object item : newItems){
             addElement(item);
@@ -86,3 +95,4 @@ public class ItemManager implements Manager {
     }
 
 }
+

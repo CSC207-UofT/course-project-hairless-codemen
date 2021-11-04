@@ -35,8 +35,8 @@ class TransactionTest {
     @BeforeEach
     void setup() {
         c = new Cart(lst);
-        buyman = new User("happybuy", 3333, "1234", 9999.99);
-        sellman = new User("happysell", 4444, "2345");
+        buyman = new User("happybuy", "1234", 9999.99);
+        sellman = new User("happysell", "2345");
         item1 = new Item("Banana", sellman, 40, "Fruit");
         item2 = new Item("Apple", sellman, 60, "Fruit");
     }

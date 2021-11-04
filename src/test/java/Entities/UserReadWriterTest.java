@@ -11,9 +11,9 @@ public class UserReadWriterTest {
 
     @Test
     public void TestSave() throws IOException {
-        User u1 = new User("A", 2, "1234");
-        User u2 = new User ("B", 3, "2345");
-        User u3 = new User("C", 4, "6666");
+        User u1 = new User("A", "1234");
+        User u2 = new User ("B", "2345");
+        User u3 = new User("C", "6666");
         UserStorage.addElement(u1);
         UserStorage.addElement(u2);
         UserStorage.addElement(u3);

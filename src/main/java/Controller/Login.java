@@ -11,9 +11,8 @@ import src.main.java.Use_cases.UserReadWriter;
 public class Login {
 
 
-    public static Object[] signup(String username, String password) throws IOException {
-        return new Object[]{UserManager.createUser(username, password)[1],
-                UserManager.createUser(username, password)[2]};
+    public static boolean signup(String username, String password) throws IOException {
+        return UserManager.createUser(username, password);
     }
 
     public boolean login(String username, String password)throws IOException, ClassNotFoundException {

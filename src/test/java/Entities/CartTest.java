@@ -19,7 +19,7 @@ public class CartTest {
     void setup() {
         c = new Cart(lst);
         u = new User("JoJo", 3333, "1234", 9999.99);
-        item1 = new Item("Hina", u, 999999.99, "Pets", id);
+        item1 = new Item("Hina", u, 999999.99, "Pets");
     }
 
     @Test
@@ -29,5 +29,6 @@ public class CartTest {
         lst1.add(item1);
         assertEquals(lst1, c.getItems());
     }
+
 
 }

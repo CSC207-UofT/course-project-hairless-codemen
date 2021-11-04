@@ -33,4 +33,6 @@ public class Order implements Serializable {
         return "Order #" + order_id + ": \n" + "Buyer: " + buyer.toString() + "\n Seller: " + owner.toString() +
                 "\n Contains the following items:" + items + "\n Total: " + total;
     }
+
+    public User getOwner(){return owner;}
 }

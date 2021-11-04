@@ -5,8 +5,6 @@ import src.main.java.Use_cases.UserManager;
 import src.main.java.Use_cases.UserReadWriter;
 
 import java.io.IOException;
-import java.util.Map;
-import src.main.java.Use_cases.UserReadWriter;
 
 public class Login {
 
@@ -20,7 +18,15 @@ public class Login {
         return UserManager.login(username, password);
     }
 
-    public void logout() throws IOException {
+    public static void logout() throws IOException {
         UserReadWriter.SaveIntoFile(UserStorage.getUserList());
     }
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Login.signup("6", "6666");
+        System.out.println(Login.login("6", "6666"));
+        Login.logout();
+        System.out.println(Login.login("6", "6666"));
+    }
 }
+

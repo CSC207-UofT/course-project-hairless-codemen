@@ -1,8 +1,11 @@
 package src.main.java.Use_cases;
 
 import src.main.java.Entities.User;
+import src.main.java.Entities.UserStorage;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class UserReadWriter implements Serializable {
@@ -13,7 +16,6 @@ public class UserReadWriter implements Serializable {
                 FileOutputStream fos = new FileOutputStream(f);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 oos.writeObject(users);
-
                 oos.close();
                 fos.close();
                 System.out.println("Serialization success");
@@ -23,12 +25,13 @@ public class UserReadWriter implements Serializable {
     public static void readFromFile() throws IOException, ClassNotFoundException {
                 InputStream fis = new FileInputStream("UserData.ser");
                 ObjectInput input = new ObjectInputStream(fis);
-                Map<String,User> users = (Map<String, User>) input.readObject();
                 /*
                 如何把这个hashmap搞到storage里面去
                  */
-                UserManager.userlist=users;
+                Map<String, User> m = (Map<String, User>) input.readObject();
+                UserStorage.addElement(m);
                 input.close();
+                fis.close();
                 System.out.println("Read success" );
     }
 

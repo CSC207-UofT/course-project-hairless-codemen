@@ -26,7 +26,6 @@ public class UserReadWriterTest {
         UserReadWriter.readFromFile();
         System.out.println(UserStorage.getUserList());
         }
-
     }
 
 

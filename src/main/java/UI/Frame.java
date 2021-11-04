@@ -68,7 +68,7 @@ public class Frame extends JFrame{
                 String password = passwordInput.getText();
                 boolean res = false;
                 try {
-                    res = system.login(id, password);
+                    res = Login.login(id, password);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } catch (ClassNotFoundException ex) {

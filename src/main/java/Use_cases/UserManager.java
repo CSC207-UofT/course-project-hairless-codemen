@@ -84,6 +84,4 @@ public class UserManager implements Manager, Serializable {
         UserStorage.deleteElement(element);
     }
 
-
-
 }

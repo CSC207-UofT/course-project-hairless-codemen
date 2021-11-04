@@ -37,6 +37,17 @@ public class OrderManager implements Manager{
         return OrderStorage.get_size();
     }
 
+    public static ArrayList<Order> getOrders(User u){
+        ArrayList<Order> o1 = new ArrayList<>(OrderStorage.getItems().values());
+        ArrayList<Order> o2 = new ArrayList<>();
+        for (Order o: o1){
+            if (o.getOwner().getName().equals(u.getName())){
+                o2.add(o);
+            }
+        }
+        return o2;
+    }
+
 
     public static Order create_order(ArrayList<Item> items_list, User buyer, User seller){
         int total_price = 0;

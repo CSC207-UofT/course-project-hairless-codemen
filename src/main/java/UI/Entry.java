@@ -17,7 +17,7 @@ public class Entry {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 try {
-                    login.logout();
+                    Login.logout();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

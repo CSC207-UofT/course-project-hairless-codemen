@@ -44,35 +44,36 @@ public class Item implements Serializable {
 
     /**
      * Get the selling Item's name.
-     * @return item's name.
+     * @return the Item's name.
      */
-    public String getItemName(){ return this.name;}
+    public String getItemName(){return this.name;}
 
     /**
-     * Get the selling Item owner's name.
-     * @return owner's name.
+     * Get the item's owner.
+     * @return the item owner.
      */
-    public User getOwner(){ return this.owner;}
+    public User getOwner(){return this.owner;}
+
 
     /**
      * Get the price for the selling Item.
-     * @return the item's selling price.
+     * @return a double type representing the price.
      */
     public double getItemPrice(){
         return this.price;
     }
 
     /**
-     * Get the category for the selling Item.
-     * @return the category type for the selling Item.
+     * Get the category of the selling Item.
+     * @return item's category.
      */
     public String getCategory(){
         return this.category;
     }
 
     /**
-     * Get how many item(s) left in stock for the selling Item.
-     * @return the quantity left.
+     * Get how many item(s) are left in stock.
+     * @return the number of item(s) left in stock.
      */
     public int getQuantity(){
         return this.quantity;
@@ -112,6 +113,6 @@ public class Item implements Serializable {
 
     @Override
     public String toString(){
-        return name + ": " + "Category " + category + ", quantity " + quantity + ", with price $" + price;
+        return name + ": "  + "Category " + category + ", quantity " + quantity + ", with price $" + price;
     }
 }

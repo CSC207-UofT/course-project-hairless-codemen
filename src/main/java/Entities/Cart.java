@@ -26,12 +26,16 @@ public class Cart {
         items.addAll(Arrays.asList(item));
     }
 
+    public void addItems(ArrayList<Item> item) {
+        items.addAll(item);
+    }
+
     public void addItem(Item item){
 
         items.add(item);
     }
 
-    public void removeItem(Item[] item){
+    public void removeItem(ArrayList<Item> item){
         for (Item i : item){
             items.remove(i);
         }

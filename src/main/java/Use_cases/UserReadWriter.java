@@ -12,8 +12,7 @@ public class UserReadWriter implements Serializable {
 
 
     public static void SaveIntoFile(Map<String, User> users) throws IOException {
-                File f = new File("UserData.ser");
-                FileOutputStream fos = new FileOutputStream(f);
+                FileOutputStream fos = new FileOutputStream("UserData.ser");
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 oos.writeObject(users);
                 oos.close();

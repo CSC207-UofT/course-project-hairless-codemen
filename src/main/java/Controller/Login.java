@@ -14,7 +14,7 @@ public class Login {
     }
 
     public static boolean login(String username, String password)throws IOException, ClassNotFoundException {
-        UserReadWriter.readFromFile();
+        UserReadWriter.SaveIntoFile(UserStorage.getUserList());
         return UserManager.login(username, password);
     }
 

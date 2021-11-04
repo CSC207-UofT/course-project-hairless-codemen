@@ -53,6 +53,10 @@ public class Cart implements Serializable {
         items.add(item);
     }
 
+    /**
+     *Remove item from
+     * @param item
+     */
     public void removeItem(ArrayList<Item> item){
         for (Item i : item){
             items.remove(i);

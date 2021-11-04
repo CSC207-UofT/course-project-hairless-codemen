@@ -38,4 +38,14 @@ public class Transaction {
     public static Map<String, ArrayList<Item>> getItems(){
         return ItemManager.getItems();
     }
+
+    public void sell(Item item) throws IOException {
+        ItemManager.addItem(item);
+    }
+
+    public void sell(ArrayList<Item> i) throws IOException {
+        ItemManager.addItems(i);
+    }
+
+
 }

@@ -80,4 +80,9 @@ public class ItemManager implements Manager {
     public static Map<String, ArrayList<Item>> getItems(){
         return ItemStorage.getItems();
     }
+
+    public static User getSeller(Item i){
+        return i.getOwner();
+    }
+
 }

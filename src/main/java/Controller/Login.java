@@ -17,7 +17,7 @@ public class Login {
     }
 
     public boolean login(String username, String password)throws IOException, ClassNotFoundException {
-        UserReadWriter.readFromFile();
+        //UserReadWriter.readFromFile();
         return UserManager.login(username, password);
     }
 

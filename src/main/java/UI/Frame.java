@@ -61,7 +61,14 @@ public class Frame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String id = userid.getText();
                 String password = passwordInput.getText();
-                boolean res = Login.login(id, password);
+                boolean res = false;
+                try {
+                    res = system.login(id, password);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
                 if(!res)
                     JOptionPane.showMessageDialog(null, "Invalid user or wrong password.");
                 else{

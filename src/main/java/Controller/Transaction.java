@@ -19,7 +19,7 @@ public class Transaction {
         return new ArrayList<>(Arrays.asList(itemLst));
     }
 
-    public static boolean buy(Item item, int userId){
+    public static boolean buy(Item item, int userId) throws IOException {
         User u = UserManager.search(userId);
         double money = UserManager.getMoney(u);
         double price = CartManager.getPrice(item);

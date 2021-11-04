@@ -9,9 +9,9 @@ import java.util.Map;
 public class OrderStorage implements Storable, Serializable {
     private static final Map<Integer, Order> orderList = new HashMap<>();
 
-    public static void addElement(ArrayList<Order> orders){
-        for (Order order : orders){
-            orderList.put(order.getOrder_id(), order);
+    public static void addElement(ArrayList<Object> orders){
+        for (Object order : orders){
+            addElement(order);
         }
     }
 

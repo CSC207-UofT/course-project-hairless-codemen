@@ -21,7 +21,7 @@ public class CommandReader {
         return Login.signup(username, password);
     }
 
-    public static boolean buy(ArrayList<Item> items, int userId) {
+    public static boolean buy(ArrayList<Item> items, int userId) throws IOException {
         Scanner in2 = new Scanner(System.in);
         System.out.println("Which item would you like to buy? Please input a number from 1 to " +
                 (items.size()) + ": ");

@@ -68,7 +68,7 @@ public class UserManager implements Manager, Serializable {
         u.getWallet().subtractMoney(money);
     }
 
-    public void addElement(Object[] users) throws IOException {
+    public static void addElement(ArrayList<Object> users) throws IOException {
         for (Object user: users){
             addElement(user);
         }
@@ -78,14 +78,25 @@ public class UserManager implements Manager, Serializable {
         UserStorage.addElement(user);
     }
 
-    public void removeElement(Object[] elements) {
+    public static void rewrite(Map<String, User> users) throws IOException{
+        boolean deleted = new File("src/main/java/Files/Users.txt").delete();
+        if (deleted){
+            for (String username: users.keySet()){
+                addUser(users.get(username));
+            }
+        }
+    }
+
+    public void removeElement(Object[] elements) throws IOException {
         for (Object element: elements){
             removeElement(element);
         }
     }
 
-    public void removeElement(Object element) {
+    public void removeElement(Object element) throws IOException {
         UserStorage.deleteElement(element);
+        Map<String, User> users = UserStorage.getUserList();
+        rewrite(users);
     }
 
 

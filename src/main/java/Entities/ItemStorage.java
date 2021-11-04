@@ -76,7 +76,7 @@ public class ItemStorage implements Storable, Serializable {
      */
     public static void addElement(ArrayList<Item> items){
         for (Item item : items){
-            addItem(item);
+            addElement(item);
         }
     }
 

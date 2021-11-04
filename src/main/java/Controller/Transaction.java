@@ -19,8 +19,9 @@ public class Transaction {
         return new ArrayList<>(Arrays.asList(itemLst));
     }
 
-    public static boolean buy(Item item){
-        User u = ItemManager.getSeller(item);
+    public static boolean buy(Item item, int userId){
+        User u = UserManager.search(userId);
+        assert u != null;
         double money = UserManager.getMoney(u);
         double price = CartManager.getPrice(item);
         if (price < money) {

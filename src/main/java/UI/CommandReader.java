@@ -21,13 +21,13 @@ public class CommandReader {
         return Login.signup(username, password);
     }
 
-    public static boolean buy(ArrayList<Item> items) {
+    public static boolean buy(ArrayList<Item> items, int userId) {
         Scanner in2 = new Scanner(System.in);
         System.out.println("Which item would you like to buy? Please input a number from 1 to " +
                 (items.size()) + ": ");
         int number = Integer.parseInt(in2.nextLine());
         System.out.println("Buying item #" + number + ": " + items.get(number - 1) + "...");
-        return Transaction.buy(items.get(number - 1));
+        return Transaction.buy(items.get(number - 1), userId);
     }
 
     public static void itemInfo(Map<String, ArrayList<Item>> items) {

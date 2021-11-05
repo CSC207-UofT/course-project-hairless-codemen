@@ -27,7 +27,6 @@ public class ItemManager implements Manager {
         return i;
     }
 
-
     public void addElement(Object[] newItems) {
         for (Object item : newItems){
             addElement(item);

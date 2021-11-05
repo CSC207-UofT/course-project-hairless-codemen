@@ -15,6 +15,12 @@ public class OrderStorage implements Storable, Serializable {
         }
     }
 
+    public static void addElement(Map<Integer, Order> m){
+        for (Order o: m.values()){
+            addElement(o);
+        }
+    }
+
     public static Map<Integer, Order> getItems() {return OrderStorage.orderList;}
 
     int getTotalNumber() {

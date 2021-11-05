@@ -113,6 +113,6 @@ public class Item implements Serializable {
 
     @Override
     public String toString(){
-        return name + ": "  + "Category " + category + ", quantity " + quantity + ", with price $" + price;
+        return name + ": "  + "Category: " + category + ", Quantity: " + quantity + ", Price: $" + price;
     }
 }

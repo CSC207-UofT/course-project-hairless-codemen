@@ -20,7 +20,6 @@ public class UserReadWriter implements Serializable {
                 System.out.println("Serialization success");
         }
 
-
     public static void readFromFile() throws IOException, ClassNotFoundException {
                 InputStream fis = new FileInputStream("UserData.ser");
                 ObjectInput input = new ObjectInputStream(fis);

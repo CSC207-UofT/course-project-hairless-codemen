@@ -60,4 +60,10 @@ public class OrderManager implements Manager{
     public static void removeElement(Object[] elements){}
 
     public static void removeElement(Object element){}
+
+    public static void printOrders(){
+        for (Order o: new OrderStorage()){
+            System.out.println(o);
+        }
+    }
 }

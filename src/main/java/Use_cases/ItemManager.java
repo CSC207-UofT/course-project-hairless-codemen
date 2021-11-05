@@ -105,5 +105,9 @@ public class ItemManager implements Manager {
         }
         return sb.toString();
     }
+
+    public static String printItem(Item i){
+        return i.toString();
+    }
 }
 

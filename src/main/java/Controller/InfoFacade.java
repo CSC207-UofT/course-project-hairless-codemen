@@ -11,8 +11,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class InfoFacade {
-    public static String printItems(){
-        return ItemManager.printItems();
+    public static String printItem(Item i){
+        return ItemManager.printItem(i);
     }
 
     public static String printOrders(ArrayList<Order> orders){

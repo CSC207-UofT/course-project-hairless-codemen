@@ -20,17 +20,8 @@ public class OrderManager implements Manager{
         }
     }
 
-    public static void addOrder(Order o) throws IOException {
-        //  Add an order to Orders.txt file.
-        File f = new File("src/main/java/Files/Orders.txt");
-        FileOutputStream fos = new FileOutputStream(f);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(o);
-    }
-
     public static void addElement(Object element) throws IOException {
         OrderStorage.addElement(element);
-        addOrder((Order) element);
     }
 
     public static int total_number_order(){

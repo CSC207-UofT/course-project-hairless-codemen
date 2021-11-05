@@ -7,6 +7,7 @@ import src.main.java.Use_cases.CartManager;
 import src.main.java.Use_cases.ItemManager;
 import src.main.java.Use_cases.OrderManager;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class InfoFacade {
@@ -24,5 +25,9 @@ public class InfoFacade {
 
     public static String printCartItems(Cart c){
         return CartManager.print_items(c);
+    }
+
+    public static ArrayList<Item> getItems(){
+        return ItemManager.getItemsList();
     }
 }

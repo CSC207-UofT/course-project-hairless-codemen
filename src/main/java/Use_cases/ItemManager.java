@@ -90,6 +90,14 @@ public class ItemManager implements Manager {
         return ItemStorage.getItems();
     }
 
+    public static ArrayList<Item> getItemsList(){
+        ArrayList<Item> items = new ArrayList<>();
+        for (ArrayList<Item> lst : getItems().values()){
+            items.addAll(lst);
+        }
+        return items;
+    }
+
     public static String printItems(){
         StringBuilder sb = new StringBuilder();
         for (Item i: new ItemStorage()){

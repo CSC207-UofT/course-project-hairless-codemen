@@ -30,7 +30,7 @@ public class UserManager implements Manager, Serializable {
 
     public static Object[] getUserInfo(String username){
         User u = UserStorage.getUserList().get(username);
-        return new Object[]{u, u.getCart(), u.getWallet()};
+        return new Object[]{u, u.getCart(), u.getWallet().getMoney()};
     }
 
 

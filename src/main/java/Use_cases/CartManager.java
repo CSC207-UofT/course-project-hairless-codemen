@@ -15,10 +15,12 @@ public class CartManager {
         u.getCart().removeItem(items);
     }
 
-    public static void print_items(Cart c){
+    public static String print_items(Cart c){
+        StringBuilder sb = new StringBuilder();
         for (Item i: c){
-            System.out.println(i);
+            sb.append(i);
         }
+        return sb.toString();
     }
 
     public static ArrayList<Item> getItems(Cart c){

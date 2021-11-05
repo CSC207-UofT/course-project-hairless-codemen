@@ -61,9 +61,11 @@ public class OrderManager implements Manager{
 
     public static void removeElement(Object element){}
 
-    public static void printOrders(ArrayList<Order> orders){
+    public static String printOrders(ArrayList<Order> orders){
+        StringBuilder sb = new StringBuilder();
         for (Order o: orders){
-            System.out.println(o);
+            sb.append(o);
         }
+        return sb.toString();
     }
 }

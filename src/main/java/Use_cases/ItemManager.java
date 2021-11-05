@@ -90,10 +90,12 @@ public class ItemManager implements Manager {
         return ItemStorage.getItems();
     }
 
-    public static void printItems(){
+    public static String printItems(){
+        StringBuilder sb = new StringBuilder();
         for (Item i: new ItemStorage()){
-            System.out.println(i);
+            sb.append(i);
         }
+        return sb.toString();
     }
 }
 

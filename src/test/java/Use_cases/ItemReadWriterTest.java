@@ -30,7 +30,7 @@ public class ItemReadWriterTest {
         lst.add(item2);
         lst.add(item3);
         lst.add(item4);
-        ItemManager.addItems(lst);
+        ItemManager.addElement(lst);
         ItemReadWriter.saveIntoFile(ItemStorage.getItems());
         System.out.println(ItemStorage.getItems());
     }

@@ -36,28 +36,8 @@ public class ItemManager implements Manager {
 
     public static void addElement(Object item){
         ItemStorage.addElement(item);
-        addItem((Item) item);
     }
 
-    public static void addItem(Item i){
-        ItemStorage.addElement(i);
-    }
-
-    public static void addItems(ArrayList<Item> items){
-        for (Item item : items){
-            addItem(item);
-        }
-    }
-
-    public static void rewrite(Map<String, ArrayList<Item>> items) throws IOException {
-        boolean deleted = new File("src/main/java/Files/Items.txt").delete();
-        if (deleted){
-            File f = new File("src/main/java/Files/Items.txt");
-            for (String itemName: items.keySet()){
-                addItems(items.get(itemName));
-            }
-        }
-    }
 
     public static void removeElement(Object[] Items) {
         for (Object item : Items){
@@ -88,8 +68,8 @@ public class ItemManager implements Manager {
 
     public static ArrayList<Item> getItemsList(){
         ArrayList<Item> items = new ArrayList<>();
-        for (ArrayList<Item> lst : getItems().values()){
-            items.addAll(lst);
+        for (Item i : new ItemStorage()){
+            items.add(i);
         }
         return items;
     }

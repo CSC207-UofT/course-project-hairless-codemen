@@ -20,4 +20,8 @@ public class CartManager {
             System.out.println(i);
         }
     }
+
+    public static ArrayList<Item> getItems(Cart c){
+        return c.getItems();
+    }
 }

@@ -1,4 +1,4 @@
-package src.test.java.Entities;
+package src.test.java.Use_cases;
 
 import org.junit.jupiter.api.Test;
 import src.main.java.Entities.User;

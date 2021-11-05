@@ -33,22 +33,6 @@ public class UserManager implements Manager, Serializable {
         return new Object[]{u, u.getCart(), u.getWallet().getMoney()};
     }
 
-
-    /*public static void addUser(User u) throws IOException {
-        //  Add a user to User.txt file.
-        File f = new File("src/main/java/Files/Users.txt");
-        FileOutputStream fos = new FileOutputStream(f);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        output.writeObject(users);
-        output.close();
-        oos.close();
-        fos.close();
-    }
-    /*
-     */
-
-
-
     public static boolean login(String username, String password){
         try{
             return UserStorage.getUserList().get(username).getPassword().equals(password);

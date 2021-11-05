@@ -35,4 +35,6 @@ public class Order implements Serializable {
     }
 
     public User getOwner(){return owner;}
+
+    public User getBuyer(){return buyer;}
 }

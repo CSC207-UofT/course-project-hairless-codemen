@@ -14,9 +14,15 @@ import java.util.ArrayList;
 public class OrderManager implements Manager{
     public static Object search(int order_id){return OrderStorage.getItems().get(order_id);}
 
-    public static void addElement(Object[] elements) throws IOException {
+    public static void addElement(Object[] elements){
         for (Object element: elements){
             addElement(element);
+        }
+    }
+
+    public static void addElement(ArrayList<Order> orders){
+        for (Order o: orders){
+            addElement(o);
         }
     }
 
@@ -32,7 +38,7 @@ public class OrderManager implements Manager{
         ArrayList<Order> o1 = new ArrayList<>(OrderStorage.getItems().values());
         ArrayList<Order> o2 = new ArrayList<>();
         for (Order o: o1){
-            if (o.getOwner().getName().equals(u.getName())){
+            if (o.getBuyer().getName().equals(u.getName())){
                 o2.add(o);
             }
         }

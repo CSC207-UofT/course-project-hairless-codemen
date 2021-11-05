@@ -30,8 +30,8 @@ public class Order implements Serializable {
             String s = i.toString() + "\n";
             items.append(s);
         }
-        return "Order #" + order_id + ": \n" + "Buyer: " + buyer.toString() + "\n Seller: " + owner.toString() +
-                "\n Contains the following items:" + items + "\n Total: " + total;
+        return "Order #" + order_id + ": \n" + "Buyer: " + buyer.toString() + "\nSeller: " + owner.toString() +
+                "\nContains the following items: \n" + items + "Total: $" + total;
     }
 
     public User getOwner(){return owner;}

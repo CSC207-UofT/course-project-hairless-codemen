@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class OrderReadWriterTest {
 
     @Test
-    public void OrderReadTest() throws IOException {
+    public void OrderWriteTest() throws IOException {
         Item item1, item2, item3, item4;
         User u1, u2;
         ArrayList<Item> lst = new ArrayList<>();
@@ -33,7 +33,7 @@ public class OrderReadWriterTest {
     }
 
     @Test
-    public void OrderWriteTest() throws IOException, ClassNotFoundException {
+    public void OrderReadTest() throws IOException, ClassNotFoundException {
         OrderReadWriter.readFromFile();
         System.out.println(OrderStorage.getItems());
     }

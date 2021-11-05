@@ -5,23 +5,21 @@ import src.main.java.Use_cases.UserManager;
 import src.main.java.Use_cases.UserReadWriter;
 
 import java.io.IOException;
-import java.util.Map;
-import src.main.java.Use_cases.UserReadWriter;
 
 public class Login {
 
 
-    public static Object[] signup(String username, String password) throws IOException {
-        return new Object[]{UserManager.createUser(username, password)[1],
-                UserManager.createUser(username, password)[2]};
+    public static boolean signup(String username, String password) throws IOException {
+        return UserManager.createUser(username, password);
     }
 
-    public boolean login(String username, String password)throws IOException, ClassNotFoundException {
-        //UserReadWriter.readFromFile();
+    public static boolean login(String username, String password) throws IOException, ClassNotFoundException{
+        UserReadWriter.SaveIntoFile(UserStorage.getUserList());
         return UserManager.login(username, password);
     }
 
-    public void logout() throws IOException {
+    public static void logout() throws IOException {
         UserReadWriter.SaveIntoFile(UserStorage.getUserList());
     }
 }
+

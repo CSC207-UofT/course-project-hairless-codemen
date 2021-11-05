@@ -77,8 +77,8 @@ public class Transaction {
      * Return nothing
      */
 
-    public static double getMoney(int userId){
-        return UserManager.getMoney(Objects.requireNonNull(UserManager.search(userId)));
+    public static double getMoney(String username){
+        return UserManager.getMoney(Objects.requireNonNull(UserManager.search(username)));
     }
 
     public static Map<String, ArrayList<Item>> getItems(){

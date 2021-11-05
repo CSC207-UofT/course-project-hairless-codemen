@@ -20,21 +20,23 @@ public class OrderManager implements Manager{
         }
     }
 
-    public static void addOrder(Order o) throws IOException {
-        //  Add an order to Orders.txt file.
-        File f = new File("src/main/java/Files/Orders.txt");
-        FileOutputStream fos = new FileOutputStream(f);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(o);
-    }
-
-    public static void addElement(Object element) throws IOException {
+    public static void addElement(Object element){
         OrderStorage.addElement(element);
-        addOrder((Order) element);
     }
 
     public static int total_number_order(){
         return OrderStorage.get_size();
+    }
+
+    public static ArrayList<Order> getOrders(User u){
+        ArrayList<Order> o1 = new ArrayList<>(OrderStorage.getItems().values());
+        ArrayList<Order> o2 = new ArrayList<>();
+        for (Order o: o1){
+            if (o.getOwner().getName().equals(u.getName())){
+                o2.add(o);
+            }
+        }
+        return o2;
     }
 
 
@@ -43,10 +45,20 @@ public class OrderManager implements Manager{
         for (Item items: items_list){
             total_price += items.getItemPrice();
         }
-        return new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
+        Order o = new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
+        addElement(o);
+        return o;
     }
 
     public static void removeElement(Object[] elements){}
 
     public static void removeElement(Object element){}
+
+    public static String printOrders(ArrayList<Order> orders){
+        StringBuilder sb = new StringBuilder();
+        for (Order o: orders){
+            sb.append(o);
+        }
+        return sb.toString();
+    }
 }

@@ -3,9 +3,6 @@ package src.main.java.Use_cases;
 import src.main.java.Entities.User;
 import src.main.java.Entities.UserStorage;
 import java.io.*;
-import src.main.java.Use_cases.UserReadWriter;
-import java.io.*;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class UserManager implements Manager, Serializable {
@@ -16,52 +13,39 @@ public class UserManager implements Manager, Serializable {
     }
 
 
-    public static Object[] createUser(String username, String password) throws IOException {
-        int userid = UserStorage.getTotalNumber();
+    public static boolean createUser(String username, String password){
 //        User now has 100$ to begin with. Needs to be changed.
-        User u = new User(username, userid, password, 100);
+        if (UserStorage.getUserList().containsKey(username)){
+            return false;
+        }
+        User u = create(username, password);
         addElement(u);
 //        Return the information of this user, this user's username, and this user's id.
-        return new Object[]{u, u.getName(), u.getId()};
+        return true;
     }
 
-
-
-    /*public static void addUser(User u) throws IOException {
-        //  Add a user to User.txt file.
-        File f = new File("src/main/java/Files/Users.txt");
-        FileOutputStream fos = new FileOutputStream(f);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        output.writeObject(users);
-        output.close();
-        oos.close();
-        fos.close();
+    public static User create(String username, String password){
+        return new User(username, password);
     }
-    /*
-     */
 
-
+    public static Object[] getUserInfo(String username){
+        User u = UserStorage.getUserList().get(username);
+        return new Object[]{u, u.getCart(), u.getWallet().getMoney()};
+    }
 
     public static boolean login(String username, String password){
-       return UserStorage.getUserList().get(username).getPassword().equals(password);
+        try{
+            return UserStorage.getUserList().get(username).getPassword().equals(password);
+        }catch(NullPointerException e){
+            return false;
+        }
+
     }
 
-    public Object search(String username) {
+    public static User search(String username) {
         return UserStorage.getUserList().get(username);
     }
 
-    public static User search(int userId){
-        for (String username: UserStorage.getUserList().keySet()){
-            if (UserStorage.getUserList().get(username).getId() == userId){
-                return UserStorage.getUserList().get(username);
-            }
-        }
-        return null;
-    }
-
-    public static int get_UserId(User u){
-        return u.getId();
-    }
 
     public static double getMoney(User u){
         return u.getWallet().getMoney();
@@ -74,13 +58,13 @@ public class UserManager implements Manager, Serializable {
     public static void loadmoney(User u, double money){u.getWallet().loadMoney(money);}
 
 
-    public void addElement(Object[] users) throws IOException {
+    public void addElement(Object[] users){
         for (Object user: users){
             addElement(user);
         }
     }
 
-    public static void addElement(Object user) throws IOException {
+    public static void addElement(Object user){
         UserStorage.addElement(user);
     }
 
@@ -93,7 +77,5 @@ public class UserManager implements Manager, Serializable {
     public void removeElement(Object element) {
         UserStorage.deleteElement(element);
     }
-
-
 
 }

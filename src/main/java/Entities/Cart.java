@@ -3,8 +3,9 @@ package src.main.java.Entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class Cart implements Serializable {
+public class Cart implements Serializable, Iterable {
     private final ArrayList<Item> items;
 
     /**
@@ -61,5 +62,10 @@ public class Cart implements Serializable {
         for (Item i : item){
             items.remove(i);
         }
+    }
+
+    @Override
+    public Iterator iterator() {
+        return null;
     }
 }

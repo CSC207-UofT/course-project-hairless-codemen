@@ -3,9 +3,6 @@ package src.main.java.Use_cases;
 import src.main.java.Entities.User;
 import src.main.java.Entities.UserStorage;
 import java.io.*;
-import src.main.java.Use_cases.UserReadWriter;
-import java.io.*;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class UserManager implements Manager, Serializable {
@@ -53,7 +50,12 @@ public class UserManager implements Manager, Serializable {
 
 
     public static boolean login(String username, String password){
-       return UserStorage.getUserList().get(username).getPassword().equals(password);
+        try{
+            return UserStorage.getUserList().get(username).getPassword().equals(password);
+        }catch(NullPointerException e){
+            return false;
+        }
+
     }
 
     public static User search(String username) {

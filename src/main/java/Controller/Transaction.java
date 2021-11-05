@@ -34,23 +34,6 @@ public class Transaction {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
 public class Transaction {
     public static ArrayList<Item> loadItems() throws IOException {
@@ -85,12 +68,12 @@ public class Transaction {
         return ItemManager.getItems();
     }
 
-    public void sell(Item item) throws IOException {
-        ItemManager.addItem(item);
+    public void sell(Item item){
+        ItemManager.addElement(item);
     }
 
-    public void sell(ArrayList<Item> i) throws IOException {
-        ItemManager.addItems(i);
+    public void sell(ArrayList<Item> i){
+        ItemManager.addElement(i);
     }
 
 

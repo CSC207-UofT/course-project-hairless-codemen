@@ -1,5 +1,6 @@
 package src.main.java.UI;
 import src.main.java.Controller.Login;
+import src.main.java.Controller.UserFacade;
 import src.main.java.Entities.User;
 import src.main.java.Entities.UserStorage;
 import src.main.java.Use_cases.UserReadWriter;
@@ -18,15 +19,7 @@ public class Entry {
         Login login = new Login();
         Frame frame = new Frame(login);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        try{
-            UserReadWriter.readFromFile();
-        }catch (EOFException e){
-            User u=new User("default", "000000");
-            UserStorage.addElement(u);
-            UserReadWriter.SaveIntoFile(UserStorage.getUserList());
-            UserReadWriter.readFromFile();
-        }
-        UserReadWriter.readFromFile();
+        UserFacade.readFile();
 
         frame.addWindowFocusListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -37,9 +30,7 @@ public class Entry {
                     e.printStackTrace();
                 }
             }
-
         });
-
         frame.setVisible(true);
     }
 }

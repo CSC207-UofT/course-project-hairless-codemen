@@ -16,17 +16,25 @@ public class UserManager implements Manager, Serializable {
     }
 
 
-    public static boolean createUser(String username, String password) throws IOException {
+    public static boolean createUser(String username, String password){
 //        User now has 100$ to begin with. Needs to be changed.
         if (UserStorage.getUserList().containsKey(username)){
             return false;
         }
-        User u = new User(username, password, 100);
+        User u = create(username, password);
         addElement(u);
 //        Return the information of this user, this user's username, and this user's id.
         return true;
     }
 
+    public static User create(String username, String password){
+        return new User(username, password);
+    }
+
+    public static Object[] getUserInfo(String username){
+        User u = UserStorage.getUserList().get(username);
+        return new Object[]{u, u.getCart(), u.getWallet()};
+    }
 
 
     /*public static void addUser(User u) throws IOException {
@@ -64,13 +72,13 @@ public class UserManager implements Manager, Serializable {
     public static void loadmoney(User u, double money){u.getWallet().loadMoney(money);}
 
 
-    public void addElement(Object[] users) throws IOException {
+    public void addElement(Object[] users){
         for (Object user: users){
             addElement(user);
         }
     }
 
-    public static void addElement(Object user) throws IOException {
+    public static void addElement(Object user){
         UserStorage.addElement(user);
     }
 

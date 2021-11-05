@@ -20,7 +20,7 @@ public class OrderManager implements Manager{
         }
     }
 
-    public static void addElement(Object element) throws IOException {
+    public static void addElement(Object element){
         OrderStorage.addElement(element);
     }
 
@@ -45,7 +45,9 @@ public class OrderManager implements Manager{
         for (Item items: items_list){
             total_price += items.getItemPrice();
         }
-        return new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
+        Order o = new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
+        addElement(o);
+        return o;
     }
 
     public static void removeElement(Object[] elements){}

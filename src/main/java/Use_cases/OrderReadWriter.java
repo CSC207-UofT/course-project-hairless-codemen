@@ -24,8 +24,6 @@ public class OrderReadWriter  implements Serializable{
         input.close();
         fis.close();
         System.out.println("Order read success");
-
-
     }
     
 

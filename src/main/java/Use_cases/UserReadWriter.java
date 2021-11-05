@@ -4,8 +4,6 @@ import src.main.java.Entities.User;
 import src.main.java.Entities.UserStorage;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class UserReadWriter implements Serializable {

@@ -89,5 +89,11 @@ public class ItemManager implements Manager {
     public static Map<String, ArrayList<Item>> getItems(){
         return ItemStorage.getItems();
     }
+
+    public static void printItems(){
+        for (Item i: new ItemStorage()){
+            System.out.println(i);
+        }
+    }
 }
 

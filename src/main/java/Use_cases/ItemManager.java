@@ -28,26 +28,22 @@ public class ItemManager implements Manager {
     }
 
 
-    public void addElement(Object[] newItems) throws IOException {
+    public void addElement(Object[] newItems) {
         for (Object item : newItems){
             addElement(item);
         }
     }
 
-    public static void addElement(Object item) throws IOException {
+    public static void addElement(Object item){
         ItemStorage.addElement(item);
         addItem((Item) item);
     }
 
-    public static void addItem(Item i) throws IOException {
-        //  Add a user to User.txt file.
-        File f = new File("src/main/java/Files/Items.txt");
-        FileOutputStream fos = new FileOutputStream(f);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(i);
+    public static void addItem(Item i){
+        ItemStorage.addElement(i);
     }
 
-    public static void addItems(ArrayList<Item> items) throws IOException {
+    public static void addItems(ArrayList<Item> items){
         for (Item item : items){
             addItem(item);
         }

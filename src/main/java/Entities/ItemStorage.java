@@ -95,6 +95,13 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         }
     }
 
+    public static void addElement(Map<String, ArrayList<Item>> items){
+        ArrayList<Item> item = new ArrayList<>();
+        for (String key: items.keySet()){
+            item.addAll(items.get(key));
+        }
+        addElement(item);
+    }
 
     /**
      * Delete an item from the item storage.

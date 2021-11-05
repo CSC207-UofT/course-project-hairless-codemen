@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class OrderReadWriter  implements Serializable{
+public class OrderReadWriter implements Serializable{
     public static void saveIntoFile(Map<Integer, Order> orders) throws IOException {
         FileOutputStream fos = new FileOutputStream("OrderData.ser");
         ObjectOutputStream oos = new ObjectOutputStream(fos);

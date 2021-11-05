@@ -41,6 +41,7 @@ public class UserManager implements Manager, Serializable {
         }
 
     }
+    public static Map<String, User> getUserList(){return UserStorage.getUserList();}
 
     public static User search(String username) {
         return UserStorage.getUserList().get(username);

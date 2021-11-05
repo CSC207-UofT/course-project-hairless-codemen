@@ -61,8 +61,8 @@ public class OrderManager implements Manager{
 
     public static void removeElement(Object element){}
 
-    public static void printOrders(){
-        for (Order o: new OrderStorage()){
+    public static void printOrders(ArrayList<Order> orders){
+        for (Order o: orders){
             System.out.println(o);
         }
     }

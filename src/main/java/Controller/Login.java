@@ -1,6 +1,5 @@
 package src.main.java.Controller;
 
-import src.main.java.Entities.UserStorage;
 import src.main.java.Use_cases.UserManager;
 import src.main.java.Use_cases.UserReadWriter;
 

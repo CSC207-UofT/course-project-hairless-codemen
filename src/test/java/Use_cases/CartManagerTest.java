@@ -18,7 +18,6 @@ public class CartManagerTest {
     User u1, u2;
     ArrayList<Item> lst1 = new ArrayList<>();
     ArrayList<Item> lst2 = new ArrayList<>();
-    ArrayList<Order> lst3 = new ArrayList<>();
 
     @BeforeEach
     void setup() {

@@ -15,6 +15,13 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         return ItemStorage.userList;
     }
 
+    public static ArrayList<Item> getItem(){
+        ArrayList<Item> items = new ArrayList<>();
+        for (String itemName: getItems().keySet()){
+            items.addAll(getItems().get(itemName));
+        }
+        return items;
+    }
     /**
      * Get the current size of item storage.
      *

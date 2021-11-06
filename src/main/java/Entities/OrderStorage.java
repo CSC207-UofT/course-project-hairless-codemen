@@ -45,7 +45,7 @@ public class OrderStorage implements Storable, Serializable, Iterable<Order> {
         return new OrderIterator();
     }
 
-    private class OrderIterator implements Iterator<Order>{
+    private static class OrderIterator implements Iterator<Order>{
         private int current = 0;
         /**
          * Returns {@code true} if the iteration has more elements.

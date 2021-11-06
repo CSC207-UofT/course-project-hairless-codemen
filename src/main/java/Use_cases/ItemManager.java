@@ -5,12 +5,22 @@ import src.main.java.Entities.ItemStorage;
 import src.main.java.Entities.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class ItemManager implements Manager {
 
-    public ArrayList<Item> search(String name) {
-        return getItems().get(name);
+    public static ArrayList<Item> search(String name) {
+        ArrayList<Item> results = new ArrayList<>();
+        String target = name.toLowerCase();
+        for (Map.Entry<String, ArrayList<Item>> entry : ItemStorage.getItems().entrySet()){
+            String current = entry.getKey().toLowerCase();
+            if (current.contains(target)){
+                results.addAll(entry.getValue());
+            }
+        }
+        return results;
     }
 
     public static double get_all_price(ArrayList<Item> items){

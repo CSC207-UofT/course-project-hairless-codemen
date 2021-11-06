@@ -29,7 +29,7 @@ public class FileFacade {
         }catch (IOException | ClassNotFoundException e){
             User u = createUser("default", "000000");
             addUser(u);
-            UserReadWriter.SaveIntoFile(UserStorage.getUserList());
+            UserReadWriter.SaveIntoFile(UserManager.getUserList());
             UserReadWriter.readFromFile();
         }
     }
@@ -41,7 +41,7 @@ public class FileFacade {
             User u = createUser("default", "000000");
             ItemManager.loadItems(u);
             addUser(u);
-            ItemReadWriter.saveIntoFile(ItemStorage.getItems());
+            ItemReadWriter.saveIntoFile(ItemManager.getItems());
             ItemReadWriter.readFromFile();
         }
     }
@@ -57,7 +57,7 @@ public class FileFacade {
             addUser(u1);
             Order o = OrderManager.create_order(items, u, u1);
             OrderManager.addElement(o);
-            OrderReadWriter.saveIntoFile(OrderStorage.getItems());
+            OrderReadWriter.saveIntoFile(OrderManager.getItems());
             OrderReadWriter.readFromFile();
         }
     }

@@ -1,6 +1,7 @@
 package src.main.java.UI;
+import src.main.java.Controller.FileFacade;
 import src.main.java.Controller.Login;
-import src.main.java.Controller.UserFacade;
+import src.main.java.Controller.FileFacade;
 import src.main.java.Entities.User;
 import src.main.java.Entities.UserStorage;
 import src.main.java.Use_cases.UserReadWriter;
@@ -19,7 +20,9 @@ public class Entry {
         Login login = new Login();
         Frame frame = new Frame(login);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        UserFacade.readFile();
+        FileFacade.readUser();
+        FileFacade.readItem();
+        FileFacade.readOrder();
 
         frame.addWindowFocusListener(new java.awt.event.WindowAdapter() {
             @Override

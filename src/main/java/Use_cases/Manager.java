@@ -1,9 +1,11 @@
 package src.main.java.Use_cases;
 
+import java.util.ArrayList;
+
 interface Manager {
     static Object search(String name){return null;}
 
-    static void addElement(Object[] elements){};
+    static void addElement(ArrayList<Object> elements){};
 
     static void addElement(Object element){};
 

@@ -11,6 +11,14 @@ public class Item implements Serializable {
     private int quantity;
     private final String category;
 
+    /**
+     * The first constructor of Item for Item has customized quantity
+     * @param name name of the item
+     * @param owner the owner of the item, who sells it
+     * @param price the price of the item
+     * @param quantity quantity of the item
+     * @param category category the item belongs to
+     */
     public Item(String name, User owner, double price, int quantity, String category){
         this.name = name;
         this.price = price;
@@ -19,6 +27,13 @@ public class Item implements Serializable {
         this.category = category;
     }
 
+    /**
+     * Second constructor of Item has default quantity one
+     * @param name name of the item
+     * @param owner the owner of the item, who sells it
+     * @param price the price of the item
+     * @param category category the item belongs to
+     */
     public Item(String name, User owner, double price, String category){
         this.name = name;
         this.price = price;
@@ -29,35 +44,36 @@ public class Item implements Serializable {
 
     /**
      * Get the selling Item's name.
-     * @return item's name.
+     * @return the Item's name.
      */
-    public String getItemName(){ return this.name;}
+    public String getItemName(){return this.name;}
 
     /**
-     * Get the selling Item owner's name.
-     * @return owner's name.
+     * Get the item's owner.
+     * @return the item owner.
      */
-    public User getOwner(){ return this.owner;}
+    public User getOwner(){return this.owner;}
+
 
     /**
      * Get the price for the selling Item.
-     * @return the item's selling price.
+     * @return a double type representing the price.
      */
     public double getItemPrice(){
         return this.price;
     }
 
     /**
-     * Get the category for the selling Item.
-     * @return the category type for the selling Item.
+     * Get the category of the selling Item.
+     * @return item's category.
      */
     public String getCategory(){
         return this.category;
     }
 
     /**
-     * Get how many item(s) left in stock for the selling Item.
-     * @return the quantity left.
+     * Get how many item(s) are left in stock.
+     * @return the number of item(s) left in stock.
      */
     public int getQuantity(){
         return this.quantity;
@@ -97,6 +113,6 @@ public class Item implements Serializable {
 
     @Override
     public String toString(){
-        return name + ": " + "Category " + category + ", quantity " + quantity + ", with price $" + price;
+        return name + ": "  + "Category: " + category + ", Quantity: " + quantity + ", Price: $" + price;
     }
 }

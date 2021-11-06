@@ -1,8 +1,10 @@
-package src.main.java.Controller;
+package src.test.java.Controller;
 
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import src.main.java.Controller.Transaction;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.Cart;
 import src.main.java.Entities.User;
@@ -35,8 +37,8 @@ class TransactionTest {
     @BeforeEach
     void setup() {
         c = new Cart(lst);
-        buyman = new User("happybuy", 3333, "1234", 9999.99);
-        sellman = new User("happysell", 4444, "2345");
+        buyman = new User("happybuy", "1234", 9999.99);
+        sellman = new User("happysell", "2345");
         item1 = new Item("Banana", sellman, 40, "Fruit");
         item2 = new Item("Apple", sellman, 60, "Fruit");
     }
@@ -47,7 +49,7 @@ class TransactionTest {
         lst.add(item2);
         buyman.getCart().addItem(item1);
         buyman.getCart().addItem(item2);
-        assertTrue(Transaction.buy_item(lst, buyman, sellman));
+        Assertions.assertTrue(Transaction.buy_item(lst, buyman, sellman));
         assertEquals(buyman.getWallet().getMoney(), 9899.99);
         assertEquals(sellman.getWallet().getMoney(), 100);
     }

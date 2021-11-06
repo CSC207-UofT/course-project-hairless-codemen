@@ -2,8 +2,6 @@ package src.test.java.Entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.User;
@@ -13,7 +11,7 @@ public class ItemTest {
     User b;
     @BeforeEach
     void setup() {
-        b = new User("Jenny", 2, "1234", 100);
+        b = new User("Jenny", "1234", 100);
         a = new Item("Apple", b, 20.0, "Fruit");}
 
     @Test

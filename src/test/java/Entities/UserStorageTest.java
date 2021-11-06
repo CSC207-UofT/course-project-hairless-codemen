@@ -12,9 +12,9 @@ public class UserStorageTest {
 
     @BeforeEach
     void setUp(){
-        u1 = new User("A", 2, "1234");
-        u2 = new User ("B", 3, "2345");
-        u3 = new User("C", 4, "6666");
+        u1 = new User("A",  "1234");
+        u2 = new User ("B",  "2345");
+        u3 = new User("C",  "6666");
     }
 
     @Test

@@ -13,6 +13,17 @@ public class CartManager {
 
     public static void remove_items(User u, ArrayList<Item> items){
         u.getCart().removeItem(items);
+    }
 
+    public static String print_items(Cart c){
+        StringBuilder sb = new StringBuilder();
+        for (Item i: c){
+            sb.append(i);
+        }
+        return sb.toString();
+    }
+
+    public static ArrayList<Item> getItems(Cart c){
+        return c.getItems();
     }
 }

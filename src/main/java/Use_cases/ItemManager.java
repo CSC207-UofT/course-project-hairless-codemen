@@ -3,13 +3,7 @@ package src.main.java.Use_cases;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.ItemStorage;
 import src.main.java.Entities.User;
-import src.main.java.Use_cases.Manager;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -27,41 +21,16 @@ public class ItemManager implements Manager {
         return i;
     }
 
-
-    public void addElement(Object[] newItems) throws IOException {
+    public void addElement(Object[] newItems) {
         for (Object item : newItems){
             addElement(item);
         }
     }
 
-    public static void addElement(Object item) throws IOException {
+    public static void addElement(Object item){
         ItemStorage.addElement(item);
-        addItem((Item) item);
     }
 
-    public static void addItem(Item i) throws IOException {
-        //  Add a user to User.txt file.
-        File f = new File("src/main/java/Files/Items.txt");
-        FileOutputStream fos = new FileOutputStream(f);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(i);
-    }
-
-    public static void addItems(ArrayList<Item> items) throws IOException {
-        for (Item item : items){
-            addItem(item);
-        }
-    }
-
-    public static void rewrite(Map<String, ArrayList<Item>> items) throws IOException {
-        boolean deleted = new File("src/main/java/Files/Items.txt").delete();
-        if (deleted){
-            File f = new File("src/main/java/Files/Items.txt");
-            for (String itemName: items.keySet()){
-                addItems(items.get(itemName));
-            }
-        }
-    }
 
     public static void removeElement(Object[] Items) {
         for (Object item : Items){
@@ -88,6 +57,26 @@ public class ItemManager implements Manager {
 
     public static Map<String, ArrayList<Item>> getItems(){
         return ItemStorage.getItems();
+    }
+
+    public static ArrayList<Item> getItemsList(){
+        ArrayList<Item> items = new ArrayList<>();
+        for (Item i : new ItemStorage()){
+            items.add(i);
+        }
+        return items;
+    }
+
+    public static String printItems(){
+        StringBuilder sb = new StringBuilder();
+        for (Item i: new ItemStorage()){
+            sb.append(i);
+        }
+        return sb.toString();
+    }
+
+    public static String printItem(Item i){
+        return i.toString();
     }
 }
 

@@ -1,11 +1,9 @@
 package src.main.java.Entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-public class ItemStorage implements Storable, Serializable {
+public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     private static final Map<String, ArrayList<Item>> userList = new HashMap<>();
 
     /**
@@ -22,8 +20,25 @@ public class ItemStorage implements Storable, Serializable {
      *
      * @return how many item(s) in the storage.
      */
-    int getTotalNumber() {
-        return userList.size();
+    public static int getTotalNumber() {
+        int total = 0;
+        for (String name: userList.keySet()){
+            total += userList.get(name).size();
+        }
+        return total;
+    }
+
+    public static Item getItem(int index){
+        int current = 0;
+        for (String name: userList.keySet()){
+            for (Item i: userList.get(name)){
+                current += 1;
+                if (current == index){
+                    return i;
+                }
+            }
+        }
+        throw new IndexOutOfBoundsException();
     }
 
     /**
@@ -76,10 +91,17 @@ public class ItemStorage implements Storable, Serializable {
      */
     public static void addElement(ArrayList<Item> items){
         for (Item item : items){
-            addItem(item);
+            addElement(item);
         }
     }
 
+    public static void addElement(Map<String, ArrayList<Item>> items){
+        ArrayList<Item> item = new ArrayList<>();
+        for (String key: items.keySet()){
+            item.addAll(items.get(key));
+        }
+        addElement(item);
+    }
 
     /**
      * Delete an item from the item storage.
@@ -99,6 +121,49 @@ public class ItemStorage implements Storable, Serializable {
     public static void deleteElement(ArrayList<Item> items){
         for (Item item : items){
             deleteItem(item);
+        }
+    }
+
+    /**
+     * Returns an iterator over elements of type {@code T}.
+     *
+     * @return an Iterator.
+     */
+    @Override
+    public Iterator<Item> iterator() {
+        return new ItemIterator();
+    }
+
+    private static class ItemIterator implements Iterator<Item>{
+        private int current = 0;
+        /**
+         * Returns {@code true} if the iteration has more elements.
+         * (In other words, returns {@code true} if {@link #next} would
+         * return an element rather than throwing an exception.)
+         *
+         * @return {@code true} if the iteration has more elements
+         */
+        @Override
+        public boolean hasNext() {
+            return current < getTotalNumber();
+        }
+
+        /**
+         * Returns the next element in the iteration.
+         *
+         * @return the next element in the iteration
+         * @throws NoSuchElementException if the iteration has no more elements
+         */
+        @Override
+        public Item next() {
+            Item i;
+            try{
+                i = getItem(current);
+            }catch(IndexOutOfBoundsException e){
+                throw new NoSuchElementException();
+            }
+            current += 1;
+            return i;
         }
     }
 }

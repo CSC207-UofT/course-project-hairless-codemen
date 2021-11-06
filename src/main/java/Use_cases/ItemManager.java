@@ -23,6 +23,18 @@ public class ItemManager implements Manager {
         return results;
     }
 
+    public static ArrayList<Item> search_by_owner(String name){
+        ArrayList<Item> results = new ArrayList<>();
+        for (ArrayList<Item> i : ItemStorage.getItems().values()){
+            for (Item j : i){
+                if (j.getOwner().getName().equals(name)) {
+                    results.add(j);
+                }
+            }
+        }
+        return results;
+    }
+
     public static double get_all_price(ArrayList<Item> items){
         double i = 0;
         for (Item item: items){
@@ -42,8 +54,8 @@ public class ItemManager implements Manager {
     }
 
 
-    public static void removeElement(Object[] Items) {
-        for (Object item : Items){
+    public static void removeElement(Object[] items) {
+        for (Object item : items){
             ItemStorage.deleteElement(item);
         }
     }

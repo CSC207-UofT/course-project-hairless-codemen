@@ -15,14 +15,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ItemManagerTest {
     Item item1, item2, item3, item4;
-    User u1, u2;
+    User u1, u2, u3;
     @BeforeEach
     void setup(){
         u1 = new User("A", "1234");
         u2 = new User("B", "2345");
+        u3 = new User("C", "3456");
         item1 = new Item("Cat", u1, 999999.99, "Pets");
         item2 = new Item("Airpods3", u2, 199.99, "Technology");
-        item3 = new Item("iPhone14", u2, 2000.00, "Technology");
+        item3 = new Item("iPhone14", u3, 2000.00, "Technology");
         item4 = new Item("Airpods3", u1, 179.99, "Technology");
         ItemStorage.addElement(item1);
         ItemStorage.addElement(item2);
@@ -39,5 +40,16 @@ class ItemManagerTest {
         ArrayList<Item> expected_2 = new ArrayList<>();
         expected_2.add(item1);
         assertEquals(expected_2, ItemManager.search("Cat"));
+    }
+
+    @Test
+    public void TestSearch_by_owner(){
+        ArrayList<Item> expected = new ArrayList<>();
+        expected.add(item1);
+        expected.add(item4);
+        assertEquals(expected, ItemManager.search_by_owner("A"));
+        ArrayList<Item> expected_2 = new ArrayList<>();
+        expected_2.add(item3);
+        assertEquals(expected_2, ItemManager.search_by_owner("C"));
     }
 }

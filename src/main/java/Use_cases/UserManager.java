@@ -43,7 +43,7 @@ public class UserManager implements Manager, Serializable {
     }
     public static Map<String, User> getUserList(){return UserStorage.getUserList();}
 
-    public static User search(String username) {
+    public static User search(String username) throws NullPointerException {
         return UserStorage.getUserList().get(username);
     }
 

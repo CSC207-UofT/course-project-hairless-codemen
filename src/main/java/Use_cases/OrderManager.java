@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class OrderManager implements Manager{
-    public static Object search(int order_id){return OrderStorage.getItems().get(order_id);}
+    public static Object search(int order_id) throws NullPointerException{
+        return OrderStorage.getItems().get(order_id);
+    }
 
     public static void addElement(Object[] elements){
         for (Object element: elements){

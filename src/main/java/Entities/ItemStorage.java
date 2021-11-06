@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class ItemStorage implements Storable, Serializable, Iterable<Item> {
-    private static final Map<String, ArrayList<Item>> userList = new HashMap<>();
+    private static final Map<String, ArrayList<Item>> itemList = new HashMap<>();
 
     /**
      * Get the current item storage.
@@ -12,7 +12,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      * @return The hashmap of item storage.
      */
     public static Map<String, ArrayList<Item>> getItems() {
-        return ItemStorage.userList;
+        return ItemStorage.itemList;
     }
 
     /**
@@ -22,16 +22,16 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      */
     public static int getTotalNumber() {
         int total = 0;
-        for (String name: userList.keySet()){
-            total += userList.get(name).size();
+        for (String name: itemList.keySet()){
+            total += itemList.get(name).size();
         }
         return total;
     }
 
     public static Item getItem(int index){
         int current = 0;
-        for (String name: userList.keySet()){
-            for (Item i: userList.get(name)){
+        for (String name: itemList.keySet()){
+            for (Item i: itemList.get(name)){
                 current += 1;
                 if (current == index){
                     return i;
@@ -48,13 +48,13 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      * @param item The Item we want to add.
      */
     private static void addItem(Item item) {
-        if (userList.get(item.getItemName()) != null){
-            userList.get(item.getItemName()).add(item);
+        if (itemList.get(item.getItemName()) != null){
+            itemList.get(item.getItemName()).add(item);
         }
         else{
             ArrayList<Item> itemList = new ArrayList<>();
             itemList.add(item);
-            userList.put(item.getItemName(), itemList);
+            ItemStorage.itemList.put(item.getItemName(), itemList);
         }
     }
 
@@ -66,11 +66,11 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      * @param item The Item we want to delete.
      */
     private static void deleteItem(Item item)  {
-        if (userList.get(item.getItemName()).size() == 1){
-            userList.remove(item.getItemName());
+        if (itemList.get(item.getItemName()).size() == 1){
+            itemList.remove(item.getItemName());
         }
         else
-            userList.get(item.getItemName()).remove(item);
+            itemList.get(item.getItemName()).remove(item);
     }
 
     /**

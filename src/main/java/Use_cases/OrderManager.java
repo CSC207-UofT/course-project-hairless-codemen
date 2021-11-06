@@ -7,11 +7,14 @@ import src.main.java.Entities.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class OrderManager implements Manager{
     public static Object search(int order_id) throws NullPointerException{
         return OrderStorage.getItems().get(order_id);
     }
+
+    public static Map<Integer, Order> getItems() {return OrderStorage.getItems();}
 
     public static void addElement(Object[] elements){
         for (Object element: elements){

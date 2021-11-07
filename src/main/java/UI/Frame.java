@@ -20,8 +20,7 @@ public class Frame extends JFrame{
     Login system;
     FileFacade facade;
 
-    public Frame(Login system){
-        this.system = system;
+    public Frame(){
         panel = new JPanel();
 
         userLabel = new JLabel("Username:");
@@ -79,7 +78,7 @@ public class Frame extends JFrame{
                     JOptionPane.showMessageDialog(null, "Invalid user or wrong password.");
                 else{
                     Frame.this.setVisible(false);
-                    JFrame Home = new Home(id, facade, system);
+                    JFrame Home = new Home(id);
                     Home.setVisible(true);
                 }
             }

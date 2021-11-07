@@ -89,9 +89,9 @@ public class ItemManager implements Manager {
         return items;
     }
 
-    public static String printItems(){
+    public static String printItems(ArrayList<Item> items){
         StringBuilder sb = new StringBuilder();
-        for (Item i: new ItemStorage()){
+        for (Item i: items){
             sb.append(i);
         }
         return sb.toString();

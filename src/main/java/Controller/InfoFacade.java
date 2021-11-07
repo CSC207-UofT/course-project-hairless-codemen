@@ -20,7 +20,13 @@ public class InfoFacade {
         return OrderManager.printOrders(orders);
     }
 
+    public static String printOrder(Order o){
+        return OrderManager.printOrder(o);
+    }
+
     public static String printOrders(User u){return OrderManager.printOrders(u);}
+
+    public static String printItems(ArrayList<Item> items){return ItemManager.printItems(items);}
 
     public static ArrayList<Item> getCartItems(Cart c){
         return CartManager.getItems(c);

@@ -28,19 +28,14 @@ public class Home extends JFrame{
     private JPanel panel0 = new JPanel();
     private JPopupMenu BuyChange = new JPopupMenu();
     private JPopupMenu CartChange = new JPopupMenu();
-    private JPopupMenu WalletChange = new JPopupMenu();
     final int HEIGHT = 500;
     final int WIDTH = 500;
-    FileFacade facade;
-    Login login;
     private JLabel wallet;
-    private ArrayList<String> cartList = new ArrayList<>();
-    private ArrayList<String> buyList = new ArrayList<>();
+    private final ArrayList<String> cartList = new ArrayList<>();
+    private final ArrayList<String> buyList = new ArrayList<>();
 
-    public Home(String username, FileFacade facade, Login login){
+    public Home(String username){
         this.username = username;
-        this.facade = facade;
-        this.login = login;
         Object[] info = FileFacade.getUserInfo(username);
         wallet = new JLabel(Double.toString((Double) info[1]));
         for (int x=0; x< InfoFacade.getCartItems((Cart)info[0]).size(); x+=1){
@@ -114,7 +109,10 @@ public class Home extends JFrame{
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Home.this.setVisible(false);
+                Finder finder = new Finder();
+                JFrame SearchFrame = new SearchFrame(username);
+                SearchFrame.setVisible(true);
             }
         });
 

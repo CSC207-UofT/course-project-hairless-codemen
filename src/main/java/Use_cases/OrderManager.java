@@ -69,6 +69,9 @@ public class OrderManager implements Manager{
         }
         return sb.toString();
     }
+    public static String printOrder(Order o){
+        return o.toString();
+    }
 
     public static String printOrders(User u){
         return printOrders(getOrders(u));

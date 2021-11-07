@@ -20,10 +20,9 @@ public class SearchFrame extends JFrame{
         this.username = username;
         JTextField searchInput = new JTextField(10);
         JPanel panel = new JPanel();
-        panel.add(searchInput);
-        JRadioButton searchByUser = new JRadioButton("User");
-        JRadioButton searchByItem = new JRadioButton("Item");
-        JRadioButton searchByOrder = new JRadioButton("Order");
+        JRadioButton searchByUser = new JRadioButton("Item by user");//search item by user
+        JRadioButton searchByItem = new JRadioButton("Item");//search item by item name
+        JRadioButton searchByOrder = new JRadioButton("Order");// search order by order id
         JButton search = new JButton("Search");
         JButton Back = new JButton("Back");
         ButtonGroup group = new ButtonGroup();
@@ -32,6 +31,7 @@ public class SearchFrame extends JFrame{
         group.add(searchByOrder);
         searchByUser.setSelected(true);
 
+        panel.add(searchInput);
         panel.add(searchByUser);
         panel.add(searchByItem);
         panel.add(searchByOrder);
@@ -74,8 +74,8 @@ public class SearchFrame extends JFrame{
         });
 
         this.setLayout(null);
-        panel.setSize(300, 300);
-        panel.setLocation((WIDTH-300)/2, (HEIGHT-300)/2);
+        panel.setSize(400, 300);
+        panel.setLocation((WIDTH-400)/2, (HEIGHT-300)/2);
         this.add(panel);
         this.setSize(WIDTH, 300);
         this.setTitle("Search Page");

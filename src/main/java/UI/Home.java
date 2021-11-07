@@ -110,7 +110,6 @@ public class Home extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home.this.setVisible(false);
-                Finder finder = new Finder();
                 JFrame SearchFrame = new SearchFrame(username);
                 SearchFrame.setVisible(true);
             }

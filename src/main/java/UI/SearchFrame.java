@@ -43,6 +43,10 @@ public class SearchFrame extends JFrame{
             public void actionPerformed(ActionEvent e) throws NumberFormatException {
                 if(searchByUser.isSelected() || searchByItem.isSelected()){
                     String res = InfoFacade.printItems(Finder.find(searchInput.getText()));
+                    if (res.equals("")){
+                        JOptionPane.showMessageDialog(null, "No item found.");
+                    }
+                    else
                     JOptionPane.showMessageDialog(null, "Here's the result:" + res);
                 }
                 else{
@@ -50,9 +54,22 @@ public class SearchFrame extends JFrame{
                         String res = InfoFacade.printOrder(Finder.find(id));
                         JOptionPane.showMessageDialog(null, "Here's the result:" + res);}
                     catch (NumberFormatException numberFormatException){
-                        JOptionPane.showMessageDialog(null, "Please enter the number");
+                        JOptionPane.showMessageDialog(null, "Please enter number(s).");
+                    }
+                    catch (NullPointerException nullPointerException){
+                        JOptionPane.showMessageDialog(null, "No order found.");
                     }
                     }
+
+            }
+        });
+
+        Back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SearchFrame.this.setVisible(false);
+                JFrame home = new Home(username);
+                home.setVisible(true);
             }
         });
 

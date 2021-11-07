@@ -3,6 +3,8 @@ import src.main.java.Controller.*;
 import src.main.java.Entities.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -100,7 +102,12 @@ public class Home extends JFrame{
         Order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String orderInfo = InfoFacade.printOrders((User) FileFacade.getUserInfo(username)[3]);
+                if (orderInfo.equals("")){
+                    JOptionPane.showMessageDialog(null, "You don't have orders now.");
+                }
+                else{
+                JOptionPane.showMessageDialog(null, "You have these orders:\n"+orderInfo);}
             }
         });
 
@@ -118,11 +125,25 @@ public class Home extends JFrame{
             }
         });
 
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                try {
+                    Login.logout();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
         this.setLayout(null);
+        Border border1 = new LineBorder(Color.LIGHT_GRAY,1);
         panel0.setSize(250, 50);
         panel0.setLocation((WIDTH-250)/2, 10);
         panel.setSize(400, 320);
-        panel.setLocation(45, 60);
+        panel.setLocation(42, 60);
+        panel.setBorder(border1);
         panel2.setSize(400, 50);
         panel2.setLocation(40, 400);
         this.add(panel0);

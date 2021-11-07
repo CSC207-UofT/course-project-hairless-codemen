@@ -20,7 +20,7 @@ public class FileFacade {
     public static Object[] getUserInfo(String username){
         Object[] lst = UserManager.getUserInfo(username);
         User u = (User) lst[0];
-        return new Object[]{lst[1], lst[2], OrderManager.getOrders(u)};
+        return new Object[]{lst[1], lst[2], OrderManager.getOrders(u), u};
     }
 
     public static void readUser() throws IOException, ClassNotFoundException {

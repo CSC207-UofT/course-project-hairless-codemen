@@ -3,6 +3,7 @@ package src.main.java.Controller;
 import src.main.java.Entities.Cart;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.Order;
+import src.main.java.Entities.User;
 import src.main.java.Use_cases.CartManager;
 import src.main.java.Use_cases.ItemManager;
 import src.main.java.Use_cases.OrderManager;
@@ -18,6 +19,8 @@ public class InfoFacade {
     public static String printOrders(ArrayList<Order> orders){
         return OrderManager.printOrders(orders);
     }
+
+    public static String printOrders(User u){return OrderManager.printOrders(u);}
 
     public static ArrayList<Item> getCartItems(Cart c){
         return CartManager.getItems(c);

@@ -1,37 +1,146 @@
 package src.main.java.UI;
-import src.main.java.Controller.Login;
+import src.main.java.Controller.*;
+import src.main.java.Entities.*;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Home extends JFrame{
     private String username;
-    private int userid;
-    private JButton viewBuyList;
-    private JList BuyList;
-    private JButton viewSellList;
-    private JList SellList;
-    private JButton viewCart;
-    private JList Cart;
-    private JButton searchButton;
-    private JTextField searchInput;
+    private JLabel Wallet = new JLabel("Wallet: ");
+    private JButton viewBuyList = new JButton("Want to buy?");
+    private JButton load = new JButton("Load");
+    private JTextField moneyInput = new JTextField(5);
+    private JList BuyList = new JList();
+    private JButton viewCart = new JButton("My Cart");
+    private JList CartList = new JList();
+    private JButton searchButton = new JButton("Search");
+    private JButton sell = new JButton("Sell");
+    private JButton Checkout = new JButton("Check Out");
+    private JButton Order = new JButton("Order");
+    private JPanel panel = new JPanel();
+    private JPanel panel2 = new JPanel();
+    private JPanel panel0 = new JPanel();
+    private JPopupMenu BuyChange = new JPopupMenu();
+    private JPopupMenu CartChange = new JPopupMenu();
+    private JPopupMenu WalletChange = new JPopupMenu();
     final int HEIGHT = 500;
     final int WIDTH = 500;
-    Login system;
-
+    FileFacade facade;
+    Login login;
+    private JLabel wallet;
+    private ArrayList<String> cartList = new ArrayList<>();
     private ArrayList<String> buyList = new ArrayList<>();
-    private ArrayList<String> sellList = new ArrayList<>();
-    private ArrayList<String> cart = new ArrayList<>();
 
-    public Home(String username, Login system){
+    public Home(String username, FileFacade facade, Login login){
         this.username = username;
-        /*this.userid =
+        this.facade = facade;
+        this.login = login;
+        Object[] info = FileFacade.getUserInfo(username);
+        wallet = new JLabel(Double.toString((Double) info[1]));
+        for (int x=0; x< InfoFacade.getCartItems((Cart)info[0]).size(); x+=1){
+            cartList.add(InfoFacade.printItem(InfoFacade.getCartItems((Cart)info[0]).get(x)));
+        }
+        for (int y=0; y< InfoFacade.getItems().size(); y+=1){
+            buyList.add(InfoFacade.printItem(InfoFacade.getItems().get(y)));
+        }
+        panel0.add(Wallet);
+        panel0.add(wallet);
+        panel0.add(moneyInput);
+        panel0.add(load);
+        panel.setLayout(new GridLayout(2,1));
+        panel.add(viewBuyList);
+        JMenuItem addToCart = new JMenuItem("Add to my cart.");
+        BuyChange.add(addToCart);
+        BuyList.add(BuyChange);
+        panel.add(BuyList);
+        panel.add(viewCart);
+        JMenuItem RemoveFromCart = new JMenuItem("Remove from my cart.");
+        CartChange.add(RemoveFromCart);
+        CartList.add(CartChange);
+        panel.add(CartList);
+        panel2.add(sell);
+        panel2.add(Order);
+        panel2.add(searchButton);
+        panel2.add(Checkout);
 
-         */
+        load.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+
+        viewBuyList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BuyList.setListData(buyList.toArray());
+            }
+        });
+
+        viewCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CartList.setListData(cartList.toArray());
+            }
+        });
+
+
+        sell.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        Order.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        Checkout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        this.setLayout(null);
+        panel0.setSize(250, 50);
+        panel0.setLocation((WIDTH-250)/2, 10);
+        panel.setSize(400, 320);
+        panel.setLocation(45, 60);
+        panel2.setSize(400, 50);
+        panel2.setLocation(40, 400);
+        this.add(panel0);
+        this.add(panel);
+        this.add(panel2);
+        this.setSize(WIDTH, HEIGHT);
+        this.setTitle(this.username + "'s HomePage");
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

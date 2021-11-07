@@ -1,5 +1,4 @@
 package src.main.java.UI;
-import src.main.java.Controller.FileFacade;
 import src.main.java.Controller.Login;
 import src.main.java.Controller.FileFacade;
 import src.main.java.Entities.User;
@@ -21,8 +20,6 @@ public class Entry {
         Frame frame = new Frame(login);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FileFacade.readUser();
-        FileFacade.readItem();
-        FileFacade.readOrder();
 
         frame.addWindowFocusListener(new java.awt.event.WindowAdapter() {
             @Override

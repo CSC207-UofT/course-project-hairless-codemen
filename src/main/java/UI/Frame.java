@@ -1,5 +1,5 @@
 package src.main.java.UI;
-import src.main.java.Controller.Login;
+import src.main.java.Controller.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,6 +18,7 @@ public class Frame extends JFrame{
     final int HEIGHT = 500;
     final int WIDTH = 500;
     Login system;
+    FileFacade facade;
 
     public Frame(Login system){
         this.system = system;
@@ -78,7 +79,7 @@ public class Frame extends JFrame{
                     JOptionPane.showMessageDialog(null, "Invalid user or wrong password.");
                 else{
                     Frame.this.setVisible(false);
-                    JFrame Home = new Home(id, system);
+                    JFrame Home = new Home(id, facade, system);
                     Home.setVisible(true);
                 }
             }

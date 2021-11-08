@@ -57,6 +57,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     private static void addItem(Item item) {
         if (itemList.get(item.getItemName()) != null){
             itemList.get(item.getItemName()).add(item);
+            System.out.println("Added 4");
         }
         else{
             ArrayList<Item> itemList = new ArrayList<>();
@@ -97,18 +98,23 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      * @param items The Item we want to add.
      */
     public static void addElement(ArrayList<Item> items){
-        for (Item item : items){
-            addElement(item);
+        for (int i=0; i<items.size();i+=1){
+            addElement(items.get(i));
+            System.out.println(items.get(i));
+            System.out.println(i);
         }
     }
 
-    public static void addElement(Map<String, ArrayList<Item>> items){
+    public static void addElement(Map<String, ArrayList<Item>> items) {
         ArrayList<Item> item = new ArrayList<>();
-        for (String key: items.keySet()){
+        for (String key : items.keySet()) {
             item.addAll(items.get(key));
+            System.out.println("Added2");
         }
         addElement(item);
     }
+
+
 
     /**
      * Delete an item from the item storage.

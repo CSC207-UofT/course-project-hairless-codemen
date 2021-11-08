@@ -57,7 +57,6 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     private static void addItem(Item item) {
         if (itemList.get(item.getItemName()) != null){
             itemList.get(item.getItemName()).add(item);
-            System.out.println("Added 4");
         }
         else{
             ArrayList<Item> itemList = new ArrayList<>();
@@ -100,8 +99,6 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     public static void addElement(ArrayList<Item> items){
         for (int i=0; i<items.size();i+=1){
             addElement(items.get(i));
-            System.out.println(items.get(i));
-            System.out.println(i);
         }
     }
 

@@ -14,20 +14,13 @@ public class FileFacdeTest {
 
     @Test
     public void TestA() throws IOException, ClassNotFoundException {
-        FileFacade.readItemAndOrder();
+        FileFacade.readItem();
         System.out.println(OrderManager.getItems());
         System.out.println(ItemManager.getItems());
         System.out.println("TestA over");
 
     }
 
-    /*@Test
-    public void TestB() throws IOException, ClassNotFoundException {
-        FileFacade.readItem();
-
-    }
-
-     */
 
     @AfterAll
     static void After(){

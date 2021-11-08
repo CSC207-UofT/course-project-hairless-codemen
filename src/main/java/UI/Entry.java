@@ -13,7 +13,8 @@ public class Entry {
         Frame frame = new Frame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FileFacade.readUser();
-        FileFacade.readItemAndOrder();
+        FileFacade.readItem();
+        FileFacade.readOrder();
 
         frame.addWindowFocusListener(new java.awt.event.WindowAdapter() {
             @Override

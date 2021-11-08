@@ -90,7 +90,7 @@ public class ItemManager implements Manager {
     public static String printItems(ArrayList<Item> items){
         StringBuilder sb = new StringBuilder();
         for (Item i: items){
-            sb.append(i);
+            sb.append(i).append("\n");
         }
         return sb.toString();
     }

@@ -73,7 +73,6 @@ public class ItemManager implements Manager {
         Item[] itemList = new Item[]{item1, item2, item3, item4, item5};
         ArrayList<Item> items = new ArrayList<>(List.of(itemList));
         ItemStorage.addElement(items);
-        System.out.println("Added");
         return items;
     }
 

@@ -106,7 +106,6 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         ArrayList<Item> item = new ArrayList<>();
         for (String key : items.keySet()) {
             item.addAll(items.get(key));
-            System.out.println("Added2");
         }
         addElement(item);
     }

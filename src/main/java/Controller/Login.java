@@ -18,8 +18,8 @@ public class Login {
 
     public static void logout() throws IOException {
         UserReadWriter.SaveIntoFile(UserManager.getUserList());
-        //ItemReadWriter.saveIntoFile(ItemManager.getItems());
-        //OrderReadWriter.saveIntoFile(OrderManager.getItems());
+        ItemReadWriter.saveIntoFile(ItemManager.getItems());
+        OrderReadWriter.saveIntoFile(OrderManager.getItems());
     }
 }
 

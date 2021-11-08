@@ -102,7 +102,9 @@ public class Home extends JFrame{
                 super.mousePressed(e);
                 Object selected = BuyList.getModel().getElementAt(BuyList.getSelectedIndex());
                 cartList.add(selected.toString());
+                buyList.remove(selected.toString());
                 viewCart.doClick();
+                viewBuyList.doClick();
             }
         });
 
@@ -122,7 +124,9 @@ public class Home extends JFrame{
                 super.mousePressed(e);
                 Object selected = CartList.getModel().getElementAt(CartList.getSelectedIndex());
                 cartList.remove(selected.toString());
+                buyList.add(selected.toString());
                 viewCart.doClick();
+                viewBuyList.doClick();
             }
         });
 

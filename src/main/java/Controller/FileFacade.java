@@ -34,11 +34,12 @@ public class FileFacade {
         }
     }
 
+
     public static void readItemAndOrder() throws IOException, ClassNotFoundException {
         try{
             ItemReadWriter.readFromFile();
             OrderReadWriter.readFromFile();
-        }
+    }
         catch (IOException | ClassNotFoundException e){
             User u = createUser("default", "000000");
             User u1 = createUser("default1", "000000");
@@ -51,10 +52,6 @@ public class FileFacade {
             OrderReadWriter.saveIntoFile(OrderManager.getItems());
             OrderReadWriter.readFromFile();
 
-        }
-
-
-
     }
-
+    }
 }

@@ -1,7 +1,6 @@
 package src.main.java.Controller;
 
-import src.main.java.Use_cases.UserManager;
-import src.main.java.Use_cases.UserReadWriter;
+import src.main.java.Use_cases.*;
 
 import java.io.IOException;
 
@@ -19,6 +18,8 @@ public class Login {
 
     public static void logout() throws IOException {
         UserReadWriter.SaveIntoFile(UserManager.getUserList());
+        ItemReadWriter.saveIntoFile(ItemManager.getItems());
+        OrderReadWriter.saveIntoFile(OrderManager.getItems());
     }
 }
 

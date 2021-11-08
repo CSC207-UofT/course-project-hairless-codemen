@@ -34,32 +34,27 @@ public class FileFacade {
         }
     }
 
-    public static void readItem() throws IOException, ClassNotFoundException {
+    public static void readItemAndOrder() throws IOException, ClassNotFoundException {
         try{
             ItemReadWriter.readFromFile();
-        }catch (IOException | ClassNotFoundException e){
-            User u = createUser("default", "000000");
-            ItemManager.loadItems(u);
-            addUser(u);
-            ItemReadWriter.saveIntoFile(ItemManager.getItems());
-            ItemReadWriter.readFromFile();
-        }
-    }
-
-    public static void readOrder() throws IOException, ClassNotFoundException {
-        try{
             OrderReadWriter.readFromFile();
-        }catch (IOException | ClassNotFoundException e){
+        }
+        catch (IOException | ClassNotFoundException e){
             User u = createUser("default", "000000");
             User u1 = createUser("default1", "000000");
             ArrayList<Item> items = ItemManager.loadItems(u);
             ItemReadWriter.saveIntoFile(ItemManager.getItems());
             addUser(u);
             addUser(u1);
-            Order o = OrderManager.create_order(items, u, u1);
+            Order o = OrderManager.create_order(ItemManager.getItemsList(), u, u1);
             OrderManager.addElement(o);
             OrderReadWriter.saveIntoFile(OrderManager.getItems());
             OrderReadWriter.readFromFile();
+
         }
+
+
+
     }
+
 }

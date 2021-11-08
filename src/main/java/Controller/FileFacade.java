@@ -52,7 +52,7 @@ public class FileFacade {
         }catch (IOException | ClassNotFoundException e){
             User u = createUser("default", "000000");
             User u1 = createUser("default1", "000000");
-            ArrayList<Item> items = new ArrayList<>(Arrays.asList(ItemManager.loadItems(u)));
+            ArrayList<Item> items = ItemManager.loadItems(u);
             addUser(u);
             addUser(u1);
             Order o = OrderManager.create_order(items, u, u1);

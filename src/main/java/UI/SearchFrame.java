@@ -47,7 +47,7 @@ public class SearchFrame extends JFrame{
                         JOptionPane.showMessageDialog(null, "No item found.");
                     }
                     else
-                    JOptionPane.showMessageDialog(null, "Here's the result:" + res);
+                    JOptionPane.showMessageDialog(null, "Here's the result:\n" + res);
                 }
                 else{
                     try{Integer id = Integer.valueOf(searchInput.getText());

@@ -152,7 +152,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
          */
         @Override
         public boolean hasNext() {
-            return current < getTotalNumber() - 1;
+            return current <= getTotalNumber() - 1;
         }
 
         /**

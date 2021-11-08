@@ -50,7 +50,7 @@ public class Home extends JFrame{
         panel0.add(load);
         panel.setLayout(new GridLayout(2,1));
         panel.add(viewBuyList);
-        JMenuItem addToCart = new JMenuItem("Add to my cart.");
+        JMenuItem addToCart = new JMenuItem("Add into my cart.");
         BuyChange.add(addToCart);
         BuyList.add(BuyChange);
         panel.add(new JScrollPane(BuyList));
@@ -90,9 +90,39 @@ public class Home extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if(e.getButton() == 2 && BuyList.getSelectedIndex() != -1){
-
+                if(e.getButton() == 1 && BuyList.getSelectedIndex() != -1){
+                    BuyChange.show(e.getComponent(),e.getX(),e.getY());
                 }
+            }
+        });
+
+        addToCart.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                Object selected = BuyList.getModel().getElementAt(BuyList.getSelectedIndex());
+                cartList.add(selected.toString());
+                viewCart.doClick();
+            }
+        });
+
+        CartList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if(e.getButton() == 1 && CartList.getSelectedIndex() != -1){
+                    CartChange.show(e.getComponent(),e.getX(),e.getY());
+                }
+            }
+        });
+
+        RemoveFromCart.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                Object selected = CartList.getModel().getElementAt(CartList.getSelectedIndex());
+                cartList.remove(selected.toString());
+                viewCart.doClick();
             }
         });
 

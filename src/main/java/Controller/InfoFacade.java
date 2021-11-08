@@ -38,6 +38,8 @@ public class InfoFacade {
 
     public static void addCartElement(Cart c, Item i) {CartManager.AddElement(c, i);}
 
+    public static void removeCartElement(Cart c, Item i){CartManager.removeElement(c, i);}
+
     public static ArrayList<Item> getItems(){
         return ItemManager.getItemsList();
     }

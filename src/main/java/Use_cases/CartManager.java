@@ -27,6 +27,10 @@ public class CartManager {
         c.addItem(i);
     }
 
+    public static void removeElement(Cart c, Item i){
+        c.removeItem(i);
+    }
+
     public static ArrayList<Item> getItems(Cart c){
         return c.getItems();
     }

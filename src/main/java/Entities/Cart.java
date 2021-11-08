@@ -65,6 +65,10 @@ public class Cart implements Serializable, Iterable<Item> {
         }
     }
 
+    public void removeItem(Item i){
+        items.remove(i);
+    }
+
     @Override
     public Iterator<Item> iterator() {
         return new CartIterator();

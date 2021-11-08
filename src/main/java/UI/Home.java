@@ -53,12 +53,12 @@ public class Home extends JFrame{
         JMenuItem addToCart = new JMenuItem("Add to my cart.");
         BuyChange.add(addToCart);
         BuyList.add(BuyChange);
-        panel.add(BuyList);
+        panel.add(new JScrollPane(BuyList));
         panel.add(viewCart);
         JMenuItem RemoveFromCart = new JMenuItem("Remove from my cart.");
         CartChange.add(RemoveFromCart);
         CartList.add(CartChange);
-        panel.add(CartList);
+        panel.add(new JScrollPane(CartList));
         panel2.add(sell);
         panel2.add(Order);
         panel2.add(searchButton);
@@ -83,6 +83,16 @@ public class Home extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 CartList.setListData(cartList.toArray());
+            }
+        });
+
+        BuyList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if(e.getButton() == 2 && BuyList.getSelectedIndex() != -1){
+
+                }
             }
         });
 

@@ -69,7 +69,7 @@ public class Home extends JFrame{
         load.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                panel0.revalidate();
+                repaint();
             }
         });
 
@@ -125,6 +125,8 @@ public class Home extends JFrame{
                 super.mousePressed(e);
                 Object selected = CartList.getModel().getElementAt(CartList.getSelectedIndex());
                 cartList.remove(selected.toString());
+                InfoFacade.removeCartElement((Cart) info[0],
+                        InfoFacade.getCartItems((Cart)info[0]).get(CartList.getSelectedIndex()));
                 viewCart.doClick();
             }
         });

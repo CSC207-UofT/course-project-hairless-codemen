@@ -39,10 +39,10 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         int current = 0;
         for (String name: itemList.keySet()){
             for (Item i: itemList.get(name)){
-                current += 1;
                 if (current == index){
                     return i;
                 }
+                current += 1;
             }
         }
         throw new IndexOutOfBoundsException();
@@ -152,7 +152,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
          */
         @Override
         public boolean hasNext() {
-            return current < getTotalNumber();
+            return current < getTotalNumber() - 1;
         }
 
         /**

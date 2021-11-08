@@ -36,6 +36,8 @@ public class InfoFacade {
         return CartManager.print_items(c);
     }
 
+    public static void addCartElement(Cart c, Item i) {CartManager.AddElement(c, i);}
+
     public static ArrayList<Item> getItems(){
         return ItemManager.getItemsList();
     }

@@ -23,6 +23,10 @@ public class CartManager {
         return sb.toString();
     }
 
+    public static void AddElement(Cart c, Item i){
+        c.addItem(i);
+    }
+
     public static ArrayList<Item> getItems(Cart c){
         return c.getItems();
     }

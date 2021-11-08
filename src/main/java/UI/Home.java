@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Home extends JFrame{
     private String username;
     private JLabel Wallet = new JLabel("Wallet: ");
+    private JLabel wallet;
     private JButton viewBuyList = new JButton("Want to buy?");
     private JButton load = new JButton("Load");
     private JTextField moneyInput = new JTextField(5);
@@ -30,7 +31,6 @@ public class Home extends JFrame{
     private JPopupMenu CartChange = new JPopupMenu();
     final int HEIGHT = 500;
     final int WIDTH = 500;
-    private JLabel wallet;
     private final ArrayList<String> cartList = new ArrayList<>();
     private final ArrayList<String> buyList = new ArrayList<>();
 
@@ -38,16 +38,18 @@ public class Home extends JFrame{
         this.username = username;
         Object[] info = FileFacade.getUserInfo(username);
         wallet = new JLabel(Double.toString((Double) info[1]));
+
         for (int x=0; x< InfoFacade.getCartItems((Cart)info[0]).size(); x+=1){
             cartList.add(InfoFacade.printItem(InfoFacade.getCartItems((Cart)info[0]).get(x)));
         }
         for (int y=0; y< InfoFacade.getItems().size(); y+=1){
             buyList.add(InfoFacade.printItem(InfoFacade.getItems().get(y)));
         }
-        panel0.add(Wallet);
-        panel0.add(wallet);
+
         panel0.add(moneyInput);
         panel0.add(load);
+        panel0.add(Wallet);
+        panel0.add(wallet);
         panel.setLayout(new GridLayout(2,1));
         panel.add(viewBuyList);
         JMenuItem addToCart = new JMenuItem("Add into my cart.");
@@ -67,7 +69,7 @@ public class Home extends JFrame{
         load.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                panel0.revalidate();
             }
         });
 
@@ -102,6 +104,7 @@ public class Home extends JFrame{
                 super.mousePressed(e);
                 Object selected = BuyList.getModel().getElementAt(BuyList.getSelectedIndex());
                 cartList.add(selected.toString());
+                InfoFacade.addCartElement((Cart) info[0], InfoFacade.getItems().get(BuyList.getSelectedIndex()));
                 viewCart.doClick();
             }
         });

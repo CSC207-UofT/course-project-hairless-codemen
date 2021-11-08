@@ -53,6 +53,7 @@ public class FileFacade {
             User u = createUser("default", "000000");
             User u1 = createUser("default1", "000000");
             ArrayList<Item> items = ItemManager.loadItems(u);
+            ItemReadWriter.saveIntoFile(ItemManager.getItems());
             addUser(u);
             addUser(u1);
             Order o = OrderManager.create_order(items, u, u1);

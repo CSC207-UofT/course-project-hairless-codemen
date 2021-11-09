@@ -1,5 +1,5 @@
 package src.main.java.UI;
-import src.main.java.Controller.Login;
+import src.main.java.Controller.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,9 +18,9 @@ public class Frame extends JFrame{
     final int HEIGHT = 500;
     final int WIDTH = 500;
     Login system;
+    FileFacade facade;
 
-    public Frame(Login system){
-        this.system = system;
+    public Frame(){
         panel = new JPanel();
 
         userLabel = new JLabel("Username:");
@@ -46,11 +46,16 @@ public class Frame extends JFrame{
                 String id = userid.getText();
                 String password = passwordInput.getText();
                 try {
-                    Login.signup(id, password);
+                    if (Login.signup(id, password)){
+                        JOptionPane.showMessageDialog(null, "success!!");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Username has been used, pls change " +
+                                "another username.");
+                    }
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-                JOptionPane.showMessageDialog(null, "success!!");
 
 
             }
@@ -61,12 +66,19 @@ public class Frame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String id = userid.getText();
                 String password = passwordInput.getText();
-                boolean res = Login.login(id, password);
+                boolean res = false;
+                try {
+                    res = Login.login(id, password);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
                 if(!res)
                     JOptionPane.showMessageDialog(null, "Invalid user or wrong password.");
                 else{
                     Frame.this.setVisible(false);
-                    JFrame Home = new Home(id, system);
+                    JFrame Home = new Home(id);
                     Home.setVisible(true);
                 }
             }

@@ -1,19 +1,25 @@
 package src.main.java.Controller;
 
-import src.main.java.Use_cases.UserManager;
+import src.main.java.Use_cases.*;
 
 import java.io.IOException;
 
 public class Login {
 
-    public static Object[] signup(String username, String password) throws IOException {
-        return new Object[]{UserManager.createUser(username, password)[1],
-                UserManager.createUser(username, password)[2]};
+
+    public static boolean signup(String username, String password) throws IOException {
+        return UserManager.createUser(username, password);
     }
 
-    public static boolean login(String username, String password){
+    public static boolean login(String username, String password) throws IOException, ClassNotFoundException{
+        UserReadWriter.SaveIntoFile(UserManager.getUserList());
         return UserManager.login(username, password);
     }
 
-    public static void logout(){};
+    public static void logout() throws IOException {
+        UserReadWriter.SaveIntoFile(UserManager.getUserList());
+        ItemReadWriter.saveIntoFile(ItemManager.getItems());
+        OrderReadWriter.saveIntoFile(OrderManager.getItems());
+    }
 }
+

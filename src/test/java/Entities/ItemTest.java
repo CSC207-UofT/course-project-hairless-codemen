@@ -11,7 +11,7 @@ public class ItemTest {
     User b;
     @BeforeEach
     void setup() {
-        b = new User("Jenny", 2, "1234", 100);
+        b = new User("Jenny", "1234", 100);
         a = new Item("Apple", b, 20.0, "Fruit");}
 
     @Test

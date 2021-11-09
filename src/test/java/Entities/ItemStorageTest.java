@@ -16,8 +16,8 @@ public class ItemStorageTest {
 
     @BeforeEach
     void setup() {
-        u1 = new User("Howard", 1, "012345678");
-        u2 = new User("H", 2, "6666");
+        u1 = new User("Howard",  "012345678");
+        u2 = new User("H", "6666");
         item1 = new Item("Cat", u1, 999999.99, "Pets");
         item2 = new Item("Airpods3", u2, 199.99, "Technology");
         item3 = new Item("iPhone14", u2, 2000.00, "Technology");

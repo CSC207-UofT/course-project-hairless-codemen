@@ -13,6 +13,14 @@ public class Item implements Serializable {
     private int quantity;
     private final String category;
 
+    /**
+     * The first constructor of Item for Item has customized quantity
+     * @param name name of the item
+     * @param owner the owner of the item, who sells it
+     * @param price the price of the item
+     * @param quantity quantity of the item
+     * @param category category the item belongs to
+     */
     public Item(String name, User owner, double price, int quantity, String category){
         this.name = name;
         this.price = price;
@@ -21,6 +29,13 @@ public class Item implements Serializable {
         this.category = category;
     }
 
+    /**
+     * Second constructor of Item has default quantity one
+     * @param name name of the item
+     * @param owner the owner of the item, who sells it
+     * @param price the price of the item
+     * @param category category the item belongs to
+     */
     public Item(String name, User owner, double price, String category){
         this.name = name;
         this.price = price;
@@ -100,6 +115,6 @@ public class Item implements Serializable {
 
     @Override
     public String toString(){
-        return name + ": "  + "Category " + category + ", quantity " + quantity + ", with price $" + price;
+        return name + ": "  + "Category: " + category + ", Quantity: " + quantity + ", Price: $" + price;
     }
 }

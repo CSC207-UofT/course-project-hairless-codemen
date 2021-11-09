@@ -22,6 +22,8 @@ public class UserManager implements Manager {
         FileOutputStream fos = new FileOutputStream(f);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(u);
+        oos.close();
+        fos.close();
     }
 
     public static boolean login(String username, String password){

@@ -19,10 +19,10 @@ public class OrderStorageTest {
     void setup() {
         u1 = new User("A", 2, "1234");
         u2 = new User("B", 3, "2345");
-        item1 = new Item("Cat", u1, 999999.99, "Pets", id);
-        item2 = new Item("Airpods3", u2, 199.99, "Technology", id);
-        item3 = new Item("iPhone14", u2, 2000.00, "Technology", id);
-        item4 = new Item("Airpods3", u1, 179.99, "Technology", id);
+        item1 = new Item("Cat", u1, 999999.99, "Pets");
+        item2 = new Item("Airpods3", u2, 199.99, "Technology");
+        item3 = new Item("iPhone14", u2, 2000.00, "Technology");
+        item4 = new Item("Airpods3", u1, 179.99, "Technology");
         lst1.add(item1);
         lst1.add(item2);
         lst2.add(item3);

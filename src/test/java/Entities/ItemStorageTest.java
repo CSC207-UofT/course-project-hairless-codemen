@@ -50,6 +50,7 @@ public class ItemStorageTest {
     public void TestDeleteElement(){
         ItemStorage.addElement(lst);
         ItemStorage.deleteElement(item3);
+        ItemStorage.deleteElement(item3);
         assertNull(ItemStorage.getItems().get("iPhone14"));
         ItemStorage.deleteElement(item2);
         assertEquals(1, ItemStorage.getItems().get("Airpods3").size());

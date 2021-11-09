@@ -13,7 +13,7 @@ public class ItemManager implements Manager {
         String target = name.toLowerCase();
         for (Map.Entry<String, ArrayList<Item>> entry : ItemStorage.getItems().entrySet()){
             String current = entry.getKey().toLowerCase();
-            if (current.contains(target)){
+            if (current.contains(target) || target.contains(current)){
                 results.addAll(entry.getValue());
             }
         }
@@ -34,14 +34,16 @@ public class ItemManager implements Manager {
 
     public static ArrayList<Item> search_by_category(String name){
         ArrayList<Item> results = new ArrayList<>();
-            for (ArrayList<Item> i : ItemStorage.getItems().values()){
-                for (Item j : i){
-                    if (j.getCategory().equals(name)) {
-                        results.add(j);
-                    }
+        String target = name.toLowerCase();
+        for (Map.Entry<String, ArrayList<Item>> entry : ItemStorage.getItems().entrySet()){
+            List<Item> current = entry.getValue();
+            for (Item i: current) {
+                if (i.getCategory().contains(target) || target.contains(i.getCategory())){
+                    results.add(i);
                 }
             }
-            return results;
+        }
+        return results;
     }
 
     public static double get_all_price(ArrayList<Item> items){

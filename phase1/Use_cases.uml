@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>src.main.java.Use_cases</OriginalElement>
+  <nodes>
+    <node x="1082.0" y="718.3046237533999">src.main.java.Use_cases.CartManager</node>
+    <node x="1082.0" y="218.0">src.main.java.Use_cases.UserManager</node>
+    <node x="676.0" y="374.5">src.main.java.Use_cases.ItemReadWriter</node>
+    <node x="345.0" y="374.5">src.main.java.Use_cases.UserReadWriter</node>
+    <node x="0.0" y="374.5">src.main.java.Use_cases.OrderReadWriter</node>
+    <node x="1436.251133272892" y="0.0">src.main.java.Use_cases.Manager</node>
+    <node x="1750.0" y="231.5">src.main.java.Use_cases.OrderManager</node>
+    <node x="1392.0" y="244.5">src.main.java.Use_cases.ItemManager</node>
+    <node x="606.25" y="66.5">java.io.Serializable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="src.main.java.Use_cases.UserManager" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="-45.73617407071629" y="-213.47416137805976" />
+      <point x="1181.2638259292837" y="188.0" />
+      <point x="745.0917951042612" y="188.0" />
+      <point x="745.0917951042612" y="101.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Use_cases.ItemManager" target="src.main.java.Use_cases.Manager" relationship="REALIZATION">
+      <point x="0.0" y="-188.5" />
+      <point x="1561.0" y="166.9700815956483" />
+      <point x="-0.16681776971904583" y="82.97008159564831" />
+    </edge>
+    <edge source="src.main.java.Use_cases.OrderManager" target="src.main.java.Use_cases.Manager" relationship="REALIZATION">
+      <point x="0.0" y="-201.5" />
+      <point x="1938.5" y="188.0" />
+      <point x="1677.7905711695375" y="188.0" />
+      <point x="1677.7905711695375" y="168.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="src.main.java.Use_cases.UserManager" target="src.main.java.Use_cases.Manager" relationship="REALIZATION">
+      <point x="0.0" y="-215.0" />
+      <point x="1227.0" y="198.0" />
+      <point x="1475.3535811423392" y="198.0" />
+      <point x="1475.3535811423392" y="168.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="src.main.java.Use_cases.ItemReadWriter" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-58.5" />
+      <point x="869.0" y="198.0" />
+      <point x="704.215095194923" y="198.0" />
+      <point x="704.215095194923" y="101.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Use_cases.UserReadWriter" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-58.5" />
+      <point x="500.5" y="198.0" />
+      <point x="669.1779238440616" y="198.0" />
+      <point x="669.1779238440616" y="101.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Use_cases.OrderReadWriter" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-58.5" />
+      <point x="162.5" y="155.17679057116953" />
+      <point x="632.1942429737081" y="155.17679057116953" />
+      <point x="632.1942429737081" y="101.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5137401024685608" showDependencies="false" x="1063.5" y="457.0" />
+  <SelectedNodes>
+    <node>src.main.java.Use_cases.CartManager</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

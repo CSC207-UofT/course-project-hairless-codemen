@@ -32,6 +32,18 @@ public class ItemManager implements Manager {
         return results;
     }
 
+    public static ArrayList<Item> search_by_category(String name){
+        ArrayList<Item> results = new ArrayList<>();
+            for (ArrayList<Item> i : ItemStorage.getItems().values()){
+                for (Item j : i){
+                    if (j.getCategory().equals(name)) {
+                        results.add(j);
+                    }
+                }
+            }
+            return results;
+    }
+
     public static double get_all_price(ArrayList<Item> items){
         double i = 0;
         for (Item item: items){

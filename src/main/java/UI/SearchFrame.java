@@ -22,18 +22,21 @@ public class SearchFrame extends JFrame{
         JPanel panel = new JPanel();
         JRadioButton searchByUser = new JRadioButton("Item by user");//search item by user
         JRadioButton searchByItem = new JRadioButton("Item");//search item by item name
+        JRadioButton searchByCategory = new JRadioButton("Category");//search item by category
         JRadioButton searchByOrder = new JRadioButton("Order");// search order by order id
         JButton search = new JButton("Search");
         JButton Back = new JButton("Back");
         ButtonGroup group = new ButtonGroup();
         group.add(searchByUser);
         group.add(searchByItem);
+        group.add(searchByCategory);
         group.add(searchByOrder);
         searchByUser.setSelected(true);
 
         panel.add(searchInput);
         panel.add(searchByUser);
         panel.add(searchByItem);
+        panel.add(searchByCategory);
         panel.add(searchByOrder);
         panel.add(search);
         panel.add(Back);
@@ -41,8 +44,17 @@ public class SearchFrame extends JFrame{
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) throws NumberFormatException {
-                if(searchByUser.isSelected() || searchByItem.isSelected()){
-                    String res = InfoFacade.printItems(Finder.find(searchInput.getText()));
+                if(!searchByOrder.isSelected()){
+                    String res = "";
+                    if(searchByUser.isSelected()){
+                        res = InfoFacade.printItems(Finder.find(searchInput.getText(), Finder.Find_By.OWNER));
+                    }
+                    else if(searchByItem.isSelected()){
+                        res = InfoFacade.printItems(Finder.find(searchInput.getText(), Finder.Find_By.NAME));
+                    }
+                    else if(searchByCategory.isSelected()){
+                        res = InfoFacade.printItems(Finder.find(searchInput.getText(), Finder.Find_By.CATEGORY));
+                    }
                     if (res.equals("")){
                         JOptionPane.showMessageDialog(null, "No item found.");
                     }
@@ -52,7 +64,7 @@ public class SearchFrame extends JFrame{
                 else{
                     try{Integer id = Integer.valueOf(searchInput.getText());
                         String res = InfoFacade.printOrder(Finder.find(id));
-                        JOptionPane.showMessageDialog(null, "Here's the result:" + res);}
+                        JOptionPane.showMessageDialog(null, "Here's the result:\n" + res);}
                     catch (NumberFormatException numberFormatException){
                         JOptionPane.showMessageDialog(null, "Please enter number(s).");
                     }
@@ -74,8 +86,8 @@ public class SearchFrame extends JFrame{
         });
 
         this.setLayout(null);
-        panel.setSize(400, 300);
-        panel.setLocation((WIDTH-400)/2, (HEIGHT-300)/2);
+        panel.setSize(450, 300);
+        panel.setLocation((WIDTH-450)/2, (HEIGHT-300)/2);
         this.add(panel);
         this.setSize(WIDTH, 300);
         this.setTitle("Search Page");

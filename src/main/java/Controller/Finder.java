@@ -11,15 +11,6 @@ import java.util.Map;
 public class Finder {
     public enum Find_By {NAME, OWNER, CATEGORY}
 
-    public static ArrayList<Item> find(String target){
-        String user = "";
-        for (String key: UserManager.getUserList().keySet()){
-            if (target.equals(key)){user = key;}
-        }
-        if (user.equals("")){return ItemManager.search(target);}
-        return ItemManager.search_by_owner(user);
-    }
-
     public static ArrayList<Item> find(String target, Find_By f){
         if (f.equals(Find_By.NAME)){return ItemManager.search(target);}
         else if (f.equals(Find_By.OWNER)){return ItemManager.search_by_owner(target);}

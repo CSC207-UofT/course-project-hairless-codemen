@@ -45,11 +45,10 @@ public class Home extends JFrame{
         for (int y=0; y< InfoFacade.getItems().size(); y+=1){
             buyList.add(InfoFacade.printItem(InfoFacade.getItems().get(y)));
         }
-
-        panel0.add(moneyInput);
-        panel0.add(load);
         panel0.add(Wallet);
         panel0.add(wallet);
+        panel0.add(moneyInput);
+        panel0.add(load);
         panel.setLayout(new GridLayout(2,1));
         panel.add(viewBuyList);
         JMenuItem addToCart = new JMenuItem("Add into my cart.");
@@ -69,7 +68,8 @@ public class Home extends JFrame{
         load.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                repaint();
+//                Home.this.repaint();
+//                SwingUtilities.updateComponentTreeUI(Home.this);
             }
         });
 

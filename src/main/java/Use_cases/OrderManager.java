@@ -5,16 +5,15 @@ import src.main.java.Entities.Order;
 import src.main.java.Entities.OrderStorage;
 import src.main.java.Entities.User;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class OrderManager implements Manager{
     public static Object search(int order_id) throws NullPointerException{
-        return OrderStorage.getItems().get(order_id);
+        return OrderStorage.getOrders().get(order_id);
     }
 
-    public static Map<Integer, Order> getItems() {return OrderStorage.getItems();}
+    public static Map<Integer, Order> getItems() {return OrderStorage.getOrders();}
 
     public static void addElement(Object[] elements){
         for (Object element: elements){
@@ -37,7 +36,7 @@ public class OrderManager implements Manager{
     }
 
     public static ArrayList<Order> getOrders(User u){
-        ArrayList<Order> o1 = new ArrayList<>(OrderStorage.getItems().values());
+        ArrayList<Order> o1 = new ArrayList<>(OrderStorage.getOrders().values());
         ArrayList<Order> o2 = new ArrayList<>();
         for (Order o: o1){
             if (o.getBuyer().getName().equals(u.getName())){

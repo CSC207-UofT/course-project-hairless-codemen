@@ -7,7 +7,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     private static final Map<String, ArrayList<Item>> itemList = new HashMap<>();
 
     /**
-     * Get the current item storage.
+     * Get the current item storage data in its original format.
      *
      * @return The hashmap of item storage.
      */
@@ -15,6 +15,11 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         return ItemStorage.itemList;
     }
 
+    /**
+     * Get the current item storage data in a list format.
+     *
+     * @return The arraylist of all items in item storage.
+     */
     public static ArrayList<Item> getItem(){
         ArrayList<Item> items = new ArrayList<>();
         for (String itemName: getItems().keySet()){
@@ -22,10 +27,11 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         }
         return items;
     }
+
     /**
      * Get the current size of item storage.
      *
-     * @return how many item(s) in the storage.
+     * @return how many item(s) are stored in the item storage.
      */
     public static int getTotalNumber() {
         int total = 0;
@@ -35,6 +41,12 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         return total;
     }
 
+    /**
+     * Get the item representing the current index
+     * @param index - the index of the item want to be retrieved.
+     * @return The Item corresponding to the given index.
+     * @throws IndexOutOfBoundsException if the given index is greater than or equal to the size of the item storage.
+     */
     public static Item getItem(int index){
         int current = 0;
         for (String name: itemList.keySet()){
@@ -65,7 +77,6 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         }
     }
 
-
     /**
      * Delete an item from the item storage. If there is one left in stock, we can simply delete the item;
      * If not, we subtract one from the current number of items in stock.
@@ -92,9 +103,9 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
 
 
     /**
-     * Add multiple items to the item storage.
+     * Add a list of items to the item storage.
      *
-     * @param items The Item we want to add.
+     * @param items The list of items we want to add.
      */
     public static void addElement(ArrayList<Item> items){
         for (int i=0; i<items.size();i+=1){
@@ -102,6 +113,12 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         }
     }
 
+    /**
+     * Add a hashmap of items to the item storage.
+     * The keys in the hashmap represents the item name and the array list of items corresponding to each key contains
+     * items that are under name which the key refers to.
+     * @param items The hashmap of items we want to add.
+     */
     public static void addElement(Map<String, ArrayList<Item>> items) {
         ArrayList<Item> item = new ArrayList<>();
         for (String key : items.keySet()) {
@@ -109,8 +126,6 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         }
         addElement(item);
     }
-
-
 
     /**
      * Delete an item from the item storage.

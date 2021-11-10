@@ -1,6 +1,5 @@
 package src.test.java.Use_cases;
 
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.OrderStorage;
@@ -28,13 +27,13 @@ public class OrderReadWriterTest {
         lst.add(item3);
         lst.add(item4);
         OrderManager.create_order(lst, u1, u2);
-        OrderReadWriter.saveIntoFile(OrderStorage.getItems());
-        System.out.println(OrderStorage.getItems());
+        OrderReadWriter.saveIntoFile(OrderStorage.getOrders());
+        System.out.println(OrderStorage.getOrders());
     }
 
     @Test
     public void OrderReadTest() throws IOException, ClassNotFoundException {
         OrderReadWriter.readFromFile();
-        System.out.println(OrderStorage.getItems());
+        System.out.println(OrderStorage.getOrders());
     }
 }

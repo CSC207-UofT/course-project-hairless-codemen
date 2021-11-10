@@ -1,11 +1,9 @@
 package src.test.java.Use_cases;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import src.main.java.Entities.*;
 import src.main.java.Use_cases.OrderManager;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,9 +54,9 @@ public class OrderManagerTest {
         OrderManager.addElement(o3);
         assertEquals(1, OrderStorage.get_size());
         OrderManager.addElement(lst3);
-        assertTrue(OrderStorage.getItems().containsValue(o1));
-        assertTrue(OrderStorage.getItems().containsValue(o2));
-        assertTrue(OrderStorage.getItems().containsValue(o3));
+        assertTrue(OrderStorage.getOrders().containsValue(o1));
+        assertTrue(OrderStorage.getOrders().containsValue(o2));
+        assertTrue(OrderStorage.getOrders().containsValue(o3));
         assertEquals(3, OrderStorage.get_size());
     }
 
@@ -83,7 +81,7 @@ public class OrderManagerTest {
     @Test
     public void TestCreateOrder(){
         Order o = OrderManager.create_order(lst1, u1, u2);
-        assertTrue(OrderStorage.getItems().containsValue(o));
+        assertTrue(OrderStorage.getOrders().containsValue(o));
     }
 
     @Test

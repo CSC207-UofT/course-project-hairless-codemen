@@ -36,21 +36,21 @@ public class OrderStorageTest {
     @Test
     public void TestAddElement(){
         OrderStorage.addElement(lst3);
-        assertEquals(o1, OrderStorage.getItems().get(1));
-        assertEquals(o2, OrderStorage.getItems().get(2));
+        assertEquals(o1, OrderStorage.getOrders().get(1));
+        assertEquals(o2, OrderStorage.getOrders().get(2));
     }
 
     @Test
     public void TestAddElementSingle(){
         OrderStorage.addElement(o1);
-        assertEquals(o1, OrderStorage.getItems().get(1));
+        assertEquals(o1, OrderStorage.getOrders().get(1));
     }
 
     @Test
     public void TestDeleteElement(){
         OrderStorage.addElement(lst3);
         OrderStorage.deleteElement(o2);
-        assertEquals(o1, OrderStorage.getItems().get(1));
-        assertNull(OrderStorage.getItems().get(2));
+        assertEquals(o1, OrderStorage.getOrders().get(1));
+        assertNull(OrderStorage.getOrders().get(2));
     }
 }

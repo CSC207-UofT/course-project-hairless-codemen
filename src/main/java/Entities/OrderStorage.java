@@ -6,31 +6,52 @@ import java.util.*;
 public class OrderStorage implements Storable, Serializable, Iterable<Order> {
     private static final Map<Integer, Order> orderList = new HashMap<>();
 
+    /**
+     * Add a list of orders to order storage.
+     * @param orders - the list of orders to be added to order storage.
+     */
     public static void addElement(ArrayList<Object> orders){
         for (Object order : orders){
             addElement(order);
         }
     }
 
+    /**
+     * Add a hashmap of orders to order storage
+     * @param m - the hashmap of order to be added to order storage (keys in this hashmap represents order ids, and
+     * there should be only one order associated with each key, since each order's order id number is unique.
+     */
     public static void addElement(Map<Integer, Order> m){
         for (Order o: m.values()){
             addElement(o);
         }
     }
 
-    public static Map<Integer, Order> getItems() {return OrderStorage.orderList;}
+    /**
+     * Get the orders stored in order storage in its original hashmap form.
+     * @return the order hashmap stored in order storage.
+     */
+    public static Map<Integer, Order> getOrders() {return OrderStorage.orderList;}
 
-    int getTotalNumber() {
-        return 0;
-    }
-
+    /**
+     * Add an order to order storage.
+     * @param object - order to be added to order storage
+     */
     public static void addElement(Object object) {
         orderList.put(((Order) object).getOrder_id(), (Order) object);
     }
 
+    /**
+     * Delete an order from order storage.
+     * @param object - order to be deleted from order storage
+     */
     public static void deleteElement(Object object) {orderList.remove(((Order) object).getOrder_id());
     }
 
+    /**
+     * Get the total number of orders stored in order storage.
+     * @return the total number of orders stored in order storage.
+     */
     public static int get_size(){
         return orderList.size();
     }

@@ -113,5 +113,9 @@ public class ItemManager implements Manager {
     public static String printItem(Item i){
         return i.toString();
     }
+
+    public static User getSeller(Item i){
+        return i.getOwner();
+    }
 }
 

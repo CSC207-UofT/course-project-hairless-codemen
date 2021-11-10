@@ -20,7 +20,7 @@ import java.util.Objects;
  */
 public class Transaction {
 
-    public static boolean buy_item(ArrayList<Item> items, User buyman, User sellman) throws IOException {
+    public static boolean buy_item(ArrayList<Item> items, User buyman, User sellman){
         if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyman)) {
             Order dingdan = OrderManager.create_order(items, buyman, sellman);
             OrderManager.addElement(dingdan);         //create order
@@ -31,23 +31,6 @@ public class Transaction {
         }
         return false;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,6 +65,14 @@ public class Transaction {
 
     public static Map<String, ArrayList<Item>> getItems(){
         return ItemManager.getItems();
+    }
+
+    public void sell(Item item){
+        ItemManager.addElement(item);
+    }
+
+    public void sell(ArrayList<Item> i){
+        ItemManager.addElement(i);
     }
 }
 

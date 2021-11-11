@@ -56,7 +56,7 @@ public class UserManager implements Manager, Serializable {
         u.getWallet().subtractMoney(money);
     }
 
-    public static void loadmoney(User u, double money){u.getWallet().loadMoney(money);}
+    public static void loadMoney(User u, double money){u.getWallet().loadMoney(money);}
 
 
     public void addElement(Object[] users){

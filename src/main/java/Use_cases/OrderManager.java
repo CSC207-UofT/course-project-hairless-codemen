@@ -57,6 +57,7 @@ public class OrderManager implements Manager{
         return o;
     }
 
+
     public static void removeElement(Object[] elements){}
 
     public static void removeElement(Object element){}

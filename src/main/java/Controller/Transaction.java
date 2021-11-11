@@ -10,29 +10,50 @@ import src.main.java.Use_cases.OrderManager;
 import src.main.java.Use_cases.UserManager;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * remember to generate a successful order
  */
 public class Transaction {
 
-    public static boolean buy_item(ArrayList<Item> items, User buyman, User sellman){
+    public static boolean buy_item(ArrayList<Item> items, User buyman){
+
         if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyman)) {
-            Order dingdan = OrderManager.create_order(items, buyman, sellman);
-            OrderManager.addElement(dingdan);         //create order
+            ArrayList<Item> i_list = new ArrayList<>();
+            ArrayList<Item> copy_list = new ArrayList<>(items);
+
+            for (Item i: copy_list){
+                User seller = ItemManager.getSeller(i);
+                UserManager.loadmoney(seller, ItemManager.get_price(i));   //seller get money
+                i_list.add(i);
+                ArrayList<Item> temp_lst = new ArrayList<>(List.of(i);
+                Order dingdan = OrderManager.create_order(temp_lst, buyman, seller);
+
+            }
+
             UserManager.subtractMoney(buyman, ItemManager.get_all_price(items));   //subtract buyman money
-            UserManager.loadmoney(sellman, ItemManager.get_all_price(items));     //seller get money
             CartManager.remove_items(buyman, items);                   //remove the items in buyman's cart
+
             return true;
         }
         return false;
     }
 
 
+    public static boolean buy(Item item){
+        User seller = ItemManager.getSeller(item);
+
+        double money = UserManager.getMoney(seller);
+        double price = CartManager.getPrice(item);
+        if (price < money) {
+            UserManager.loadmoney(seller, price);    //should be add money
+            ItemManager.removeElement(item);
+
+            return true;
+        }
+        else return false;
+    }
 
 /**
 public class Transaction {

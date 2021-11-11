@@ -54,12 +54,19 @@ public class ItemManager implements Manager {
         return i;
     }
 
+    public static double get_price(Item item){
+        return item.getItemPrice();}
+
+
+
+
     public void addElement(Object[] newItems) {
         for (Object item : newItems){
             addElement(item);
             System.out.println(item);
         }
     }
+
 
     public static void addElement(Object item){
         ItemStorage.addElement(item);

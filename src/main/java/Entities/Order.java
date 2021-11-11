@@ -26,6 +26,7 @@ public class Order implements Serializable {
         this.total = total;
     }
 
+
     /**
      * Get the order's id number.
      * @return the Order's id.

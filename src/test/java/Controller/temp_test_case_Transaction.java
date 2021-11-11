@@ -49,7 +49,7 @@ class TransactionTest {
         lst.add(item2);
         buyman.getCart().addItem(item1);
         buyman.getCart().addItem(item2);
-        Assertions.assertTrue(Transaction.buy_item(lst, buyman, sellman));
+        Assertions.assertTrue(Transaction.buy_item(lst, buyman));
         assertEquals(buyman.getWallet().getMoney(), 9899.99);
         assertEquals(sellman.getWallet().getMoney(), 100);
     }

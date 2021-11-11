@@ -75,7 +75,7 @@ public class Transaction {
         ItemManager.addElement(i);
     }
 
-    public void addMoney(User u, double money){
+    public static void addMoney(User u, double money){
         UserManager.loadMoney(u, money);
     }
 }

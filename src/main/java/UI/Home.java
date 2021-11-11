@@ -7,13 +7,15 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyVetoException;
+import java.beans.VetoableChangeListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Home extends JFrame{
     private String username;
     private JLabel Wallet = new JLabel("Wallet: ");
-    private JLabel wallet;
     private JButton viewBuyList = new JButton("Want to buy?");
     private JButton load = new JButton("Load");
     private JTextField moneyInput = new JTextField(5);
@@ -37,7 +39,7 @@ public class Home extends JFrame{
     public Home(String username){
         this.username = username;
         Object[] info = FileFacade.getUserInfo(username);
-        wallet = new JLabel(Double.toString((Double) info[1]));
+        JLabel wallet = new JLabel(Double.toString((Double) info[1]));
 
         for (int x=0; x< InfoFacade.getCartItems((Cart)info[0]).size(); x+=1){
             cartList.add(InfoFacade.printItem(InfoFacade.getCartItems((Cart)info[0]).get(x)));
@@ -68,11 +70,16 @@ public class Home extends JFrame{
         load.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                Home.this.repaint();
-//                SwingUtilities.updateComponentTreeUI(Home.this);
+                try{Integer money = Integer.valueOf(moneyInput.getText());
+                    Transaction.addMoney((User)info[3], money);
+                    JOptionPane.showMessageDialog(null, "Success!");
+                    new Home(username).setVisible(true);
+                    Home.this.setVisible(false);}
+                catch (NumberFormatException numberFormatException){
+                    JOptionPane.showMessageDialog(null, "Please enter number(s).");
+                }
             }
         });
-
 
         viewBuyList.addActionListener(new ActionListener() {
             @Override

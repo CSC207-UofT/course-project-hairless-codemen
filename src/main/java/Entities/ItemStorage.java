@@ -18,7 +18,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     /**
      * Get the current item storage data in a list format.
      *
-     * @return The arraylist of all items in item storage.
+     * @return The Arraylist of all items in item storage.
      */
     public static ArrayList<Item> getItem(){
         ArrayList<Item> items = new ArrayList<>();

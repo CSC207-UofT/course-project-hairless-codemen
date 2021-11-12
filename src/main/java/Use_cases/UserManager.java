@@ -74,7 +74,7 @@ public class UserManager implements Manager, Serializable {
     }
 
     /**
-     * Returns a map containing all users stored on the userstorage.
+     * Returns a map containing all users stored on the user storage.
      * @return a Map with keys being usernames and values being User objects that contains all information stored in the
      * user storage.
      */

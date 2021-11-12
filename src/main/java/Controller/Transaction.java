@@ -67,7 +67,7 @@ public class Transaction {
         return ItemManager.getItems();
     }
 
-    public void sell(Item item){
+    public static void sell(Item item){
         ItemManager.addElement(item);
     }
 

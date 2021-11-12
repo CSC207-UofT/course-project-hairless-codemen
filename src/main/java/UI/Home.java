@@ -7,39 +7,35 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Home extends JFrame{
-    private String username;
-    private JLabel Wallet = new JLabel("Wallet: ");
-    private JButton viewBuyList = new JButton("Want to buy?");
-    private JButton load = new JButton("Load");
-    private JTextField moneyInput = new JTextField(5);
-    private JList BuyList = new JList();
-    private JButton viewCart = new JButton("My Cart");
-    private JList CartList = new JList();
-    private JButton searchButton = new JButton("Search");
-    private JButton sell = new JButton("Sell");
-    private JButton Checkout = new JButton("Check Out");
-    private JButton Order = new JButton("Order");
-    private JPanel panel = new JPanel();
-    private JPanel panel2 = new JPanel();
-    private JPanel panel0 = new JPanel();
-    private JPopupMenu BuyChange = new JPopupMenu();
-    private JPopupMenu CartChange = new JPopupMenu();
+
     final int HEIGHT = 500;
     final int WIDTH = 500;
     private final ArrayList<String> cartList = new ArrayList<>();
     private final ArrayList<String> buyList = new ArrayList<>();
 
     public Home(String username){
-        this.username = username;
         Object[] info = FileFacade.getUserInfo(username);
         JLabel wallet = new JLabel(Double.toString((Double) info[1]));
+        JLabel Wallet = new JLabel("Wallet: ");
+        JButton viewBuyList = new JButton("Want to buy?");
+        JButton load = new JButton("Load");
+        JTextField moneyInput = new JTextField(5);
+        JList BuyList = new JList();
+        JButton viewCart = new JButton("My Cart");
+        JList CartList = new JList();
+        JButton searchButton = new JButton("Search");
+        JButton sell = new JButton("Sell");
+        JButton Checkout = new JButton("Check Out");
+        JButton Order = new JButton("Order");
+        JPanel panel = new JPanel();
+        JPanel panel2 = new JPanel();
+        JPanel panel0 = new JPanel();
+        JPopupMenu BuyChange = new JPopupMenu();
+        JPopupMenu CartChange = new JPopupMenu();
 
         for (int x=0; x< InfoFacade.getCartItems((Cart)info[0]).size(); x+=1){
             cartList.add(InfoFacade.printItem(InfoFacade.getCartItems((Cart)info[0]).get(x)));
@@ -142,7 +138,9 @@ public class Home extends JFrame{
         sell.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Home.this.setVisible(false);
+                JFrame sell = new SellFrame(username);
+                sell.setVisible(true);
             }
         });
 
@@ -199,7 +197,9 @@ public class Home extends JFrame{
         this.add(panel);
         this.add(panel2);
         this.setSize(WIDTH, HEIGHT);
-        this.setTitle(this.username + "'s HomePage");
+        this.setTitle(username + "'s HomePage");
+        viewBuyList.doClick();
+        viewCart.doClick();
 
 
 

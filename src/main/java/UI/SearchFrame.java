@@ -1,20 +1,17 @@
 package src.main.java.UI;
-
-import src.main.java.Controller.FileFacade;
 import src.main.java.Controller.Finder;
 import src.main.java.Controller.InfoFacade;
-import src.main.java.Entities.Order;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.util.ArrayList;
 
 public class SearchFrame extends JFrame{
 
     private String username;
     final int HEIGHT = 500;
     final int WIDTH = 500;
+    private ArrayList<String> result= new ArrayList<>();
 
     public SearchFrame(String username){
         this.username = username;
@@ -32,12 +29,17 @@ public class SearchFrame extends JFrame{
         group.add(searchByCategory);
         group.add(searchByOrder);
         searchByUser.setSelected(true);
-
+        JList result = new JList();
+        JPopupMenu CartChange = new JPopupMenu();
+        JMenuItem add = new JMenuItem("Add into my cart.");
+        CartChange.add(add);
+        result.add(CartChange);
         panel.add(searchInput);
         panel.add(searchByUser);
         panel.add(searchByItem);
         panel.add(searchByCategory);
         panel.add(searchByOrder);
+        panel.add(result);
         panel.add(search);
         panel.add(Back);
 

@@ -120,7 +120,7 @@ public class UserManager implements Manager, Serializable {
      * Add a list of users to UserStorage.
      * @param users - the list of users to be added.
      */
-    public void addElement(Object[] users){
+    public static void addElement(Object[] users){
         for (Object user: users){
             addElement(user);
         }
@@ -138,7 +138,7 @@ public class UserManager implements Manager, Serializable {
      * Remove a list of users from UserStorage.
      * @param elements - the list of users to be removed.
      */
-    public void removeElement(Object[] elements) {
+    public static void removeElement(Object[] elements) {
         for (Object element: elements){
             removeElement(element);
         }
@@ -148,7 +148,7 @@ public class UserManager implements Manager, Serializable {
      * Remove a single user from UserStorage.
      * @param element - the user to be removed.
      */
-    public void removeElement(Object element) {
+    public static void removeElement(Object element) {
         UserStorage.deleteElement(element);
     }
 }

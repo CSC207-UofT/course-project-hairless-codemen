@@ -20,6 +20,14 @@ import java.util.Objects;
  */
 public class Transaction {
 
+    /**
+     * Return whether a User is able to make a purchase. Make changes to involving Users' money if purchase made
+     * successfully.
+     * @param items - a list of Item(s) that the buyer wants to buy.
+     * @param buyman -  a User who wish to make the purchase.
+     * @param sellman - a User who has the Item(s) that the buyer wishes to purchase.
+     * @return the True iff the buyer has enough money to purchase the Item(s); Otherwise return False.
+     */
     public static boolean buy_item(ArrayList<Item> items, User buyman, User sellman){
         if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyman)) {
             Order dingdan = OrderManager.create_order(items, buyman, sellman);
@@ -54,27 +62,49 @@ public class Transaction {
         }
         else return false;
     }
-    /**
-     * Change the User's name by using changeName
-     * Return nothing
-     */
 
+
+    /**
+     * Get the amount of money that a User has right now.
+     * @param username - the User we want to know about.
+     * Return a double representing the amount of money.
+     */
     public static double getMoney(String username){
         return UserManager.getMoney(Objects.requireNonNull(UserManager.search(username)));
     }
 
+    /**
+     * Get all the Items stored.
+     * Return a hash map containing information of all Items stored.
+     */
     public static Map<String, ArrayList<Item>> getItems(){
         return ItemManager.getItems();
     }
 
+    /**
+     * Sell an Item.
+     * @param item - the Item being sold.
+     * Return nothing
+     */
     public static void sell(Item item){
         ItemManager.addElement(item);
     }
 
-    public void sell(ArrayList<Item> i){
-        ItemManager.addElement(i);
+    /**
+     * Sell multiple Items.
+     * @param items - the list of Items being sold.
+     * Return nothing
+     */
+    public void sell(ArrayList<Item> items){
+        ItemManager.addElement(items);
     }
 
+    /**
+     * Add money to a User.
+     * @param u - the User we want to add money to.
+     * @param money - the amount of money we wish to add.
+     * Return nothing
+     */
     public static void addMoney(User u, double money){
         UserManager.loadMoney(u, money);
     }

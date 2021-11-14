@@ -74,6 +74,8 @@ public class ItemManager implements Manager {
         }
         return i;
     }
+    public static double get_price(Item item){
+        return item.getItemPrice();}
 
     /**
      * Add a list of items into Item Storage.

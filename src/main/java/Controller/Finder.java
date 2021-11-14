@@ -34,6 +34,9 @@ public class Finder {
      * @return the matching Order which has this order number or null if no match found.
      */
     public static Order find(int target){
+        if (!OrderManager.has_order(target)){
+            return null;
+        }
         return (Order) OrderManager.search(target);
     }
 

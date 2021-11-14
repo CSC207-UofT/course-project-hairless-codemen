@@ -54,7 +54,7 @@ public class ItemManager implements Manager {
         for (Map.Entry<String, ArrayList<Item>> entry : ItemStorage.getItems().entrySet()){
             List<Item> current = entry.getValue();
             for (Item i: current) {
-                if (i.getCategory().contains(target) || target.contains(i.getCategory())){
+                if (i.getCategory().toLowerCase().contains(target) || target.contains(i.getCategory())){
                     results.add(i);
                 }
             }

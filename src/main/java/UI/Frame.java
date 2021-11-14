@@ -45,16 +45,12 @@ public class Frame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String id = userid.getText();
                 String password = passwordInput.getText();
-                try {
-                    if (Login.signup(id, password)){
-                        JOptionPane.showMessageDialog(null, "success!!");
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Username has been used, pls change " +
-                                "another username.");
-                    }
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                if (Login.signup(id, password)){
+                    JOptionPane.showMessageDialog(null, "success!!");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Username has been used, pls change " +
+                            "another username.");
                 }
 
 
@@ -70,8 +66,6 @@ public class Frame extends JFrame{
                 try {
                     res = Login.login(id, password);
                 } catch (IOException ex) {
-                    ex.printStackTrace();
-                } catch (ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
                 if(!res)

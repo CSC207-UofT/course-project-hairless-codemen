@@ -21,6 +21,21 @@ public class OrderManager implements Manager{
     }
 
     /**
+     * Return whether an order with matching order id exists.
+     * @param order_id the order id to be used to perform the search for the matched order.
+     * @return true if a matching oder exist. False otherwise.
+     */
+    public static boolean has_order(int order_id){
+        for (int ids: OrderStorage.getOrders().keySet()){
+            if (order_id == ids){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
      * Get all orders stored in order storage in the map form.
      * @return the Map containing all orders stored in order storage, where keys in the map represents order id of each
      * order and the corresponding value is the Order object. Each key (order id) can only have one value (Order).

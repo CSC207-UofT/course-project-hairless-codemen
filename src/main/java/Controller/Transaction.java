@@ -38,10 +38,9 @@ public class Transaction {
     public static boolean buy_item(ArrayList<Item> items, User buyer){
 
         if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyer)) {
-            ArrayList<Item> copy_list = new ArrayList<>(items);
             Map<User, ArrayList<Item>> category= new HashMap<>();
 
-            for (Item i: copy_list){
+            for (Item i: items){
                 ArrayList<Item> item = new ArrayList<>();
                 item.add(i);
                 User seller = ItemManager.getSeller(i);

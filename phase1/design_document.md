@@ -37,4 +37,14 @@ Please see the ".uml" files under our phase1 package.
 
 *7.Design Patterns Implemented:*
 
+To begin, we implemented the Iterator design pattern for our classes Cart, ItemStorage and OrderStorage. The reason for implementing this design pattern is that we would like to go through every item in a cart, every item stored in our item storage and every order stored in our order storage on the use case level. 
+The Iterator design pattern avoids using a lot of getter methods and then iterate through the data structure we implemented underlying these classes. 
+
+Also, to make it easier for searching operations to be performed, we changed our data structure for our storages from ArrayLists to HashMaps, but looping through every item in a hashmap is relatively complicated, so the Iterator pattern also made this process more efficient.
+
+Secondly, we also implemented the Facade design pattern in our controller classes, FileFacade and InfoFacade. The reason for using the Facade design pattern in our FileFacade class is that we would like to read Users, Items and Orders stored in our files at the beginning of the program so that the platform has a record of everything. FIleFacade will redirect the tasks of reading users from file, reading items from file, and reading orders from file to UserReadWriter, ItemReadWriter and OrderReadWriter, respectively. 
+Also, if these files are empty at the beginning, we would load system preset users, orders, or items to our storages. FileFacade will also redirect thesre tasks to UserManager, OrderManager or ItemManager respectively. 
+
+The reason for using the Facade design pattern in our InfoFacade class is that on the UI level, we need to have a string representation of items in cart, a list of items, orders in general (for searching purposes) or orders made by a specific user. InfoFacade can redirect these tasks to CartManager, ItemManager and OrderManager respectively. 
+
 *8. Progress Report:*

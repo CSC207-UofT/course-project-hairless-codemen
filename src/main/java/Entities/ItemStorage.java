@@ -87,8 +87,10 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         if (itemList.get(item.getItemName()).size() == 1){
             itemList.remove(item.getItemName());
         }
-        else
+        else if (itemList.get(item.getItemName()).size() > 1){
             itemList.get(item.getItemName()).remove(item);
+        }
+
     }
 
     /**
@@ -108,8 +110,8 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      * @param items The list of items we want to add.
      */
     public static void addElement(ArrayList<Item> items){
-        for (int i=0; i<items.size();i+=1){
-            addElement(items.get(i));
+        for (Item item : items) {
+            addElement(item);
         }
     }
 
@@ -169,7 +171,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
          */
         @Override
         public boolean hasNext() {
-            return current <= getTotalNumber() - 1;
+            return current < getTotalNumber();
         }
 
         /**
@@ -183,6 +185,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
             Item i;
             try{
                 i = getItem(current);
+                System.out.println(i);
             }catch(IndexOutOfBoundsException e){
                 throw new NoSuchElementException();
             }

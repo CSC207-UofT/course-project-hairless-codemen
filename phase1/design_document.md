@@ -1,11 +1,17 @@
 **Design Document**
 
+*1. Updated Specification:*
 
-Please put information about design patterns and UML diagrams down below.
+*2. UML diagrams:*
 
-_Design Patterns:_
+*3. Major Design Decision:*
 
+*4. Examples of Following Clean Architecture:*
 
+*5. Examples of Obeying SOLID Principles:*
 
+*6. Packaging Strategies Used:*
 
-_UML Diagrams:_
+*7.Design Patterns Implemented:*
+
+*8. Progress Report:*

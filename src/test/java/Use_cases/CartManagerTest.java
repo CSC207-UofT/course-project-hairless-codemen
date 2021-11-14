@@ -59,11 +59,29 @@ public class CartManagerTest {
 
     @Test
     public void TestGetItems(){
-        ArrayList<Item> item = u1.getCart().getItems();
+        ArrayList<Item> item = CartManager.getItems(u1.getCart());
         assertTrue(item.contains(item1));
         assertTrue(item.contains(item2));
         assertTrue(item.contains(item3));
         assertTrue(item.contains(item4));
+    }
+
+    @Test
+    public void TestAddElement(){
+        CartManager.AddElement(u2.getCart(), item1);
+        ArrayList<Item> item = u2.getCart().getItems();
+        assertEquals(item.size(), 1);
+        assertTrue(item.contains(item1));
+    }
+
+    @Test
+    public void TestRemoveElement(){
+        CartManager.removeElement(u1.getCart(), item4);
+        ArrayList<Item> item = u1.getCart().getItems();
+        assertTrue(item.contains(item1));
+        assertTrue(item.contains(item2));
+        assertTrue(item.contains(item3));
+        assertFalse(item.contains(item4));
     }
 }
 

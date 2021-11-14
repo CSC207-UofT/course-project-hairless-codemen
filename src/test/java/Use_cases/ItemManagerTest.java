@@ -24,6 +24,9 @@ class ItemManagerTest {
         item2 = new Item("Airpods3", u2, 199.99, "Technology");
         item3 = new Item("iPhone14", u3, 2000.00, "Technology");
         item4 = new Item("Airpods3", u1, 179.99, "Technology");
+        for (Item i : new ItemStorage()){
+            ItemStorage.deleteElement(i);
+        }
         ItemStorage.addElement(item1);
         ItemStorage.addElement(item2);
         ItemStorage.addElement(item3);

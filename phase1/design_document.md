@@ -1,6 +1,6 @@
 **Design Document**
 
-*1. Updated Specification:*
+**1. Updated Specification:**
 
 We would like to design a service platform that allows users to search, buy and sell items.
 It is similar to existing trading websites such as Kijiji, where each user is a buyer and seller at the same time. 
@@ -20,14 +20,27 @@ The user may top up their wallet to get more money for purchasing.
 After successfully paying for the order, users will receive an order number. The user would be able to search for their order by using
 order number; Finding the order will show the following information: buyer name, seller name, ordered item(s), the total amount paid to the user.
 
+<br />
 
-*2. UML diagrams:*
+**2. UML diagrams:**
 
-Please see the ".uml" files under our phase1 package.
+Please see the ".uml" files under our "phase1" package.
 
-*3. Major Design Decisions:*
+<br />
 
+**3. Major Design Decisions:**
 
+*a.* Changed the underlying data structure for storages from ArrayList to HashMap.
+
+In this phase, unlike phase 0, we decided to change the way we store all users, items and orders in our system from using ArrayLists to using Hashmaps. In UserStorage, we used a hashmap with keys being usernames and values the corresponding users, so we made sure every user's username is unique, like pretty much every C2C platform now. 
+
+In ItemStorage, we allow items with the same names because in reality it is possible to have items with same names but from different sellers or with different prices, so we used a hashmap with keys being item names and values ArrayLists of all items under each name. In OrderStorage, we made sure every order has a unique order id, and we used these ids as keys in the hashmap, with values the corresponding orders. 
+
+The reason we decided to change the underlying data structure for storages is that in this way, it is much easier to perform search operations for searching a user by username, an item by itemname and an order by its id. Although this made iterating through everything more complicated, we added the Iterator Design Pattern to solve this issue (see more in 7.).
+
+*b.* 
+
+<br />
 
 *4. Examples of Following Clean Architecture:*
 

@@ -42,9 +42,16 @@ The reason we decided to change the underlying data structure for storages is th
 
 <br />
 
-*4. Examples of Following Clean Architecture:*
+*4. Following Clean Architecture:*
+In our project we divide our works into four major categories, which is Entities, Use_cases, Controller, and UI. 
+We follow the Clean Architecture rules. The classes are only dependent on their adjacent layer, and would not have 
+direct connections across layers. For example, the Entities is our core layer, and when the Use_cases building method, 
+they would only use the attribute and method in the Entities or the method in the Use_cases. They cannot call the 
+method in the upper layer classes. Similarly, the Controller only can call the method in the Use_cases classes or the 
+Controller classes. Each of these four layers is dependent on its lower layers.
 
 *5. Examples of Obeying SOLID Principles:*
+
 
 *6. Packaging Strategies Used:*
 

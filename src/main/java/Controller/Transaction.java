@@ -39,7 +39,6 @@ public class Transaction {
 
         if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyer)) {
             Map<User, ArrayList<Item>> category= new HashMap<>();
-
             for (Item i: items){
                 ArrayList<Item> item = new ArrayList<>();
                 item.add(i);
@@ -61,25 +60,6 @@ public class Transaction {
         return false;
     }
 
-
-
-    /**
-     * Get the amount of money that a User has right now.
-     * @param username - the User we want to know about.
-     * Return a double representing the amount of money.
-     */
-    public static double getMoney(String username){
-        return UserManager.getMoney(Objects.requireNonNull(UserManager.search(username)));
-    }
-
-    /**
-     * Get all the Items stored.
-     * Return a hash map containing information of all Items stored.
-     */
-    public static Map<String, ArrayList<Item>> getItems(){
-        return ItemManager.getItems();
-    }
-
     /**
      * Sell an Item.
      * @param item - the Item being sold.
@@ -94,7 +74,7 @@ public class Transaction {
      * @param items - the list of Items being sold.
      * Return nothing
      */
-    public void sell(ArrayList<Item> items){
+    public static void sell(ArrayList<Item> items){
         ItemManager.addElement(items);
     }
 

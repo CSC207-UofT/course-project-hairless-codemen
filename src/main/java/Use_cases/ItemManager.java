@@ -86,7 +86,6 @@ public class ItemManager implements Manager {
             addElement(item);
         }
     }
-
     /**
      * Add a single item into Item Storage.
      * @param item  - the single item to be added into Item Storage.

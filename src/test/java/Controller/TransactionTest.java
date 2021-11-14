@@ -7,13 +7,15 @@ import org.junit.jupiter.api.Test;
 import src.main.java.Controller.Transaction;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.Cart;
+import src.main.java.Entities.ItemStorage;
 import src.main.java.Entities.User;
+import src.main.java.Use_cases.ItemManager;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TransactionTest {
+public class TransactionTest {
     Cart c;
     Item item1, item2;
     User buyer;
@@ -30,7 +32,7 @@ class TransactionTest {
     }
 
     @Test
-    public void TestTransaction(){
+    public void TestBuy(){
         lst.add(item1);
         lst.add(item2);
         buyer.getCart().addItem(item1);
@@ -40,5 +42,13 @@ class TransactionTest {
         assertEquals(seller.getWallet().getMoney(), 100);
     }
 
-}
+    @Test
+    public void TestSell(){
+        lst.add(item1);
+        lst.add(item2);
+        Transaction.sell(lst);
+        assertEquals(ItemManager.getItemsList().size(), 2);
+    }
 
+
+}

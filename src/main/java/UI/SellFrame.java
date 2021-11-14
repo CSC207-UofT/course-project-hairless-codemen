@@ -88,7 +88,7 @@ public class SellFrame extends JFrame {
         panel.setSize(300,50);
         panel1.setSize(250,100);
         panel.setLocation((WIDTH-320)/2, 70);
-        panel1.setLocation((WIDTH-270)/2,130);
+        panel1.setLocation((WIDTH-270)/2,140);
         this.add(panel);
         this.add(panel1);
         this.setSize(WIDTH,HEIGHT);

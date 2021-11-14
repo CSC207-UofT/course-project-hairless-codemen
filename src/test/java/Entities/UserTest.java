@@ -5,11 +5,12 @@ import org.junit.jupiter.api.Test;
 import src.main.java.Entities.User;
 
 public class UserTest {
-    User a;
+    User a, b;
 
     @BeforeEach
     void setup(){
         a=new User("Crystal", "Qx951225");
+        b = new User("Howard", "abcd1234", 100);
     }
 
     @Test
@@ -30,4 +31,13 @@ public class UserTest {
         assertEquals("951225Qx", a.getPassword());
     }
 
+    @Test
+    public void TestGetWallet(){
+        assertEquals(100, b.getWallet().getMoney());
+    }
+
+    @Test
+    public void TestGetCart(){
+        assertEquals(0, b.getCart().getItems().size());
+    }
 }

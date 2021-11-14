@@ -50,5 +50,11 @@ public class TransactionTest {
         assertEquals(ItemManager.getItemsList().size(), 2);
     }
 
+    @Test
+    public void TestSell2(){
+        Transaction.sell(item1);
+        assertEquals(ItemManager.getItemsList().size(), 1);
+    }
+
 
 }

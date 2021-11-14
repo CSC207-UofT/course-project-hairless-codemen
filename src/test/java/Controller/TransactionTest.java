@@ -29,6 +29,8 @@ public class TransactionTest {
         seller = new User("happysell", "2345");
         item1 = new Item("Banana", seller, 40, "Fruit");
         item2 = new Item("Apple", seller, 60, "Fruit");
+        ArrayList<Item> items = ItemStorage.getItem();
+        ItemStorage.deleteElement(items);
     }
 
     @Test
@@ -52,9 +54,8 @@ public class TransactionTest {
 
     @Test
     public void TestSell2(){
+        System.out.println(ItemManager.getItemsList());
         Transaction.sell(item1);
         assertEquals(ItemManager.getItemsList().size(), 1);
     }
-
-
 }

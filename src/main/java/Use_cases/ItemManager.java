@@ -81,8 +81,8 @@ public class ItemManager implements Manager {
      * Add a list of items into Item Storage.
      * @param newItems  - the list of items to be added into Item Storage.
      */
-    public void addElement(Object[] newItems) {
-        for (Object item : newItems){
+    public static void addElement(ArrayList<Item> newItems) {
+        for (Item item : newItems){
             addElement(item);
         }
     }

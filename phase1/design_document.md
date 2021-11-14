@@ -32,28 +32,47 @@ Please see the ".uml" files under our "phase1" package.
 
 *a.* Changed the underlying data structure for storages from ArrayList to HashMap.
 
-In this phase, unlike phase 0, we decided to change the way we store all users, items and orders in our system from using ArrayLists to using Hashmaps. In UserStorage, we used a hashmap with keys being usernames and values the corresponding users, so we made sure every user's username is unique, like pretty much every C2C platform now. 
+In this phase, unlike phase 0, we decided to change the way we store all users, items and orders in our system from 
+using ArrayLists to using Hashmaps. In UserStorage, we used a hashmap with keys being usernames and values the 
+corresponding users, so we made sure every user's username is unique, like pretty much every C2C platform now. 
 
-In ItemStorage, we allow items with the same names because in reality it is possible to have items with same names but from different sellers or with different prices, so we used a hashmap with keys being item names and values ArrayLists of all items under each name. In OrderStorage, we made sure every order has a unique order id, and we used these ids as keys in the hashmap, with values the corresponding orders. 
+In ItemStorage, we allow items with the same names because in reality it is possible to have items with same names but 
+from different sellers or with different prices, so we used a hashmap with keys being item names and values ArrayLists 
+of all items under each name. In OrderStorage, we made sure every order has a unique order id, and we used these ids as 
+keys in the hashmap, with values the corresponding orders. 
 
-The reason we decided to change the underlying data structure for storages is that in this way, it is much easier to perform search operations for searching a user by username, an item by itemname and an order by its id. Although this made iterating through everything more complicated, we added the Iterator Design Pattern to solve this issue (see more in 7.).
+The reason we decided to change the underlying data structure for storages is that in this way, it is much easier to 
+perform search operations for searching a user by username, an item by itemname and an order by its id. Although this 
+made iterating through everything more complicated, we added the Iterator Design Pattern to solve this issue 
+(see more in 7.).
 
 *b.* 
 
 <br />
 
 *4. Following Clean Architecture:*
-In our project we divide our works into four major categories, which is Entities, Use_cases, Controller, and UI. 
-We follow the Clean Architecture rules. The classes are only dependent on their adjacent layer, and would not have 
-direct connections across layers. For example, the Entities is our core layer, and when the Use_cases building method, 
-they would only use the attribute and method in the Entities or the method in the Use_cases. They cannot call the 
+
+In our project we divide our works into four major categories, which are Entities, Use_cases, Controller, and UI. 
+We have followed the Clean Architecture rules. The classes are only dependent on their adjacent layer, and would not have 
+direct connections across layers. For example, the Entities is our core layer, and when the Use_cases are building methods, 
+they would only use the attributes and methods in the Entities or the method in the Use_cases. They cannot call the 
 method in the upper layer classes. Similarly, the Controller only can call the method in the Use_cases classes or the 
 Controller classes. Each of these four layers is dependent on its lower layers.
+
+For example, we have designed four Manager classes, CartManager, UserManager, ItemManager and OrderManager, each in
+charge of performing operations with entities Cart, User and UserStorage, Item and ItemStorage, Order and OrderStorage
+respectively. On the controller level, we have two Facade classes and one transaction classes calling methods in these
+Manager use cases, and on the UI level, we only call methods in our controllers to get the information or functionality
+we need.
+
+<br />
 
 *5. Examples of Obeying SOLID Principles:*
 
 
 *6. Packaging Strategies Used:*
+
+
 
 *7.Design Patterns Implemented:*
 

@@ -87,3 +87,52 @@ Also, if these files are empty at the beginning, we would load system preset use
 The reason for using the Facade design pattern in our InfoFacade class is that on the UI level, we need to have a string representation of items in cart, a list of items, orders in general (for searching purposes) or orders made by a specific user. InfoFacade can redirect these tasks to CartManager, ItemManager and OrderManager respectively. 
 
 *8. Progress Report:*
+
+**individual work**
+
+- **Qingyi Liu:**
+    - Specification update, further improvement writing
+    - Java Coding: Finder, ItemStorage, ItemManager, OrderStorage, OrderManager
+    - Unittest: FinderTest
+
+
+- **Zichun Xu:**
+
+
+
+- **Feihao Qu:**
+
+
+
+- **Hongda Zhu:**
+
+
+
+- **Howard Xiao:**
+
+
+
+- **Xiao Qin:**
+
+
+
+- **Xinyu Zhang:**
+
+
+
+- **Zhen Sun:**
+
+
+**further improvement**
+
+- Modifying quantity of an item after posting is currently not allowed. Right now, if a user post an identical item he/she
+posted previously, our program will take this item as a brand-new item and store them separately in the item storage. In 
+the future, we can implement methods that allows adding quantity if identical items (same name, price, category) are posted
+by the same user. For different user, we should still separate them since quality could differ between different sellers.
+
+- We haven't had a chance to add constraints for username and password. Currently, a user can have the username " " (a blank space).
+And password could be a single character. We would like to make our platform as close as a real world trading platform. 
+Therefore, the cases described above should not be allowed.
+
+- Even though our programs has used some exceptions, but overall, we lack the use of exceptions. Writing more exceptions
+will help with our debugging process, as well as the efficiency if our program actually starts running.

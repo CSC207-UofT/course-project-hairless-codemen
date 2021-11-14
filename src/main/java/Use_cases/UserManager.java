@@ -6,16 +6,6 @@ import java.io.*;
 import java.util.Map;
 
 public class UserManager implements Manager, Serializable {
-    public static Map<String,User> userlist;
-
-    /**
-     * The constructor UserManager
-     * @param userList - a Map containing user information with keys being usernames and values User objects. Each
-     *                 user's username is unique hence each key can only correspond to one User.
-     */
-    public UserManager(Map<String,User> userList){
-        userlist = userList;
-    }
 
     /**
      * Create a user given a username and a password. Return whether the user is successfully created.

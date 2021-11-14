@@ -168,7 +168,16 @@ public class Home extends JFrame{
         Checkout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ArrayList<Item> items = InfoFacade.getCartItems((Cart)info[0]);
+                if(Transaction.buy_item(items, (User)info[3])){
+                    JOptionPane.showMessageDialog(null,"Payment processed!");
+                    new Home(username).setVisible(true);
+                    Home.this.setVisible(false);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,
+                            "Sorry, payment failed. Products may be out of stock or lack of money.");
+                }
             }
         });
 

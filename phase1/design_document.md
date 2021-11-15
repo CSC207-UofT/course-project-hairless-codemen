@@ -71,8 +71,13 @@ we need.
 
 
 *6. Packaging Strategies Used:*
-
-
+The primary packaging strategy that was used in our code was packaging by layers. Specifically, the layers strictly
+obeyed the clean architecture structure. For each layer in the clean architecture, we had a package for that layer.
+This method of packaging enforces our code to obey the clean architecture structure as classes in each layer can only
+import classes in their adjacent inner layer. I.e. controllers only import classes in the use case layer and use cases
+only import the entities, while the entities would not be importing any other packages written by us (only the necessary
+Java tools). By choosing this packaging strategy, it is obvious whether clean architecture is obeyed just by looking at 
+the import statements.
 
 *7.Design Patterns Implemented:*
 
@@ -87,3 +92,53 @@ Also, if these files are empty at the beginning, we would load system preset use
 The reason for using the Facade design pattern in our InfoFacade class is that on the UI level, we need to have a string representation of items in cart, a list of items, orders in general (for searching purposes) or orders made by a specific user. InfoFacade can redirect these tasks to CartManager, ItemManager and OrderManager respectively. 
 
 *8. Progress Report:*
+
+**individual work**
+
+- **Qingyi Liu:**
+    - Specification update, further improvement writing
+    - Java Coding: Finder, ItemStorage, ItemManager, OrderStorage, OrderManager
+    - Unittest: FinderTest
+
+
+- **Zichun Xu:**
+
+
+
+- **Feihao Qu:**
+
+
+
+- **Hongda Zhu:**
+
+
+
+- **Howard Xiao:**
+
+
+
+- **Xiao Qin:**
+
+
+
+- **Xinyu Zhang:**
+
+
+
+- **Zhen Sun:**
+Coded the search feature, including the search method in both ItemManager and OrderManager, and the class Finder.
+Wrote the test for search in ItemManager. 
+
+**further improvement**
+
+- Modifying quantity of an item after posting is currently not allowed. Right now, if a user post an identical item he/she
+posted previously, our program will take this item as a brand-new item and store them separately in the item storage. In 
+the future, we can implement methods that allows adding quantity if identical items (same name, price, category) are posted
+by the same user. For different user, we should still separate them since quality could differ between different sellers.
+
+- We haven't had a chance to add constraints for username and password. Currently, a user can have the username " " (a blank space).
+And password could be a single character. We would like to make our platform as close as a real world trading platform. 
+Therefore, the cases described above should not be allowed.
+
+- Even though our programs has used some exceptions, but overall, we lack the use of exceptions. Writing more exceptions
+will help with our debugging process, as well as the efficiency if our program actually starts running.

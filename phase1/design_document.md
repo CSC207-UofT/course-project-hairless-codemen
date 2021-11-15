@@ -27,7 +27,9 @@ and the total amount paid to the user.
 
 **2. UML diagrams:**
 
-Please see the "UML.pdf" file under our "phase1" package.
+Please see the "UML.pdf" file under our "phase1" package for detail UML in each level. 
+
+![git menu bar items in IntelliJ](C:\Users\26126\IdeaProjects\course-project-hairless-codemen\images\Program UML.drawio.png)
 
 <br />
 
@@ -158,7 +160,7 @@ in our files at the beginning of the program so that the platform has a record o
 the tasks of reading users from file, reading items from file, and reading orders from file to UserReadWriter, 
 ItemReadWriter and OrderReadWriter, respectively. 
 Also, if these files are empty at the beginning, we would load system preset users, orders, or items to our storages. 
-FileFacade will also redirect thesre tasks to UserManager, OrderManager or ItemManager respectively. 
+FileFacade will also redirect there tasks to UserManager, OrderManager or ItemManager respectively. 
 
 The reason for using the Facade design pattern in our InfoFacade class is that on the UI level, we need to have a string
 representation of items in cart, a list of items, orders in general (for searching purposes) or orders made by a 

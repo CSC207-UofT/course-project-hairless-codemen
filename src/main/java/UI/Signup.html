@@ -11,8 +11,13 @@
     <input type="text" placeholder="Enter Username">
     <input type="password" placeholder="Enter Password">
     <input type="password" placeholder="Confirm Password">
-    <input type="submit" value="Register">
+    <input type="button" value="Register" onclick="Register()">
 </form>
-<script src="Login.js"></script>
+<script type="text/javascript">
+        function Register(){
+        setTimeout(function () {window.open("Login Page.html")}, 1000);
+        alert("Successfully Registered!");
+        }
+</script>
 </body>
 </html>

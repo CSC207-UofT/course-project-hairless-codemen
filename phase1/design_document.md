@@ -29,7 +29,7 @@ and the total amount paid to the user.
 
 Please see the "UML.pdf" file under our "phase1" package for detail UML in each level. 
 
-![git menu bar items in IntelliJ](C:\Users\26126\IdeaProjects\course-project-hairless-codemen\images\Program UML.drawio.png)
+![image](https://github.com/CSC207-UofT/course-project-hairless-codemen/blob/main/images/Program%20UML.drawio.png)
 
 <br />
 

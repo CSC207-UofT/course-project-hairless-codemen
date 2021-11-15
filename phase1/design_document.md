@@ -206,9 +206,9 @@ specific user. InfoFacade can redirect these tasks to CartManager, ItemManager a
 
 
 - **Xiao Qin:**
-- Serialization, coding ReadWriters 
-- Created UML Diagram
-- some entity documentations
+  - Serialization, coding ReadWriters 
+  - Created UML Diagram
+  - some entity documentations
 
 
 

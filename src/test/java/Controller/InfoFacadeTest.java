@@ -47,7 +47,7 @@ public class InfoFacadeTest {
 
     @Test
     public void TestPrintOrders(){
-        assertEquals(InfoFacade.printOrders(lst3), o1.toString()+o2.toString());
+        assertEquals(InfoFacade.printOrders(lst3), o1.toString() + "\n" +o2.toString() + "\n");
     }
 
     @Test
@@ -60,7 +60,7 @@ public class InfoFacadeTest {
     public void TestPrintOrders2(){
         OrderStorage.addElement(o1);
         OrderStorage.addElement(o2);
-        assertEquals(InfoFacade.printOrders(u1), o1.toString() + o2.toString());
+        assertEquals(InfoFacade.printOrders(u1), o1.toString() + "\n" + o2.toString() + "\n");
     }
 
     @Test

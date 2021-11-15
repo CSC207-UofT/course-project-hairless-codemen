@@ -23,7 +23,7 @@ Click the **Sell** button if there's anything you wish to push onto the platform
 If there is a particular item you want to buy on the platform. Use **Search** to find it.  You can search Item by user,
 item name, category, and search your orders by order id. The Search window would return all the items they found and if your target item shows up in the window. Left-click on it to add it to the cart.
 
-After adding all the items you wish to buy into your cart t, choose **checkout**. The order would be placed successfully if the item is in stock, and you have enough amount of money to buy it in your wallet. Otherwise, a warning would come up. Click the Order button to check any previous orders in this account.
+After adding all the items you wish to buy into your cart t, choose **Checkout**. The order would be placed successfully if the item is in stock, and you have enough amount of money to buy it in your wallet. Otherwise, a warning would come up. Click the Order button to check any previous orders in this account.
 
 Click on the cross button on the top right to leave the platform. All the data would be saved for future login.  
 

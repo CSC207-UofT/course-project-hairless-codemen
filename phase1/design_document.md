@@ -207,7 +207,8 @@ specific user. InfoFacade can redirect these tasks to CartManager, ItemManager a
 
 
 - **Xinyu Zhang:**
-
+  - Java coding: Entry, Frame, Home, SearchFrame, SearchRsult, SellFrame
+  - Help improve codes in Controller.
 
 
 - **Zhen Sun:**

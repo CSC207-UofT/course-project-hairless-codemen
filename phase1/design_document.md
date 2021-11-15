@@ -152,7 +152,7 @@ specific user. InfoFacade can redirect these tasks to CartManager, ItemManager a
 - **Qingyi Liu:**
     - Specification update, further improvement writing
     - Java Coding: Finder, ItemStorage, ItemManager, OrderStorage, OrderManager
-    - Unittest: FinderTest
+    - wrote tests for Finder
 
 
 - **Zichun Xu:**
@@ -186,8 +186,8 @@ specific user. InfoFacade can redirect these tasks to CartManager, ItemManager a
 
 
 - **Zhen Sun:**
-Coded the search feature, including the search method in both ItemManager and OrderManager, and the class Finder.
-Wrote the test for search in ItemManager. 
+  - Coded the search feature, including the search method in both ItemManager and OrderManager, and the class Finder.
+  - Wrote the test for search in ItemManager. 
 
 **further improvement**
 

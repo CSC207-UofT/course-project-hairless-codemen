@@ -192,10 +192,10 @@ specific user. InfoFacade can redirect these tasks to CartManager, ItemManager a
 
 
 - **Hongda Zhu:**
-  - Writing Controller Transaction buy following rule of clean architecture
-  - Moderating and add functions in Use_Cases for ItemManager, CartManager, Ordermanager, UserManager
-  - Writing Test_cases for Transaction, testing if the transaction will be successful, and if user'money and seller's 
-  money be changed
+  - Writing Controller Transaction by following rule of clean architecture
+  - Moderating and add functions in Use_Cases for ItemManager, CartManager, OrderManager, UserManager
+  - Writing test cases for Transaction, testing if the transaction will be successful, and if user and seller's 
+  money will be changed
 
 
 - **Howard Xiao:**

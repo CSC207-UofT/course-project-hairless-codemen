@@ -185,7 +185,6 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
             Item i;
             try{
                 i = getItem(current);
-                System.out.println(i);
             }catch(IndexOutOfBoundsException e){
                 throw new NoSuchElementException();
             }

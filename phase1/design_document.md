@@ -46,7 +46,9 @@ perform search operations for searching a user by username, an item by itemname 
 made iterating through everything more complicated, we added the Iterator Design Pattern to solve this issue 
 (see more in 7.).
 
-*b.* 
+*b.* The format of UI: Desktop Application
+
+*c.* The reason for serialization, and when to read and save into files. 
 
 <br />
 
@@ -69,8 +71,44 @@ we need.
 
 *5. Examples of Obeying SOLID Principles:*
 
+*a.* Single Responsibility Principle.
+
+We designed FileFacade and InfoFacade classes to delegate tasks to use cases UserManager, ItemManager, CartManager or 
+OrderManager, where each use case is only in charge of modifying one or two interacting entities (for example Item and 
+ItemStorage). No two use cases will act on the same entity, each type of Manager is used for that type of entity and
+that type of storage only. 
+
+*b.* Open or Closed Principle.
+
+In the future, we can implement different types of storages as we wish jsut by implementing our storable interface.
+Also, we can add additional managers corresponding to additional storages just by implementing our manager interface. In
+this way, we can add more types of storages or managers without modifying any exiting ones.
+
+*c.* Liskov Substitution Principle.
+
+In our program, every storage implements the storable interface, but contains more methods than the ones in the storable 
+interface. Some methods (addElement, deleteElement) are overloaded for convenience of the use cases providing different
+types of inputs to these methods. Similarly, except for CartManager, all manager classes implemented the manager 
+interface, but contains more methods than the ones included. Many methods are also overloaded for the convenience of our
+controller classes. 
+
+*d.* Interface Segregation Principle.
+
+In our program, there are two interfaces, one is Storable and the other one Manager. Every storage implements the
+Storable interface and used every method provided in the interface. Since we do not have a storage for carts, 
+it does not make sense for CartManager to implement the addElement and removeElement methods in the manager interface. 
+Hence, except for CartManager, every other manager class implemented the manager interface and they used every method in
+the interface. 
+
+*e.* Dependency Inversion Principle.
+
+In our program, we don't have a chance to use dependency inversion technique since we designed our system in a way that
+completely follows Clean Architecture.
+
+<br />
 
 *6. Packaging Strategies Used:*
+
 The primary packaging strategy that was used in our code was packaging by layers. Specifically, the layers strictly
 obeyed the clean architecture structure. For each layer in the clean architecture, we had a package for that layer.
 This method of packaging enforces our code to obey the clean architecture structure as classes in each layer can only
@@ -79,17 +117,33 @@ only import the entities, while the entities would not be importing any other pa
 Java tools). By choosing this packaging strategy, it is obvious whether clean architecture is obeyed just by looking at 
 the import statements.
 
+<br />
+
 *7.Design Patterns Implemented:*
 
-To begin, we implemented the Iterator design pattern for our classes Cart, ItemStorage and OrderStorage. The reason for implementing this design pattern is that we would like to go through every item in a cart, every item stored in our item storage and every order stored in our order storage on the use case level. 
-The Iterator design pattern avoids using a lot of getter methods and then iterate through the data structure we implemented underlying these classes. 
+To begin, we implemented the Iterator design pattern for our classes Cart, ItemStorage and OrderStorage. The reason for 
+implementing this design pattern is that we would like to go through every item in a cart, every item stored in our item
+storage and every order stored in our order storage on the use case level. 
+The Iterator design pattern avoids using a lot of getter methods and then iterate through the data structure we 
+implemented underlying these classes. 
 
-Also, to make it easier for searching operations to be performed, we changed our data structure for our storages from ArrayLists to HashMaps, but looping through every item in a hashmap is relatively complicated, so the Iterator pattern also made this process more efficient.
+Also, to make it easier for searching operations to be performed, we changed our data structure for our storages from 
+ArrayLists to HashMaps, but looping through every item in a hashmap is relatively complicated, so the Iterator pattern 
+also made this process more efficient.
 
-Secondly, we also implemented the Facade design pattern in our controller classes, FileFacade and InfoFacade. The reason for using the Facade design pattern in our FileFacade class is that we would like to read Users, Items and Orders stored in our files at the beginning of the program so that the platform has a record of everything. FIleFacade will redirect the tasks of reading users from file, reading items from file, and reading orders from file to UserReadWriter, ItemReadWriter and OrderReadWriter, respectively. 
-Also, if these files are empty at the beginning, we would load system preset users, orders, or items to our storages. FileFacade will also redirect thesre tasks to UserManager, OrderManager or ItemManager respectively. 
+Secondly, we also implemented the Facade design pattern in our controller classes, FileFacade and InfoFacade. The reason 
+for using the Facade design pattern in our FileFacade class is that we would like to read Users, Items and Orders stored 
+in our files at the beginning of the program so that the platform has a record of everything. FIleFacade will redirect 
+the tasks of reading users from file, reading items from file, and reading orders from file to UserReadWriter, 
+ItemReadWriter and OrderReadWriter, respectively. 
+Also, if these files are empty at the beginning, we would load system preset users, orders, or items to our storages. 
+FileFacade will also redirect thesre tasks to UserManager, OrderManager or ItemManager respectively. 
 
-The reason for using the Facade design pattern in our InfoFacade class is that on the UI level, we need to have a string representation of items in cart, a list of items, orders in general (for searching purposes) or orders made by a specific user. InfoFacade can redirect these tasks to CartManager, ItemManager and OrderManager respectively. 
+The reason for using the Facade design pattern in our InfoFacade class is that on the UI level, we need to have a string
+representation of items in cart, a list of items, orders in general (for searching purposes) or orders made by a 
+specific user. InfoFacade can redirect these tasks to CartManager, ItemManager and OrderManager respectively. 
+
+<br />
 
 *8. Progress Report:*
 
@@ -102,7 +156,10 @@ The reason for using the Facade design pattern in our InfoFacade class is that o
 
 
 - **Zichun Xu:**
-
+  - Finished methods in class Transaction, including buy and sell. Add relevant methods in use cases such as ItemManager and 
+    OrderManager.
+  - Support UI, and wrote tests for Transaction
+  - Finished Clean Architecture part of the design document.
 
 
 - **Feihao Qu:**
@@ -114,7 +171,10 @@ The reason for using the Facade design pattern in our InfoFacade class is that o
 
 
 - **Howard Xiao:**
-
+  - Serialization, read and write files and to interact with storage and manager classes.
+  - Support UI, implemented iterator and facade design patterns, completed tests to improve test coverage as high as
+  possible.
+  - Finished SOLID, major design decision and the design pattern part of the design document.
 
 
 - **Xiao Qin:**

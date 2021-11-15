@@ -71,8 +71,8 @@ we need.
 
 
 *6. Packaging Strategies Used:*
-
-
+The primary packaging strategy that was used in our code was packaging by layers. Specifically, the layers strictly
+obeyed the clean architecture structure. For each layer in the clean architecture, we had a package for that layer.
 
 *7.Design Patterns Implemented:*
 
@@ -121,7 +121,8 @@ The reason for using the Facade design pattern in our InfoFacade class is that o
 
 
 - **Zhen Sun:**
-
+Coded the search feature, including the search method in both ItemManager and OrderManager, and the class Finder.
+Wrote the test for search in ItemManager. 
 
 **further improvement**
 

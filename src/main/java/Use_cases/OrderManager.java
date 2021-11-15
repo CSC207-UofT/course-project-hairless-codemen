@@ -125,6 +125,7 @@ public class OrderManager implements Manager{
         StringBuilder sb = new StringBuilder();
         for (Order o: orders){
             sb.append(o);
+            sb.append("\n");
         }
         return sb.toString();
     }

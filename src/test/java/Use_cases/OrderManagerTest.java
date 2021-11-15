@@ -87,7 +87,7 @@ public class OrderManagerTest {
     @Test
     public void TestPrintOrders(){
         String s = OrderManager.printOrders(lst3);
-        assertEquals(o1.toString()+o2.toString(), s);
+        assertEquals(o1.toString()+ "\n" + o2.toString() + "\n", s);
     }
 
     @Test
@@ -114,7 +114,7 @@ public class OrderManagerTest {
     @Test
     public void TestPrintOrder2(){
         OrderManager.addElement(lst3);
-        assertEquals(OrderManager.printOrders(u1), o1.toString() + o2.toString());
+        assertEquals(OrderManager.printOrders(u1), o1.toString() + "\n" + o2.toString() + "\n");
     }
 }
 

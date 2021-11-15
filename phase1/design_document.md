@@ -46,7 +46,7 @@ perform search operations for searching a user by username, an item by itemname 
 made iterating through everything more complicated, we added the Iterator Design Pattern to solve this issue 
 (see more in 7.).
 
-*b.* The format of UI: Desktop Application
+*b.* The format of UI: GUI
 
 *c.* The reason for serialization, and when to read and save into files. 
 
@@ -182,7 +182,8 @@ specific user. InfoFacade can redirect these tasks to CartManager, ItemManager a
 
 
 - **Xinyu Zhang:**
-
+  - Java coding: Entry, Frame, Home, SearchFrame, SearchResult, SellFrame.
+  - Help improve codes in controller.
 
 
 - **Zhen Sun:**

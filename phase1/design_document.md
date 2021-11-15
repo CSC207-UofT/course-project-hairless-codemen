@@ -184,6 +184,10 @@ specific user. InfoFacade can redirect these tasks to CartManager, ItemManager a
 
 
 - **Feihao Qu:**
+  - Web version User Interface
+  - Build Three Web Pages: Login, Signup and Main
+  - Page transitions
+  - Coding：html, css and Javascript
 
 
 

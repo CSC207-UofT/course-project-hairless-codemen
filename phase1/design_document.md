@@ -73,6 +73,11 @@ we need.
 *6. Packaging Strategies Used:*
 The primary packaging strategy that was used in our code was packaging by layers. Specifically, the layers strictly
 obeyed the clean architecture structure. For each layer in the clean architecture, we had a package for that layer.
+This method of packaging enforces our code to obey the clean architecture structure as classes in each layer can only
+import classes in their adjacent inner layer. I.e. controllers only import classes in the use case layer and use cases
+only import the entities, while the entities would not be importing any other packages written by us (only the necessary
+Java tools). By choosing this packaging strategy, it is obvious whether clean architecture is obeyed just by looking at 
+the import statements.
 
 *7.Design Patterns Implemented:*
 

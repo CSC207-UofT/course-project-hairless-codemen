@@ -27,9 +27,9 @@ and the total amount paid to the user.
 
 **2. UML diagrams:**
 
-Please see the "UML.pdf" file under our "phase1" package for detail UML in each level. 
+Please see the "UML.pdf" file under our "phase1" package for detail UML in each level.
 
-![image](https://github.com/CSC207-UofT/course-project-hairless-codemen/blob/main/images/Program%20UML.drawio.png)
+<img alt="Aaron Swartz" src="https://github.com/CSC207-UofT/course-project-hairless-codemen/raw/main/images/Program%20UML.drawio.png"/>
 
 <br />
 

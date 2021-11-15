@@ -9,6 +9,9 @@ import src.main.java.Entities.User;
 import src.main.java.Use_cases.ItemManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,9 +27,8 @@ class ItemManagerTest {
         item2 = new Item("Airpods3", u2, 199.99, "Technology");
         item3 = new Item("iPhone14", u3, 2000.00, "Technology");
         item4 = new Item("Airpods3", u1, 179.99, "Technology");
-        for (Item i : new ItemStorage()){
-            ItemStorage.deleteElement(i);
-        }
+        ArrayList<Item> items = ItemStorage.getItem();
+        ItemStorage.deleteElement(items);
         ItemStorage.addElement(item1);
         ItemStorage.addElement(item2);
         ItemStorage.addElement(item3);
@@ -53,5 +55,76 @@ class ItemManagerTest {
         ArrayList<Item> expected_2 = new ArrayList<>();
         expected_2.add(item3);
         assertEquals(expected_2, ItemManager.search_by_owner("C"));
+    }
+
+    @Test
+    public void TestSearchByCategory(){
+        ArrayList<Item> items = ItemManager.search_by_category("Technology");
+        assertEquals(3, items.size());
+        assertTrue(items.contains(item2));
+        assertTrue(items.contains(item3));
+        assertTrue(items.contains(item4));
+    }
+
+    @Test
+    public void TestGetPrice(){
+        assertEquals(2000.00, ItemManager.get_price(item3));
+        assertEquals(179.99, ItemManager.get_price(item4));
+    }
+
+    @Test
+    public void TestGetAllPrice(){
+        ArrayList<Item> items = ItemManager.search_by_category("Technology");
+        assertEquals(Math.round(ItemManager.get_all_price(items)), Math.round(2179.99+199.99));
+    }
+
+    @Test
+    public void TestRemoveElement(){
+        Object[] elements = new Item[]{item1, item2};
+        ItemManager.removeElement(elements);
+        assertEquals(2, ItemManager.getItemsList().size());
+        assertTrue(ItemManager.getItemsList().contains(item3));
+        assertTrue(ItemManager.getItemsList().contains(item4));
+    }
+
+    @Test
+    public void TestRemoveELement2(){
+        ItemManager.removeElement(item2);
+        assertEquals(3, ItemManager.getItemsList().size());
+        assertFalse(ItemManager.getItemsList().contains(item2));
+    }
+
+    @Test
+    public void TestLoadItems(){
+        ItemStorage.deleteElement(ItemStorage.getItem());
+        ItemManager.loadItems(u1);
+        Item item1 = new Item("U of T Notebook", u1, 10, "Study");
+        Item item2 = new Item("Newborn British Shorthair", u1, 1500, "Pets");
+        Item item3 = new Item("Strawberries", u1, 15, "Food");
+        Item item4 = new Item("Happiness", u1, 5000, "NotFromUofT");
+        Item item5 = new Item("iPhone13", u1, 20, "Electronics");
+        Item[] itemList = new Item[]{item1, item2, item3, item4, item5};
+        ArrayList<Item> items = new ArrayList<>(List.of(itemList));
+        ItemStorage.deleteElement(items);
+        assertEquals(0, ItemManager.getItemsList().size());
+    }
+
+    @Test
+    public void TestGetItems(){
+        ItemStorage.deleteElement(item3);
+        assertEquals(ItemManager.getItems(), ItemStorage.getItems());
+    }
+
+    @Test
+    public void TestPrintItems(){
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(item1);
+        items.add(item2);
+        assertEquals(ItemManager.printItems(items), item1.toString() + "\n" + item2.toString() + "\n");
+    }
+
+    @Test
+    public void TestPrintItem(){
+        assertEquals(ItemManager.printItem(item1), item1.toString());
     }
 }

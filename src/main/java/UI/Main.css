@@ -31,3 +31,7 @@ form input{
     border-radius: 30px;
     text-align: center;
 }
+form button{
+      border-radius: 20px;
+      text-align: center;
+}

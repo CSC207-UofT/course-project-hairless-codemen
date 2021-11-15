@@ -1,5 +1,4 @@
 body{
-    text-align: center;
     font-size: 15px;
     font-family: Didot, serif;
     background-image: url("background pic.jpg");
@@ -10,6 +9,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 h1{
     font-size: 3rem;

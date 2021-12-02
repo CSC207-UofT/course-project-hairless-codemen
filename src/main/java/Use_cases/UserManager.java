@@ -46,6 +46,7 @@ public class UserManager implements Manager, Serializable {
      * @param user The user who wish to modify password
      * @param NewPassword The new password the user wishes to set
      */
+    //TODO: For UI, on the login page, user should see a button where it says "change password".
     public static void changePassword(User user, String NewPassword){
         if (!UserStorage.getUserList().containsKey(user.getName())){
             //TODO: need to throw exception here. Can not modify password for non-existing user.

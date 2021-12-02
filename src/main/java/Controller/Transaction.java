@@ -25,7 +25,7 @@ public class Transaction {
             Order dingdan = OrderManager.create_order(items, buyman, sellman);
             OrderManager.addElement(dingdan);         //create order
             UserManager.subtractMoney(buyman, ItemManager.get_all_price(items));   //subtract buyman money
-            UserManager.loadmoney(sellman, ItemManager.get_all_price(items));     //seller get money
+            UserManager.loadMoney(sellman, ItemManager.get_all_price(items));     //seller get money
             CartManager.remove_items(buyman, items);                   //remove the items in buyman's cart
             return true;
         }

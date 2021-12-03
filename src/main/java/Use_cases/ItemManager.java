@@ -181,5 +181,13 @@ public class ItemManager implements Manager {
     public static User getSeller(Item i){
         return i.getOwner();
     }
-}
 
+    /**
+     * Return the quantity of item
+     *
+     * @param item the item to check for quantity
+     */
+    public static int getQuantity(Item item){
+        return item.getQuantity();
+    }
+}

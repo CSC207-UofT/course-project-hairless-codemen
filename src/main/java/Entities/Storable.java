@@ -14,25 +14,17 @@ interface Storable {
      * Add a list of objects into a storable object.
      * @param objects - a list of objects to be added into a storable object.
      */
-    static void addElement(Object[] objects){};
+    static void addElement(Object[] objects){}
 
     /**
      * Delete an object from a storable object.
      * @param object - object to be deleted from a storable object.
      */
-    static void deleteElement(Object object){};
+    static void deleteElement(Object object){}
 
     /**
      * Delete a list of objects from a storable object.
      * @param objects - a list of objects to be deleted from a storable object.
      */
-    static void deleteElement(Object[] objects){};
-
-    /**
-     * Search for a list of objects in a storable object.
-     * @return the list of objects matching the search requirement in a storable object.
-     */
-    static ArrayList<Object> search() {
-        return null;
-    }
+    static void deleteElement(Object[] objects){}
 }

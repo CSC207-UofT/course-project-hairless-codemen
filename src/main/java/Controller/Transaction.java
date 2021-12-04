@@ -24,19 +24,7 @@ public class Transaction {
      * @param buyer -  a User who wish to make the purchase.
      * @return the True iff the buyer has enough money to purchase the Item(s); Otherwise return False.
      */
-    /*public static boolean buy_item(ArrayList<Item> items, User buyer, User sellman){
-        if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyer)) {
-            Order dingdan = OrderManager.create_order(items, buyer, sellman);
-            OrderManager.addElement(dingdan);         //create order
-            UserManager.subtractMoney(buyer, ItemManager.get_all_price(items));   //subtract buyer money
-            UserManager.loadMoney(sellman, ItemManager.get_all_price(items));     //seller get money
-            CartManager.remove_items(buyer, items);                   //remove the items in buyer's cart
-            return true;
-        }
-        return false;
-    }*/
     public static boolean buy_item(ArrayList<Item> items, User buyer){
-
         if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyer)) {
             Map<User, ArrayList<Item>> category= new HashMap<>();
             for (Item i: items){
@@ -86,6 +74,7 @@ public class Transaction {
     public static void addMoney(User u, double money){
         UserManager.loadMoney(u, money);
     }
+
 }
 
 

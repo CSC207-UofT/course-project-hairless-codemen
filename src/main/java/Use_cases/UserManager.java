@@ -47,13 +47,14 @@ public class UserManager implements Manager, Serializable {
      * @param NewPassword The new password the user wishes to set
      */
     //TODO: For UI, on the login page, user should see a button where it says "change password".
-    public static void changePassword(User user, String NewPassword){
+    public static boolean changePassword(User user, String NewPassword){
         if (!UserStorage.getUserList().containsKey(user.getName())){
-            //TODO: need to throw exception here. Can not modify password for non-existing user.
+            return false;
         }
         User u = create(user.getName(), NewPassword);
         UserStorage.deleteElement(user);
         UserStorage.addElement(u);
+        return true;
     }
 
 
@@ -138,23 +139,39 @@ public class UserManager implements Manager, Serializable {
         u.getWallet().loadMoney(money);}
 
 
-    public void addElement(Object[] users){
+    /**
+     * Add a list of users to UserStorage.
+     * @param users - the list of users to be added.
+     */
+    public static void addElement(Object[] users){
         for (Object user: users){
             addElement(user);
         }
     }
 
+    /**
+     * Add a single User to UserStorage.
+     * @param user - the user to be added.
+     */
     public static void addElement(Object user){
         UserStorage.addElement(user);
     }
 
-    public void removeElement(Object[] elements) {
+    /**
+     * Remove a list of users from UserStorage.
+     * @param elements - the list of users to be removed.
+     */
+    public static void removeElement(Object[] elements) {
         for (Object element: elements){
             removeElement(element);
         }
     }
 
-    public void removeElement(Object element) {
+    /**
+     * Remove a single user from UserStorage.
+     * @param element - the user to be removed.
+     */
+    public static void removeElement(Object element) {
         UserStorage.deleteElement(element);
     }
 

@@ -61,6 +61,7 @@ public class Cart implements Serializable, Iterable<Item> {
      */
     public void removeItem(ArrayList<Item> item){
         for (Item i : item){
+
             removeItem(i);
         }
     }
@@ -70,6 +71,7 @@ public class Cart implements Serializable, Iterable<Item> {
      * @param item - single item to be removed from cart
      */
     public void removeItem(Item item){
+
         ArrayList<Item> res = new ArrayList<>();
         for (Item i : items){
             if(i!=item){

@@ -8,7 +8,6 @@ import src.main.java.Use_cases.CartManager;
 import src.main.java.Use_cases.ItemManager;
 import src.main.java.Use_cases.OrderManager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class InfoFacade {
@@ -77,7 +76,25 @@ public class InfoFacade {
      * @param c - the Cart to which the item will be added.
      * @param i - the Item to be added into the cart.
      */
-    public static void addCartElement(Cart c, Item i) {CartManager.AddElement(c, i);}
+    public static void addCartElement(Cart c, Item i) {
+        CartManager.AddElement(c, i);
+    }
+
+    /**
+     * Add a certain quantity of an item to cart.
+     * @param c - the Cart to which the item will be added.
+     * @param i - the Item to be added into the cart.
+     * @param q - the number of the same item to be added into the cart
+     *
+     * @return true if the item is successfully added, given enough quantity is in stock
+     */
+    public static boolean addCartElement(Cart c, Item i, int q){
+        if (ItemManager.getQuantity(i) > q){
+            return false;
+        }
+        CartManager.AddElement(c, i);
+        return true;
+    }
 
     /**
      * Remove an item from a given cart.

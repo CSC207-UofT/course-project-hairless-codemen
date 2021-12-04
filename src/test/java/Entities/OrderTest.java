@@ -35,4 +35,14 @@ public class OrderTest {
                 "Total: $999999",
                 BigOrder.toString());
     }
+
+    @Test
+    public void TestGetOwner(){
+        assertEquals(BigOrder.getOwner(), seller);
+    }
+
+    @Test
+    public void TestGetBuyer(){
+        assertEquals(BigOrder.getBuyer(), buyer);
+    }
 }

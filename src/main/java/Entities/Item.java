@@ -113,6 +113,9 @@ public class Item implements Serializable {
         this.quantity = this.quantity - new_quantity;
     }
 
+    /**
+     * Produce a human-readable string description of an Item.
+     */
     @Override
     public String toString(){
         return name + ": "  + "Category: " + category + ", Quantity: " + quantity + ", Price: $" + price;

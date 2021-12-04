@@ -6,6 +6,8 @@ import src.main.java.Entities.Item;
 import src.main.java.Entities.ItemStorage;
 import src.main.java.Entities.User;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,6 +27,8 @@ public class ItemStorageTest {
         lst.add(item2);
         lst.add(item3);
         lst.add(item4);
+        ArrayList<Item> items = ItemStorage.getItem();
+        ItemStorage.deleteElement(items);
     }
 
     @Test
@@ -55,5 +59,47 @@ public class ItemStorageTest {
         ItemStorage.deleteElement(item2);
         assertEquals(1, ItemStorage.getItems().get("Airpods3").size());
         assertTrue(ItemStorage.getItems().get("Airpods3").contains(item4));
+    }
+
+
+    @Test
+    public void TestGetItem(){
+        ItemStorage.addElement(lst);
+        assertEquals(ItemStorage.getItem(0), item2);
+        assertEquals(ItemStorage.getItem(1), item4);
+        assertEquals(ItemStorage.getItem(2), item3);
+    }
+
+    @Test
+    public void TestGetTotalNumber(){
+        ItemStorage.addElement(lst);
+        assertEquals(ItemStorage.getTotalNumber(), 3);
+    }
+
+    @Test
+    public void TestAddELement2(){
+        ArrayList<Item> lst2 = new ArrayList<>();
+        lst2.add(item2);
+        lst2.add(item4);
+        Map<String, ArrayList<Item>> m = new HashMap<>();
+        m.put("Airpods3", lst2);
+        ItemStorage.addElement(m);
+        assertEquals(ItemStorage.getTotalNumber(), 2);
+        assertEquals(ItemStorage.getItem(), lst2);
+    }
+
+    @Test
+    public void ItemStorageIterator(){
+        ArrayList<Item> lst2 = new ArrayList<>();
+        lst2.add(item2);
+        lst2.add(item4);
+        Map<String, ArrayList<Item>> m = new HashMap<>();
+        m.put("Airpods3", lst2);
+        ItemStorage.addElement(m);
+        int i = 0;
+        for (Item item : new ItemStorage()){
+            assertEquals(item, lst2.get(i));
+            i++;
+        }
     }
 }

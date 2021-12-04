@@ -66,15 +66,27 @@ public class User implements Serializable {
         return this.wallet;
     }
 
+    /**
+     * Produce a human-readable version representing the user.
+     * @return a string representing the user.
+     */
     @Override
     public String toString() {
         return getName();
     }
 
+    /**
+     * A get method that get the User's cart.
+     * @return The user's cart (Cart object).
+     */
     public Cart getCart(){
         return this.cart;
     }
 
+    /**
+     * A get method that get the User's password.
+     * @return a string representing the password of the User
+     */
     public String getPassword(){
         return this.password;
     }

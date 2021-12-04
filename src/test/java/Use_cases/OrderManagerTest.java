@@ -1,12 +1,11 @@
 package src.test.java.Use_cases;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import src.main.java.Entities.*;
 import src.main.java.Use_cases.OrderManager;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,6 +17,7 @@ public class OrderManagerTest {
     ArrayList<Item> lst2 = new ArrayList<>();
     ArrayList<Order> lst3 = new ArrayList<>();
     Order o1, o2, o3;
+    Order[] orders;
 
     @BeforeEach
     void setup() {
@@ -39,6 +39,7 @@ public class OrderManagerTest {
         for (Order o: new OrderStorage()){
             OrderStorage.deleteElement(o);
         }
+        orders = new Order[]{o1, o3};
     }
 
     @Test
@@ -50,15 +51,12 @@ public class OrderManagerTest {
 
     @Test
     public void TestAddElement(){
-        for (Order o: new OrderStorage()){
-            OrderStorage.deleteElement(o);
-        }
         OrderManager.addElement(o3);
         assertEquals(1, OrderStorage.get_size());
         OrderManager.addElement(lst3);
-        assertTrue(OrderStorage.getItems().containsValue(o1));
-        assertTrue(OrderStorage.getItems().containsValue(o2));
-        assertTrue(OrderStorage.getItems().containsValue(o3));
+        assertTrue(OrderStorage.getOrders().containsValue(o1));
+        assertTrue(OrderStorage.getOrders().containsValue(o2));
+        assertTrue(OrderStorage.getOrders().containsValue(o3));
         assertEquals(3, OrderStorage.get_size());
     }
 
@@ -83,13 +81,40 @@ public class OrderManagerTest {
     @Test
     public void TestCreateOrder(){
         Order o = OrderManager.create_order(lst1, u1, u2);
-        assertTrue(OrderStorage.getItems().containsValue(o));
+        assertTrue(OrderStorage.getOrders().containsValue(o));
     }
 
     @Test
     public void TestPrintOrders(){
         String s = OrderManager.printOrders(lst3);
-        assertEquals(o1.toString()+o2.toString(), s);
+        assertEquals(o1.toString()+ "\n" + o2.toString() + "\n", s);
+    }
+
+    @Test
+    public void TestGetItems(){
+        OrderManager.addElement(lst3);
+        Map<Integer,Order> m = OrderManager.getItems();
+        assertEquals(m.get(1), o1);
+        assertEquals(m.get(2), o2);
+        assertNull(m.get(3));
+    }
+
+    @Test
+    public void TestAddElement2(){
+        OrderManager.addElement(orders);
+        assertTrue(OrderStorage.getOrders().containsValue(o1));
+        assertTrue(OrderStorage.getOrders().containsValue(o3));
+    }
+
+    @Test
+    public void TestPrintOrder(){
+        assertEquals(OrderManager.printOrder(o1), o1.toString());
+    }
+
+    @Test
+    public void TestPrintOrder2(){
+        OrderManager.addElement(lst3);
+        assertEquals(OrderManager.printOrders(u1), o1.toString() + "\n" + o2.toString() + "\n");
     }
 }
 

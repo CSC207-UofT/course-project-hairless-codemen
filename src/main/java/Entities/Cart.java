@@ -56,8 +56,8 @@ public class Cart implements Serializable, Iterable<Item> {
     }
 
     /**
-     *Remove item from
-     * @param item
+     *Remove a list of items from cart
+     * @param item - list of items to be removed from cart
      */
     public void removeItem(ArrayList<Item> item){
         for (Item i : item){
@@ -65,10 +65,17 @@ public class Cart implements Serializable, Iterable<Item> {
         }
     }
 
-    public void removeItem(Item i){
-        items.remove(i);
+    /**
+     *Remove a single item from cart
+     * @param item - single item to be removed from cart
+     */
+    public void removeItem(Item item){
+        items.remove(item);
     }
 
+    /**
+     *Creates a new CartIterator.
+     */
     @Override
     public Iterator<Item> iterator() {
         return new CartIterator();

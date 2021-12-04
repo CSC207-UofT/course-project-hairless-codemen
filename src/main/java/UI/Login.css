@@ -1,5 +1,4 @@
 body{
-    text-align: center;
     font-size: 15px;
     font-family: Didot, serif;
     background-image: url("background pic.jpg");
@@ -7,17 +6,16 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 h1{
     font-size: 3rem;
     color: black;
 }
 
-i{
-    font-family: "Times New Roman", Serif, serif;
-    font-size: xxx-large;
-    color: black;
-}
 form{
     font-family: Arial,Helvetica,sans-serif;
     font-size: x-large;
@@ -27,12 +25,17 @@ form input{
     border-radius: 20px;
     text-align: center;
 }
-button{
-    font-size: x-large;
-    padding: 10px;
-    border: 0.3rem solid black;
-    font-weight: bold;
-}
-button:active{
-    background-color: aliceblue;
-}
+.login input{
+display:block;
+margin: 20px auto;
+font-size: 20px}
+.login input[type="submit"]{
+width:100px;
+cursor: pointer;}
+.login input[type="button"]{
+width:100px;
+cursor: pointer;}
+.login input[type="text"]:focus, .login input[type="password"]:focus{
+border-color: black;
+width:300px;
+transition:0.6s;}

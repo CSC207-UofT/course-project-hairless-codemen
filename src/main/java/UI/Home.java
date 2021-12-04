@@ -11,33 +11,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Home extends JFrame{
-    private String username;
-    private JLabel Wallet = new JLabel("Wallet: ");
-    private JLabel wallet;
-    private JButton viewBuyList = new JButton("Want to buy?");
-    private JButton load = new JButton("Load");
-    private JTextField moneyInput = new JTextField(5);
-    private JList BuyList = new JList();
-    private JButton viewCart = new JButton("My Cart");
-    private JList CartList = new JList();
-    private JButton searchButton = new JButton("Search");
-    private JButton sell = new JButton("Sell");
-    private JButton Checkout = new JButton("Check Out");
-    private JButton Order = new JButton("Order");
-    private JPanel panel = new JPanel();
-    private JPanel panel2 = new JPanel();
-    private JPanel panel0 = new JPanel();
-    private JPopupMenu BuyChange = new JPopupMenu();
-    private JPopupMenu CartChange = new JPopupMenu();
+
     final int HEIGHT = 500;
     final int WIDTH = 500;
     private final ArrayList<String> cartList = new ArrayList<>();
     private final ArrayList<String> buyList = new ArrayList<>();
 
     public Home(String username){
-        this.username = username;
         Object[] info = FileFacade.getUserInfo(username);
-        wallet = new JLabel(Double.toString((Double) info[1]));
+        JLabel wallet = new JLabel(Double.toString((Double) info[1]));
+        JLabel Wallet = new JLabel("Wallet: ");
+        JButton viewBuyList = new JButton("Want to buy?");
+        JButton load = new JButton("Load");
+        JTextField moneyInput = new JTextField(5);
+        JList BuyList = new JList();
+        JButton viewCart = new JButton("My Cart");
+        JList CartList = new JList();
+        JButton searchButton = new JButton("Search");
+        JButton sell = new JButton("Sell");
+        JButton Checkout = new JButton("Check Out");
+        JButton Order = new JButton("Order");
+        JPanel panel = new JPanel();
+        JPanel panel2 = new JPanel();
+        JPanel panel0 = new JPanel();
+        JPopupMenu BuyChange = new JPopupMenu();
+        JPopupMenu CartChange = new JPopupMenu();
 
         for (int x=0; x< InfoFacade.getCartItems((Cart)info[0]).size(); x+=1){
             cartList.add(InfoFacade.printItem(InfoFacade.getCartItems((Cart)info[0]).get(x)));
@@ -45,11 +43,10 @@ public class Home extends JFrame{
         for (int y=0; y< InfoFacade.getItems().size(); y+=1){
             buyList.add(InfoFacade.printItem(InfoFacade.getItems().get(y)));
         }
-
-        panel0.add(moneyInput);
-        panel0.add(load);
         panel0.add(Wallet);
         panel0.add(wallet);
+        panel0.add(moneyInput);
+        panel0.add(load);
         panel.setLayout(new GridLayout(2,1));
         panel.add(viewBuyList);
         JMenuItem addToCart = new JMenuItem("Add into my cart.");
@@ -69,10 +66,16 @@ public class Home extends JFrame{
         load.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                repaint();
+                try{Integer money = Integer.valueOf(moneyInput.getText());
+                    Transaction.addMoney((User)info[3], money);
+                    JOptionPane.showMessageDialog(null, "Success!");
+                    new Home(username).setVisible(true);
+                    Home.this.setVisible(false);}
+                catch (NumberFormatException numberFormatException){
+                    JOptionPane.showMessageDialog(null, "Please enter number(s).");
+                }
             }
         });
-
 
         viewBuyList.addActionListener(new ActionListener() {
             @Override
@@ -135,7 +138,9 @@ public class Home extends JFrame{
         sell.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Home.this.setVisible(false);
+                JFrame sell = new SellFrame(username);
+                sell.setVisible(true);
             }
         });
 
@@ -163,7 +168,16 @@ public class Home extends JFrame{
         Checkout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ArrayList<Item> items = InfoFacade.getCartItems((Cart)info[0]);
+                if(Transaction.buy_item(items, (User)info[3])){
+                    JOptionPane.showMessageDialog(null,"Payment processed!");
+                    new Home(username).setVisible(true);
+                    Home.this.setVisible(false);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,
+                            "Sorry, payment failed. Products may be out of stock or lack of money.");
+                }
             }
         });
 
@@ -192,7 +206,9 @@ public class Home extends JFrame{
         this.add(panel);
         this.add(panel2);
         this.setSize(WIDTH, HEIGHT);
-        this.setTitle(this.username + "'s HomePage");
+        this.setTitle(username + "'s HomePage");
+        viewBuyList.doClick();
+        viewCart.doClick();
 
 
 

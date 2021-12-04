@@ -54,6 +54,7 @@ public class Transaction {
 
             UserManager.subtractMoney(buyer, ItemManager.get_all_price(items));   //subtract buyer money
             CartManager.remove_items(buyer, items);                   //remove the items in buyer's cart
+            ItemManager.removeElement(items);                         // remove the item from the itemstorage
 
             return true;
         }

@@ -8,9 +8,8 @@ interface Manager {
     /**
      * Search for an object based on name.
      * @param name - the parameter used to perform the search operation.
-     * @returns object that matches the parameter
      */
-    static Object search(Object name){return null;}
+    static ArrayList<Object> search(Object name){return null;}
 
     /**
      * Add a list of elements into corresponding storage.

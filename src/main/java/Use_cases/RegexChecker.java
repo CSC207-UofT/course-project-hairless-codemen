@@ -88,7 +88,7 @@ public class RegexChecker {
      */
     public static boolean MinLen(String str)
     {
-        return str.matches("^\\s{8,}");
+        return str.matches(".{8,}");
     }
 }
 

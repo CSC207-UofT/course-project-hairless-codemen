@@ -28,7 +28,7 @@ public class RegexChecker {
      */
     public static boolean ContainsSpecialChar(String str)
     {
-        Pattern pattern = Pattern.compile("[^a-zA-Z\\d\\s]");
+        Pattern pattern = Pattern.compile("[^a-zA-Z\\d]");
         Matcher matcher = pattern.matcher(str);
 
         return matcher.find();

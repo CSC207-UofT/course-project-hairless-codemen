@@ -95,7 +95,7 @@ public class   SellFrame extends JFrame {
         this.setLayout(new SellLayout());
         this.setSize(WIDTH,HEIGHT);
         this.setTitle(username+"'s Sell Page");
-        this.getContentPane().setBackground(Color.PINK);
+
 
 
     }
@@ -113,7 +113,7 @@ public class   SellFrame extends JFrame {
 
         @Override
         public void layoutContainer(Container parent) {
-            int width = parent.getWidth();
+
             int height=parent.getHeight();
             panel.setSize(300,100);
             panel1.setSize(250,50);

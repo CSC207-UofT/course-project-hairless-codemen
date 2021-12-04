@@ -51,9 +51,7 @@ public class UserManager implements Manager, Serializable {
         if (!UserStorage.getUserList().containsKey(user.getName())){
             return false;
         }
-        User u = create(user.getName(), NewPassword);
-        UserStorage.deleteElement(user);
-        UserStorage.addElement(u);
+        UserStorage.getUserList().get(user.getName()).setPassword(NewPassword);
         return true;
     }
 

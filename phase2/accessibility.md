@@ -9,7 +9,7 @@ Our design does not exclude any user with diverse abilities.
 
 *Principle 2: Flexibility in Use*
 
-We designed different search options, a number of different items stored on our system, and provided users with the 
+We designed different searchoptions, a number of different items stored on our system, and provided users with the 
 feature of listing their own items onto our system. In this way, we have provided every user using our system the 
 flexibility of "choices" based on their individual preferences. The program accomodates right and left-handed use and 
 provides adaptability to each user's own pace of using the platform.

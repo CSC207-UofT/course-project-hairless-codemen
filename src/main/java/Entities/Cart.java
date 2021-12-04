@@ -23,7 +23,7 @@ public class Cart implements Serializable, Iterable<Item> {
      */
     public Cart(){
 
-        this.items = new ArrayList<Item>();
+        this.items = new ArrayList<>();
     }
 
     /**
@@ -61,7 +61,7 @@ public class Cart implements Serializable, Iterable<Item> {
      */
     public void removeItem(ArrayList<Item> item){
         for (Item i : item){
-//            items.remove(i);
+
             removeItem(i);
         }
     }
@@ -71,7 +71,7 @@ public class Cart implements Serializable, Iterable<Item> {
      * @param item - single item to be removed from cart
      */
     public void removeItem(Item item){
-//        items.remove(item);
+
         ArrayList<Item> res = new ArrayList<>();
         for (Item i : items){
             if(i!=item){

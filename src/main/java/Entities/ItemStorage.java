@@ -109,7 +109,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      *
      * @param items The list of items we want to add.
      */
-    public static void addElement(List<Item> items){
+    public static void addElement(ArrayList<Item> items){
         for (Item item : items) {
             addElement(item);
         }
@@ -121,7 +121,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      * items that are under name which the key refers to.
      * @param items The hashmap of items we want to add.
      */
-    public static void addElement(Map<String, List<Item>> items) {
+    public static void addElement(Map<String, ArrayList<Item>> items) {
         ArrayList<Item> item = new ArrayList<>();
         for (String key : items.keySet()) {
             item.addAll(items.get(key));

@@ -78,7 +78,7 @@ updated data of the storages to our files by the end of the program or after the
 
 **4. Following Clean Architecture:**
 
-In our project we divide our works into four major categories, which are Entities, Use_cases, Controller, and UI. 
+In our project we divide our classes into four major categories, which are Entities, Use_cases, Controller, and UI. 
 We have followed the Clean Architecture rules. The classes are only dependent on their adjacent layer, and would not have 
 direct connections across layers. For example, the Entities is our core layer, and when the Use_cases are building methods, 
 they would only use the attributes and methods in the Entities or the method in the Use_cases. They cannot call the 

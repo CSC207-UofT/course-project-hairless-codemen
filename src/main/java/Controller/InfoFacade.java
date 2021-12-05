@@ -83,6 +83,15 @@ public class InfoFacade {
     }
 
     /**
+     * Add an item to a given cart.
+     * @param c - the Cart to which the item will be added.
+     * @param i - the Item to be added into the cart.
+     */
+    public static void addCartElement(Cart c, Item i) {
+        CartManager.AddElement(c, i);
+    }
+
+    /**
      * Add a certain quantity of an item to cart.
      * @param c - the Cart to which the item will be added.
      * @param i - the Item to be added into the cart.
@@ -103,9 +112,7 @@ public class InfoFacade {
      * @param c - the Cart from which the item will be removed.
      * @param i - the Item to be removed from the cart.
      */
-    public static void removeCartElement(Cart c, Item i){
-        CartManager.removeElement(c, i);
-    }
+    public static void removeCartElement(Cart c, Item i){CartManager.removeElement(c, i);}
 
     /**
      * Return the list of all items stored in the system.

@@ -73,7 +73,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     private static void addItem(Item item) {
         if (itemList.containsKey(item.getItemName())){
             if (Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
-            itemList.get(item.getItemName()).add(item);
+            itemList.get(item.getItemName()).get(0).addQuantity(item.getQuantity());
             }
         }
         else{
@@ -92,14 +92,8 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      * @param item The Item we want to delete.
      */
     private static void deleteItem(Item item)  {
-        if (itemList.get(item.getItemName()).size() == 1 &
-                Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
-            itemList.remove(item.getItemName());
-        }
-        else if (itemList.get(item.getItemName()).size() > 1 &
-                Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
-            itemList.get(item.getItemName()).remove(item);
-        }
+
+        //TODO: delete this item's quantity from storage
 
     }
 

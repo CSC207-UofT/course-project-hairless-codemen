@@ -24,13 +24,15 @@ such as buying or selling, we would provide messages for the state of the transa
 
 *Principle 4: Perceptible Information*
 
-
+On UI level, we choose not to put any background/colour since we wish to maximize legibility of our essential 
+information(what to sell and what to buy). Having unnecessary background could become a distraction for some users. And
+the instruction on what to do is clear. UI will pop up a window giving or asking the users what they should do. 
 
 *Principle 5: Tolerance for Error*
 
-Through catching a variety of exceptions in our program and adding prompt messges for users giving invalid inputs, we 
+Through catching a variety of exceptions in our program and adding prompt messages for users giving invalid inputs, we 
 have made sure that we did our best in minimizing possible unintended consequences of the program from user's accidental
-actions. Fail safe features and warnings about errors can be found on our UI level.
+actions. Fail-safe features and warnings about errors can be found on our UI level.
 
 
 *Principle 6: Low Physical Effort*

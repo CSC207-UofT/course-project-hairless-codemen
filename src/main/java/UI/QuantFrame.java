@@ -6,13 +6,17 @@ import src.main.java.Entities.Cart;
 import src.main.java.Entities.Item;
 
 import javax.swing.*;
+import javax.swing.text.html.parser.Entity;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class QuantFrame extends JFrame {
     final int HEIGHT = 100;
     final int WIDTH = 500;
-    JButton OK = new JButton("OK");
+    JButton OK = new JButton("Ok");
+    JButton Back = new JButton("Back");
     JComboBox<Integer> quantityField = new JComboBox<>();
     JPanel quantRoot = new JPanel();
     JLabel quantLabel = new JLabel("Please select the quantity you wish to purchase");
@@ -20,21 +24,35 @@ public class QuantFrame extends JFrame {
 
 
     public QuantFrame(String username, Item item) {
-        List[] quantlist= new List[0];
+        Object[] info = FileFacade.getUserInfo(username);
         int q = item.getQuantity();
         for (int i = 1; i <= q; i++) {
             quantityField.addItem(i);
         }
+        String ItemName = item.getItemName();
 
         OK.addActionListener((e) -> {
-            InfoFacade.addCartElement((Cart) FileFacade.getUserInfo(username)[0], item, quantityField.getSelectedIndex()+1);
-            this.dispose();
+            InfoFacade.addCartElement((Cart) info[0], item, quantityField.getSelectedIndex()+1);
+            this.setVisible(false);
+            JFrame Home = new Home(username);
+            Home.setVisible(true);
+        });
+
+        Back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                QuantFrame.this.setVisible(false);
+                JFrame home = new Home(username);
+                home.setVisible(true);
+            }
         });
 
         quantRoot.add(quantLabel);
         quantRoot.add(quantityField);
         quantRoot.add(OK);
+        quantRoot.add(Back);
         quantityField.setVisible(true);
+        this.setTitle("Product selected: "+ItemName);
         this.setSize(WIDTH, HEIGHT);
         this.add(quantRoot);
 

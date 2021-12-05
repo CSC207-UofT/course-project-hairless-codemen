@@ -105,14 +105,12 @@ public class Home extends JFrame{
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                Object selected = BuyList.getModel().getElementAt(BuyList.getSelectedIndex());
-                cartList.add(selected.toString());
+//                Object selected = BuyList.getModel().getElementAt(BuyList.getSelectedIndex());
+//                cartList.add(selected.toString());
                 Item a=InfoFacade.getItems().get(BuyList.getSelectedIndex());
-                InfoFacade.addCartElement((Cart) info[0], a);
-                viewCart.doClick();
                 QuantFrame frame=new QuantFrame(username, a);
                 frame.setVisible(true);
-
+                Home.this.setVisible(false);
             }
         });
 

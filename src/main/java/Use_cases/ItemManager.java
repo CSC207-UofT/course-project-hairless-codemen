@@ -102,7 +102,7 @@ public class ItemManager implements Manager {
      * Remove a list of items from Item Storage.
      * @param items  - the list of items to be removed from Item Storage.
      */
-    public static void removeElement(Object[] items) {
+    public static void removeElement(ArrayList<Item> items) {
         for (Object item : items){
             ItemStorage.deleteElement(item);
         }
@@ -191,5 +191,13 @@ public class ItemManager implements Manager {
     public static User getSeller(Item i){
         return i.getOwner();
     }
-}
 
+    /**
+     * Return the quantity of item
+     *
+     * @param item the item to check for quantity
+     */
+    public static int getQuantity(Item item){
+        return item.getQuantity();
+    }
+}

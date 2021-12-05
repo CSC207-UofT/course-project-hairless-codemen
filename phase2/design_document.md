@@ -1,45 +1,78 @@
 **Design Document**
 
-**1. Updated Specification:**
+**1. Program Specification:**
 
 We would like to design a service platform that allows users to search, buy and sell items.
 It is similar to existing trading websites such as Kijiji, where each user is a buyer and seller at the same time. 
 Specifically, a C2C(consumer to consumer) trading platform.
 
-Firstly, the user should be able to sign up or login to our platform with their unique username and their password. 
-After logged in, the user would be able to see all the listed items in stock on our platform.
-Users can look or search through list of items on the system, their own orders, their wallets, their carts and items sold under their accounts. 
+Our specification consists of two parts:
 
-They would also be able to post the item(s) they want to sell or purchase item(s) that they wish to buy.
-To create a sale post, users must indicate the name of the item they wish to sell, as well as the price, quantity and the category it belongs to.
+*a.* Signup and user login
 
-For purchasing, users should be able to search by item keywords, seller of the item, or a specific category. 
-Users will be able to add the item(s) to their personal cart, and then check out successfully only when they have sufficient money in their wallet. 
-There will be one order generated for each seller of the items purchased and returned to this user. 
-Nothing would be changed if they have insufficient funds. 
+Users can create their unique username and password to sign up on our platform, and be able to login to our platform 
+with their unique username and password. 
 
-The user may top up their wallet to get more money for purchasing.
-After successfully paying for the order, users will receive an order number. The user would be able to search for their 
-orders by using the order numbers. 
-Finding the order will show the following information: buyer name, seller name, ordered item(s), 
-and the total amount paid to the user.
+After logged in, the user would be able to see all the listed items in stock on our platform, money in their wallets,
+and items in their carts.
+
+*b.* Perform a transaction (buy or sell)
+
+Users can search by item keywords, seller of the item, or a specific category to look for the items they want. User can
+add a certain quantity of the items into their personal carts, as long as the quantity does not exceed the total 
+quantity of the items in our storage. Users can check out from their carts and the purchase would be successful as long 
+as they have sufficient money in their wallet. There will be one order generated for every seller of the items purchased 
+and the order would be stored in our system. 
+
+Users may top up their wallet to get more money for purchasing.
+After successfully paying for the order, users will receive several order numbers. 
+The user would be able to search for their orders by using these order numbers. the user may top up their wallet to get more money for purchasing.
+After successfully paying for the order, users will receive an order number. The user would be able to search for their
+orders by using the order numbers.
+
+To create a sale post, users must indicate the name of the item they wish to sell, as well as the price, quantity and 
+the category it belongs to. Then, the items the user wish to sell would be added to our platform, and everyone logged 
+in can see them.
 
 <br />
 
 **2. UML diagrams:**
 
-Please see the "UML.pdf" file under our "phase1" package for detail UML in each level.
+Please see the "UML.pdf" file under our "phase2" package for detail UML in each level.
 
 <img alt="Aaron Swartz" src="https://github.com/CSC207-UofT/course-project-hairless-codemen/raw/main/images/Program%20UML.drawio.png"/>
 
 <br />
 
-**3. Major Design Decisions:**
+**3. Modifications and Important Changes of the Program Made in Phase 2:**
 
-*a.* Changed the underlying data structure for storages from ArrayList to HashMap.
+*a.* Added features for adding a customized quantity of items into cart, buying and selling them.
 
-In this phase, unlike phase 0, we decided to change the way we store all users, items and orders in our system from 
-using ArrayLists to using Hashmaps. In UserStorage, we used a hashmap with keys being usernames and values the 
+
+
+*b.* Changed variable types from ArrayList to List to make it more abstract where needed.
+
+
+*c.* Solved program bugs, catch exceptions during operation of the program.
+
+
+*d.* Modified some of the iterators implemented to make them more efficient.
+
+
+*e.* Other additional features added:
+    
+- Added RegexChecker class to apply constraints on passwords of users (must contain upper case, lower case, digit and 
+special characters). Permit users to change their passwords.
+- 
+
+<br />
+
+
+**4. Major Design Decisions Made Throughout Three Project Phases:**
+
+*a.* Using HashMap for the underlying data structure of storages.
+
+In UserStorage, we used a hashmap with keys being usernames and values the 
 corresponding users, so we made sure every user's username is unique, like pretty much every C2C platform now. 
 
 In ItemStorage, we allow items with the same names because in reality it is possible to have items with same names but 
@@ -47,21 +80,17 @@ from different sellers or with different prices, so we used a hashmap with keys 
 of all items under each name. In OrderStorage, we made sure every order has a unique order id, and we used these ids as 
 keys in the hashmap, with values the corresponding orders. 
 
-The reason we decided to change the underlying data structure for storages is that in this way, it is much easier to 
+The reason we decided to use maps for the underlying data structure of storages is that in this way, it is much easier to 
 perform search operations for searching a user by username, an item by itemname and an order by its id. Although this 
 made iterating through everything more complicated, we added the Iterator Design Pattern to solve this issue 
-(see more in 7.).
+(see more in 8.).
 
 *b.* The format of UI: GUI
 
 Since we don't have that much data to be stored or complex operations to be carried out, in terms of programming, it is
 easier for us to design the Desktop Application format of UI. Besides, using a desktop application eliminates the
 requirement of having a remote server or storage, and desktop applications have better performance than web
-applications. 
-
-However, we did try to design a web platform on our system, which can be seen under our UI package as well. We are still
-deciding between the two, although now the desktop version has more functionalities and we are demoing our program using
-this version. 
+applications.
 
 *c.* The reason for serialization, and when to read and save into files. 
 
@@ -76,9 +105,9 @@ updated data of the storages to our files by the end of the program or after the
 
 <br />
 
-**4. Following Clean Architecture:**
+**5. Clean Architecture:**
 
-In our project we divide our classes into four major categories, which are Entities, Use_cases, Controller, and UI. 
+In our project we divide our works into four major categories, which are Entities, Use_cases, Controller, and UI. 
 We have followed the Clean Architecture rules. The classes are only dependent on their adjacent layer, and would not have 
 direct connections across layers. For example, the Entities is our core layer, and when the Use_cases are building methods, 
 they would only use the attributes and methods in the Entities or the method in the Use_cases. They cannot call the 
@@ -93,7 +122,7 @@ we need.
 
 <br />
 
-**5. Examples of Obeying SOLID Principles:**
+**6. Examples of Obeying SOLID Principles:**
 
 *a.* Single Responsibility Principle.
 
@@ -131,7 +160,7 @@ completely follows Clean Architecture.
 
 <br />
 
-**6. Packaging Strategies Used:**
+**7. Packaging Strategies Used:**
 
 The primary packaging strategy that was used in our code was packaging by layers. Specifically, the layers strictly
 obeyed the clean architecture structure. For each layer in the clean architecture, we had a package for that layer.
@@ -143,9 +172,11 @@ the import statements.
 
 <br />
 
-**7.Design Patterns Implemented:**
+**8.Design Patterns Implemented:**
 
-To begin, we implemented the Iterator design pattern for our classes Cart, ItemStorage and OrderStorage. The reason for 
+*a.* Iterator
+
+We implemented the Iterator design pattern for our classes Cart, ItemStorage and OrderStorage. The reason for 
 implementing this design pattern is that we would like to go through every item in a cart, every item stored in our item
 storage and every order stored in our order storage on the use case level. 
 The Iterator design pattern avoids using a lot of getter methods and then iterate through the data structure we 
@@ -155,7 +186,9 @@ Also, to make it easier for searching operations to be performed, we changed our
 ArrayLists to HashMaps, but looping through every item in a hashmap is relatively complicated, so the Iterator pattern 
 also made this process more efficient.
 
-Secondly, we also implemented the Facade design pattern in our controller classes, FileFacade and InfoFacade. The reason 
+*b.* Facade
+
+We also implemented the Facade design pattern in our controller classes, FileFacade and InfoFacade. The reason 
 for using the Facade design pattern in our FileFacade class is that we would like to read Users, Items and Orders stored 
 in our files at the beginning of the program so that the platform has a record of everything. FIleFacade will redirect 
 the tasks of reading users from file, reading items from file, and reading orders from file to UserReadWriter, 
@@ -169,77 +202,88 @@ specific user. InfoFacade can redirect these tasks to CartManager, ItemManager a
 
 <br />
 
-**8. Progress Report:**
+**9. Accessibility Report:**
 
-*Individual Work:*
+Please see the accessibility.md file in our phase2 package.
+
+<br />
+
+**10. Significant pull requests:**
 
 - **Qingyi Liu:**
-    - Specification update, further improvement writing
-    - Java Coding: Finder, ItemStorage, ItemManager, OrderStorage, OrderManager
-    - wrote tests for Finder
+
 
 
 - **Zichun Xu:**
-  - Finished methods in class Transaction, including buy and sell. Add relevant methods in use cases such as ItemManager and 
-    OrderManager.
-  - Support UI, and wrote tests for Transaction
-  - Finished Clean Architecture part of the design document.
+
 
 
 - **Feihao Qu:**
-  - Web version User Interface
-  - Build Three Web Pages: Login, Signup and Main
-  - Page transitions
-  - Coding：html, css and Javascript
 
 
 
 - **Hongda Zhu:**
-  - Writing Controller Transaction buy following rule of clean architecture
-  - Moderating and add functions in Use_Cases for ItemManager, CartManager, Ordermanager, UserManager
-  - Writing Test_cases for Transaction, testing if the transaction will be successful, and if user'money and seller's 
-  money be changed
+
 
 
 - **Howard Xiao:**
-  - Serialization, read and write files and to interact with storage and manager classes.
-  - Support UI, implemented iterator and facade design patterns, completed tests to improve test coverage as high as
-  possible.
-  - Finished SOLID, major design decision and the design pattern part of the design document.
+
+  My significant pull request is pull request #9, in which I changed the underlying data structure of storages from 
+ArrayList to HashMap, and also created a static interface Storable. This pull request is significant because 
+the team decision of changing the underlying data structure of storages is implemented in this pull request, which is 
+one of the most important design decisions we made (see more in 4.a). Also, I decided to extract a static interface for
+storage classes so that we can use static methods in methods in ItemStorage and UserStorage. Added OrderStorage.
 
 
 - **Xiao Qin:**
-- Serialization, coding ReadWriters 
-- Created UML Diagram
-- some entity documentations
 
 
 
 - **Xinyu Zhang:**
-  - Java coding: Entry, Frame, Home, SearchFrame, SearchRsult, SellFrame
-  - Help improve codes in Controller.
+
 
 
 - **Zhen Sun:**
-  - Coded the search feature, including the search method in both ItemManager and OrderManager, and the class Finder.
-  - Wrote the test for search in ItemManager. 
 
-*Further Improvement:*
+<br />
 
-- Modifying quantity of an item after posting is currently not allowed. Right now, if a user post an identical item he/she
-posted previously, our program will take this item as a brand-new item and store them separately in the item storage. In 
-the future, we can implement methods that allows adding quantity if identical items (same name, price, category) are posted
-by the same user. For different user, we should still separate them since quality could differ between different sellers.
 
-- We haven't had a chance to add constraints for username and password. Currently, a user can have the username " " (a blank space).
-And password could be a single character. We would like to make our platform as close as a real world trading platform. 
-Therefore, the cases described above should not be allowed.
+**11. Progress Report:**
 
-- Even though our programs has used some exceptions, but overall, we lack the use of exceptions. Writing more exceptions
-will help with our debugging process, as well as the efficiency if our program actually starts running.
+*Individual Work for the Project:*
 
-- Now for some windows appeared in our program, they have different sizes and appearances for Mac and Windows systems.
-We don't know how to solve this yet, and we would like to know how to deal with this issue.
+- **Qingyi Liu:**
+    
 
-- When performing checkout, sometimes unknown errors will occur but after another click for checkout,
-  everything is good again. This requires troubleshooting in phase2 as well.
+
+- **Zichun Xu:**
+  
+
+
+- **Feihao Qu:**
+
+  
+
+- **Hongda Zhu:**
+
+
+
+- **Howard Xiao:**
+    - CRC Cards for usecases, controller and UI.
+    - Java Coding: Storage, Cart, Order, Wallet, CommandReader, Transaction (**Phase 0**)
+    - Serialization, read and write files and to interact with storage and manager classes.
+    - Support UI, implemented iterator and facade design patterns, completed tests to improve test coverage as high as
+      possible.
+    - Finished SOLID, major design decision and the design pattern part of the design document. (**Phase 1**)
+    - **Phase2:** Accessibility report and Modify design document.
+
+
+- **Xiao Qin:**
+
+
+
+- **Xinyu Zhang:**
+
+
+
+- **Zhen Sun:**

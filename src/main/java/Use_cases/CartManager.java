@@ -65,4 +65,18 @@ public class CartManager {
     public static ArrayList<Item> getItems(Cart c){
         return c.getItems();
     }
+
+    /**
+     * Return the total price of all items in a cart
+     * @param c - the cart we are interested in
+     *
+     * @return the total price of all items
+     */
+    public static double getTotalPrice(Cart c) {
+        double totalPrice = 0;
+        for (Item item : c.getItems()){
+            totalPrice += item.getItemPrice();
+        }
+        return totalPrice;
+    }
 }

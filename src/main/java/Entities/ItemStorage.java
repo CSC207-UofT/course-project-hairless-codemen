@@ -99,9 +99,6 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
                 Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
             itemList.get(item.getItemName()).remove(item);
         }
-        else{
-            //TODO: Need to throw exception. We can not delete an not existing item.
-        }
 
     }
 

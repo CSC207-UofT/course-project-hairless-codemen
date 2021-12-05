@@ -1,15 +1,13 @@
 package src.main.java.Controller;
 
-import src.main.java.Entities.Cart;
-import src.main.java.Entities.Item;
-import src.main.java.Entities.Order;
-import src.main.java.Entities.User;
+import src.main.java.Entities.*;
 import src.main.java.Use_cases.CartManager;
 import src.main.java.Use_cases.ItemManager;
 import src.main.java.Use_cases.OrderManager;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class InfoFacade {
 
@@ -20,6 +18,15 @@ public class InfoFacade {
      */
     public static String printItem(Item i){
         return ItemManager.printItem(i);
+    }
+
+    /**
+     * Return a string representation of an item's name.
+     * @param i - the item whose name will be returned.
+     * @return a string representation of an item's name.
+     */
+    public static String printItemName(Item i){
+        return i.getItemName();
     }
 
     /**
@@ -45,14 +52,18 @@ public class InfoFacade {
      * @param u - the User from which a string representation of all orders will be returned.
      * @return a string representation of all orders in the ArrayList orders.
      */
-    public static String printOrders(User u){return OrderManager.printOrders(u);}
+    public static String printOrders(User u){
+        return OrderManager.printOrders(u);
+    }
 
     /**
      * Return a string representation of a list of items.
      * @param items - the ArrayList of items whose string representation will be returned.
      * @return a string representation of all orders in the ArrayList orders.
      */
-    public static String printItems(ArrayList<Item> items){return ItemManager.printItems(items);}
+    public static String printItems(ArrayList<Item> items){
+        return ItemManager.printItems(items);
+    }
 
     /**
      * Return all items of a given Cart.
@@ -77,14 +88,18 @@ public class InfoFacade {
      * @param c - the Cart to which the item will be added.
      * @param i - the Item to be added into the cart.
      */
-    public static void addCartElement(Cart c, Item i) {CartManager.AddElement(c, i);}
+    public static void addCartElement(Cart c, Item i) {
+        CartManager.AddElement(c, i);
+    }
 
     /**
      * Remove an item from a given cart.
      * @param c - the Cart from which the item will be removed.
      * @param i - the Item to be removed from the cart.
      */
-    public static void removeCartElement(Cart c, Item i){CartManager.removeElement(c, i);}
+    public static void removeCartElement(Cart c, Item i){
+        CartManager.removeElement(c, i);
+    }
 
     /**
      * Return the list of all items stored in the system.
@@ -92,5 +107,41 @@ public class InfoFacade {
      */
     public static ArrayList<Item> getItems(){
         return ItemManager.getItemsList();
+    }
+
+
+    /**
+     * Add a list of items into Item Storage.
+     * @param o  - the list of items to be added into Item Storage.
+     */
+    public static void addElement(Object o){
+        ItemManager.addElement(o);
+    }
+
+
+    /**
+     * Add a list of items into Item Storage.
+     * @param items  - the list of items to be added into Item Storage.
+     */
+    public static void addElement(Object[] items){
+        ItemManager.addElement(items);
+    }
+
+
+    /**
+     * Remove a single item from Item Storage.
+     * @param o  - the item to be removed from Item Storage.
+     */
+    public static void removeElement(Object o){
+        ItemManager.removeElement(o);
+    }
+
+
+    /**
+     * Remove a list of items from Item Storage.
+     * @param items  - the list of items to be removed from Item Storage.
+     */
+    public static void removeElement(Object[] items){
+        ItemManager.removeElement(items);
     }
 }

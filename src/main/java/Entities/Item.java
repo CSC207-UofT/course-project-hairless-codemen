@@ -120,4 +120,11 @@ public class Item implements Serializable {
     public String toString(){
         return name + ": "  + "Category: " + category + ", Quantity: " + quantity + ", Price: $" + price;
     }
+
+    /**
+     * Produce a human-readable string description of an Item for item storage check.
+     */
+    public String toString2(){
+        return name + ": "  + "Category: " + category + ", Price: $" + price;
+    }
 }

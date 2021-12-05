@@ -77,15 +77,18 @@ public class ItemManager implements Manager {
     public static double get_price(Item item){
         return item.getItemPrice();}
 
+
     /**
      * Add a list of items into Item Storage.
-     * @param newItems  - the list of items to be added into Item Storage.
+     * @param items  - the list of items to be added into Item Storage.
      */
-    public static void addElement(ArrayList<Item> newItems) {
-        for (Item item : newItems){
+    public static void addElement(Object[] items) {
+        for (Object item : items){
             addElement(item);
         }
     }
+
+
     /**
      * Add a single item into Item Storage.
      * @param item  - the single item to be added into Item Storage.
@@ -105,6 +108,7 @@ public class ItemManager implements Manager {
         }
     }
 
+
     /**
      * Remove a single item from Item Storage.
      * @param element  - the item to be removed from Item Storage.
@@ -112,6 +116,7 @@ public class ItemManager implements Manager {
     public static void removeElement(Object element){
         ItemStorage.deleteElement(element);
     }
+
 
     /**
      * Load a preset list of items into Item Storage at the beginning of the program if there are no item currently
@@ -129,6 +134,7 @@ public class ItemManager implements Manager {
         ItemStorage.addElement(items);
     }
 
+
     /**
      * Get the current item storage data in its original format.
      *
@@ -137,6 +143,7 @@ public class ItemManager implements Manager {
     public static Map<String, ArrayList<Item>> getItems(){
         return ItemStorage.getItems();
     }
+
 
     /**
      * Get the current item storage data in a list format.
@@ -151,6 +158,7 @@ public class ItemManager implements Manager {
         return items;
     }
 
+
     /**
      * Return a string representation for a list of items.
      * @param items - the list of items whose string representation will be returned.
@@ -164,6 +172,7 @@ public class ItemManager implements Manager {
         return sb.toString();
     }
 
+
     /**
      * Return a string representation for a single item.
      * @param i - the item whose string representation will be returned.
@@ -172,6 +181,7 @@ public class ItemManager implements Manager {
     public static String printItem(Item i){
         return i.toString();
     }
+
 
     /**
      * Return the seller of an item.

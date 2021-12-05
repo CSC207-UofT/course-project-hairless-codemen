@@ -61,13 +61,18 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     }
 
     /**
-     * Add an item to the item storage. If the item's name already exist in the hashmap, we can simply add the item;
+     * Add an item to the item storage. If an identical item already exist in the hashmap, we can simply add the item;
      * If not, we create a new array list that contains the Item and add to hashmap with name of the Item as the key.
+     *
+     * We define two items identical IFF their name, category and price are all identical.
      *
      * @param item The Item we want to add.
      */
+
+
     private static void addItem(Item item) {
-        if (itemList.get(item.getItemName()) != null){
+        if (itemList.containsKey(item.getItemName()) &
+                Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
             itemList.get(item.getItemName()).add(item);
         }
         else{
@@ -78,17 +83,24 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     }
 
     /**
-     * Delete an item from the item storage. If there is one left in stock, we can simply delete the item;
-     * If not, we subtract one from the current number of items in stock.
+     * Delete an item from the item storage. If there is only one identical item left in stock, we can simply delete the
+     * item; If not, we subtract one from the current number of items in stock.
+     *
+     * We define two items identical IFF their name, category and price are all identical.
      *
      * @param item The Item we want to delete.
      */
     private static void deleteItem(Item item)  {
-        if (itemList.get(item.getItemName()).size() == 1){
+        if (itemList.get(item.getItemName()).size() == 1 &
+                Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
             itemList.remove(item.getItemName());
         }
-        else if (itemList.get(item.getItemName()).size() > 1){
+        else if (itemList.get(item.getItemName()).size() > 1 &
+                Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
             itemList.get(item.getItemName()).remove(item);
+        }
+        else{
+            //TODO: Need to throw exception. We can not delete an not existing item.
         }
 
     }
@@ -111,7 +123,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      */
     public static void addElement(ArrayList<Item> items){
         for (Item item : items) {
-            addElement(item);
+            addItem(item);
         }
     }
 

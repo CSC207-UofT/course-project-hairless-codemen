@@ -97,6 +97,7 @@ public class   SellFrame extends JFrame {
         this.setTitle(username+"'s Sell Page");
 
 
+
     }
     private class SellLayout extends LayoutAdapter{
 
@@ -112,7 +113,7 @@ public class   SellFrame extends JFrame {
 
         @Override
         public void layoutContainer(Container parent) {
-            int width =parent.getWidth();
+
             int height=parent.getHeight();
             panel.setSize(300,100);
             panel1.setSize(250,50);

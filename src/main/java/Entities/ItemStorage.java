@@ -153,7 +153,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      *
      * @param items The Items we want to delete.
      */
-    public static void deleteElement(ArrayList<Item> items){
+    public static void deleteElement(List<Item> items){
         for (Item item : items){
             deleteItem(item);
         }

@@ -7,13 +7,17 @@ import src.main.java.Entities.Item;
 import src.main.java.Entities.User;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
-public class SellFrame extends JFrame {
+public class   SellFrame extends JFrame {
+    JPanel panel = new JPanel();
+    JPanel panel1 = new JPanel();
+
     public SellFrame(String username){
         final int HEIGHT = 300;
         final int WIDTH = 500;
@@ -25,10 +29,10 @@ public class SellFrame extends JFrame {
         JTextField priceInput = new JTextField(4);
         JLabel quantity = new JLabel("Qty:");
         JTextField qty = new JTextField(4);
-        JPanel panel = new JPanel();
+
         JButton sellButton = new JButton("Sell");
         JButton Back = new JButton("Back");
-        JPanel panel1 = new JPanel();
+
         panel.add(Name);
         panel.add(name);
         panel.add(category);
@@ -84,14 +88,37 @@ public class SellFrame extends JFrame {
                 }
             }
         });
-        this.setLayout(null);
-        panel.setSize(300,50);
-        panel1.setSize(250,100);
-        panel.setLocation((WIDTH-320)/2, 70);
-        panel1.setLocation((WIDTH-270)/2,140);
+
+
         this.add(panel);
         this.add(panel1);
+        this.setLayout(new SellLayout());
         this.setSize(WIDTH,HEIGHT);
         this.setTitle(username+"'s Sell Page");
+
+
+
+    }
+    private class SellLayout extends LayoutAdapter{
+
+        @Override
+        public void addLayoutComponent(String name, Component comp) {
+
+        }
+
+        @Override
+        public void removeLayoutComponent(Component comp) {
+
+        }
+
+        @Override
+        public void layoutContainer(Container parent) {
+            int width=parent.getWidth();
+            int height=parent.getHeight();
+            panel.setSize(300,100);
+            panel1.setSize(250,50);
+            panel.setLocation((width-320)/2, 30);
+            panel1.setLocation((width-250)/2,height-100);
+        }
     }
 }

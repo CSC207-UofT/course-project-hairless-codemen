@@ -64,6 +64,21 @@ public class UserManager implements Manager, Serializable {
     }
 
     /**
+     * Modify the password for an existing user.
+     *
+     * @param user The user who wish to modify password
+     * @param NewPassword The new password the user wishes to set
+     */
+    //TODO: For UI, on the login page, user should see a button where it says "change password".
+    public static boolean changePassword(User user, String NewPassword){
+        if (!UserStorage.getUserList().containsKey(user.getName())){
+            return false;
+        }
+        UserStorage.getUserList().get(user.getName()).setPassword(NewPassword);
+        return true;
+    }
+
+    /**
      * Returns a map containing all users stored on the user storage.
      * @return a Map with keys being usernames and values being User objects that contains all information stored in the
      * user storage.

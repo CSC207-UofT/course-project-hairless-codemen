@@ -5,6 +5,8 @@ import java.io.Serializable;
 
 public class Item implements Serializable {
 
+
+
     private String name;
     private final User owner;
     private double price;
@@ -117,5 +119,12 @@ public class Item implements Serializable {
     @Override
     public String toString(){
         return name + ": "  + "Category: " + category + ", Quantity: " + quantity + ", Price: $" + price;
+    }
+
+    /**
+     * Produce a human-readable string description of an Item for item storage check.
+     */
+    public String toString2(){
+        return name + ": "  + "Category: " + category + ", Price: $" + price;
     }
 }

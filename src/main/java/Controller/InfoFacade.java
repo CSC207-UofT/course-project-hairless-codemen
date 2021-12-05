@@ -22,6 +22,15 @@ public class InfoFacade {
     }
 
     /**
+     * Return a string representation of an item's name.
+     * @param i - the item whose name will be returned.
+     * @return a string representation of an item's name.
+     */
+    public static String printItemName(Item i){
+        return i.getItemName();
+    }
+
+    /**
      * Return a string representation of a list of orders.
      * @param orders - the ArrayList of orders whose string representation will be returned.
      * @return a string representation of all orders in the ArrayList orders.
@@ -44,14 +53,18 @@ public class InfoFacade {
      * @param u - the User from which a string representation of all orders will be returned.
      * @return a string representation of all orders in the ArrayList orders.
      */
-    public static String printOrders(User u){return OrderManager.printOrders(u);}
+    public static String printOrders(User u){
+        return OrderManager.printOrders(u);
+    }
 
     /**
      * Return a string representation of a list of items.
      * @param items - the ArrayList of items whose string representation will be returned.
      * @return a string representation of all orders in the ArrayList orders.
      */
-    public static String printItems(ArrayList<Item> items){return ItemManager.printItems(items);}
+    public static String printItems(ArrayList<Item> items){
+        return ItemManager.printItems(items);
+    }
 
     /**
      * Return all items of a given Cart.
@@ -109,5 +122,41 @@ public class InfoFacade {
      */
     public static ArrayList<Item> getItems(){
         return ItemManager.getItemsList();
+    }
+
+
+    /**
+     * Add a list of items into Item Storage.
+     * @param o  - the list of items to be added into Item Storage.
+     */
+    public static void addElement(Object o){
+        ItemManager.addElement(o);
+    }
+
+
+    /**
+     * Add a list of items into Item Storage.
+     * @param items  - the list of items to be added into Item Storage.
+     */
+    public static void addElement(Object[] items){
+        ItemManager.addElement(items);
+    }
+
+
+    /**
+     * Remove a single item from Item Storage.
+     * @param o  - the item to be removed from Item Storage.
+     */
+    public static void removeElement(Object o){
+        ItemManager.removeElement(o);
+    }
+
+
+    /**
+     * Remove a list of items from Item Storage.
+     * @param items  - the list of items to be removed from Item Storage.
+     */
+    public static void removeElement(Object[] items){
+        ItemManager.removeElement(items);
     }
 }

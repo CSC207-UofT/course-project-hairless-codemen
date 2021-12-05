@@ -99,7 +99,7 @@ public class ItemManager implements Manager {
      * Remove a list of items from Item Storage.
      * @param items  - the list of items to be removed from Item Storage.
      */
-    public static void removeElements(ArrayList<Item> items) {
+    public static void removeElement(ArrayList<Item> items) {
         for (Object item : items){
             ItemStorage.deleteElement(item);
         }

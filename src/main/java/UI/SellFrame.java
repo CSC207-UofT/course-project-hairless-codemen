@@ -113,14 +113,12 @@ public class   SellFrame extends JFrame {
 
         @Override
         public void layoutContainer(Container parent) {
-
+            int width=parent.getWidth();
             int height=parent.getHeight();
             panel.setSize(300,100);
             panel1.setSize(250,50);
             panel.setLocation((width-320)/2, 30);
             panel1.setLocation((width-250)/2,height-100);
-
-
         }
     }
 }

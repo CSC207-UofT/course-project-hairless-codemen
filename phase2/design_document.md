@@ -210,8 +210,13 @@ Please see the accessibility.md file in our phase2 package.
 
 **10. Significant pull requests:**
 
-- **Qingyi Liu:**
-
+- **Qingyi Liu:** Pull request #27:
+In this pull request, I created the class RegexChecker in Controller to give constraints for users' username and password
+inputs. Both username and password should be non-empty(all blank space input not allowed). For password, the input string
+should contain at least one uppercase letter, one lowercase letter, one special character and a minimum length of 8. I
+also added a method in UserManager to allow existing users modify their password. Lastly, I changed the way we define 
+"identical items". Two items are identical and will be put under the same storage key if and only if they have the same
+name, category and price. I modified the addItem and deleteItem methods in ItemStorage to implement this new definition.
 
 
 - **Zichun Xu:**
@@ -226,10 +231,8 @@ Please see the accessibility.md file in our phase2 package.
 
 
 
-- **Howard Xiao:**
-
-  My significant pull request is pull request #9, in which I changed the underlying data structure of storages from 
-ArrayList to HashMap, and also created a static interface Storable. This pull request is significant because 
+- **Howard Xiao:** Pull request #9:  
+I changed the underlying data structure of storages from ArrayList to HashMap, and also created a static interface Storable. This pull request is significant because 
 the team decision of changing the underlying data structure of storages is implemented in this pull request, which is 
 one of the most important design decisions we made (see more in 4.a). Also, I decided to extract a static interface for
 storage classes so that we can use static methods in methods in ItemStorage and UserStorage. Added OrderStorage.
@@ -253,9 +256,16 @@ storage classes so that we can use static methods in methods in ItemStorage and 
 *Individual Work for the Project:*
 
 - **Qingyi Liu:**
-    
+  - Specification writing.
+  - CRC Cards for Cart, Item, User in Entities.
+  - Java Coding: User, Item
+  - Unittest: CartTest, WalletTest, OrderTest (**Phase 0**)
+  - Further improvement writing
+  - Java Coding: Finder, ItemStorage, ItemManager, OrderStorage, OrderManager
+  - Unittest: Finder (**Phase 1**)
+  - **Phase2:** Java Coding: RegexChecker, ItemStorage, UserManager
 
-
+  
 - **Zichun Xu:**
   
 
@@ -269,7 +279,7 @@ storage classes so that we can use static methods in methods in ItemStorage and 
 
 
 - **Howard Xiao:**
-    - CRC Cards for usecases, controller and UI.
+    - CRC Cards for use cases, controller and UI.
     - Java Coding: Storage, Cart, Order, Wallet, CommandReader, Transaction (**Phase 0**)
     - Serialization, read and write files and to interact with storage and manager classes.
     - Support UI, implemented iterator and facade design patterns, completed tests to improve test coverage as high as

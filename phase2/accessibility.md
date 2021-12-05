@@ -9,7 +9,7 @@ Our design does not exclude any user with diverse abilities.
 
 *Principle 2: Flexibility in Use*
 
-We designed different searchoptions, a number of different items stored on our system, and provided users with the 
+We designed different search options, a number of different items stored on our system, and provided users with the 
 feature of listing their own items onto our system. In this way, we have provided every user using our system the 
 flexibility of "choices" based on their individual preferences. The program accomodates right and left-handed use and 
 provides adaptability to each user's own pace of using the platform.
@@ -17,7 +17,7 @@ provides adaptability to each user's own pace of using the platform.
 *Principle 3: Simple and Intuitive Use*
 
 On our UI level, we have provided clear instructions and messages for users that use our system. We believe the design
-of features, as well as the apperances of our UI, does not go against intuition and user expectations. After each task, 
+of features, as well as the appearances of our UI, does not go against intuition and user expectations. After each task, 
 such as buying or selling, we would provide messages for the state of the transaction and other important information
 (such as the orders generated).
 

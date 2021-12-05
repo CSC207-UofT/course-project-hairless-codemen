@@ -6,27 +6,12 @@ import java.io.*;
 import java.util.Map;
 
 public class UserManager implements Manager, Serializable {
-    public static Map<String,User> userlist;
-
-    public UserManager(Map<String,User> userList){
-        userlist = userList;
-    }
 
     /**
-     * Create a new user.
-     *
-     */
-    public static User create(String username, String password){
-        return new User(username, password);
-    }
-
-
-    /**
-     * Return True and create a new user if the username does not exist previously. Otherwise, return False.
-     *
-     * @param username The username entered
-     * @param password The password entered
-     * @return whether we can create a new user
+     * Create a user given a username and a password. Return whether the user is successfully created.
+     * @param username - the username of the new user to be created.
+     * @param password - the password of the new user to be created.
+     * @return true if there is not a user with provided username already existed in the system, return false otherwise.
      */
     public static boolean createUser(String username, String password){
 //        User now has 100$ to begin with. Needs to be changed.
@@ -39,6 +24,44 @@ public class UserManager implements Manager, Serializable {
         return true;
     }
 
+    /**
+     * Create a user given a username and a password.
+     * @param username - the username of the new user to be created.
+     * @param password - the password of the new user to be created.
+     * @return the User created.
+     */
+    public static User create(String username, String password){
+        return new User(username, password);
+    }
+
+    /**
+     * Return a list of different information (the User object, the Cart of the user, how much money does this user has
+     * in the wallet) about a user given its username.
+     * Precondition: the user with given username must exist in the system.
+     * @param username - the username of the user whose information will be returned.
+     * @return a list of different information (the User object, the Cart of the user, how much money does this user has
+     * in the wallet) about a user given its username.
+     */
+    public static Object[] getUserInfo(String username){
+        User u = UserStorage.getUserList().get(username);
+        return new Object[]{u, u.getCart(), u.getWallet().getMoney()};
+    }
+
+    /**
+     * Returns whether a login process of given username and password succeeds.
+     * @param username - the username of the login user.
+     * @param password - the password of the login user.
+     * @return true if there exists a user with the given username and the password matches the one stored in the
+     * system. Return false otherwise.
+     */
+    public static boolean login(String username, String password){
+        try{
+            return UserStorage.getUserList().get(username).getPassword().equals(password);
+        }catch(NullPointerException e){
+            return false;
+        }
+
+    }
 
     /**
      * Modify the password for an existing user.
@@ -55,87 +78,48 @@ public class UserManager implements Manager, Serializable {
         return true;
     }
 
-
     /**
-     * Return the corresponding information(the user, the user's cart and user's money in wallet) of the user by
-     * username.
-     *
-     * @param username The name of the user
-     * @return information(the user, the user's cart and user's money in wallet) of the user
+     * Returns a map containing all users stored on the user storage.
+     * @return a Map with keys being usernames and values being User objects that contains all information stored in the
+     * user storage.
      */
-    public static Object[] getUserInfo(String username){
-        User u = UserStorage.getUserList().get(username);
-        return new Object[]{u, u.getCart(), u.getWallet().getMoney()};
-    }
-
+    public static Map<String, User> getUserList(){return UserStorage.getUserList();}
 
     /**
-     * Logging the user in iff the username matches with the password.
-     *
-     * @param username The username entered
-     * @param password The password entered
-     * @return whether the login is successful
-     */
-    public static boolean login(String username, String password){
-        try{
-            return UserStorage.getUserList().get(username).getPassword().equals(password);
-        }catch(NullPointerException e){
-            return false;
-        }
-    }
-
-    /**
-     * Get all existing users.
-     *
-     * @return a map that contains all existing users.
-     */
-    public static Map<String, User> getUserList(){
-        return UserStorage.getUserList();
-    }
-
-
-    /**
-     * Search whether a user exists.
-     *
-     * @param username the username we search on
-     * @return the corresponding user or null if not found
+     * Search for the user given its username.
+     * @param username - the username using which the search will be performed.
+     * @return the User with the provided username.
+     * @throws NullPointerException if there does not exist any user with the provided username.
      */
     public static User search(String username) throws NullPointerException {
         return UserStorage.getUserList().get(username);
     }
 
-
     /**
-     * Get the amount of money that a user has.
-     *
-     * @param u a user
-     * @return a double representing the amount of money
+     * Return the amount of money a given User has.
+     * @param u - the User whose amount of money stored in the wallet will be returned.
+     * @return a double value representing the amount of money a given User has.
      */
     public static double getMoney(User u){
         return u.getWallet().getMoney();
     }
 
-
     /**
-     * Subtract a user's money.
-     *
-     * @param u a user
-     * @param money the amount of money we want to deduct from this user
+     * Subtract a specific amount of money from a given User
+     * @param u - the User whose money will be subtracted.
+     * @param money - how much money will be subtracted from the user.
+     * Precondition: the money subtracted must be less than the total amount of money this user has.
      */
     public static void subtractMoney(User u, double money){
         u.getWallet().subtractMoney(money);
     }
 
-
     /**
-     * Load money for a user.
-     *
-     * @param u a user
-     * @param money the amount of money we want to add to this user
+     * Load a specific amount of money into a given User's wallet.
+     * @param u - the User whose wallet will be loaded with a specific amount of money.
+     * @param money - how much money will be loaded into the user's wallet.
      */
-    public static void loadMoney(User u, double money){
-        u.getWallet().loadMoney(money);}
-
+    public static void loadMoney(User u, double money){u.getWallet().loadMoney(money);}
 
     /**
      * Add a list of users to UserStorage.
@@ -172,5 +156,4 @@ public class UserManager implements Manager, Serializable {
     public static void removeElement(Object element) {
         UserStorage.deleteElement(element);
     }
-
 }

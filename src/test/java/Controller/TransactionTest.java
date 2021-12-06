@@ -28,12 +28,15 @@ public class TransactionTest {
         seller = new User("happysell", "2345");
         item1 = new Item("Banana", seller, 40,4,"Fruit");
         item2 = new Item("Apple", seller, 60, 7,"Fruit");
+        c.addItem(item1, 2);
+        c.addItem(item2, 3);
+        ItemStorage.deleteElement(ItemStorage.getItem());
     }
 
     @Test
     public void TestBuy(){
-        c.addItem(item1, 2);
-        c.addItem(item2, 3);
+        buyer.getCart().addItem(item1, 2);
+        buyer.getCart().addItem(item2, 3);
         Assertions.assertTrue(Transaction.buyItem(buyer));
         assertEquals(buyer.getWallet().getMoney(), 9739.99);
         assertEquals(seller.getWallet().getMoney(), 260);

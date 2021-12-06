@@ -131,7 +131,8 @@ public class InfoFacade {
      * @param o  - the list of items to be added into Item Storage.
      */
     public static void addElement(Object o){
-        ItemManager.addElement(o);
+        Item i = (Item) o;
+        ItemManager.addElement(i);
     }
 
 
@@ -139,7 +140,7 @@ public class InfoFacade {
      * Add a list of items into Item Storage.
      * @param items  - the list of items to be added into Item Storage.
      */
-    public static void addElement(Object[] items){
+    public static void addElement(ArrayList<Item> items){
         ItemManager.addElement(items);
     }
 

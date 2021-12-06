@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class Frame extends JFrame{
+    JPanel panel = new JPanel();
+    JPanel remindPanel=new JPanel();
 
-    final int HEIGHT = 500;
-    final int WIDTH = 800;
-    public Frame(){
-        JPanel panel = new JPanel();
+    public Frame(Font font){
+        int size=font.getSize();
+        final int HEIGHT =200;
+
 
         JLabel userLabel = new JLabel("Username:");
         panel.add(userLabel);
@@ -30,10 +32,9 @@ public class Frame extends JFrame{
         JButton loginButton = new JButton("login");
         panel.add(loginButton);
 
-        JPanel remindPanel=new JPanel();
-
         JLabel reminder=new JLabel("Reminder: The password must contain at least 8 characters " +
                 "which include an upper letter, a lower letter, one digit and a special character. ");
+
         remindPanel.add(reminder);
 
         signupButton.addActionListener(new ActionListener() {
@@ -92,15 +93,33 @@ public class Frame extends JFrame{
             }
         });
 
-        this.setLayout(null);
-        panel.setSize(250, 150);
-        remindPanel.setSize(780,50);
-        remindPanel.setLocation( 5, (HEIGHT-250)/2 + 150);
-        panel.setLocation((WIDTH-250)/2 -10, (HEIGHT-250)/2);
-        this.add(panel);
-        this.add(remindPanel);
-        this.setSize(WIDTH, HEIGHT);
+        this.setLayout(new BorderLayout());
+        this.add(panel,BorderLayout.CENTER);
+        this.add(remindPanel,BorderLayout.SOUTH);
+
+        this.setSize(size*200, HEIGHT);
         this.setTitle("Welcome to Hairless-Codemen Trading Platform!");
+    }
+    private class MyFrameLayout extends LayoutAdapter {
+
+        @Override
+        public void addLayoutComponent(String name, Component comp) {
+
+        }
+
+        @Override
+        public void removeLayoutComponent(Component comp) {
+
+        }
+
+        @Override
+        public void layoutContainer(Container parent) {
+
+            remindPanel.setSize(780,50);
+            remindPanel.setLocation( 5, 500);
+            panel.setLocation((WIDTH-250)/2 -10, (HEIGHT-250)/2);
+            panel.setVisible(true);
+        }
     }
 
 

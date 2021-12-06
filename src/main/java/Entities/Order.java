@@ -8,7 +8,7 @@ public class Order implements Serializable {
     private final ArrayList<Item> items_list;
     private final User buyer;
     private final User owner;
-    private final int total;
+    private final double total;
 
     /**
      * The constructor of Order.
@@ -18,7 +18,7 @@ public class Order implements Serializable {
      * @param owner the owner of this order (every order must only contain items from the same owner)
      * @param total the total amount of money that the items in this order worth
      */
-    public Order(int id, ArrayList<Item> items_list, User buyer, User owner, int total){
+    public Order(int id, ArrayList<Item> items_list, User buyer, User owner, double total){
         this.order_id = id;
         this.items_list = items_list;
         this.buyer = buyer;

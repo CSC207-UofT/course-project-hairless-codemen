@@ -3,10 +3,7 @@ package src.main.java.Controller;
 import src.main.java.Entities.*;
 import src.main.java.Use_cases.*;
 
-import java.io.EOFException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class FileFacade {
 
@@ -84,7 +81,7 @@ public class FileFacade {
                 User u1 = createUser("default1", "000000");
                 addUser(u);
                 addUser(u1);
-                Order o = OrderManager.create_order(ItemManager.getItemsList(), u, u1);
+                Order o = OrderManager.createOrder(ItemManager.getItemsList(), u, u1);
                 OrderManager.addElement(o);
                 OrderReadWriter.saveIntoFile(OrderManager.getItems());
                 OrderReadWriter.readFromFile();

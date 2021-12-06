@@ -3,7 +3,6 @@ import src.main.java.Entities.*;
 import src.main.java.Use_cases.*;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Finder {
 
@@ -31,7 +30,7 @@ public class Finder {
      * @return the matching Order which has this order number or null if no match found.
      */
     public static Order find(int target){
-        if (!OrderManager.has_order(target)){
+        if (!OrderManager.hasOrder(target)){
             return null;
         }
         return (Order) OrderManager.search(target);

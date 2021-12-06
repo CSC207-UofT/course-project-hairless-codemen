@@ -49,7 +49,7 @@ public class FinderTest {
 
         storages.put(123, order);
         OrderStorage.addElement(storages);
-        assertTrue(OrderManager.has_order(123));
+        assertTrue(OrderManager.hasOrder(123));
         assertEquals(Finder.find(123), order);
 
     }

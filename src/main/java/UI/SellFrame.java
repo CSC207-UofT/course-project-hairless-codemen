@@ -19,7 +19,7 @@ public class   SellFrame extends JFrame {
     JPanel panel1 = new JPanel();
 
     public SellFrame(String username){
-        final int HEIGHT = 300;
+        final int HEIGHT = 250;
         final int WIDTH = 500;
         JLabel Name = new JLabel("Item name:");
         JTextField name = new JTextField(6);
@@ -115,10 +115,10 @@ public class   SellFrame extends JFrame {
         public void layoutContainer(Container parent) {
             int width=parent.getWidth();
             int height=parent.getHeight();
-            panel.setSize(300,100);
-            panel1.setSize(250,50);
-            panel.setLocation((width-320)/2, 30);
-            panel1.setLocation((width-250)/2,height-100);
+            panel.setSize(width,100);
+            panel1.setSize(width,50);
+            panel.setLocation(0, 30);
+            panel1.setLocation(0,130);
         }
     }
 }

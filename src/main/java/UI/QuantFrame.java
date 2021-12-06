@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class QuantFrame extends JFrame {
-    final int HEIGHT = 100;
+    final int HEIGHT = 150;
     final int WIDTH = 500;
     JButton OK = new JButton("Ok");
     JButton Back = new JButton("Back");

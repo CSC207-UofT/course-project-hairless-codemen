@@ -80,7 +80,7 @@ public class FileFacade {
             try {
                 OrderReadWriter.readFromFile();
             } catch (IOException | ClassNotFoundException e) {
-                User u = createUser("default", "000000");
+                User u = createUser("1", "1");
                 User u1 = createUser("default1", "000000");
                 addUser(u);
                 addUser(u1);

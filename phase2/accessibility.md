@@ -52,10 +52,14 @@ not need internet access to use our program, which further eliminates any constr
 
 **Part II: Targeted User of the Program**
 
+Our platform is designed in the language of English, the main audience is customers who know how to use internet and
+are familiar with online shopping. It might be slightly user-unfriendly to the audience who do not understand English. 
+However, we attempt to put more ‘image’ instead of ‘word buttons’ to accommodate accessibility.
 
-Write a paragraph about who you would market your program towards, if you were to sell or license your program to 
-customers. This could be a specific category such as "students" or more vague, such as "people who like games". Try to give a bit more detail along with the category.
+Our platform welcomes anyone who wants to sell and buy their items, we provide a free and open market for anyone 
+who wants to trade online. Sellers can moderate price to whatever they believe is reasonable, and buyers could purchase
+the items with commonly a lower price than purchasing anywhere else (shhh, because it could be either brand new or 
+second handed)
 
-Write a paragraph about whether or not your program is less likely to be used by certain demographics. For example, 
-a program that converts txt files to files that can be printed by a braille printer are less likely to be used by people
-who do not read braille.
+However, since our platform does not certify our sellers, it might be risky if the buyer wants to buy a brand-new 
+authentic item. Our platform does not guarantee the authenticity and reliability of the item.

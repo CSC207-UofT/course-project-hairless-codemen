@@ -2,8 +2,6 @@ package src.main.java.Controller;
 
 import src.main.java.Entities.Item;
 import src.main.java.Entities.User;
-import src.main.java.Entities.Cart;
-import src.main.java.UI.Entry;
 import src.main.java.Use_cases.ItemManager;
 import src.main.java.Use_cases.CartManager;
 import src.main.java.Use_cases.OrderManager;
@@ -37,7 +35,7 @@ public class Transaction {
             }
 
             for(User u: category.keySet()){
-                OrderManager.create_order(category.get(u), buyer, u); // create order with the same seller
+                OrderManager.createOrder(category.get(u), buyer, u); // create order with the same seller
             }
 
             UserManager.subtractMoney(buyer, buyer.getCart().getTotalPrice());   //subtract buyer money

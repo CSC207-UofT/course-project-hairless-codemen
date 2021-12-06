@@ -1,12 +1,8 @@
 package src.main.java.Controller;
-import src.main.java.Entities.Item;
-import src.main.java.Entities.ItemStorage;
-import src.main.java.Entities.Order;
-import src.main.java.Entities.OrderStorage;
+import src.main.java.Entities.*;
 import src.main.java.Use_cases.*;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Finder {
 
@@ -34,10 +30,19 @@ public class Finder {
      * @return the matching Order which has this order number or null if no match found.
      */
     public static Order find(int target){
-        if (!OrderManager.has_order(target)){
+        if (!OrderManager.hasOrder(target)){
             return null;
         }
         return (Order) OrderManager.search(target);
+    }
+
+    /**
+     * Return the orderList from one owner.
+     * @param u - the owner of the items.
+     * @return the orderList from one owner
+     */
+    public static ArrayList<Order> find(User u){
+        return OrderManager.getOwnerOrders(u);
     }
 
 }

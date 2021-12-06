@@ -57,6 +57,21 @@ public class OrderStorage implements Storable, Serializable, Iterable<Order> {
     }
 
     /**
+     * Get the the orderList from one owner stored in order storage.
+     * @return the orderList from one owner
+     */
+    public static ArrayList<Order> getOwnerOrder(User owner){
+        ArrayList<Order> lst = new ArrayList<>();
+        for (Order o: orderList.values()) {
+            if (owner.getName().equals(o.getOwner().getName())){
+                lst.add(o);
+            }
+        }
+        return lst;
+    }
+
+
+    /**
      * Returns an iterator over elements of type {@code T}.
      *
      * @return an Iterator.

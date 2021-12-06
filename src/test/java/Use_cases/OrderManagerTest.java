@@ -63,9 +63,9 @@ public class OrderManagerTest {
     @Test
     public void TestTotalNumberOrder(){
         OrderManager.addElement(o3);
-        assertEquals(1, OrderManager.total_number_order());
+        assertEquals(1, OrderManager.totalNumberOrder());
         OrderManager.addElement(lst3);
-        assertEquals(3, OrderManager.total_number_order());
+        assertEquals(3, OrderManager.totalNumberOrder());
     }
 
     @Test
@@ -80,7 +80,7 @@ public class OrderManagerTest {
 
     @Test
     public void TestCreateOrder(){
-        Order o = OrderManager.create_order(lst1, u1, u2);
+        Order o = OrderManager.createOrder(lst1, u1, u2);
         assertTrue(OrderStorage.getOrders().containsValue(o));
     }
 

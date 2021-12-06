@@ -25,7 +25,7 @@ public class OrderManager implements Manager{
      * @param order_id the order id to be used to perform the search for the matched order.
      * @return true if a matching oder exist. False otherwise.
      */
-    public static boolean has_order(int order_id){
+    public static boolean hasOrder(int order_id){
         for (int ids: OrderStorage.getOrders().keySet()){
             if (order_id == ids){
                 return true;
@@ -75,7 +75,7 @@ public class OrderManager implements Manager{
      * Get the total number of orders stored in order storage.
      * @return the int representing the total number of orders stored in the system (order storage).
      */
-    public static int total_number_order(){
+    public static int totalNumberOrder(){
         return OrderStorage.get_size();
     }
 
@@ -95,6 +95,16 @@ public class OrderManager implements Manager{
         return o2;
     }
 
+
+    /**
+     * Returns an list of orders from a specific seller.
+     * @param u - the list of orders with owner being whom will be returned
+     * @return the orderList from one owner
+     */
+    public static ArrayList<Order> getOwnerOrders(User u){
+        return OrderStorage.getOwnerOrder(u);
+    }
+
     /**
      * Creates an order with provided items, a buyer and a seller and returns the created order.
      * @param items_list - the ArrayList of items to be added to the order to be created.
@@ -102,7 +112,7 @@ public class OrderManager implements Manager{
      * @param seller - the seller of all items in this order. Each order can only have items from only one seller.
      * @return an Order object representing the newly created order with provided items, a buyer and a seller.
      */
-    public static Order create_order(ArrayList<Item> items_list, User buyer, User seller){
+    public static Order createOrder(ArrayList<Item> items_list, User buyer, User seller){
         double total_price = 0.0;
         Cart c = buyer.getCart();
         for (Item item: items_list){

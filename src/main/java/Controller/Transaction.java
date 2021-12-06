@@ -24,7 +24,7 @@ public class Transaction {
      * @param buyer -  a User who wish to make the purchase.
      * @return the True iff the buyer has enough money to purchase the Item(s); Otherwise return False.
      */
-    public static boolean buy_item(ArrayList<Item> items, User buyer){
+    public static boolean buyItem(ArrayList<Item> items, User buyer){
         if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyer)) {
             Map<User, ArrayList<Item>> category= new HashMap<>();
             for (Item i: items){

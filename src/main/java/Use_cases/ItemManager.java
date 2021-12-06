@@ -104,10 +104,9 @@ public class ItemManager implements Manager {
      */
     public static void removeElement(ArrayList<Item> items) {
         for (Object item : items){
-            ItemStorage.deleteElement(item);
+            ItemManager.removeElement(item);
         }
     }
-
 
     /**
      * Remove a single item from Item Storage.
@@ -117,6 +116,14 @@ public class ItemManager implements Manager {
         ItemStorage.deleteElement(element);
     }
 
+    /**
+     * Remove a certain quantity of one item from Item Storage.
+     * @param element  - the item to be removed from Item Storage.
+     * @param q - the quantity to be reduced
+     */
+    public static void removeElement(Object element, int q){
+        ItemStorage.deleteElement(element, q);
+    }
 
     /**
      * Load a preset list of items into Item Storage at the beginning of the program if there are no item currently

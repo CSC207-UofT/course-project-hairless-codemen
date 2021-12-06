@@ -33,7 +33,7 @@ public class CartManager {
      */
     public static String print_items(Cart c){
         StringBuilder sb = new StringBuilder();
-        for (Item i: c){
+        for (Item i: c.getItems()){
             sb.append(i);
         }
         return sb.toString();
@@ -46,6 +46,16 @@ public class CartManager {
      */
     public static void AddElement(Cart c, Item i){
         c.addItem(i);
+    }
+
+    /**
+     * Add an item to a cart.
+     * @param c - the cart where the item will be added.
+     * @param i - the item to be added into the cart.
+     * @param q - the quantity to be added
+     */
+    public static void AddElement(Cart c, Item i, int q){
+        c.addItem(i, q);
     }
 
     /**

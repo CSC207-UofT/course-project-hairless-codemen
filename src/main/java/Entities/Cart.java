@@ -1,21 +1,18 @@
 package src.main.java.Entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.*;
 
-public class Cart implements Serializable, Iterable<Item> {
-    private ArrayList<Item> items;
+public class Cart implements Serializable{
+    private Map<Item, Integer> items;
 
     /**
      * Constructor of Cart that has list of items
-     * @param items An Arraylist of items in the cart
+     * @param cart A Hashmap of items in the cart along with each of their quantity
      */
-    public Cart(ArrayList<Item> items){
+    public Cart(HashMap<Item, Integer> cart){
 
-        this.items = items;
+        this.items = cart;
     }
 
     /**
@@ -23,7 +20,7 @@ public class Cart implements Serializable, Iterable<Item> {
      */
     public Cart(){
 
-        this.items = new ArrayList<>();
+        this.items = new HashMap<>();
     }
 
     /**
@@ -32,27 +29,23 @@ public class Cart implements Serializable, Iterable<Item> {
      */
 
     public ArrayList<Item> getItems(){
-
-        return this.items;
+        return new ArrayList<>(items.keySet());
     }
-
-    /**
-     * add a list of items into cart
-     * @param item list of Item will be added into cart
-     */
-    public void addItem(Item[] item) {
-
-        items.addAll(Arrays.asList(item));
-    }
-
 
     /**
      * add single item to the cart
      * @param item single item will be added into cart
      */
     public void addItem(Item item){
+        items.put(item, 1);
+    }
 
-        items.add(item);
+    /**
+     * add single item to the cart
+     * @param item single item will be added into cart
+     */
+    public void addItem(Item item, int q){
+        items.put(item, q);
     }
 
     /**
@@ -71,54 +64,6 @@ public class Cart implements Serializable, Iterable<Item> {
      * @param item - single item to be removed from cart
      */
     public void removeItem(Item item){
-
-        ArrayList<Item> res = new ArrayList<>();
-        for (Item i : items){
-            if(i!=item){
-                res.add(i);
-            }
-        }
-        items = res;
-    }
-
-    /**
-     *Creates a new CartIterator.
-     */
-    @Override
-    public Iterator<Item> iterator() {
-        return new CartIterator();
-    }
-
-    private class CartIterator implements Iterator<Item>{
-        private int current = 0;
-        /**
-         * Returns {@code true} if the iteration has more elements.
-         * (In other words, returns {@code true} if {@link #next} would
-         * return an element rather than throwing an exception.)
-         *
-         * @return {@code true} if the iteration has more elements
-         */
-        @Override
-        public boolean hasNext() {
-            return current < items.size();
-        }
-
-        /**
-         * Returns the next element in the iteration.
-         *
-         * @return the next element in the iteration
-         * @throws NoSuchElementException if the iteration has no more elements
-         */
-        @Override
-        public Item next() {
-            Item i;
-            try{
-                i = items.get(current);
-            }catch (IndexOutOfBoundsException e){
-                throw new NoSuchElementException();
-            }
-            current += 1;
-            return i;
-        }
+        items.remove(item);
     }
 }

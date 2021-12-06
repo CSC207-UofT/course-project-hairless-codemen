@@ -93,6 +93,7 @@ public class InfoFacade {
         CartManager.AddElement(c, i);
     }
 
+
     /**
      * Add a certain quantity of an item to cart.
      * @param c - the Cart to which the item will be added.

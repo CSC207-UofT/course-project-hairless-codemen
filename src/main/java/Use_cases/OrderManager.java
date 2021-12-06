@@ -4,7 +4,7 @@ import src.main.java.Entities.Item;
 import src.main.java.Entities.Order;
 import src.main.java.Entities.OrderStorage;
 import src.main.java.Entities.User;
-
+import src.main.java.Entities.Cart;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -103,9 +103,10 @@ public class OrderManager implements Manager{
      * @return an Order object representing the newly created order with provided items, a buyer and a seller.
      */
     public static Order create_order(ArrayList<Item> items_list, User buyer, User seller){
-        int total_price = 0;
-        for (Item items: items_list){
-            total_price += items.getItemPrice();
+        double total_price = 0.0;
+        Cart c = buyer.getCart();
+        for (Item item: items_list){
+            total_price += CartManager.getCartItems(c).get(item) * item.getItemPrice();
         }
         Order o = new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
         addElement(o);

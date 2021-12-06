@@ -37,12 +37,6 @@ public class CartManagerTest {
     }
 
     @Test
-    public void TestGetPrice(){
-        assertEquals(999999.99, CartManager.getPrice(item1));
-        assertEquals(2000.00, CartManager.getPrice(item3));
-    }
-
-    @Test
     public void TestRemoveItems(){
         CartManager.remove_items(u1, lst2);
         assertTrue(u1.getCart().getItems().contains(item2));

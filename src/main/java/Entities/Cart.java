@@ -68,7 +68,7 @@ public class Cart implements Serializable{
     }
 
     public double getTotalPrice(){
-        int price = 0;
+        double price = 0;
         for (Map.Entry<Item, Integer> entry : items.entrySet()){
             price += entry.getKey().getItemPrice() * entry.getValue();
         }

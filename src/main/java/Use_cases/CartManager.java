@@ -7,16 +7,6 @@ import src.main.java.Entities.User;
 import java.util.ArrayList;
 
 public class CartManager {
-
-    /**
-     * A getter method that gets the price of an item.
-     * @param item - the item whose price is of interest to be gotten.
-     * @return - the double object representing the price of this item.
-     */
-    public static double getPrice(Item item){
-        return item.getItemPrice();
-    }
-
     /**
      * Remove a list of items from a user's cart.
      * @param u - the user whose cart will be where the items are going to be removed from.
@@ -33,7 +23,7 @@ public class CartManager {
      */
     public static String print_items(Cart c){
         StringBuilder sb = new StringBuilder();
-        for (Item i: c){
+        for (Item i: c.getItems()){
             sb.append(i);
         }
         return sb.toString();
@@ -46,6 +36,16 @@ public class CartManager {
      */
     public static void AddElement(Cart c, Item i){
         c.addItem(i);
+    }
+
+    /**
+     * Add an item to a cart.
+     * @param c - the cart where the item will be added.
+     * @param i - the item to be added into the cart.
+     * @param q - the quantity to be added
+     */
+    public static void AddElement(Cart c, Item i, int q){
+        c.addItem(i, q);
     }
 
     /**
@@ -73,10 +73,6 @@ public class CartManager {
      * @return the total price of all items
      */
     public static double getTotalPrice(Cart c) {
-        double totalPrice = 0;
-        for (Item item : c.getItems()){
-            totalPrice += item.getItemPrice();
-        }
-        return totalPrice;
+        return c.getTotalPrice();
     }
 }

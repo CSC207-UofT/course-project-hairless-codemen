@@ -1,6 +1,7 @@
 package src.main.java.Entities;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class ItemStorage implements Storable, Serializable, Iterable<Item> {
@@ -75,6 +76,9 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
             if (Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
             itemList.get(item.getItemName()).get(0).addQuantity(item.getQuantity());
             }
+            else{
+                itemList.get(item.getItemName()).add(item);
+            }
         }
         else{
             ArrayList<Item> itemList = new ArrayList<>();
@@ -85,16 +89,30 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
 
     /**
      * Delete an item from the item storage. If there is only one identical item left in stock, we can simply delete the
-     * item; If not, we subtract one from the current number of items in stock.
+     * item
      *
      * We define two items identical IFF their name, category and price are all identical.
      *
      * @param item The Item we want to delete.
      */
     private static void deleteItem(Item item)  {
+        ArrayList<Item> target = itemList.get(item.getItemName());
+        target.remove(item);
+    }
 
-        //TODO: delete this item's quantity from storage
-
+    /**
+     * Delete a certain amount of one item from the item storage.
+     *
+     * We define two items identical IFF their name, category and price are all identical.
+     *
+     * @param item The Item we want to delete.
+     * @param q the quantity that is going to get deduced
+     */
+    private static void deleteItem(Item item, int q){
+        item.subtractQuantity(q);
+        if (item.getQuantity() == 0){
+            deleteItem(item);
+        }
     }
 
     /**
@@ -141,6 +159,11 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     public static void deleteElement(Object object) {
         Item item = (Item) object;
         deleteItem(item);
+    }
+
+    public static void deleteElement(Object object, int q) {
+        Item item = (Item) object;
+        deleteItem(item, q);
     }
 
     /**

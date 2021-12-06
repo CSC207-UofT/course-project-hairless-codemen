@@ -227,8 +227,14 @@ name, category and price. I modified the addItem and deleteItem methods in ItemS
 
 
 
-- **Hongda Zhu:**
+- **Hongda Zhu:*  Pull request #13
+In this pull request, I wrote the method in Controller Transaction. Since the rule of clean architecture needs to be 
+followed. I have also moderate and add functions in Use_cases for ItemManager, CartManager, OrderManager, and 
+UserManager. I wrote functions like RemoveElements, AddElements, LoadMoney, SubtractMoney, GetItemPrice, 
+Get_all_itemPrice......
 
+To test if the Transaction methods will run successful. I have also wrote few test cases for Transaction 'Buy', 
+to test if the money will be subtracted from user, will the seller get money, etc...
 
 
 - **Howard Xiao:** Pull request #9:  
@@ -283,7 +289,9 @@ So in order to solve this problem, I did a deep copy, and then everything resolv
   
 
 - **Hongda Zhu:**
-
+  - Assist writing design_pattern
+  - writing accessibility document Part 2
+  - Provide ideas and insight on what new features can be added to further improve our program 
 
 
 - **Howard Xiao:**

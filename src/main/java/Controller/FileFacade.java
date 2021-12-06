@@ -78,13 +78,12 @@ public class FileFacade {
      */
         public static void readOrder() throws IOException, ClassNotFoundException {
             try {
-                OrderReadWriter.readFromFile();
-            } catch (IOException | ClassNotFoundException e) {
+                OrderReadWriter.readFromFile();} catch (IOException | ClassNotFoundException e ) {
                 User u = createUser("1", "1");
                 User u1 = createUser("default1", "000000");
                 addUser(u);
                 addUser(u1);
-                Order o = OrderManager.create_order(ItemManager.getItemsList(), u, u1);
+                Order o = new Order(0, ItemManager.getItemsList(), u, u1, 1000);
                 OrderManager.addElement(o);
                 OrderReadWriter.saveIntoFile(OrderManager.getItems());
                 OrderReadWriter.readFromFile();

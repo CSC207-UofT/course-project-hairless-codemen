@@ -242,7 +242,11 @@ storage classes so that we can use static methods in methods in ItemStorage and 
 
 
 
-- **Xinyu Zhang:**
+- **Xinyu Zhang:** Pull request #30:\
+In this pull request, I have fixed the bug that occurs when clicking the checkout "button" when running the program. 
+I found that when I want to delete or add a list of items into the arraylist of ItemStorage, I can't use the loop method
+to do it because the size of the target list will change in the process, so the program will report an error(ConcurrentModificationException).
+So in order to solve this problem, I did a deep copy, and then everything resolved.
 
 
 
@@ -293,7 +297,12 @@ storage classes so that we can use static methods in methods in ItemStorage and 
 
 
 - **Xinyu Zhang:**
-
+  - CRC Cards(Use cases): Part of OrderManager
+  - CRC Cards(Interfaces): Manager
+  - Unittest: ItemTest (**Phase 0**)
+  - Java coding: Entry, Frame, Home, SearchFrame, SearchResult, SellFrame
+  - Help improve codes in Controller. (**Phase 1**)
+  - **Phase2:** Improve UI and debug codes of program
 
 
 - **Zhen Sun:**

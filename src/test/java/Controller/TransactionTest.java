@@ -20,35 +20,28 @@ public class TransactionTest {
     Item item1, item2;
     User buyer;
     User seller;
-    ArrayList<Item> lst = new ArrayList<>();
 
     @BeforeEach
     void setup() {
-        c = new Cart(lst);
+        c = new Cart();
         buyer = new User("happybuy", "1234", 9999.99);
         seller = new User("happysell", "2345");
-        item1 = new Item("Banana", seller, 40, "Fruit");
-        item2 = new Item("Apple", seller, 60, "Fruit");
-        ArrayList<Item> items = ItemStorage.getItem();
-        ItemStorage.deleteElement(items);
+        item1 = new Item("Banana", seller, 40,4,"Fruit");
+        item2 = new Item("Apple", seller, 60, 7,"Fruit");
     }
 
     @Test
     public void TestBuy(){
-        lst.add(item1);
-        lst.add(item2);
-        buyer.getCart().addItem(item1);
-        buyer.getCart().addItem(item2);
-        Assertions.assertTrue(Transaction.buy_item(lst, buyer));
-        assertEquals(buyer.getWallet().getMoney(), 9899.99);
-        assertEquals(seller.getWallet().getMoney(), 100);
+        c.addItem(item1, 2);
+        c.addItem(item2, 3);
+        Assertions.assertTrue(Transaction.buyItem(buyer));
+        assertEquals(buyer.getWallet().getMoney(), 9739.99);
+        assertEquals(seller.getWallet().getMoney(), 260);
     }
 
     @Test
     public void TestSell(){
-        lst.add(item1);
-        lst.add(item2);
-        Transaction.sell(lst);
+        Transaction.sell(c.getItems());
         assertEquals(ItemManager.getItemsList().size(), 2);
     }
 

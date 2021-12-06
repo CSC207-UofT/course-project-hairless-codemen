@@ -23,6 +23,10 @@ public class Cart implements Serializable{
         this.items = new HashMap<>();
     }
 
+    public Map<Item, Integer> getCart(){
+        return items;
+    }
+
     /**
      * get the items in the cart
      * @return a list of items in the cart

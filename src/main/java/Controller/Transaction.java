@@ -1,15 +1,14 @@
 package src.main.java.Controller;
 
 import src.main.java.Entities.Item;
-import src.main.java.Entities.Order;
-import src.main.java.Entities.OrderStorage;
 import src.main.java.Entities.User;
+import src.main.java.Entities.Cart;
+import src.main.java.UI.Entry;
 import src.main.java.Use_cases.ItemManager;
 import src.main.java.Use_cases.CartManager;
 import src.main.java.Use_cases.OrderManager;
 import src.main.java.Use_cases.UserManager;
 
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -20,18 +19,19 @@ public class Transaction {
     /**
      * Return whether a User is able to make a purchase. Make changes to involving Users' money if purchase made
      * successfully.
-     * @param items - a list of Item(s) that the buyer wants to buy.
      * @param buyer -  a User who wish to make the purchase.
      * @return the True iff the buyer has enough money to purchase the Item(s); Otherwise return False.
      */
-    public static boolean buyItem(ArrayList<Item> items, User buyer){
-        if (ItemManager.get_all_price(items) <= UserManager.getMoney(buyer)) {
+    public static boolean buyItem(User buyer){
+        Cart cart = UserManager.getUserCart(buyer);
+        if (cart.getTotalPrice() <= UserManager.getMoney(buyer)) {
             Map<User, ArrayList<Item>> category= new HashMap<>();
-            for (Item i: items){
+            for (Item i: cart.getItems()){
                 ArrayList<Item> item = new ArrayList<>();
                 item.add(i);
                 User seller = ItemManager.getSeller(i);
-                UserManager.loadMoney(seller, ItemManager.get_price(i));   //seller get money
+                double m = ItemManager.get_price(i)*(CartManager.getCartItems(cart).get(i));
+                UserManager.loadMoney(seller, m);   //seller get money
                 if(category.containsKey(seller)){category.get(seller).add(i);}
                 else {category.put(seller, item);}
             }
@@ -40,9 +40,11 @@ public class Transaction {
                 OrderManager.create_order(category.get(u), buyer, u); // create order with the same seller
             }
 
-            UserManager.subtractMoney(buyer, ItemManager.get_all_price(items));   //subtract buyer money
-            CartManager.remove_items(buyer, items);                   //remove the items in buyer's cart
-            ItemManager.removeElement(items);
+            UserManager.subtractMoney(buyer, cart.getTotalPrice());   //subtract buyer money
+            for (Map.Entry<Item, Integer> entry : CartManager.getCartItems(cart).entrySet()){
+                ItemManager.removeElement(entry.getKey(), entry.getValue());
+            }
+            CartManager.removeItems(buyer, cart.getItems());    //remove the items in buyer's cart
             return true;
         }
         return false;

@@ -103,10 +103,10 @@ public class InfoFacade {
      * @return true if the item is successfully added, given enough quantity is in stock
      */
     public static boolean addCartElement(Cart c, Item i, int q){
-        if (ItemManager.getQuantity(i) > q){
+        if (ItemManager.getQuantity(i) < q){
             return false;
         }
-        CartManager.AddElement(c, i);
+        CartManager.AddElement(c, i, q);
         return true;
     }
 

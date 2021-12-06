@@ -62,7 +62,7 @@ public class Item implements Serializable {
      * @return a double type representing the price.
      */
     public double getItemPrice(){
-        return this.price;
+        return this.price * this.quantity;
     }
 
     /**

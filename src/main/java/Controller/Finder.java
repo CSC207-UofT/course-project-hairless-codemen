@@ -1,8 +1,5 @@
 package src.main.java.Controller;
-import src.main.java.Entities.Item;
-import src.main.java.Entities.ItemStorage;
-import src.main.java.Entities.Order;
-import src.main.java.Entities.OrderStorage;
+import src.main.java.Entities.*;
 import src.main.java.Use_cases.*;
 
 import java.util.ArrayList;
@@ -38,6 +35,15 @@ public class Finder {
             return null;
         }
         return (Order) OrderManager.search(target);
+    }
+
+    /**
+     * Return the orderList from one owner.
+     * @param u - the owner of the items.
+     * @return the orderList from one owner
+     */
+    public static ArrayList<Order> find(User u){
+        return OrderManager.getOwnerOrders(u);
     }
 
 }

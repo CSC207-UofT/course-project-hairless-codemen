@@ -95,6 +95,16 @@ public class OrderManager implements Manager{
         return o2;
     }
 
+
+    /**
+     * Returns an list of orders from a specific seller.
+     * @param u - the list of orders with owner being whom will be returned
+     * @return the orderList from one owner
+     */
+    public static ArrayList<Order> getOwnerOrders(User u){
+        return OrderStorage.getOwnerOrder(u);
+    }
+
     /**
      * Creates an order with provided items, a buyer and a seller and returns the created order.
      * @param items_list - the ArrayList of items to be added to the order to be created.

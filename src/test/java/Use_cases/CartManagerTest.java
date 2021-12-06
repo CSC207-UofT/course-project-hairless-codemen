@@ -36,11 +36,11 @@ public class CartManagerTest {
         u1.getCart().addItem(item4);
     }
 
-    @Test
-    public void TestGetPrice(){
-        assertEquals(999999.99, CartManager.getPrice(item1));
-        assertEquals(2000.00, CartManager.getPrice(item3));
-    }
+//    @Test
+//    public void TestGetPrice(){
+//        assertEquals(999999.99, CartManager.getPrice(item1));
+//        assertEquals(2000.00, CartManager.getPrice(item3));
+//    }
 
     @Test
     public void TestRemoveItems(){

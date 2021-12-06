@@ -8,14 +8,6 @@ import java.util.ArrayList;
 
 public class CartManager {
 
-    /**
-     * A getter method that gets the price of an item.
-     * @param item - the item whose price is of interest to be gotten.
-     * @return - the double object representing the price of this item.
-     */
-    public static double getPrice(Item item){
-        return item.getItemPrice();
-    }
 
     /**
      * Remove a list of items from a user's cart.
@@ -65,6 +57,12 @@ public class CartManager {
      */
     public static void removeElement(Cart c, Item i){
         c.removeItem(i);
+    }
+
+    public static void removeElement(Cart c, ArrayList<Item> item){
+        for(Item i: item){
+            c.removeItem(i);
+        }
     }
 
     /**

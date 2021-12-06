@@ -238,7 +238,11 @@ one of the most important design decisions we made (see more in 4.a). Also, I de
 storage classes so that we can use static methods in methods in ItemStorage and UserStorage. Added OrderStorage.
 
 
-- **Xiao Qin:**
+- **Xiao Qin:** Pull request #18:\
+In this pull request, I wrote the ReadWriter files with serialization for our program. When we stop our program, 
+data(items information, users information, orders information) produced during the process of running the program 
+can be stored in our program. Also, when we rerun our program after
+closing it, we can load data from files. 
 
 
 
@@ -293,7 +297,14 @@ So in order to solve this problem, I did a deep copy, and then everything resolv
 
 
 - **Xiao Qin:**
-
+  - CRC Cards(Use cases): Part of OrderManager
+  - Unittest: UserTest
+  - README writing
+  - Wrote specification and progress report(**Phase 0**)
+  - Serialization, coding ReadWriters
+  - Created UML Diagram
+  - some entity documentations(**Phase 1**)
+  - **Phase 2:** Java coding:QuantFrame, Layout desginer of UI, improve UI
 
 
 - **Xinyu Zhang:**

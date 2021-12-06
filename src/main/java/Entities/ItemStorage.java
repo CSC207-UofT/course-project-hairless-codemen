@@ -73,12 +73,13 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
 
     private static void addItem(Item item) {
         if (itemList.containsKey(item.getItemName())){
-            if (Objects.equals(itemList.get(item.getItemName()).get(0).toString2(), item.toString2())){
-            itemList.get(item.getItemName()).get(0).addQuantity(item.getQuantity());
+            ArrayList<Item> items = itemList.get(item.getItemName());
+            for (Item i : items){
+                if (i.toString2().equals(item.toString2())){
+                    i.addQuantity(item.getQuantity());
+                }
             }
-            else{
-                itemList.get(item.getItemName()).add(item);
-            }
+            itemList.get(item.getItemName()).add(item);
         }
         else{
             ArrayList<Item> itemList = new ArrayList<>();
@@ -97,7 +98,12 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      */
     private static void deleteItem(Item item)  {
         ArrayList<Item> target = itemList.get(item.getItemName());
-        target.remove(item);
+        if (target.size() == 1){
+            itemList.remove(item.getItemName());
+        }
+        else {
+            target.remove(item);
+        }
     }
 
     /**
@@ -115,16 +121,6 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         }
     }
 
-    /**
-     * Add an item to the item storage.
-     *
-     * @param object The Item we want to add.
-     */
-    public static void addElement(Object object) {
-        Item item = (Item) object;
-        addItem(item);
-    }
-
 
     /**
      * Add a list of items to the item storage.
@@ -135,6 +131,15 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
         for (Item item : items) {
             addItem(item);
         }
+    }
+
+    /**
+     * Add an item to the item storage.
+     *
+     * @param item The Item we want to add.
+     */
+    public static void addElement(Item item) {
+        addItem(item);
     }
 
     /**
@@ -171,7 +176,7 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
      *
      * @param items The Items we want to delete.
      */
-    public static void deleteElement(List<Item> items){
+    public static void deleteElement(ArrayList<Item> items){
         for (Item item : items){
             deleteItem(item);
         }

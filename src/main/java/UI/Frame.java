@@ -1,6 +1,7 @@
 package src.main.java.UI;
 import src.main.java.Controller.*;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -8,7 +9,7 @@ import java.io.IOException;
 public class Frame extends JFrame{
 
     final int HEIGHT = 500;
-    final int WIDTH = 500;
+    final int WIDTH = 800;
     public Frame(){
         JPanel panel = new JPanel();
 
@@ -28,6 +29,12 @@ public class Frame extends JFrame{
         panel.add(signupButton);
         JButton loginButton = new JButton("login");
         panel.add(loginButton);
+
+        JPanel remindPanel=new JPanel();
+
+        JLabel reminder=new JLabel("Reminder: The password must contain at least 8 characters " +
+                "which include an upper letter, a lower letter, one digit and a special character. ");
+        remindPanel.add(reminder);
 
         signupButton.addActionListener(new ActionListener() {
             @Override
@@ -86,11 +93,15 @@ public class Frame extends JFrame{
         });
 
         this.setLayout(null);
-        panel.setSize(250, 250);
-        panel.setLocation((WIDTH-250)/2, (HEIGHT-250)/2);
+        panel.setSize(250, 150);
+        remindPanel.setSize(780,50);
+        remindPanel.setLocation( 5, (HEIGHT-250)/2 + 150);
+        panel.setLocation((WIDTH-250)/2 -10, (HEIGHT-250)/2);
         this.add(panel);
+        this.add(remindPanel);
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Welcome to Hairless-Codemen Trading Platform!");
     }
+
 
 }

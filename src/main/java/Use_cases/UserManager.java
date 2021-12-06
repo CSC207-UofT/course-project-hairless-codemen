@@ -1,7 +1,7 @@
 package src.main.java.Use_cases;
 
-import src.main.java.Entities.User;
-import src.main.java.Entities.UserStorage;
+import src.main.java.Entities.*;
+
 import java.io.*;
 import java.util.Map;
 
@@ -112,6 +112,10 @@ public class UserManager implements Manager, Serializable {
      */
     public static void subtractMoney(User u, double money){
         u.getWallet().subtractMoney(money);
+    }
+
+    public static Cart getUserCart(User u){
+        return u.getCart();
     }
 
     /**

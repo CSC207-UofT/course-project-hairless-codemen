@@ -23,6 +23,10 @@ public class Cart implements Serializable{
         this.items = new HashMap<>();
     }
 
+    public Map<Item, Integer> getCart(){
+        return items;
+    }
+
     /**
      * get the items in the cart
      * @return a list of items in the cart
@@ -68,7 +72,7 @@ public class Cart implements Serializable{
     }
 
     public double getTotalPrice(){
-        int price = 0;
+        double price = 0;
         for (Map.Entry<Item, Integer> entry : items.entrySet()){
             price += entry.getKey().getItemPrice() * entry.getValue();
         }

@@ -1,12 +1,9 @@
 package src.test.java.Use_cases;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import src.main.java.Entities.*;
 import src.main.java.Use_cases.CartManager;
-import src.main.java.Use_cases.OrderManager;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,14 +34,8 @@ public class CartManagerTest {
     }
 
     @Test
-    public void TestGetPrice(){
-        assertEquals(999999.99, CartManager.getPrice(item1));
-        assertEquals(2000.00, CartManager.getPrice(item3));
-    }
-
-    @Test
     public void TestRemoveItems(){
-        CartManager.remove_items(u1, lst2);
+        CartManager.removeItems(u1, lst2);
         assertTrue(u1.getCart().getItems().contains(item2));
         assertTrue(u1.getCart().getItems().contains(item3));
         assertFalse(u1.getCart().getItems().contains(item1));

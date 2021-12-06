@@ -5,6 +5,8 @@ import src.main.java.Entities.Item;
 import src.main.java.Entities.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CartManager {
     /**
@@ -12,7 +14,7 @@ public class CartManager {
      * @param u - the user whose cart will be where the items are going to be removed from.
      * @param items - the items to be removed from the cart.
      */
-    public static void remove_items(User u, ArrayList<Item> items){
+    public static void removeItems(User u, ArrayList<Item> items){
         u.getCart().removeItem(items);
     }
 
@@ -74,5 +76,15 @@ public class CartManager {
      */
     public static double getTotalPrice(Cart c) {
         return c.getTotalPrice();
+    }
+
+    /**
+     * Return the Hashmap stored in Cart
+     * @param c - the cart we are interested in
+     *
+     * @return the Hashmap in cart
+     */
+    public static Map<Item,Integer> getCartItems(Cart c){
+        return c.getCart();
     }
 }

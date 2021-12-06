@@ -23,7 +23,7 @@ public class CartTest {
 
     @BeforeEach
     void setup() {
-        c = new Cart(map1);
+        c = new Cart();
         u = new User("JoJo", "1234", 9999.99);
         item1 = new Item("Hina", u, 999999.99, "Pets");
         item2 = new Item("X", u, 111, "Mysterious");
@@ -44,7 +44,7 @@ public class CartTest {
 
     @Test
     public void TestAddItem2() {
-        c = new Cart(map1);
+        c = new Cart();
         c.addItem(item1);
         c.addItem(item2);
         c.addItem(item3);
@@ -55,7 +55,7 @@ public class CartTest {
 
     @Test
     public void TestRemoveItem() {
-        c = new Cart(map1);
+        c = new Cart();
         HashMap<Item, Integer> map4 = new HashMap<>();
         c.addItem(item1);
         c.addItem(item2);
@@ -70,7 +70,7 @@ public class CartTest {
 
     @Test
     public void TestRemoveItem2() {
-        c = new Cart(map1);
+        c = new Cart();
         c.addItem(item3);
         c.addItem(item4);
         c.addItem(item2);

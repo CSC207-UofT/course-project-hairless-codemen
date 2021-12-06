@@ -49,6 +49,9 @@ public class Frame extends JFrame{
                 else if (!RegexChecker.ContainsSpecialChar(password)){
                     JOptionPane.showMessageDialog(null, "Your password should contain at least one special character.");
                 }
+                else if (!RegexChecker.MinLen(password)){
+                    JOptionPane.showMessageDialog(null, "Your password should contain at least 8 characters.");
+                }
                 else if (Login.signup(id, password)){
                     JOptionPane.showMessageDialog(null, "success!!");
                 }

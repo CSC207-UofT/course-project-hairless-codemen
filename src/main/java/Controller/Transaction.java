@@ -23,14 +23,14 @@ public class Transaction {
      * @return the True iff the buyer has enough money to purchase the Item(s); Otherwise return False.
      */
     public static boolean buyItem(User buyer){
-        Cart cart = UserManager.getUserCart(buyer);
-        if (cart.getTotalPrice() <= UserManager.getMoney(buyer)) {
+
+        if (buyer.getCart().getTotalPrice() <= UserManager.getMoney(buyer)) {
             Map<User, ArrayList<Item>> category= new HashMap<>();
-            for (Item i: cart.getItems()){
+            for (Item i: buyer.getCart().getItems()){
                 ArrayList<Item> item = new ArrayList<>();
                 item.add(i);
                 User seller = ItemManager.getSeller(i);
-                double m = ItemManager.get_price(i)*(CartManager.getCartItems(cart).get(i));
+                double m = ItemManager.get_price(i)*(CartManager.getCartItems(buyer.getCart()).get(i));
                 UserManager.loadMoney(seller, m);   //seller get money
                 if(category.containsKey(seller)){category.get(seller).add(i);}
                 else {category.put(seller, item);}
@@ -40,11 +40,13 @@ public class Transaction {
                 OrderManager.create_order(category.get(u), buyer, u); // create order with the same seller
             }
 
-            UserManager.subtractMoney(buyer, cart.getTotalPrice());   //subtract buyer money
-            for (Map.Entry<Item, Integer> entry : CartManager.getCartItems(cart).entrySet()){
+            UserManager.subtractMoney(buyer, buyer.getCart().getTotalPrice());   //subtract buyer money
+
+            for (Map.Entry<Item, Integer> entry : CartManager.getCartItems(buyer.getCart()).entrySet()){
                 ItemManager.removeElement(entry.getKey(), entry.getValue());
             }
-            CartManager.removeItems(buyer, cart.getItems());    //remove the items in buyer's cart
+
+            CartManager.removeItems(buyer, buyer.getCart().getItems());    //remove the items in buyer's cart
             return true;
         }
         return false;

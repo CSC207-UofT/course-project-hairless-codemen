@@ -82,8 +82,8 @@ public class ItemManager implements Manager {
      * Add a list of items into Item Storage.
      * @param items  - the list of items to be added into Item Storage.
      */
-    public static void addElement(Object[] items) {
-        for (Object item : items){
+    public static void addElement(ArrayList<Item> items) {
+        for (Item item : items){
             addElement(item);
         }
     }
@@ -93,7 +93,7 @@ public class ItemManager implements Manager {
      * Add a single item into Item Storage.
      * @param item  - the single item to be added into Item Storage.
      */
-    public static void addElement(Object item){
+    public static void addElement(Item item){
         ItemStorage.addElement(item);
     }
 

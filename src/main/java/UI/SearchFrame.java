@@ -85,13 +85,6 @@ public class SearchFrame extends JFrame{
         });
 
 
-        add.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-            }
-        });
-
         Back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

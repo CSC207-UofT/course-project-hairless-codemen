@@ -1,12 +1,10 @@
 package src.main.java.Controller;
 
-import src.main.java.Entities.Cart;
-import src.main.java.Entities.Item;
-import src.main.java.Entities.Order;
-import src.main.java.Entities.User;
+import src.main.java.Entities.*;
 import src.main.java.Use_cases.CartManager;
 import src.main.java.Use_cases.ItemManager;
 import src.main.java.Use_cases.OrderManager;
+import src.main.java.Use_cases.UserManager;
 
 import java.util.ArrayList;
 
@@ -160,5 +158,15 @@ public class InfoFacade {
      */
     public static void removeElement(Object[] items){
         ItemManager.removeElement(items);
+    }
+
+    /**
+     * Modify the password for an existing user.
+     *
+     * @param user The user who wish to modify password
+     * @param NewPassword The new password the user wishes to set
+     */
+    public static boolean changePassword(User user, String NewPassword){
+        return UserManager.changePassword(user, NewPassword);
     }
 }

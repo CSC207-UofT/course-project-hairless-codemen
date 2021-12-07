@@ -89,8 +89,7 @@ made iterating through everything more complicated, we added the Iterator Design
 
 Since we don't have that much data to be stored or complex operations to be carried out, in terms of programming, it is
 easier for us to design the Desktop Application format of UI. Besides, using a desktop application eliminates the
-requirement of having a remote server or storage, and desktop applications have better performance than web
-applications.
+requirement of having a remote server or storage.
 
 *c.* The reason for serialization, and when to read and save into files. 
 
@@ -102,6 +101,13 @@ serialization, we only need a few lines of code to do so.
 In our program, we read from file at the beginning of the program, so that our system can have a record of everything.
 However, there is no need to modify the files directly during the operation of the program. That's why we only save the 
 updated data of the storages to our files by the end of the program or after the user logged out. 
+
+*d.* Change data structure for cart
+
+In phase0 and phase1, the data structure for cart is the arraylist of items. And in phase2, we change its data structure
+into HashMap of the key items with the value their quantities. Since in our program, we offer customers a new function that they can choose the quantity of products when
+they want to add them into their cart. So to check the price more convenient for us when customers click "checkout" button,
+we made the change.
 
 <br />
 
@@ -253,9 +259,9 @@ closing it, we can load data from files.
 
 
 - **Xinyu Zhang:** Pull request #30:\
-In this pull request, I have fixed the bug that occurs when clicking the checkout "button" when running the program. 
+In this pull request, I have fixed the bug that occurs when clicking the "checkout" button when running the program. 
 I found that when I want to delete or add a list of items into the arraylist of ItemStorage, I can't use the loop method
-to do it because the size of the target list will change in the process, so the program will report an error(ConcurrentModificationException).
+to do it because the size of the target list will change during the process, so the program will report an error(ConcurrentModificationException).
 So in order to solve this problem, I did a deep copy, and then everything resolved.
 
 

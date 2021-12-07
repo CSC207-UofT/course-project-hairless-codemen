@@ -13,8 +13,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class QuantFrame extends JFrame {
-    final int HEIGHT = 150;
-    final int WIDTH = 500;
+    final int HEIGHT = 100;
+    final int WIDTH = 600;
     JButton OK = new JButton("Ok");
     JButton Back = new JButton("Back");
     JComboBox<Integer> quantityField = new JComboBox<>();
@@ -73,9 +73,7 @@ public class QuantFrame extends JFrame {
 
         @Override
         public void layoutContainer(Container parent) {
-            int width = parent.getWidth();
-            int height = parent.getHeight();
-            quantityField.setBounds(0, 0, 100, 100);
+            quantityField.setBounds(0, 5, 100, 100);
         }
 
 

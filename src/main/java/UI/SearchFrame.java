@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class SearchFrame extends JFrame{
 
     private String username;
-    final int HEIGHT = 500;
-    final int WIDTH = 500;
+    final int HEIGHT = 100;
+    final int WIDTH = 800;
 
     public SearchFrame(String username){
         this.username = username;
@@ -102,10 +102,10 @@ public class SearchFrame extends JFrame{
         });
 
         this.setLayout(null);
-        panel.setSize(450, 300);
-        panel.setLocation((WIDTH-450)/2, (HEIGHT-300)/2);
+        panel.setSize(WIDTH, HEIGHT);
+        panel.setLocation(0, 0);
         this.add(panel);
-        this.setSize(WIDTH, 300);
+        this.setSize(WIDTH, HEIGHT);
         this.setTitle("Search Page");
 
 

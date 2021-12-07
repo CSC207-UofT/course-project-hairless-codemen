@@ -12,7 +12,7 @@ public class Frame extends JFrame{
 
     public Frame(Font font){
         int size=font.getSize();
-        final int HEIGHT =200;
+        final int HEIGHT =110;
 
 
         JLabel userLabel = new JLabel("Username:");
@@ -97,7 +97,7 @@ public class Frame extends JFrame{
         this.add(panel,BorderLayout.CENTER);
         this.add(remindPanel,BorderLayout.SOUTH);
 
-        this.setSize(size*200, HEIGHT);
+        this.setSize(size*70, HEIGHT);
         this.setTitle("Welcome to Hairless-Codemen Trading Platform!");
     }
     private class MyFrameLayout extends LayoutAdapter {

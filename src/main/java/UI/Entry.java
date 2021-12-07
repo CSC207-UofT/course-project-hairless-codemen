@@ -12,7 +12,7 @@ import java.util.Enumeration;
 
 
 public class Entry {
-    private static int a = 13;
+    private static int a = 15;
     public static void main (String [] args) throws IOException, ClassNotFoundException {
         InitGlobalFont(new Font("Times New Roman", Font.BOLD, a));
         FileFacade.readUser();

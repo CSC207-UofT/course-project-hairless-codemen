@@ -17,11 +17,12 @@ import java.io.IOException;
 public class   SellFrame extends JFrame {
     JPanel panel = new JPanel();
     JPanel panel1 = new JPanel();
+    JLabel Name = new JLabel("Item name:");
 
     public SellFrame(String username){
-        final int HEIGHT = 250;
-        final int WIDTH = 500;
-        JLabel Name = new JLabel("Item name:");
+        final int HEIGHT = 170;
+        final int WIDTH = 700;
+
         JTextField name = new JTextField(6);
         JLabel category = new JLabel("Category:");
         JTextField categoryInput = new JTextField(6);
@@ -115,10 +116,10 @@ public class   SellFrame extends JFrame {
         public void layoutContainer(Container parent) {
             int width=parent.getWidth();
             int height=parent.getHeight();
-            panel.setSize(width,100);
+            panel.setSize(width,50);
             panel1.setSize(width,50);
             panel.setLocation(0, 30);
-            panel1.setLocation(0,130);
+            panel1.setLocation(0, 90);
         }
     }
 }

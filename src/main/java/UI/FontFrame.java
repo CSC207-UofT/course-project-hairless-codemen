@@ -18,7 +18,7 @@ public class FontFrame extends JFrame {
         f.add(fontField);
         f.add(OK);
 
-        for (int i = 13; i <= 18; i++) {
+        for (int i = 15; i <= 20; i++) {
             fontField.addItem(i);
         }
 

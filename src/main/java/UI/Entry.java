@@ -12,13 +12,14 @@ import java.util.Enumeration;
 
 
 public class Entry {
-    private static int a = 22;
+    private static int a = 13;
     public static void main (String [] args) throws IOException, ClassNotFoundException {
         InitGlobalFont(new Font("Times New Roman", Font.BOLD, a));
         FileFacade.readUser();
         FileFacade.readItem();
         FileFacade.readOrder();
-        Frame frame=new Frame(new Font("Times New Roman", Font.BOLD, a));
+//        Frame frame=new Frame(new Font("Times New Roman", Font.BOLD, a));
+        FontFrame frame = new FontFrame();
 
 
         frame.addWindowFocusListener(new java.awt.event.WindowAdapter() {

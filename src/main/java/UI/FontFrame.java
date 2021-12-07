@@ -8,8 +8,8 @@ import java.util.Enumeration;
 public class FontFrame extends JFrame {
 
     public FontFrame() {
-        final int HEIGHT =200;
-        final int Width=200;
+        final int HEIGHT =80;
+        final int WIDTH=200;
         JLabel font=new JLabel("Font size");
         JComboBox<Integer> fontField = new JComboBox<>();
         JButton OK=new JButton("OK");
@@ -24,13 +24,27 @@ public class FontFrame extends JFrame {
 
         OK.addActionListener((e -> {
             int a =fontField.getSelectedIndex()+13;
-
+            InitGlobalFont(new Font("Times New Roman", Font.BOLD, a));
+            Frame frame=new Frame(new Font("Times New Roman", Font.BOLD, a));
+            FontFrame.this.setVisible(false);
+            frame.setVisible(true);
         }));
-        f.setVisible(true);
-        this.setSize(Width, HEIGHT);
+        this.add(f);
+        this.setVisible(true);
+        this.setSize(WIDTH, HEIGHT);
 
     }
 
+    private static void InitGlobalFont(Font font) {
+        FontUIResource fontResource = new FontUIResource(font);
+        for (Enumeration<Object> keys = UIManager.getDefaults().keys(); keys.hasMoreElements(); ) {
+            Object key = keys.nextElement();
+            Object value = UIManager.get(key);
+            if (value instanceof FontUIResource) {
+                System.out.println(key);
+                UIManager.put(key, fontResource);
+            }
 
 
-}
+        }
+    }}

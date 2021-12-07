@@ -24,7 +24,7 @@ quantity of the items in our storage. Users can check out from their carts and t
 as they have sufficient money in their wallet. There will be one order generated for every seller of the items purchased 
 and the order would be stored in our system. 
 
-Users may top up their wallet to get more money for purchasing.
+Users may top up their wallet to get more money for pudrchasing.
 After successfully paying for the order, users will receive several order numbers. 
 The user would be able to search for their orders by using these order numbers. the user may top up their wallet to get more money for purchasing.
 After successfully paying for the order, users will receive an order number. The user would be able to search for their
@@ -210,7 +210,7 @@ Please see the accessibility.md file in our phase2 package.
 
 **10. Significant pull requests:**
 
-- **Qingyi Liu:** Pull request #27:
+- **Qingyi Liu:** Pull request #27: \
 In this pull request, I created the class RegexChecker in Controller to give constraints for users' username and password
 inputs. Both username and password should be non-empty(all blank space input not allowed). For password, the input string
 should contain at least one uppercase letter, one lowercase letter, one special character and a minimum length of 8. I
@@ -227,12 +227,11 @@ name, category and price. I modified the addItem and deleteItem methods in ItemS
 
 
 
-- **Hongda Zhu:*  Pull request #13
+- *Hongda Zhu:*  Pull request #13\
 In this pull request, I wrote the method in Controller Transaction. Since the rule of clean architecture needs to be 
 followed. I have also moderate and add functions in Use_cases for ItemManager, CartManager, OrderManager, and 
 UserManager. I wrote functions like RemoveElements, AddElements, LoadMoney, SubtractMoney, GetItemPrice, 
 Get_all_itemPrice......
-
 To test if the Transaction methods will run successful. I have also wrote few test cases for Transaction 'Buy', 
 to test if the money will be subtracted from user, will the seller get money, etc...
 
@@ -241,7 +240,7 @@ to test if the money will be subtracted from user, will the seller get money, et
 I changed the underlying data structure of storages from ArrayList to HashMap, and also created a static interface Storable. This pull request is significant because 
 the team decision of changing the underlying data structure of storages is implemented in this pull request, which is 
 one of the most important design decisions we made (see more in 4.a). Also, I decided to extract a static interface for
-storage classes so that we can use static methods in methods in ItemStorage and UserStorage. Added OrderStorage.
+storage classes so that we can use static methods in ItemStorage and UserStorage. Added OrderStorage.
 
 
 - **Xiao Qin:** Pull request #18:\

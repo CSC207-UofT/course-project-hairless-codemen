@@ -22,6 +22,16 @@ public class InfoFacade {
     }
 
     /**
+     * Return another string representation of a single item.
+     * @param i - the item whose string representation will be returned.
+     * @return a string representation of a single item.
+     */
+
+    public static String printItem2(Item i){
+        return ItemManager.printItem2(i);
+    }
+
+    /**
      * Return a string representation of an item's name.
      * @param i - the item whose name will be returned.
      * @return a string representation of an item's name.

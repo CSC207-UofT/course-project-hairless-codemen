@@ -233,7 +233,7 @@ name, category and price. I modified the addItem and deleteItem methods in ItemS
 
 
 
-- *Hongda Zhu:*  Pull request #13\
+- *Hongda Zhu:*  Pull request #13: \
 In this pull request, I wrote the method in Controller Transaction. Since the rule of clean architecture needs to be 
 followed. I have also moderate and add functions in Use_cases for ItemManager, CartManager, OrderManager, and 
 UserManager. I wrote functions like RemoveElements, AddElements, LoadMoney, SubtractMoney, GetItemPrice, 
@@ -242,14 +242,14 @@ To test if the Transaction methods will run successful. I have also wrote few te
 to test if the money will be subtracted from user, will the seller get money, etc...
 
 
-- **Howard Xiao:** Pull request #9:  
+- **Howard Xiao:** Pull request #9: \
 I changed the underlying data structure of storages from ArrayList to HashMap, and also created a static interface Storable. This pull request is significant because 
 the team decision of changing the underlying data structure of storages is implemented in this pull request, which is 
 one of the most important design decisions we made (see more in 4.a). Also, I decided to extract a static interface for
 storage classes so that we can use static methods in ItemStorage and UserStorage. Added OrderStorage.
 
 
-- **Xiao Qin:** Pull request #18:\
+- **Xiao Qin:** Pull request #18: \
 In this pull request, I wrote the ReadWriter files with serialization for our program. When we stop our program, 
 data(items information, users information, orders information) produced during the process of running the program 
 can be stored in our program. Also, when we rerun our program after
@@ -257,7 +257,7 @@ closing it, we can load data from files.
 
 
 
-- **Xinyu Zhang:** Pull request #30:\
+- **Xinyu Zhang:** Pull request #30: \
 In this pull request, I have fixed the bug that occurs when clicking the "checkout" button when running the program. 
 I found that when I want to delete or add a list of items into the arraylist of ItemStorage, I can't use the loop method
 to do it because the size of the target list will change during the process, so the program will report an error(ConcurrentModificationException).
@@ -283,6 +283,7 @@ So in order to solve this problem, I did a deep copy, and then everything resolv
   - Java Coding: Finder, ItemStorage, ItemManager, OrderStorage, OrderManager
   - Unittest: Finder (**Phase 1**)
   - **Phase2:** Java Coding: RegexChecker, ItemStorage, UserManager
+  - Unittest: RegexCheckerTest, CartManagerTest, InfoFacadeTest
 
   
 - **Zichun Xu:**
@@ -294,8 +295,8 @@ So in order to solve this problem, I did a deep copy, and then everything resolv
   
 
 - **Hongda Zhu:**
-  - Assist writing design_pattern
-  - writing accessibility document Part 2
+  - Assist writing design pattern
+  - accessibility document writing Part 2
   - Provide ideas and insight on what new features can be added to further improve our program 
 
 

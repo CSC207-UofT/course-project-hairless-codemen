@@ -2,7 +2,7 @@
 
 ## Instructions of using this program.
 
-This is **phase 1** of the CSC207 project by team Hairless Codemen.
+This is **phase 2** of the CSC207 project by team Hairless Codemen.
 We created a second-hand market program let users can buy and sell items in the market.
 The skeleton program completes a simple buy and registration progress and this README would state how to use the program.
 
@@ -15,7 +15,7 @@ so use any Username and Password you want.
 Successful login would lead you to the homepage of our program. At the top is your **Wallet** and the amount of money in your wallet. The amount of money in the wallet would be used for shopping on the platform.  If you want to load money for shopping, type the amount of money you want to load in the box and click "Load".
 
 For **Buy** and **Cart**. The two boxes in the middle of the pages are displacements of the items selling on the platform and your cart.
-If there are any items you are interested in in the "Want to buy" box, left-click on the item and choose to "add it to the cart"
+If there are any items you are interested in the "Want to buy" box, left-click on the item and choose to "add it to the cart"
 If there is an item in your cart, but you are not interested in it anymore. left-click on the item and choose to" remove it from my cart"
 
 Click the **Sell** button if there's anything you wish to push onto the platform to sell. Input the detail of the item requested on the selling page (Item name, Category, Price, and Qty) and click sell. If the item was successfully pushed then a "Successfully added" notification would come up. Go back to the homepage now you should be able to see the item you pushed in the "Want to buy" box.

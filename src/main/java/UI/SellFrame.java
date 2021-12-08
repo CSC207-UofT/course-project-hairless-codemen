@@ -20,8 +20,8 @@ public class   SellFrame extends JFrame {
     JPanel panel2=new JPanel();
 
     public SellFrame(String username){
-        final int HEIGHT = 600;
-        final int WIDTH = 700;
+        final int HEIGHT = 550;
+        final int WIDTH = 750;
 
         JLabel Name = new JLabel("Item name:");
         JTextField name = new JTextField(6);
@@ -32,7 +32,7 @@ public class   SellFrame extends JFrame {
         JLabel quantity = new JLabel("Qty:");
         JTextField qty = new JTextField(4);
         JLabel orderReminder=new JLabel("Orders you sold");
-        JTextArea orderBox=new JTextArea();
+        JTextArea orderBox=new JTextArea("",15,40);
 
 
 
@@ -44,9 +44,9 @@ public class   SellFrame extends JFrame {
             orderBox.append(InfoFacade.printOrders(list));
 
         JScrollPane jsp=new JScrollPane(orderBox);
-        jsp.setVerticalScrollBarPolicy(jsp.VERTICAL_SCROLLBAR_ALWAYS);
+        jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         Dimension size=orderBox.getPreferredSize();
-        jsp.setBounds(110,90,size.width,size.height);
+//        jsp.setBounds(110,90,size.width,size.height);
 
 
 
@@ -143,7 +143,7 @@ public class   SellFrame extends JFrame {
             panel.setSize(width,50);
             panel1.setSize(width,50);
             panel2.setSize(width,400);
-            panel.setLocation(0, 30);
+            panel.setLocation(0, 20);
             panel1.setLocation(0, 90);
             panel2.setLocation(0,150);
         }

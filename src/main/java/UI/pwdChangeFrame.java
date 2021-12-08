@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class pwdChangeFrame extends JFrame {
     private final int HEIGHT = 300;
-    private final int WIDTH = 600;
+    private final int WIDTH = 800;
     private String username;
     public pwdChangeFrame(String username){
         Object[] info = FileFacade.getUserInfo(username);
@@ -46,8 +46,8 @@ public class pwdChangeFrame extends JFrame {
         });
 
         this.setLayout(null);
-        panel0.setSize(450, 200);
-        panel0.setLocation((WIDTH-450)/2, (HEIGHT-200)/2);
+        panel0.setSize(WIDTH, 200);
+        panel0.setLocation(0, (HEIGHT-200)/2);
         this.add(panel0);
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Change Password Page");

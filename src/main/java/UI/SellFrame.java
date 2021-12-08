@@ -1,8 +1,6 @@
 package src.main.java.UI;
 
-import src.main.java.Controller.FileFacade;
-import src.main.java.Controller.Login;
-import src.main.java.Controller.Transaction;
+import src.main.java.Controller.*;
 import src.main.java.Entities.Item;
 import src.main.java.Entities.User;
 
@@ -13,16 +11,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class   SellFrame extends JFrame {
     JPanel panel = new JPanel();
     JPanel panel1 = new JPanel();
-    JLabel Name = new JLabel("Item name:");
+    JPanel panel2=new JPanel();
 
     public SellFrame(String username){
-        final int HEIGHT = 170;
+        final int HEIGHT = 600;
         final int WIDTH = 700;
 
+        JLabel Name = new JLabel("Item name:");
         JTextField name = new JTextField(6);
         JLabel category = new JLabel("Category:");
         JTextField categoryInput = new JTextField(6);
@@ -30,6 +31,24 @@ public class   SellFrame extends JFrame {
         JTextField priceInput = new JTextField(4);
         JLabel quantity = new JLabel("Qty:");
         JTextField qty = new JTextField(4);
+        JLabel orderReminder=new JLabel("Orders you sold");
+        JTextArea orderBox=new JTextArea();
+
+
+
+        ArrayList list=Finder.find((User)FileFacade.getUserInfo(username)[3]);
+        if (list.size()==0){
+            orderBox.append("None");
+        }
+        else
+            orderBox.append(InfoFacade.printOrders(list));
+
+        JScrollPane jsp=new JScrollPane(orderBox);
+        jsp.setVerticalScrollBarPolicy(jsp.VERTICAL_SCROLLBAR_ALWAYS);
+        Dimension size=orderBox.getPreferredSize();
+        jsp.setBounds(110,90,size.width,size.height);
+
+
 
         JButton sellButton = new JButton("Sell");
         JButton Back = new JButton("Back");
@@ -44,6 +63,9 @@ public class   SellFrame extends JFrame {
         panel.add(qty);
         panel1.add(sellButton);
         panel1.add(Back);
+        panel2.add(orderReminder);
+        panel2.add(jsp);
+
 
         sellButton.addActionListener(new ActionListener() {
             @Override
@@ -93,8 +115,10 @@ public class   SellFrame extends JFrame {
 
         this.add(panel);
         this.add(panel1);
+        this.add(panel2);
         this.setLayout(new SellLayout());
         this.setSize(WIDTH,HEIGHT);
+        this.setVisible(true);
         this.setTitle(username+"'s Sell Page");
 
 
@@ -118,8 +142,10 @@ public class   SellFrame extends JFrame {
             int height=parent.getHeight();
             panel.setSize(width,50);
             panel1.setSize(width,50);
+            panel2.setSize(width,400);
             panel.setLocation(0, 30);
             panel1.setLocation(0, 90);
+            panel2.setLocation(0,150);
         }
     }
 }

@@ -18,7 +18,6 @@ public class Entry {
         FileFacade.readUser();
         FileFacade.readItem();
         FileFacade.readOrder();
-//        Frame frame=new Frame(new Font("Times New Roman", Font.BOLD, a));
         FontFrame frame = new FontFrame();
 
 

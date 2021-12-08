@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Home extends JFrame{
 
     final int HEIGHT = 500;
-    final int WIDTH = 500;
+    final int WIDTH = 550;
     private final ArrayList<String> cartList = new ArrayList<>();
     private final ArrayList<String> buyList = new ArrayList<>();
 

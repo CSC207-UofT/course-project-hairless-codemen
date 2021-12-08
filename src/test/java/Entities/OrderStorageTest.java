@@ -15,6 +15,7 @@ public class OrderStorageTest {
     ArrayList<Object> lst3 = new ArrayList<>();
     ArrayList<Object> lst4 = new ArrayList<>();
     Order o1, o2, o3;
+    ArrayList<Integer> q = new ArrayList<>();
 
     @BeforeEach
     void setup() {
@@ -28,11 +29,13 @@ public class OrderStorageTest {
         lst1.add(item2);
         lst2.add(item3);
         lst2.add(item4);
-        o1 = new Order(1, lst1, u1, u2, 100);
-        o2 = new Order(2, lst2, u1, u2, 200);
+        q.add(1);
+        q.add(1);
+        o1 = new Order(1, lst1, u1, u2, 100,q);
+        o2 = new Order(2, lst2, u1, u2, 200,q);
         lst3.add(o1);
         lst3.add(o2);
-        o3 = new Order(3, lst1, u2, u1, 1000);
+        o3 = new Order(3, lst1, u2, u1, 1000,q);
         lst4.add(o1);
         lst4.add(o2);
         lst4.add(o3);

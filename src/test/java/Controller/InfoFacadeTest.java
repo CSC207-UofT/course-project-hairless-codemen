@@ -15,6 +15,7 @@ public class InfoFacadeTest {
     ArrayList<Item> lst1 = new ArrayList<>();
     ArrayList<Item> lst2 = new ArrayList<>();
     ArrayList<Order> lst3 = new ArrayList<>();
+    ArrayList<Integer> q1 = new ArrayList<>();
 
     @BeforeEach
     void setup() {
@@ -26,15 +27,17 @@ public class InfoFacadeTest {
         item4 = new Item("Airpods3", u1, 179.99, "Technology");
         lst1.add(item2);
         lst1.add(item3);
+        q1.add(1);
+        q1.add(1);
         lst2.add(item1);
         lst2.add(item4);
         u2.getCart().addItem(item1);
         u1.getCart().addItem(item2);
         u1.getCart().addItem(item3);
         u2.getCart().addItem(item4);
-        o1 = new Order(1, lst1, u1, u2, 100);
-        o2 = new Order(2, lst1, u1, u2, 200);
-        o3 = new Order(3, lst2, u2, u1, 300);
+        o1 = new Order(1, lst1, u1, u2, 100, q1);
+        o2 = new Order(2, lst1, u1, u2, 200, q1);
+        o3 = new Order(3, lst2, u2, u1, 300, q1);
         lst3.add(o1);
         lst3.add(o2);
     }

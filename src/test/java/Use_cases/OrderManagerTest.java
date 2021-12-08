@@ -18,6 +18,7 @@ public class OrderManagerTest {
     ArrayList<Order> lst3 = new ArrayList<>();
     Order o1, o2, o3;
     Order[] orders;
+    ArrayList<Integer> q = new ArrayList<>();
 
     @BeforeEach
     void setup() {
@@ -31,9 +32,11 @@ public class OrderManagerTest {
         lst1.add(item3);
         lst2.add(item1);
         lst2.add(item4);
-        o1 = new Order(1, lst1, u1, u2, 100);
-        o2 = new Order(2, lst1, u1, u2, 200);
-        o3 = new Order(3, lst2, u2, u1, 300);
+        q.add(1);
+        q.add(1);
+        o1 = new Order(1, lst1, u1, u2, 100,q);
+        o2 = new Order(2, lst1, u1, u2, 200,q);
+        o3 = new Order(3, lst2, u2, u1, 300,q);
         lst3.add(o1);
         lst3.add(o2);
         orders = new Order[]{o1, o3};
@@ -69,7 +72,7 @@ public class OrderManagerTest {
 
     @Test
     public void TestCreateOrder(){
-        Order o = OrderManager.createOrder(lst1, u1, u2);
+        Order o = OrderManager.createOrder(lst1, u1, u2,q);
         assertTrue(OrderStorage.getOrders().containsValue(o));
     }
 

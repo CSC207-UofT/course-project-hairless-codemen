@@ -21,9 +21,12 @@ public class Transaction {
      * @return the True iff the buyer has enough money to purchase the Item(s); Otherwise return False.
      */
     public static boolean buyItem(User buyer){
+
         if (UserManager.getUserCart(buyer).getTotalPrice() <= UserManager.getMoney(buyer)) {
             Map<User, ArrayList<Item>> category= new HashMap<>();
+            ArrayList<Integer> quantity = new ArrayList<>();
             for (Item i: UserManager.getUserCart(buyer).getItems()){
+                quantity.add(CartManager.getCartItems(UserManager.getUserCart(buyer)).get(i));
                 User seller = ItemManager.getSeller(i);
                 double m = ItemManager.get_price(i)*(CartManager.getCartItems(UserManager.getUserCart(buyer)).get(i));
                 UserManager.loadMoney(seller, m);   //seller get money
@@ -34,7 +37,7 @@ public class Transaction {
             }
 
             for(User u: category.keySet()){
-                OrderManager.createOrder(category.get(u), buyer, u); // create order with the same seller
+                OrderManager.createOrder(category.get(u), buyer, u, quantity); // create order with the same seller
             }
 
             UserManager.subtractMoney(buyer, UserManager.getUserCart(buyer).getTotalPrice());   //subtract buyer money
@@ -57,6 +60,7 @@ public class Transaction {
     public static void sell(Item item){
         ItemManager.addElement(item);
     }
+
 
     /**
      * Add money to a User.

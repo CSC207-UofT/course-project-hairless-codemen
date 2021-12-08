@@ -34,12 +34,14 @@ public class OrderManager implements Manager{
         return false;
     }
 
+
     /**
      * Get all orders stored in order storage in the map form.
      * @return the Map containing all orders stored in order storage, where keys in the map represents order id of each
      * order and the corresponding value is the Order object. Each key (order id) can only have one value (Order).
      */
     public static Map<Integer, Order> getItems() {return OrderStorage.getOrders();}
+
 
     /**
      * Add a list of orders into order storage.
@@ -59,6 +61,7 @@ public class OrderManager implements Manager{
         OrderStorage.addElement(element);
     }
 
+
     /**
      * Returns an list of orders from a specific user.
      * @param u - the list of orders with owner being whom will be returned
@@ -74,6 +77,7 @@ public class OrderManager implements Manager{
         }
         return o2;
     }
+
 
     /**
      * Returns an list of orders from a specific seller.
@@ -91,13 +95,13 @@ public class OrderManager implements Manager{
      * @param seller - the seller of all items in this order. Each order can only have items from only one seller.
      * @return an Order object representing the newly created order with provided items, a buyer and a seller.
      */
-    public static Order createOrder(ArrayList<Item> items_list, User buyer, User seller){
+    public static Order createOrder(ArrayList<Item> items_list, User buyer, User seller, ArrayList<Integer> quantity){
         double total_price = 0.0;
         Cart c = buyer.getCart();
         for (Item item: items_list){
             total_price += CartManager.getCartItems(c).get(item) * item.getItemPrice();
         }
-        Order o = new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
+        Order o = new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price, quantity);
         addElement(o);
         return o;
     }

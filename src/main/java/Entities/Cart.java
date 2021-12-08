@@ -49,7 +49,11 @@ public class Cart implements Serializable{
      * @param item single item will be added into cart
      */
     public void addItem(Item item, int q){
-        items.put(item, q);
+        Integer res = q;
+        if (items.containsKey(item)){
+            res += items.get(item);
+        }
+        items.put(item, res);
     }
 
     /**

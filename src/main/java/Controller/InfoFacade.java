@@ -29,6 +29,10 @@ public class InfoFacade {
         return ItemManager.printItem2(i);
     }
 
+    public static String printCartItem(Cart c, Item i){
+        return CartManager.printItem(c, i);
+    }
+
     /**
      * Return a string representation of an item's name.
      * @param i - the item whose name will be returned.

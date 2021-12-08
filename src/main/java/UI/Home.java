@@ -39,7 +39,7 @@ public class Home extends JFrame{
         JPopupMenu CartChange = new JPopupMenu();
 
         for (int x=0; x< InfoFacade.getCartItems((Cart)info[0]).size(); x+=1){
-            cartList.add(InfoFacade.printItem(InfoFacade.getCartItems((Cart)info[0]).get(x)));
+            cartList.add(InfoFacade.printCartItem((Cart) info[0],InfoFacade.getCartItems((Cart)info[0]).get(x)));
         }
         for (int y=0; y< InfoFacade.getItems().size(); y+=1){
             buyList.add(InfoFacade.printItem(InfoFacade.getItems().get(y)));

@@ -34,24 +34,12 @@ public class OrderManager implements Manager{
         return false;
     }
 
-
     /**
      * Get all orders stored in order storage in the map form.
      * @return the Map containing all orders stored in order storage, where keys in the map represents order id of each
      * order and the corresponding value is the Order object. Each key (order id) can only have one value (Order).
      */
     public static Map<Integer, Order> getItems() {return OrderStorage.getOrders();}
-
-
-    /**
-     * Add a list of elements into order storage.
-     * @param elements - the list of elements to be added into order storage.
-     */
-    public static void addElement(Object[] elements){
-        for (Object element: elements){
-            addElement(element);
-        }
-    }
 
     /**
      * Add a list of orders into order storage.
@@ -72,14 +60,6 @@ public class OrderManager implements Manager{
     }
 
     /**
-     * Get the total number of orders stored in order storage.
-     * @return the int representing the total number of orders stored in the system (order storage).
-     */
-    public static int totalNumberOrder(){
-        return OrderStorage.get_size();
-    }
-
-    /**
      * Returns an list of orders from a specific user.
      * @param u - the list of orders with owner being whom will be returned
      * @return an ArrayList of orders where the User u is the buyer for each one.
@@ -94,7 +74,6 @@ public class OrderManager implements Manager{
         }
         return o2;
     }
-
 
     /**
      * Returns an list of orders from a specific seller.
@@ -122,15 +101,6 @@ public class OrderManager implements Manager{
         addElement(o);
         return o;
     }
-
-    /**
-     * Remove a list of orders from order storage.
-     * @param elements - the ArrayList of orders to be removed from order storage.
-     */
-    public static void removeElement(Object[] elements){}
-
-
-    public static void removeElement(Object element){}
 
     public static String printOrders(ArrayList<Order> orders){
         StringBuilder sb = new StringBuilder();

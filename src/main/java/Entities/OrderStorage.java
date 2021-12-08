@@ -42,13 +42,6 @@ public class OrderStorage implements Storable, Serializable, Iterable<Order> {
     }
 
     /**
-     * Delete an order from order storage.
-     * @param object - order to be deleted from order storage
-     */
-    public static void deleteElement(Object object) {orderList.remove(((Order) object).getOrder_id());
-    }
-
-    /**
      * Get the total number of orders stored in order storage.
      * @return the total number of orders stored in order storage.
      */

@@ -53,14 +53,6 @@ public class OrderStorageTest {
     }
 
     @Test
-    public void TestDeleteElement(){
-        OrderStorage.addElement(lst3);
-        OrderStorage.deleteElement(o2);
-        assertEquals(o1, OrderStorage.getOrders().get(1));
-        assertNull(OrderStorage.getOrders().get(2));
-    }
-
-    @Test
     public void TestOrderStorageIterator(){
         OrderStorage.addElement(lst4);
         int i = 0;

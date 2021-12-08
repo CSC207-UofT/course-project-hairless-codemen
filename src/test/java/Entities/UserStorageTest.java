@@ -31,18 +31,6 @@ public class UserStorageTest {
         assertEquals(3, UserStorage.getUserList().size());
     }
 
-    @Test
-    public void TestDeleteElement(){
-        UserStorage.addElement(u1);
-        UserStorage.addElement(u2);
-        UserStorage.addElement(u3);
-        UserStorage.deleteElement(u1);
-        assertNull(UserStorage.getUserList().get("A"));
-        assertEquals(u2, UserStorage.getUserList().get("B"));
-        UserStorage.deleteElement(u3);
-        assertNull(UserStorage.getUserList().get("C"));
-        assertEquals(u2, UserStorage.getUserList().get("B"));
-    }
 
     @Test
     public void TestAddElement2(){

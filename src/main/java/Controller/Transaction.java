@@ -21,30 +21,29 @@ public class Transaction {
      * @return the True iff the buyer has enough money to purchase the Item(s); Otherwise return False.
      */
     public static boolean buyItem(User buyer){
-
-        if (buyer.getCart().getTotalPrice() <= UserManager.getMoney(buyer)) {
+        if (UserManager.getUserCart(buyer).getTotalPrice() <= UserManager.getMoney(buyer)) {
             Map<User, ArrayList<Item>> category= new HashMap<>();
-            for (Item i: buyer.getCart().getItems()){
-                ArrayList<Item> item = new ArrayList<>();
-                item.add(i);
+            for (Item i: UserManager.getUserCart(buyer).getItems()){
                 User seller = ItemManager.getSeller(i);
-                double m = ItemManager.get_price(i)*(CartManager.getCartItems(buyer.getCart()).get(i));
+                double m = ItemManager.get_price(i)*(CartManager.getCartItems(UserManager.getUserCart(buyer)).get(i));
                 UserManager.loadMoney(seller, m);   //seller get money
-                if(category.containsKey(seller)){category.get(seller).add(i);}
-                else {category.put(seller, item);}
+                if (!category.containsKey(seller)) {
+                    category.put(seller, new ArrayList<>());
+                }
+                category.get(seller).add(i);
             }
 
             for(User u: category.keySet()){
                 OrderManager.createOrder(category.get(u), buyer, u); // create order with the same seller
             }
 
-            UserManager.subtractMoney(buyer, buyer.getCart().getTotalPrice());   //subtract buyer money
+            UserManager.subtractMoney(buyer, UserManager.getUserCart(buyer).getTotalPrice());   //subtract buyer money
 
-            for (Map.Entry<Item, Integer> entry : CartManager.getCartItems(buyer.getCart()).entrySet()){
+            for (Map.Entry<Item, Integer> entry : CartManager.getCartItems(UserManager.getUserCart(buyer)).entrySet()){
                 ItemManager.removeElement(entry.getKey(), entry.getValue());
             }
 
-            CartManager.removeItems(buyer, buyer.getCart().getItems());    //remove the items in buyer's cart
+            CartManager.removeItems(buyer, UserManager.getUserCart(buyer).getItems());    //remove the items in buyer's cart
             return true;
         }
         return false;
@@ -57,15 +56,6 @@ public class Transaction {
      */
     public static void sell(Item item){
         ItemManager.addElement(item);
-    }
-
-    /**
-     * Sell multiple Items.
-     * @param items - the list of Items being sold.
-     * Return nothing
-     */
-    public static void sell(ArrayList<Item> items){
-        ItemManager.addElement(items);
     }
 
     /**

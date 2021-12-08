@@ -36,9 +36,6 @@ public class OrderManagerTest {
         o3 = new Order(3, lst2, u2, u1, 300);
         lst3.add(o1);
         lst3.add(o2);
-        for (Order o: new OrderStorage()){
-            OrderStorage.deleteElement(o);
-        }
         orders = new Order[]{o1, o3};
     }
 
@@ -58,14 +55,6 @@ public class OrderManagerTest {
         assertTrue(OrderStorage.getOrders().containsValue(o2));
         assertTrue(OrderStorage.getOrders().containsValue(o3));
         assertEquals(3, OrderStorage.get_size());
-    }
-
-    @Test
-    public void TestTotalNumberOrder(){
-        OrderManager.addElement(o3);
-        assertEquals(1, OrderManager.totalNumberOrder());
-        OrderManager.addElement(lst3);
-        assertEquals(3, OrderManager.totalNumberOrder());
     }
 
     @Test
@@ -97,13 +86,6 @@ public class OrderManagerTest {
         assertEquals(m.get(1), o1);
         assertEquals(m.get(2), o2);
         assertNull(m.get(3));
-    }
-
-    @Test
-    public void TestAddElement2(){
-        OrderManager.addElement(orders);
-        assertTrue(OrderStorage.getOrders().containsValue(o1));
-        assertTrue(OrderStorage.getOrders().containsValue(o3));
     }
 
     @Test

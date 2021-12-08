@@ -42,11 +42,6 @@ public class TransactionTest {
         assertEquals(seller.getWallet().getMoney(), 260);
     }
 
-    @Test
-    public void TestSell(){
-        Transaction.sell(c.getItems());
-        assertEquals(ItemManager.getItemsList().size(), 2);
-    }
 
     @Test
     public void TestSell2(){

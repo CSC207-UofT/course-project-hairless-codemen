@@ -243,7 +243,7 @@ name, category and price. I modified the addItem and deleteItem methods in ItemS
 In this pull request, since our group members decided to change the data structure of Cart from ArrayList to HashMap, I 
 accordingly updated one of the most important methods in our program, BuyItem. Now, this method takes Cart as a parameter 
 directly instead of an arraylist of items.In this case, our program can run properly with new data structure of Cart. 
-At the same time, I updated some test cases about Cart and Cart Manager due to the change of data structure and updated
+At the same time, I updated some test cases about Cart and Cart Manager due to the change of data structure and the updated
 method BuyItem.
 
   

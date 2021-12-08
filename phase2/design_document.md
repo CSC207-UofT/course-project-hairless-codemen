@@ -323,7 +323,7 @@ Then, not all quantity of an item has to be added to a user's cart at once.
   - Serialization, coding ReadWriters
   - Created UML Diagram
   - some entity documentations(**Phase 1**)
-  - **Phase 2:** Java coding:QuantFrame, Layout desginer of UI, improve UI
+  - **Phase 2:** Java coding:QuantFrame, Layout desginer of UI, improve UI, Added Order sold by users box, Font function of UI. 
 
 
 - **Xinyu Zhang:**

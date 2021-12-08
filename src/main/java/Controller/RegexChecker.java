@@ -92,6 +92,11 @@ public class RegexChecker {
         return str.matches(".{8,}");
     }
 
+    /**
+     * Check whether the password matches all the requirements. Then return teh result.
+     *
+     * @param password The string input we want to check
+     */
     public static String CheckPassword(String password){
         String res = "Your password should contain:";
         if (!ContainsInfo(password)){
@@ -112,8 +117,8 @@ public class RegexChecker {
         if (!RegexChecker.MinLen(password)){
             res += "\nat least 8 characters.";
         }
-        else
-            res = "True";
+        if (res.equals("Your password should contain:")){return "True";
+        }
         return res;
     }
 }

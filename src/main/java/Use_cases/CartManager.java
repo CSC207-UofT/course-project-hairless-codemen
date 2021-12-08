@@ -33,6 +33,19 @@ public class CartManager {
     }
 
     /**
+     * Return a string representation of one item in a cart.
+     * @param c - the cart of which the string representation will be returned.
+     * @param i - the item in the cart
+     * @return a string representation of the item in the cart.
+     */
+    public static String printItem(Cart c, Item i){
+        StringBuilder sb = new StringBuilder();
+        sb.append(i.toString2());
+        sb.append(", Quantity: ").append(c.getCart().get(i));
+        return sb.toString();
+    }
+
+    /**
      * Add an item to a cart.
      * @param c - the cart where the item will be added.
      * @param i - the item to be added into the cart.

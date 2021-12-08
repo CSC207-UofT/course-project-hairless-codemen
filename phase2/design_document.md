@@ -265,12 +265,17 @@ So in order to solve this problem, I did a deep copy, and then everything resolv
 
 
 
-- **Zhen Sun:**
+- **Zhen Sun:** Pull request #41: \
+In order to specify the total quantity that a user want to purchase from an item that has more than 1 in stock, 
+the structure of the cart has to change. Before the change, the cart's itemlist variable is an ArrayList of items.
+However, the quantity stored in each instance of Item is only the total number in stock, not the amount the user wants
+purchase. So, I changed cart into a hashmap that has each key as the item, and each value as an integer of how many
+a user added to cart. I wrote some overloaded methods that relates to cart so the parameter "quantity" is used. 
+Then, not all quantity of an item has to be added to a user's cart at once.
 
-<br />
-
-
+<\br>
 **11. Progress Report:**
+
 
 *Individual Work for the Project:*
 
@@ -331,3 +336,11 @@ So in order to solve this problem, I did a deep copy, and then everything resolv
 
 
 - **Zhen Sun:**
+  - CRC cars(controller): Finder and Transaction
+  - Assisted the implementation of Transaction
+  - Implemented the new structure of Cart
+    - Includes calculation of total price of all items in cart
+  - Final debugs and testing
+  - Cleaning up the code by removing unnecessary methods
+  - (**Phase 1**)Implemented search methods in the Managers and Finder Class
+  - (**Phase 2**)Implemented "quantity" related features in Cart, ItemManager and Transaction

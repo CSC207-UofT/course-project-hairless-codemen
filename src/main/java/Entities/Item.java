@@ -62,7 +62,7 @@ public class Item implements Serializable {
      * @return a double type representing the price.
      */
     public double getItemPrice(){
-        return this.price * this.quantity;
+        return this.price;
     }
 
     /**
@@ -79,22 +79,6 @@ public class Item implements Serializable {
      */
     public int getQuantity(){
         return this.quantity;
-    }
-
-    /**
-     * Change the Item's name.
-     * @param new_name The new name we want to use.
-     */
-    public void changeItemName(String new_name){
-        this.name = new_name;
-    }
-
-    /**
-     * Change the price of the Item.
-     * @param new_price The new price we want to set.
-     */
-    public void changeItemPrice(double new_price){
-        this.price = new_price;
     }
 
     /**
@@ -126,5 +110,12 @@ public class Item implements Serializable {
      */
     public String toString2(){
         return name + ": "  + "Category: " + category + ", Price: $" + price;
+    }
+
+    /**
+     * Produce a human-readable string description of an Item for item storage check.
+     */
+    public String toString3(){
+        return name + ": "  + "Category: " + category + ", Price: $" + price + ", seller: "+owner.getName();
     }
 }

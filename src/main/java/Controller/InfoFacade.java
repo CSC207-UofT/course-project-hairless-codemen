@@ -25,21 +25,8 @@ public class InfoFacade {
      * @return a string representation of a single item.
      */
 
-    public static String printItem2(Item i){
-        return ItemManager.printItem2(i);
-    }
-
     public static String printCartItem(Cart c, Item i){
         return CartManager.printItem(c, i);
-    }
-
-    /**
-     * Return a string representation of an item's name.
-     * @param i - the item whose name will be returned.
-     * @return a string representation of an item's name.
-     */
-    public static String printItemName(Item i){
-        return i.getItemName();
     }
 
     /**
@@ -112,14 +99,11 @@ public class InfoFacade {
      * @param i - the Item to be added into the cart.
      * @param q - the number of the same item to be added into the cart
      *
-     * @return true if the item is successfully added, given enough quantity is in stock
      */
-    public static boolean addCartElement(Cart c, Item i, int q){
-        if (ItemManager.getQuantity(i) < q){
-            return false;
+    public static void addCartElement(Cart c, Item i, int q){
+        if (ItemManager.getQuantity(i) >= q){
+            CartManager.AddElement(c, i, q);
         }
-        CartManager.AddElement(c, i, q);
-        return true;
     }
 
     /**
@@ -137,42 +121,6 @@ public class InfoFacade {
         return ItemManager.getItemsList();
     }
 
-
-    /**
-     * Add a list of items into Item Storage.
-     * @param o  - the list of items to be added into Item Storage.
-     */
-    public static void addElement(Object o){
-        Item i = (Item) o;
-        ItemManager.addElement(i);
-    }
-
-
-    /**
-     * Add a list of items into Item Storage.
-     * @param items  - the list of items to be added into Item Storage.
-     */
-    public static void addElement(ArrayList<Item> items){
-        ItemManager.addElement(items);
-    }
-
-
-    /**
-     * Remove a single item from Item Storage.
-     * @param o  - the item to be removed from Item Storage.
-     */
-    public static void removeElement(Object o){
-        ItemManager.removeElement(o);
-    }
-
-
-    /**
-     * Remove a list of items from Item Storage.
-     * @param items  - the list of items to be removed from Item Storage.
-     */
-    public static void removeElement(Object[] items){
-        ItemManager.removeElement(items);
-    }
 
     /**
      * Modify the password for an existing user.

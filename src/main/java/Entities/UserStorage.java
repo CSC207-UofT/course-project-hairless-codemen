@@ -33,12 +33,4 @@ public class UserStorage implements Storable, Serializable {
             addElement(u);
         }
     }
-
-    /**
-     * Delete a user from user storage.
-     * @param object - an object to be deleted from user storage.
-     */
-    public static void deleteElement(Object object) {
-        userMap.remove(((User) object).getName());
-    }
 }

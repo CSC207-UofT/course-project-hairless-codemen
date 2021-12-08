@@ -62,32 +62,8 @@ public class ItemManager implements Manager {
         return results;
     }
 
-    /**
-     * Get the total price for a list of items.
-     * @param items - the list of items whose total price is calculated.
-     * @return a double value representing the total price for the list of items.
-     */
-    public static double get_all_price(ArrayList<Item> items){
-        double i = 0;
-        for (Item item: items){
-            i += item.getItemPrice();
-        }
-        return i;
-    }
     public static double get_price(Item item){
         return item.getItemPrice();}
-
-
-    /**
-     * Add a list of items into Item Storage.
-     * @param items  - the list of items to be added into Item Storage.
-     */
-    public static void addElement(ArrayList<Item> items) {
-        for (Item item : items){
-            addElement(item);
-        }
-    }
-
 
     /**
      * Add a single item into Item Storage.
@@ -95,17 +71,6 @@ public class ItemManager implements Manager {
      */
     public static void addElement(Item item){
         ItemStorage.addElement(item);
-    }
-
-
-    /**
-     * Remove a list of items from Item Storage.
-     * @param items  - the list of items to be removed from Item Storage.
-     */
-    public static void removeElement(ArrayList<Item> items) {
-        for (Object item : items){
-            ItemManager.removeElement(item);
-        }
     }
 
     /**
@@ -188,8 +153,6 @@ public class ItemManager implements Manager {
     public static String printItem(Item i){
         return i.toString();
     }
-
-    public static String printItem2(Item i) {return i.toString2();}
 
     /**
      * Return the seller of an item.

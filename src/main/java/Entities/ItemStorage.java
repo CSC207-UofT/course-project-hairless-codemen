@@ -74,12 +74,16 @@ public class ItemStorage implements Storable, Serializable, Iterable<Item> {
     private static void addItem(Item item) {
         if (itemList.containsKey(item.getItemName())){
             ArrayList<Item> items = itemList.get(item.getItemName());
+            boolean addQuantity = false;
             for (Item i : items){
-                if (i.toString2().equals(item.toString2())){
+                if (i.toString3().equals(item.toString3())){
                     i.addQuantity(item.getQuantity());
+                    addQuantity = true;
                 }
             }
-            itemList.get(item.getItemName()).add(item);
+            if (!addQuantity){
+                items.add(item);
+            }
         }
         else{
             ArrayList<Item> itemList = new ArrayList<>();

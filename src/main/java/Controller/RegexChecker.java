@@ -93,24 +93,24 @@ public class RegexChecker {
     }
 
     public static String CheckPassword(String password){
-        String res = "";
+        String res = "Your password should contain:";
         if (!ContainsInfo(password)){
-            res = "Sorry, password cannot be empty!";
+            return "Sorry, your password cannot be empty!";
         }
-        else if (!RegexChecker.ContainsDigit(password)){
-            res = "Your password should contain at least one digit.";
+        if (!RegexChecker.ContainsDigit(password)){
+            res += "\nat least one digit";
         }
-        else if (!RegexChecker.ContainsUpper(password)){
-            res = "Your password should contain at least one uppercase letter.";
+        if (!RegexChecker.ContainsUpper(password)){
+            res += "\nat least one uppercase letter";
         }
-        else if (!RegexChecker.ContainsLower(password)){
-            res = "Your password should contain at least one lowercase letter.";
+        if (!RegexChecker.ContainsLower(password)){
+            res += "\nat least one lowercase letter";
         }
-        else if (!RegexChecker.ContainsSpecialChar(password)){
-            res = "Your password should contain at least one special character.";
+        if (!RegexChecker.ContainsSpecialChar(password)){
+            res += "\nat least one special character.";
         }
-        else if (!RegexChecker.MinLen(password)){
-            res = "Your password should contain at least 8 characters.";
+        if (!RegexChecker.MinLen(password)){
+            res += "\nat least 8 characters.";
         }
         else
             res = "True";

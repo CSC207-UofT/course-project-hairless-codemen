@@ -73,12 +73,6 @@ class ItemManagerTest {
     }
 
     @Test
-    public void TestGetAllPrice(){
-        ArrayList<Item> items = ItemManager.search_by_category("Technology");
-        assertEquals(Math.round(ItemManager.get_all_price(items)), Math.round(2179.99+199.99));
-    }
-
-    @Test
     public void TestRemoveElement(){
         Object[] elements = new Item[]{item1, item2};
         ItemManager.removeElement(elements);

@@ -30,20 +30,6 @@ public class ItemTest {
     @Test
     public void TestQuantity(){assertEquals(1, a.getQuantity());}
 
-
-   @Test
-   public void TestChangeItemName(){
-        a.changeItemName("apple");
-        assertEquals("apple", a.getItemName());
-    }
-
-
-    @Test
-    public void TestChangeItemPrice(){
-        a.changeItemPrice(30);
-        assertEquals(30, a.getItemPrice());
-    }
-
     @Test
     public void TestAddQuantity(){
         a.addQuantity(1);

@@ -108,18 +108,4 @@ public class UserManagerTest {
         assertEquals(UserManager.getUserList().get("AAA"), u6);
     }
 
-    @Test
-    public void TestRemoveElement(){
-        Object[] lst = new Object[]{u1, u2};
-        UserManager.removeElement(lst);
-        assertNull(UserManager.getUserList().get("A"));
-        assertNull(UserManager.getUserList().get("B"));
-        assertEquals(UserManager.getUserList().get("C"), u3);
-    }
-
-    @Test
-    public void TestRemoveElement2(){
-        UserManager.removeElement(u3);
-        assertNull(UserManager.getUserList().get("C"));
-    }
 }

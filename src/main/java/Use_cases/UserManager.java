@@ -143,21 +143,4 @@ public class UserManager implements Manager, Serializable {
         UserStorage.addElement(user);
     }
 
-    /**
-     * Remove a list of users from UserStorage.
-     * @param elements - the list of users to be removed.
-     */
-    public static void removeElement(Object[] elements) {
-        for (Object element: elements){
-            removeElement(element);
-        }
-    }
-
-    /**
-     * Remove a single user from UserStorage.
-     * @param element - the user to be removed.
-     */
-    public static void removeElement(Object element) {
-        UserStorage.deleteElement(element);
-    }
 }

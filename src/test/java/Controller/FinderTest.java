@@ -22,6 +22,7 @@ public class FinderTest {
     User buyer;
     User seller;
     ArrayList<Item> lst = new ArrayList<>();
+    ArrayList<Integer> quantity = new ArrayList<>();
     ArrayList<Item> empty = new ArrayList<>();
     Map<Integer, Order> storages = new HashMap<>();
 
@@ -32,7 +33,7 @@ public class FinderTest {
         seller = new User("happysell", "2345");
         item1 = new Item("Banana", seller, 40, "Fruit");
         item2 = new Item("Apple", seller, 60, "Fruit");
-        order = new Order(123, lst, buyer, seller, 100);
+        order = new Order(123, lst, buyer, seller, 100, quantity);
 
     }
 

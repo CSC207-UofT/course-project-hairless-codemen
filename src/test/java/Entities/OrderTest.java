@@ -17,6 +17,7 @@ public class OrderTest {
     User buyer;
     User seller;
     ArrayList<Item> lst;
+    ArrayList<Integer> q = new ArrayList<>();
 
     @BeforeEach
     void setup() {
@@ -25,7 +26,8 @@ public class OrderTest {
         item1 = new Item("STA257 Help", seller, 999999, "Study");
         lst = new ArrayList<>();
         lst.add(item1);
-        BigOrder = new Order(666, lst, buyer, seller, 999999);
+        q.add(1);
+        BigOrder = new Order(666, lst, buyer, seller, 999999,q);
     }
 
     @Test

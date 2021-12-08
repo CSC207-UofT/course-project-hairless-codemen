@@ -43,12 +43,6 @@ public class TransactionTest {
     }
 
     @Test
-    public void TestSell(){
-        Transaction.sell(c.getItems());
-        assertEquals(ItemManager.getItemsList().size(), 2);
-    }
-
-    @Test
     public void TestSell2(){
         System.out.println(ItemManager.getItemsList());
         Transaction.sell(item1);

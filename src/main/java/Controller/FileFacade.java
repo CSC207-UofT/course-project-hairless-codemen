@@ -2,11 +2,8 @@ package src.main.java.Controller;
 
 import src.main.java.Entities.*;
 import src.main.java.Use_cases.*;
-
-import java.io.EOFException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class FileFacade {
 
@@ -60,7 +57,7 @@ public class FileFacade {
      * Read all Items from ItemData.ser. If there isn't any items stored in ItemData.ser, load default items to the
      * system.
      */
-    public static void readItem() throws IOException, ClassNotFoundException {
+    public static void readItem() throws IOException {
         try {
             ItemReadWriter.readFromFile();
 
@@ -83,7 +80,13 @@ public class FileFacade {
                 User u1 = createUser("default1", "000000");
                 addUser(u);
                 addUser(u1);
-                Order o = new Order(0, ItemManager.getItemsList(), u, u1, 1000);
+                ArrayList<Integer> quantity = new ArrayList<>();
+                quantity.add(0);
+                quantity.add(0);
+                quantity.add(0);
+                quantity.add(0);
+                quantity.add(0);
+                Order o = new Order(0, ItemManager.getItemsList(), u, u1, 1000, quantity);
                 OrderManager.addElement(o);
                 OrderReadWriter.saveIntoFile(OrderManager.getItems());
                 OrderReadWriter.readFromFile();

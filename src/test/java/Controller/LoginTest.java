@@ -23,6 +23,7 @@ public class LoginTest {
     ArrayList<Item> lst1 = new ArrayList<>();
     ArrayList<Item> lst2 = new ArrayList<>();
     ArrayList<Order> lst3 = new ArrayList<>();
+    ArrayList<Integer> q = new ArrayList<>();
 
     @BeforeEach
     void setup() {
@@ -36,9 +37,11 @@ public class LoginTest {
         lst1.add(item3);
         lst2.add(item1);
         lst2.add(item4);
-        o1 = new Order(1, lst1, u1, u2, 100);
-        o2 = new Order(2, lst1, u1, u2, 200);
-        o3 = new Order(3, lst2, u2, u1, 300);
+        q.add(1);
+        q.add(1);
+        o1 = new Order(1, lst1, u1, u2, 100, q);
+        o2 = new Order(2, lst1, u1, u2, 200, q);
+        o3 = new Order(3, lst2, u2, u1, 300, q);
         lst3.add(o1);
         lst3.add(o2);
     }

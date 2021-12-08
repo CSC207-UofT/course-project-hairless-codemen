@@ -44,16 +44,6 @@ public class OrderManager implements Manager{
 
 
     /**
-     * Add a list of elements into order storage.
-     * @param elements - the list of elements to be added into order storage.
-     */
-    public static void addElement(Object[] elements){
-        for (Object element: elements){
-            addElement(element);
-        }
-    }
-
-    /**
      * Add a list of orders into order storage.
      * @param orders - the ArrayList of orders to be added into order storage.
      */
@@ -71,13 +61,6 @@ public class OrderManager implements Manager{
         OrderStorage.addElement(element);
     }
 
-    /**
-     * Get the total number of orders stored in order storage.
-     * @return the int representing the total number of orders stored in the system (order storage).
-     */
-    public static int totalNumberOrder(){
-        return OrderStorage.get_size();
-    }
 
     /**
      * Returns an list of orders from a specific user.
@@ -112,25 +95,16 @@ public class OrderManager implements Manager{
      * @param seller - the seller of all items in this order. Each order can only have items from only one seller.
      * @return an Order object representing the newly created order with provided items, a buyer and a seller.
      */
-    public static Order createOrder(ArrayList<Item> items_list, User buyer, User seller){
+    public static Order createOrder(ArrayList<Item> items_list, User buyer, User seller, ArrayList<Integer> quantity){
         double total_price = 0.0;
         Cart c = buyer.getCart();
         for (Item item: items_list){
             total_price += CartManager.getCartItems(c).get(item) * item.getItemPrice();
         }
-        Order o = new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price);
+        Order o = new Order(OrderStorage.get_size()+1,items_list, buyer, seller, total_price, quantity);
         addElement(o);
         return o;
     }
-
-    /**
-     * Remove a list of orders from order storage.
-     * @param elements - the ArrayList of orders to be removed from order storage.
-     */
-    public static void removeElement(Object[] elements){}
-
-
-    public static void removeElement(Object element){}
 
     public static String printOrders(ArrayList<Order> orders){
         StringBuilder sb = new StringBuilder();

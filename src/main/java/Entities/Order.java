@@ -9,6 +9,7 @@ public class Order implements Serializable {
     private final User buyer;
     private final User owner;
     private final double total;
+    private final ArrayList<Integer> quantity;
 
     /**
      * The constructor of Order.
@@ -17,13 +18,15 @@ public class Order implements Serializable {
      * @param buyer the buyer of this order
      * @param owner the owner of this order (every order must only contain items from the same owner)
      * @param total the total amount of money that the items in this order worth
+     * @param quantity the quantity of items in the order
      */
-    public Order(int id, ArrayList<Item> items_list, User buyer, User owner, double total){
+    public Order(int id, ArrayList<Item> items_list, User buyer, User owner, double total, ArrayList<Integer> quantity){
         this.order_id = id;
         this.items_list = items_list;
         this.buyer = buyer;
         this.owner = owner;
         this.total = total;
+        this.quantity = quantity;
     }
 
     /**
@@ -41,8 +44,10 @@ public class Order implements Serializable {
     @Override
     public String toString() {
         StringBuilder items = new StringBuilder();
-        for (Item i : items_list){
-            String s = i.toString() + "\n";
+        for (int i=0;i<items_list.size();i+=1){
+            Item item = items_list.get(i);
+            Integer q = quantity.get(i);
+            String s = item.toString2() +" Quantity:"+ q +"\n";
             items.append(s);
         }
         return "Order #" + order_id + ": \n" + "Buyer: " + buyer.toString() + "\nSeller: " + owner.toString() +

@@ -46,4 +46,16 @@ public class ItemTest {
         a.subtractQuantity(1);
         assertEquals(0, a.getQuantity());
     }
+
+    @Test
+    public void TestString(){
+        String s = "Snow: Category: Beautiful, Quantity: 100, Price: $20.0";
+        assertEquals(s, c.toString());
+    }
+
+    @Test
+    public void TestString2(){
+        String s = "Apple: Category: Fruit, Price: $20.0";
+        assertEquals(s, a.toString2());
+    }
 }

@@ -23,6 +23,7 @@ public class Home extends JFrame{
         JLabel Wallet = new JLabel("Wallet: ");
         JButton viewBuyList = new JButton("Want to buy?");
         JButton load = new JButton("Load");
+        JButton password = new JButton("Change Password");
         JTextField moneyInput = new JTextField(5);
         JList BuyList = new JList();
         JButton viewCart = new JButton("My Cart");
@@ -47,6 +48,7 @@ public class Home extends JFrame{
         panel0.add(wallet);
         panel0.add(moneyInput);
         panel0.add(load);
+        panel0.add(password);
         panel.setLayout(new GridLayout(2,1));
         panel.add(viewBuyList);
         JMenuItem addToCart = new JMenuItem("Add into my cart.");
@@ -105,8 +107,6 @@ public class Home extends JFrame{
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-//                Object selected = BuyList.getModel().getElementAt(BuyList.getSelectedIndex());
-//                cartList.add(selected.toString());
                 Item a=InfoFacade.getItems().get(BuyList.getSelectedIndex());
                 QuantFrame frame=new QuantFrame(username, a);
                 frame.setVisible(true);
@@ -179,6 +179,15 @@ public class Home extends JFrame{
                     JOptionPane.showMessageDialog(null,
                             "Sorry, payment failed. Products may be out of stock or lack of money.");
                 }
+            }
+        });
+
+        password.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Home.this.setVisible(false);
+                JFrame pwdChangeFrame = new pwdChangeFrame(username);
+                pwdChangeFrame.setVisible(true);
             }
         });
 

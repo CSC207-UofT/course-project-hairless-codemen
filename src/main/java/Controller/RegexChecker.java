@@ -1,5 +1,6 @@
 package src.main.java.Controller;
 
+import javax.swing.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -89,6 +90,31 @@ public class RegexChecker {
     public static boolean MinLen(String str)
     {
         return str.matches(".{8,}");
+    }
+
+    public static String CheckPassword(String password){
+        String res = "";
+        if (!ContainsInfo(password)){
+            res = "Sorry, password cannot be empty!";
+        }
+        else if (!RegexChecker.ContainsDigit(password)){
+            res = "Your password should contain at least one digit.";
+        }
+        else if (!RegexChecker.ContainsUpper(password)){
+            res = "Your password should contain at least one uppercase letter.";
+        }
+        else if (!RegexChecker.ContainsLower(password)){
+            res = "Your password should contain at least one lowercase letter.";
+        }
+        else if (!RegexChecker.ContainsSpecialChar(password)){
+            res = "Your password should contain at least one special character.";
+        }
+        else if (!RegexChecker.MinLen(password)){
+            res = "Your password should contain at least 8 characters.";
+        }
+        else
+            res = "True";
+        return res;
     }
 }
 

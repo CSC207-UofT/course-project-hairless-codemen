@@ -42,24 +42,13 @@ public class Frame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String id = userid.getText();
                 String password = passwordInput.getText();
-                if (!RegexChecker.ContainsInfo(id) || !RegexChecker.ContainsInfo(password)){
-                    JOptionPane.showMessageDialog(null, "Sorry, username and password cannot be empty!");
+                if (!RegexChecker.ContainsInfo(id)){
+                    JOptionPane.showMessageDialog(null, "Sorry, username cannot be empty!");
                 }
-                else if (!RegexChecker.ContainsDigit(password)){
-                    JOptionPane.showMessageDialog(null, "Your password should contain at least one digit.");
+                else if (!RegexChecker.CheckPassword(password).equals("True")){
+                    JOptionPane.showMessageDialog(null, RegexChecker.CheckPassword(password));
                 }
-                else if (!RegexChecker.ContainsUpper(password)){
-                    JOptionPane.showMessageDialog(null, "Your password should contain at least one uppercase letter.");
-                }
-                else if (!RegexChecker.ContainsLower(password)){
-                    JOptionPane.showMessageDialog(null, "Your password should contain at least one lowercase letter.");
-                }
-                else if (!RegexChecker.ContainsSpecialChar(password)){
-                    JOptionPane.showMessageDialog(null, "Your password should contain at least one special character.");
-                }
-                else if (!RegexChecker.MinLen(password)){
-                    JOptionPane.showMessageDialog(null, "Your password should contain at least 8 characters.");
-                }
+
                 else if (Login.signup(id, password)){
                     JOptionPane.showMessageDialog(null, "success!!");
                 }

@@ -81,4 +81,9 @@ public class OrderStorageTest {
     public void Testbuyer(){
         assertEquals(u1, o1.getBuyer());
     }
+
+    @Test
+    public void TestOrderOwner(){
+        assertEquals(2, OrderStorage.getOwnerOrder(u2).size());
+    }
 }

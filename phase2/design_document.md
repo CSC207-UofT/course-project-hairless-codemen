@@ -239,10 +239,14 @@ name, category and price. I modified the addItem and deleteItem methods in ItemS
   and buyers but with the same seller.
 
 
-- **Feihao Qu:**
+- **Feihao Qu:** Pull request #43: \
+In this pull request, since our group members decided to change the data structure of Cart from ArrayList to HashMap, I 
+accordingly updated one of the most important methods in our program, BuyItem. Now, this method takes Cart as a parameter 
+directly instead of an arraylist of items.In this case, our program can run properly with new data structure of Cart. 
+At the same time, I updated some test cases about Cart and Cart Manager due to the change of data structure and updated
+method BuyItem.
 
-
-
+  
 - *Hongda Zhu:*  Pull request #13: \
 In this pull request, I wrote the method in Controller Transaction. Since the rule of clean architecture needs to be 
 followed. I have also moderate and add functions in Use_cases for ItemManager, CartManager, OrderManager, and 
@@ -315,8 +319,15 @@ Then, not all quantity of an item has to be added to a user's cart at once.
 
 
 - **Feihao Qu:**
+  - CRC Cards(Controller): Login（**Phase 0**)
+  - Implemented Web version User Interface
+  - Build Three Web Pages: Login, Signup and Main
+  - Page transitions
+  - Coding：html, css and Javascript（**Phase 1**)
+  - **Phase 2**: Java coding: Transaction, Entities, Infofacade
+  - Unittest: CartTest, CartManagerTest
 
-  
+
 
 - **Hongda Zhu:**
   - Assist writing design pattern
@@ -355,7 +366,7 @@ Then, not all quantity of an item has to be added to a user's cart at once.
 
 
 - **Zhen Sun:**
-  - CRC cars(controller): Finder and Transaction
+  - CRC cards(controller): Finder and Transaction
   - Assisted the implementation of Transaction
   - Implemented the new structure of Cart
     - Includes calculation of total price of all items in cart

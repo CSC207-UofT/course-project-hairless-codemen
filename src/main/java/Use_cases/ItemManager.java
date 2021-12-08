@@ -189,6 +189,7 @@ public class ItemManager implements Manager {
         return i.toString();
     }
 
+    public static String printItem2(Item i) {return i.toString2();}
 
     /**
      * Return the seller of an item.

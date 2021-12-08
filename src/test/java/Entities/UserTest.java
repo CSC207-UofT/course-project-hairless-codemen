@@ -40,4 +40,9 @@ public class UserTest {
     public void TestGetCart(){
         assertEquals(0, b.getCart().getItems().size());
     }
+
+    @Test
+    public void TestToString(){
+        assertEquals("Crystal", a.toString());
+    }
 }

@@ -26,7 +26,8 @@ public class CartManager {
     public static String print_items(Cart c){
         StringBuilder sb = new StringBuilder();
         for (Item i: c.getItems()){
-            sb.append(i);
+            sb.append(i.toString2());
+            sb.append(", Quantity: ").append(c.getCart().get(i));
         }
         return sb.toString();
     }

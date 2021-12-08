@@ -54,12 +54,12 @@ not need internet access to use our program, which further eliminates any constr
 
 Our platform is designed in the language of English, the main audience is customers who know how to use internet and
 are familiar with online shopping. It might be slightly user-unfriendly to the audience who do not understand English. 
-However, we attempt to put more ‘image’ instead of ‘word buttons’ to accommodate accessibility.
 
 Our platform welcomes anyone who wants to sell and buy their items, we provide a free and open market for anyone 
-who wants to trade online. Sellers can moderate price to whatever they believe is reasonable, and buyers could purchase
-the items with commonly a lower price than purchasing anywhere else (shhh, because it could be either brand new or 
-second handed)
+who wants to trade online. It is very good for people who want to buy cheaper items or people with idle items in their 
+homes. Sellers can moderate price to whatever they believe is reasonable, and buyers could purchase
+the items with commonly a lower price than purchasing anywhere else (because it could be either brand new or 
+second handed).
 
 However, since our platform does not certify our sellers, it might be risky if the buyer wants to buy a brand-new 
 authentic item. Our platform does not guarantee the authenticity and reliability of the item.

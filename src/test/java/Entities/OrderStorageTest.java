@@ -65,4 +65,20 @@ public class OrderStorageTest {
         }
         assertEquals(3, i);
     }
+
+    @Test
+    public void TestString(){
+        String s = "Order #1: \n" + "Buyer: A\nSeller: B\nContains the following items: \nCat: Category: Pets, Price: $999999.99 Quantity:1\nAirpods3: Category: Technology, Price: $199.99 Quantity:1\nTotal: $100.0";
+        assertEquals(s, o1.toString());
+    }
+
+    @Test
+    public void TestOwner(){
+        assertEquals(u2, o1.getOwner());
+    }
+
+    @Test
+    public void Testbuyer(){
+        assertEquals(u1, o1.getBuyer());
+    }
 }

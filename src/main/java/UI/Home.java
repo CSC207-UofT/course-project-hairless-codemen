@@ -207,10 +207,10 @@ public class Home extends JFrame{
         Border border1 = new LineBorder(Color.LIGHT_GRAY,1);
         panel0.setSize(WIDTH, 50);
         panel0.setLocation(0, 10);
-        panel.setSize(400, 320);
-        panel.setLocation(42, 60);
+        panel.setSize(WIDTH-50, 320);
+        panel.setLocation(18, 60);
         panel.setBorder(border1);
-        panel2.setSize(500, 50);
+        panel2.setSize(WIDTH, 50);
         panel2.setLocation(0, 400);
         this.add(panel0);
         this.add(panel);

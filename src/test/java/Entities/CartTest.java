@@ -54,6 +54,14 @@ public class CartTest {
     }
 
     @Test
+    public void TestGetChart() {
+        HashMap<Item, Integer> map3 = new HashMap<>();
+        c.addItem(item1);
+        map3.put(item1, 1);
+        assertEquals(map3, c.getCart());
+    }
+
+    @Test
     public void TestRemoveItem() {
         c = new Cart();
         HashMap<Item, Integer> map4 = new HashMap<>();

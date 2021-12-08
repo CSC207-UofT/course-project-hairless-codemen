@@ -19,7 +19,12 @@ public class ItemTest {
     public void TestItemPrice(){assertEquals(20, a.getItemPrice());}
 
     @Test
-    public void TestCategory(){assertEquals("Fruit", a.getCategory());}
+    public void TestGetOwner(){assertEquals(b, a.getOwner());}
+
+    @Test
+    public void TestCategory(){
+        String ca = a.getCategory();
+        assertEquals("Fruit", ca);}
 
     @Test
     public void TestName(){assertEquals("Apple", a.getItemName());}

@@ -47,7 +47,7 @@ public class InfoFacadeTest {
 
     @Test
     public void TestPrintOrders(){
-        assertEquals(InfoFacade.printOrders(lst3), o1.toString() + "\n" +o2.toString() + "\n");
+        assertEquals(o1.toString() + "\n\n" +o2.toString() + "\n\n", InfoFacade.printOrders(lst3));
     }
 
     @Test
@@ -60,7 +60,7 @@ public class InfoFacadeTest {
     public void TestPrintOrders2(){
         OrderStorage.addElement(o1);
         OrderStorage.addElement(o2);
-        assertEquals(InfoFacade.printOrders(u1), o1.toString() + "\n" + o2.toString() + "\n");
+        assertEquals(InfoFacade.printOrders(u1), o1.toString() + "\n\n" + o2.toString() + "\n\n");
     }
 
     @Test
@@ -78,20 +78,23 @@ public class InfoFacadeTest {
 
     @Test
     public void TestPrintCartItems(){
-        assertEquals(InfoFacade.printCartItems(u1.getCart()), item2.toString() + item3.toString());
+        assertEquals(item2.toString2()+", Quantity: "+item2.getQuantity() +
+                item3.toString2()+", Quantity: "+item3.getQuantity(),InfoFacade.printCartItems(u1.getCart()));
     }
 
     @Test
     public void TestAddCartElement(){
         InfoFacade.addCartElement(u1.getCart(), item1);
-        assertEquals(InfoFacade.printCartItems(u1.getCart()), item2.toString() + item3.toString() +
-                item1.toString());
+        assertEquals(item2.toString2()+", Quantity: "+item2.getQuantity() +
+                item1.toString2() + ", Quantity: "+item1.getQuantity()+
+                item3.toString2() + ", Quantity: "+item3.getQuantity(), InfoFacade.printCartItems(u1.getCart()));
     }
 
     @Test
     public void TestRemoveCartElement(){
         InfoFacade.removeCartElement(u1.getCart(), item2);
-        assertEquals(InfoFacade.printCartItems(u1.getCart()), item3.toString());
+        assertEquals(item3.toString2()+ ", Quantity: "+item3.getQuantity(),
+                InfoFacade.printCartItems(u1.getCart()));
     }
 
     @Test

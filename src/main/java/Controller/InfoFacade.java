@@ -93,7 +93,7 @@ public class InfoFacade {
      * @return a string representation of all items in the cart.
      */
     public static String printCartItems(Cart c){
-        return CartManager.print_items(c);
+        return CartManager.printItems(c);
     }
 
     /**

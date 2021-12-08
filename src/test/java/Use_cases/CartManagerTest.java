@@ -5,6 +5,8 @@ import src.main.java.Entities.*;
 import src.main.java.Use_cases.CartManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,8 +46,17 @@ public class CartManagerTest {
 
     @Test
     public void TestPrintItems(){
-        assertEquals(item1.toString() + item2.toString() + item3.toString() + item4.toString(),
-                CartManager.print_items(u1.getCart()));
+        assertEquals(item3.toString2()+", Quantity: "+item3.getQuantity() +
+                        item2.toString2() +", Quantity: "+item2.getQuantity()+
+                        item1.toString2() +", Quantity: "+item1.getQuantity()+
+                        item4.toString2()+", Quantity: "+item4.getQuantity(),
+                CartManager.printItems(u1.getCart()));
+    }
+
+    @Test
+    public void TestPrintItem(){
+        assertEquals(item1.toString2() +", Quantity: "+item1.getQuantity(),
+                CartManager.printItem(u1.getCart(),item1));
     }
 
     @Test
@@ -73,6 +84,22 @@ public class CartManagerTest {
         assertTrue(item.contains(item2));
         assertTrue(item.contains(item3));
         assertFalse(item.contains(item4));
+    }
+
+    @Test
+    public void TestGetTotalPrice(){
+        assertEquals(item1.getItemPrice()+item2.getItemPrice()+item3.getItemPrice()+item4.getItemPrice(),
+                CartManager.getTotalPrice(u1.getCart()));
+    }
+
+    @Test
+    public void TestGetCartItems(){
+        Map<Item,Integer> map = new HashMap<>();
+        map.put(item1, item1.getQuantity());
+        map.put(item2, item2.getQuantity());
+        map.put(item3, item3.getQuantity());
+        map.put(item4, item4.getQuantity());
+        assertEquals(map, CartManager.getCartItems(u1.getCart()));
     }
 }
 

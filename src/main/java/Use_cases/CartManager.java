@@ -23,7 +23,7 @@ public class CartManager {
      * @param c - the cart of which the string representation will be returned.
      * @return a string representation of all items in the cart.
      */
-    public static String print_items(Cart c){
+    public static String printItems(Cart c){
         StringBuilder sb = new StringBuilder();
         for (Item i: c.getItems()){
             sb.append(i.toString2());

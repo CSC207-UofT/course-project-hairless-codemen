@@ -226,7 +226,17 @@ name, category and price. I modified the addItem and deleteItem methods in ItemS
 
 
 - **Zichun Xu:**
-
+  My significant pull request on the record is #46:\
+  I fixed the bug for adding items to the item storage.
+  When we add an item into the item storage the quantity of the item would have some mistake
+  Also, when we delete the item, we cannot simply delete the value of the Map, it would cause an item(string)
+  with an empty ArrayList of Item. When the item did not exist we should delete the key of the item string.
+  Also, the Object variable type would cause a big problem when we add an array list of the item as a parameter
+  into the item storage. It is also the subclass of the Object and causes some issues to exist in the program.
+  Since I have a technical issue I could not push into the branch. I got a push failed. Therefore, I did not have
+  many pull requests before the phase2. I just write my code and show the code to my teammate, after they checked
+  I directly pushed it into main, like the feature of transaction and the searching of the orders with different items
+  and buyers but with the same seller.
 
 
 - **Feihao Qu:**
@@ -292,7 +302,16 @@ Then, not all quantity of an item has to be added to a user's cart at once.
 
   
 - **Zichun Xu:**
-  
+  - CRC Cards(Entities): Order, Storage, ItemStorage, OrderStorage, UserStorage
+  - CRC Cards(UI): CommandReader
+  - Wrote Walk through
+  - Checking Java code (**Phase 0**)
+  - Finished methods in class Transaction, including buy and sell. Add relevant methods in use cases such as ItemManager and
+      OrderManager.
+  - Support UI, and wrote tests for Transaction
+  - Finished Clean Architecture part of the design document.(**Phase 1**)
+  - **Phase2:** Java Coding: ItemStorage, UserManager, Transaction, OrderStorage, OrderManager
+  - Unittest: TransactionTest
 
 
 - **Feihao Qu:**

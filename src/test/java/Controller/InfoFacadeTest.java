@@ -75,22 +75,23 @@ public class InfoFacadeTest {
 
     @Test
     public void TestGetCartItems(){
-        assertEquals(InfoFacade.getCartItems(u1.getCart()), lst1);
+        u2.getCart().removeItem(item4);
+        lst2.remove(item4);
         assertEquals(InfoFacade.getCartItems(u2.getCart()), lst2);
     }
 
     @Test
     public void TestPrintCartItems(){
-        assertEquals(item2.toString2()+", Quantity: "+item2.getQuantity() +
-                item3.toString2()+", Quantity: "+item3.getQuantity(),InfoFacade.printCartItems(u1.getCart()));
+        u1.getCart().removeItem(item2);
+        assertEquals(item3.toString2()+", Quantity: "+item3.getQuantity(),InfoFacade.printCartItems(u1.getCart()));
     }
 
     @Test
     public void TestAddCartElement(){
         InfoFacade.addCartElement(u1.getCart(), item1);
-        assertEquals(item2.toString2()+", Quantity: "+item2.getQuantity() +
-                item1.toString2() + ", Quantity: "+item1.getQuantity()+
-                item3.toString2() + ", Quantity: "+item3.getQuantity(), InfoFacade.printCartItems(u1.getCart()));
+        u1.getCart().removeItem(item3);
+        u1.getCart().removeItem(item2);
+        assertEquals(item1.toString2()+", Quantity: "+item1.getQuantity(), InfoFacade.printCartItems(u1.getCart()));
     }
 
     @Test
@@ -105,4 +106,13 @@ public class InfoFacadeTest {
         ItemStorage.addElement(lst1);
         assertEquals(InfoFacade.getItems(), lst1);
     }
+
+    @Test
+    public void TestAddCartElement1(){
+        InfoFacade.addCartElement(u1.getCart(), item1,1);
+        u1.getCart().removeItem(item3);
+        u1.getCart().removeItem(item2);
+        assertEquals(item1.toString2()+", Quantity: "+item1.getQuantity(), InfoFacade.printCartItems(u1.getCart()));
+    }
+
 }

@@ -72,13 +72,11 @@ class ItemManagerTest {
         assertEquals(179.99, ItemManager.get_price(item4));
     }
 
+
     @Test
-    public void TestRemoveElement(){
-        Object[] elements = new Item[]{item1, item2};
-        ItemManager.removeElement(elements);
-        assertEquals(2, ItemManager.getItemsList().size());
-        assertTrue(ItemManager.getItemsList().contains(item3));
-        assertTrue(ItemManager.getItemsList().contains(item4));
+    public void TestGetSeller(){
+        assertEquals(u1, ItemManager.getSeller(item1));
+        assertEquals(item2.getQuantity(), ItemManager.getQuantity(item2));
     }
 
     @Test

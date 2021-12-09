@@ -48,4 +48,10 @@ public class TransactionTest {
         Transaction.sell(item1);
         assertEquals(ItemManager.getItemsList().size(), 1);
     }
+
+    @Test
+    public void TestMoney(){
+        Transaction.addMoney(seller, 20.0);
+        assertEquals(seller.getWallet().getMoney(), 20.0);
+    }
 }

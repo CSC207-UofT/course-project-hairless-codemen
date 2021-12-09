@@ -19,7 +19,12 @@ public class ItemTest {
     public void TestItemPrice(){assertEquals(20, a.getItemPrice());}
 
     @Test
-    public void TestCategory(){assertEquals("Fruit", a.getCategory());}
+    public void TestGetOwner(){assertEquals(b, a.getOwner());}
+
+    @Test
+    public void TestCategory(){
+        String ca = a.getCategory();
+        assertEquals("Fruit", ca);}
 
     @Test
     public void TestName(){assertEquals("Apple", a.getItemName());}
@@ -40,5 +45,17 @@ public class ItemTest {
     public void TestSubtractQuantity(){
         a.subtractQuantity(1);
         assertEquals(0, a.getQuantity());
+    }
+
+    @Test
+    public void TestString(){
+        String s = "Snow: Category: Beautiful, Quantity: 100, Price: $20.0";
+        assertEquals(s, c.toString());
+    }
+
+    @Test
+    public void TestString2(){
+        String s = "Apple: Category: Fruit, Price: $20.0";
+        assertEquals(s, a.toString2());
     }
 }

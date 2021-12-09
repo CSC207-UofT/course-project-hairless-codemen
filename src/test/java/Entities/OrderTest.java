@@ -33,8 +33,8 @@ public class OrderTest {
     @Test
     public void TestToString(){
         assertEquals("Order #666: \n" + "Buyer: Ricardo\n" + "Seller: April\n" +
-                "Contains the following items: \nSTA257 Help: Category: Study, Quantity: 1, Price: $999999.0\n" +
-                "Total: $999999",
+                "Contains the following items: \nSTA257 Help: Category: Study, Price: $999999.0 Quantity:1\n" +
+                "Total: $999999.0",
                 BigOrder.toString());
     }
 

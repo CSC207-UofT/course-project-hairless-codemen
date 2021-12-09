@@ -225,8 +225,7 @@ also added a method in UserManager to allow existing users modify their password
 name, category and price. I modified the addItem and deleteItem methods in ItemStorage to implement this new definition.
 
 
-- **Zichun Xu:**
-  My significant pull request on the record is #46:\
+- **Zichun Xu:** Pull request #46: \
   I fixed the bug for adding items to the item storage.
   When we add an item into the item storage the quantity of the item would have some mistake
   Also, when we delete the item, we cannot simply delete the value of the Map, it would cause an item(string)
@@ -287,7 +286,8 @@ purchase. So, I changed cart into a hashmap that has each key as the item, and e
 a user added to cart. I wrote some overloaded methods that relates to cart so the parameter "quantity" is used. 
 Then, not all quantity of an item has to be added to a user's cart at once.
 
-<\br>
+<br />
+
 **11. Progress Report:**
 
 
@@ -315,7 +315,7 @@ Then, not all quantity of an item has to be added to a user's cart at once.
   - Support UI, and wrote tests for Transaction
   - Finished Clean Architecture part of the design document.(**Phase 1**)
   - **Phase2:** Java Coding: ItemStorage, UserManager, Transaction, OrderStorage, OrderManager
-  - Unittest: TransactionTest
+  - Unittest: TransactionTest, CartManagerTest, ItemManagerTest, OrderManagerTest, InfoFacadeTest, FinderTest
 
 
 - **Feihao Qu:**
@@ -324,7 +324,7 @@ Then, not all quantity of an item has to be added to a user's cart at once.
   - Build Three Web Pages: Login, Signup and Main
   - Page transitions
   - Coding：html, css and Javascript（**Phase 1**)
-  - **Phase 2**: Java coding: Transaction, Entities, Infofacade
+  - **Phase 2**: Java coding: Transaction, Entities, InfoFacade
   - Unittest: CartTest, CartManagerTest
 
 
@@ -366,11 +366,11 @@ Then, not all quantity of an item has to be added to a user's cart at once.
 
 
 - **Zhen Sun:**
-  - CRC cards(controller): Finder and Transaction
+  - CRC cards(controller): Finder and Transaction (**Phase 0**)
   - Assisted the implementation of Transaction
+  - Implemented search methods in the Managers and Finder Class (**Phase 1**)
+  - **Phase 2:** Implemented "quantity" related features in Cart, ItemManager and Transaction
   - Implemented the new structure of Cart
-    - Includes calculation of total price of all items in cart
+  - Includes calculation of total price of all items in cart
   - Final debugs and testing
   - Cleaning up the code by removing unnecessary methods
-  - (**Phase 1**)Implemented search methods in the Managers and Finder Class
-  - (**Phase 2**)Implemented "quantity" related features in Cart, ItemManager and Transaction

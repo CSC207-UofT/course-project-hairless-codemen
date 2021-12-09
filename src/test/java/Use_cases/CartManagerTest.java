@@ -33,6 +33,7 @@ public class CartManagerTest {
         u1.getCart().addItem(item2);
         u1.getCart().addItem(item3);
         u1.getCart().addItem(item4);
+        u2.getCart().addItem(item1);
     }
 
     @Test
@@ -46,11 +47,10 @@ public class CartManagerTest {
 
     @Test
     public void TestPrintItems(){
-        assertEquals(item3.toString2()+", Quantity: "+item3.getQuantity() +
-                        item2.toString2() +", Quantity: "+item2.getQuantity()+
-                        item1.toString2() +", Quantity: "+item1.getQuantity()+
-                        item4.toString2()+", Quantity: "+item4.getQuantity(),
-                CartManager.printItems(u1.getCart()));
+        Cart c = u1.getCart();
+        String s = c.toString();
+        assertEquals(item1.toString2() +", Quantity: "+item1.getQuantity(),
+                CartManager.printItems(u2.getCart()));
     }
 
     @Test

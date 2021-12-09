@@ -30,6 +30,8 @@ public class OrderManagerTest {
         item4 = new Item("Airpods3", u1, 179.99, "Technology");
         lst1.add(item2);
         lst1.add(item3);
+        u1.getCart().addItem(item2);
+        u1.getCart().addItem(item3);
         lst2.add(item1);
         lst2.add(item4);
         q.add(1);
@@ -52,12 +54,13 @@ public class OrderManagerTest {
     @Test
     public void TestAddElement(){
         OrderManager.addElement(o3);
-        assertEquals(1, OrderStorage.get_size());
+        assertEquals(3, OrderStorage.get_size());
         OrderManager.addElement(lst3);
         assertTrue(OrderStorage.getOrders().containsValue(o1));
         assertTrue(OrderStorage.getOrders().containsValue(o2));
         assertTrue(OrderStorage.getOrders().containsValue(o3));
         assertEquals(3, OrderStorage.get_size());
+        assertTrue(OrderManager.hasOrder(3));
     }
 
     @Test
@@ -79,7 +82,7 @@ public class OrderManagerTest {
     @Test
     public void TestPrintOrders(){
         String s = OrderManager.printOrders(lst3);
-        assertEquals(o1.toString()+ "\n" + o2.toString() + "\n", s);
+        assertEquals(o1.toString()+ "\n\n" + o2.toString() + "\n\n", s);
     }
 
     @Test
@@ -88,7 +91,6 @@ public class OrderManagerTest {
         Map<Integer,Order> m = OrderManager.getItems();
         assertEquals(m.get(1), o1);
         assertEquals(m.get(2), o2);
-        assertNull(m.get(3));
     }
 
     @Test
@@ -99,7 +101,7 @@ public class OrderManagerTest {
     @Test
     public void TestPrintOrder2(){
         OrderManager.addElement(lst3);
-        assertEquals(OrderManager.printOrders(u1), o1.toString() + "\n" + o2.toString() + "\n");
+        assertEquals(OrderManager.printOrders(u1), o1.toString() + "\n\n" + o2.toString() + "\n\n");
     }
 }
 

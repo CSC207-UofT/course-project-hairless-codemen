@@ -9,7 +9,7 @@ public class UserStorage implements Storable, Serializable {
 
     public static Map<String, User> getUserList(){ return userList;}
 
-    public int getTotalNumber() {
+    public static int getTotalNumber() {
         return userList.size();
     }
 

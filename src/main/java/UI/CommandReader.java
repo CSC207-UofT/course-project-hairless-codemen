@@ -3,14 +3,16 @@ package src.main.java.UI;
 import src.main.java.Entities.Item;
 import src.main.java.Controller.Login;
 import src.main.java.Controller.Transaction;
+import src.main.java.Entities.User;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
 public class CommandReader {
 
-    public static Object[] signUp() {
+    public static Object[] signUp() throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("Please create an account by entering your username: ");
         String username = in.nextLine();
@@ -19,54 +21,29 @@ public class CommandReader {
         return Login.signup(username, password);
     }
 
-    public static boolean buy(ArrayList<Item> items, int userId){
-        Scanner in2 = new Scanner(System.in);
-        System.out.println("Which item would you like to buy? Please input a number from 1 to " +
-                (items.size()) + ": ");
-        int number = Integer.parseInt(in2.nextLine());
-        System.out.println("Buying item #" + number + ": " + items.get(number - 1) + "...");
-        return Transaction.buy(items.get(number - 1), userId);
-    }
+//    public boolean buy_item(ArrayList<Item> items, User buyman, User sellman) {
+//        Scanner in2 = new Scanner(System.in);
+//        System.out.println("Which item would you like to buy? Please input a number from 1 to " +
+//                (items.size()) + ": ");
+//        int number = Integer.parseInt(in2.nextLine());
+//        System.out.println("Buying item #" + number + ": " + items.get(number - 1) + "...");
+//        return Transaction.buy_item
+//    }
 
-    public static void itemInfo(Map<String, ArrayList<Item>> items){
+    public static void itemInfo(Map<String, ArrayList<Item>> items) {
         System.out.println("We have the following items:");
         int i = 0;
-        for (String itemName : items.keySet()){
-            System.out.println( (i + 1) + ". " + itemName);
+        for (String itemName : items.keySet()) {
+            System.out.println((i + 1) + ". " + itemName);
             i++;
         }
     }
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Welcome to our buying and selling program! ");
-        Object[] lst = signUp();
-        String name = (String) lst[0];
-        int id = (int) lst[1];
-        System.out.println("Welcome, " + name + "! Your user id on our platform is #" + id);
-        System.out.println("Since you are a new user, you have $100 on your account to begin with!");
-        ArrayList<Item> items = Transaction.loadItems();
-        // itemInfo(items);
-        System.out.println(name + ", would you like to buy items from us today? Please enter 'yes' or 'no':");
-        String answer = input.nextLine();
-
-        /*Since we don't have time to take care of invalid user inputs, any input other than "no" will be treated as
-        * "yes". */
-
-        while (!answer.equals("no")){
-            boolean status = buy(items, id);
-            if (status){
-                System.out.println("Thank you for shopping with us! You have $" + Transaction.getMoney(id) + " left.");}
-            else {
-                System.out.println("Sorry, you do not have enough money. You have $" + Transaction.getMoney(id)
-                        + " left.");
-            }
-            // items = Transaction.getItems();
-            // itemInfo(items);
-            System.out.println(name + ", would you like to buy items from us today? Please enter 'yes' or 'no':");
-            answer = input.nextLine();
-        }
-        System.out.println("Thank you for shopping with us, " + name + ". Have a nice day! " +
-                "We welcome you to come back again soon!");
+    public static void main(String[] args) throws IOException {
+        File f = new File("src/main/java/Files/Users.txt");
+        FileOutputStream fos = new FileOutputStream(f);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        User user = new User("B", 2, "3434");
+        oos.writeObject(user);
     }
 }

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>src.main.java.Entities</OriginalElement>
+  <nodes>
+    <node x="0.0" y="391.0">src.main.java.Entities.Wallet</node>
+    <node x="1879.0" y="-3.552713678800501E-15">src.main.java.Entities.Storable</node>
+    <node x="951.0" y="780.0">src.main.java.Entities.Cart.CartIterator</node>
+    <node x="2309.0" y="780.0">src.main.java.Entities.ItemStorage.ItemIterator</node>
+    <node x="2208.0" y="326.0">src.main.java.Entities.ItemStorage</node>
+    <node x="1879.0" y="442.2773135252244">src.main.java.Entities.UserStorage</node>
+    <node x="1209.0" y="248.0">src.main.java.Entities.Item</node>
+    <node x="270.0" y="300.0">src.main.java.Entities.User</node>
+    <node x="1604.5" y="780.0">src.main.java.Entities.OrderStorage.OrderIterator</node>
+    <node x="1123.75" y="66.5">java.io.Serializable</node>
+    <node x="534.0" y="339.0">src.main.java.Entities.Order</node>
+    <node x="1534.0" y="429.99999999999994">src.main.java.Entities.OrderStorage</node>
+    <node x="897.0" y="352.0">src.main.java.Entities.Cart</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="src.main.java.Entities.Order" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-150.0" />
+      <point x="705.5" y="218.0" />
+      <point x="1202.25" y="218.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Entities.UserStorage" target="src.main.java.Entities.Storable" relationship="REALIZATION">
+      <point x="-27.720365212008574" y="-113.33611884865365" />
+      <point x="2005.7796347879914" y="309.5212008666048" />
+      <point x="2006.0" y="309.5212008666048" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="src.main.java.Entities.OrderStorage" target="src.main.java.Entities.Storable" relationship="REALIZATION">
+      <point x="0.0" y="-150.0" />
+      <point x="1747.6296812132468" y="430.0" />
+      <point x="1747.6296812132468" y="441.68678427731356" />
+      <point x="1814.8286908077996" y="441.68678427731356" />
+      <point x="1814.8286908077996" y="322.95512225317236" />
+      <point x="1967.303311668214" y="322.95512225317236" />
+      <point x="1967.303311668214" y="168.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="src.main.java.Entities.Item" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-241.0" />
+      <point x="1361.5" y="228.0" />
+      <point x="1202.25" y="228.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Entities.Cart" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-137.0" />
+      <point x="1043.0" y="228.0" />
+      <point x="1202.25" y="228.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Entities.ItemStorage" target="src.main.java.Entities.Storable" relationship="REALIZATION">
+      <point x="98.05199628597984" y="-199.08325595790774" />
+      <point x="2499.05199628598" y="188.0" />
+      <point x="2033.5" y="188.0" />
+      <point x="2033.5" y="168.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="src.main.java.Entities.OrderStorage" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-150.0" />
+      <point x="1646.8311668214176" y="430.0" />
+      <point x="1646.8311668214176" y="218.0" />
+      <point x="1202.25" y="218.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Entities.OrderStorage.OrderIterator" target="src.main.java.Entities.OrderStorage" relationship="INNER_CLASS">
+      <point x="0.0" y="-72.0" />
+      <point x="1696.5" y="709.5" />
+      <point x="1696.5" y="709.5" />
+      <point x="0.0" y="150.0" />
+    </edge>
+    <edge source="src.main.java.Entities.Wallet" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-98.0" />
+      <point x="125.0" y="174.75" />
+      <point x="1202.25" y="174.75" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Entities.User" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-189.0" />
+      <point x="392.0" y="198.0" />
+      <point x="1202.25" y="198.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Entities.ItemStorage" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="-88.44227793252867" y="-191.77901578458682" />
+      <point x="2312.5577220674713" y="235.98204890126897" />
+      <point x="1202.25" y="235.98204890126897" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Entities.UserStorage" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="-86.15428659857616" y="-101.64933457134009" />
+      <point x="1947.3457134014238" y="430.0" />
+      <point x="1947.309965954813" y="430.0" />
+      <point x="1947.309965954813" y="206.5391519653358" />
+      <point x="1202.25" y="206.5391519653358" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="src.main.java.Entities.Cart.CartIterator" target="src.main.java.Entities.Cart" relationship="INNER_CLASS">
+      <point x="0.0" y="-72.0" />
+      <point x="0.0" y="137.0" />
+    </edge>
+    <edge source="src.main.java.Entities.ItemStorage.ItemIterator" target="src.main.java.Entities.ItemStorage" relationship="INNER_CLASS">
+      <point x="0.0" y="-72.0" />
+      <point x="0.0" y="202.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.38453389830508466" showDependencies="false" x="2239.071625344353" y="653.2424242424242" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

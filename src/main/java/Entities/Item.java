@@ -5,30 +5,45 @@ import java.io.Serializable;
 
 public class Item implements Serializable {
 
+
+
     private String name;
     private final User owner;
     private double price;
     private int quantity;
     private final String category;
-    private final double id;
 
-    public Item(String name, User owner, double price, int quantity, String category, double id){
+    /**
+     * The first constructor of Item for Item has customized quantity
+     * @param name name of the item
+     * @param owner the owner of the item, who sells it
+     * @param price the price of the item
+     * @param quantity quantity of the item
+     * @param category category the item belongs to
+     */
+    public Item(String name, User owner, double price, int quantity, String category){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.owner = owner;
         this.category = category;
-        this.id = id;
     }
 
-    public Item(String name, User owner, double price, String category, double id){
+    /**
+     * Second constructor of Item has default quantity one
+     * @param name name of the item
+     * @param owner the owner of the item, who sells it
+     * @param price the price of the item
+     * @param category category the item belongs to
+     */
+    public Item(String name, User owner, double price, String category){
         this.name = name;
         this.price = price;
         this.owner = owner;
-        this.id = id;
         this.quantity = 1;
         this.category = category;
     }
+
     /**
      * Get the selling Item's name.
      * @return the Item's name.
@@ -41,11 +56,6 @@ public class Item implements Serializable {
      */
     public User getOwner(){return this.owner;}
 
-    /**
-     * Get the selling Item's ID.
-     * @return the Item ID.
-     */
-    public double getId() {return this.id;}
 
     /**
      * Get the price for the selling Item.
@@ -73,34 +83,48 @@ public class Item implements Serializable {
 
     /**
      * Change the Item's name.
+     * @param new_name The new name we want to use.
      */
     public void changeItemName(String new_name){
         this.name = new_name;
     }
 
     /**
-     * Change the Item's price.
+     * Change the price of the Item.
+     * @param new_price The new price we want to set.
      */
     public void changeItemPrice(double new_price){
         this.price = new_price;
     }
 
     /**
-     * Increase the quantity of the Item in stock.
+     * Increase the quantity of the Item's stock.
+     * @param new_quantity The quantity we want to increase by.
      */
     public void addQuantity(int new_quantity){
         this.quantity = this.quantity + new_quantity;
     }
 
     /**
-     * Decrease the quantity of the Item in stock.
+     * Subtract the quantity of the Item's stock.
+     * @param new_quantity The quantity we want to decrease by.
      */
     public void subtractQuantity(int new_quantity){
         this.quantity = this.quantity - new_quantity;
     }
 
+    /**
+     * Produce a human-readable string description of an Item.
+     */
     @Override
     public String toString(){
-        return name + ": " + id + ": " + "Category " + category + ", quantity " + quantity + ", with price $" + price;
+        return name + ": "  + "Category: " + category + ", Quantity: " + quantity + ", Price: $" + price;
+    }
+
+    /**
+     * Produce a human-readable string description of an Item for item storage check.
+     */
+    public String toString2(){
+        return name + ": "  + "Category: " + category + ", Price: $" + price;
     }
 }

@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import src.main.java.Entities.*;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserStorageTest {
@@ -12,9 +15,9 @@ public class UserStorageTest {
 
     @BeforeEach
     void setUp(){
-        u1 = new User("A", 2, "1234");
-        u2 = new User ("B", 3, "2345");
-        u3 = new User("C", 4, "6666");
+        u1 = new User("A",  "1234");
+        u2 = new User ("B",  "2345");
+        u3 = new User("C",  "6666");
     }
 
     @Test
@@ -39,5 +42,17 @@ public class UserStorageTest {
         UserStorage.deleteElement(u3);
         assertNull(UserStorage.getUserList().get("C"));
         assertEquals(u2, UserStorage.getUserList().get("B"));
+    }
+
+    @Test
+    public void TestAddElement2(){
+        Map<String, User> m = new HashMap<>();
+        m.put("A", u1);
+        m.put("B", u2);
+        m.put("C", u3);
+        UserStorage.addElement(m);
+        assertEquals(u1, UserStorage.getUserList().get("A"));
+        assertEquals(u2, UserStorage.getUserList().get("B"));
+        assertEquals(u3, UserStorage.getUserList().get("C"));
     }
 }
